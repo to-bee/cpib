@@ -1,0 +1,7 @@
+PROGRAM Faulty
+GLOBAL
+  VAR MyString : STRING
+{
+  MyString INIT = "Hallo \„IML\“;
+  ! MyString[123]
+}

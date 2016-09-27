@@ -1,0 +1,44 @@
+PROGRAM Store
+GLOBAL
+ VAR Store1VarStr : STRING;
+ VAR Store2VarInt : INT32;
+ CONST Store3ConstInt : INT32
+{
+  Store1VarStr INIT := [255];
+  Store2VarInt INIT := 0;
+  Store3ConstInt INIT := 5;
+  IF(Store3ConstInt /= 5) {
+	! "1. ERROR : Store3ConstInt is not 5.";
+	! Store3ConstInt
+  } ELSE { 
+    ! "1. OK : Store3ConstInt is 5."
+  }; 
+
+  Store1VarStr := "Bla Blubb";
+  
+  Store2VarInt := Store3ConstInt;
+  IF(Store2VarInt /= Store3ConstInt) {
+	! "2. ERROR : Store2VarInt is not equal to Store3ConstInt.";
+	! Store2VarInt
+  } ELSE { 
+    ! "2. OK : Store2VarInt is equal to Store3ConstInt."
+  }; 
+  
+  Store2VarInt := Store1VarStr[2];
+  IF(Store2VarInt /= 108) {
+	! "3. ERROR : Store2VarInt is not 108 (l).";
+	! Store2VarInt
+  } ELSE { 
+    ! "3. OK : Store2VarInt is 108 (l)."
+  };
+  
+  Store2VarInt := Store1VarStr[Store3ConstInt]; 
+  IF(Store2VarInt /= 66) {
+	! "4. ERROR : Store2VarInt is not 66 (B).";
+	! Store2VarInt
+  } ELSE { 
+    ! "4. OK : Store2VarInt is 66 (B)."
+  };
+  
+  SKIP
+}

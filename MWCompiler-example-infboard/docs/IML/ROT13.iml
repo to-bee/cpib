@@ -1,0 +1,20 @@
+PROGRAM ROT13
+GLOBAL
+  VAR   text    : STRING;
+  CONST textLen : INT32;
+  VAR   i       : INT32 
+{
+  text INIT := [1023];
+  ← "Text (a-z):";
+  → text;
+  textLen INIT := text.STRLEN;
+ 
+  i INIT := 1;
+
+  WHILE(i ≤ textLen) {
+    text[i] := (text[i] - 97 + 13) MOD 26 + 97;
+	i := i + 1
+  };
+
+  ← text
+}

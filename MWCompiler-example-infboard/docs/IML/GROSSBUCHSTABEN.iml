@@ -1,0 +1,30 @@
+﻿program GROSSBUCHSTABEN
+global
+  var idx : int32;
+  var len : int32;
+  var chr : int32;
+  var str : string
+{
+  ← "Geben Sie einen Text ein.";
+  str INIT := [1023];
+  idx INIT := 1;
+  len INIT := 0;
+  chr INIT := 0;
+  
+  → str;
+  len := str.strlen;
+  WHILE(len > 0) {
+    while (idx ≤ len) {
+      chr := str[idx];
+      if (((chr ≥ 97) ∧ (chr  ≤ 122)) ∨
+        ((chr ≥ 224) ∧ (chr ≤ 254) ∧ (chr ≠ 247)))  {
+        str[idx] := chr - 32
+      } else { skip };
+      idx := idx + 1
+    };
+    ← str;
+    → str;
+	idx := 1;
+	len := str.strlen
+  }
+}

@@ -1,0 +1,33 @@
+PROGRAM Search
+GLOBAL
+  VAR   text    : STRING;
+  VAR   search  : STRING;
+  VAR   i       : INT32;
+  VAR   j       : INT32 
+{
+  text INIT := [1023];
+  ! "Text:";
+  ? text;
+  search INIT := [254];
+  ! "Search:";
+  ? search;
+  
+  i INIT := 1;
+  j INIT := 1;
+  WHILE(text[i] ≠ 0 ∧ search[j] ≠ 0) {
+	j := 1;
+	WHILE(text[i-1+j] = search[j] ∧ search[j] ≠ 0) {
+	  j := j + 1
+	};
+	i := i + 1
+  };
+  i := i - 1;
+  
+  if(i ≠ text.STRLEN ∨ search[2] = 0 ∧ text[i] = search[1]) {
+    ! "Found at position: ";
+	! i
+  } else {
+    ! "Not found."
+  }
+
+}

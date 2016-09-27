@@ -1,0 +1,52 @@
+PROGRAM Cipher
+GLOBAL
+  CONST cipher  : BOOL;
+  VAR   text    : STRING;
+  CONST textLen : INT32;
+  CONST shift   : STRING;
+  CONST pass    : STRING;
+  CONST passLen : INT32;
+  VAR   i       : INT32;
+  VAR   p       : INT32;
+  VAR   sum     : INT32
+{
+  ← "Cipher? (true=cipher/false=decipher)";
+  → cipher INIT;
+  text INIT := [1023];
+  ← "Text (7Bit US-ASCII: x20 - x7E):";
+  → text;
+  textLen INIT := text.STRLEN;
+  shift INIT := "j~W2lM!;|.o^#$UsJZi1";
+  pass INIT := [32];
+  ← "Password:";
+  → pass;
+  passLen INIT := pass.STRLEN;
+  
+  sum INIT := 0;
+  i INIT := 1;
+  WHILE(i ≤ passLen) {
+    sum := sum + pass[i];
+	i := i + 1
+  };
+  
+  i := 1;
+  p INIT := 0;
+  WHILE(i ≤ textLen) {
+    p := shift[i MOD shift.MAXLEN + 1];
+    p := pass[p MOD passLen + 1] * p * sum;
+    IF(cipher) {
+      text[i] := (text[i] - 32 + p) MOD 95 + 32
+    } else {
+      p := (text[i] - 32 - p) MOD 95;
+	  IF(p < 0) {
+	    text[i] := 95 + p + 32
+	  } ELSE {
+	    text[i] := p + 32
+	  }
+	};
+    i := i + 1
+  };
+  
+  ← "Output:";
+  ← text
+}

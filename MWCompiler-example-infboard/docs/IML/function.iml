@@ -1,0 +1,14 @@
+program function
+global
+	fun mult(in i:int32, in j:int32) returns k:int32
+	{
+		k init := 0;
+		k := i * j
+	};
+	var a:int32;
+	var b:int32
+{
+	? a init;
+	? b init;
+	! mult(a, b)
+} 

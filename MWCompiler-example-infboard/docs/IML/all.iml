@@ -1,0 +1,47 @@
+PROGRAM all
+GLOBAL
+  VAR glob1:INT32;
+  CONST glob2: BOOL;
+  VAR glob3: STRING;
+  VAR glob4: INT32;
+  VAR glob5: INT32;
+  VAR glob6: INT32;
+  PROC proc1()
+  GLOBAL glob6
+  {
+    ! glob6
+  };
+  FUN func1 ( COPY param1 : BOOL, CONST param2 : STRING, REF param3 : INT32, OUT param4 : INT32)
+  RETURNS CONST ReturnVariable : STRING
+  GLOBAL glob1  
+  LOCAL local1 : INT32; CONST local2 : BOOL
+  {
+       ReturnVariable INIT := [10];
+       local1 INIT := glob1 MOD 7;
+       WHILE (local1 > 0) {
+         ReturnVariable[local1] := param2[local1];
+         local1 := local1 - 1
+       };
+       param4 INIT := ReturnVariable.STRLEN;
+       IF (param1) {
+         ReturnVariable[param4] := param3
+       } ELSE {
+         ReturnVariable[1] := param3
+       }
+  } 
+{
+  glob1 INIT := 123;
+  glob2 INIT := TRUE;
+  glob3 INIT := "ASDFGHJKL";
+  glob4 INIT := glob3[1];
+  glob5 INIT := 0;
+  glob6 INIT := func1(glob2, glob3, glob4, glob5);
+  CALL proc1();
+  
+  IF(glob2 CAND TRUE COR FALSE) { SKIP } ELSE { SKIP };
+  IF(glob4 <= 123 COR 321 >= 123) {
+    IF(42 = glob4 COR (glob5 < glob4 COR 1 /= 2) CAND 3 > 0) { SKIP } ELSE { SKIP }
+  } ELSE { SKIP };
+  
+  glob6 := glob5 + 100 - 5 MOD 23 DIV 2 * 3
+}

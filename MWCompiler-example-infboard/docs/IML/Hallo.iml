@@ -1,0 +1,8 @@
+program Hallo
+global
+  var input : string
+{
+  ← "Sag mir, wie heisst du?";
+  → input INIT;
+  ← "Hallo " + input + "!"
+}
