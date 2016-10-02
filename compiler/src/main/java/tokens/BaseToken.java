@@ -1,18 +1,19 @@
-package literals;
+package tokens;
 
-import enums.Terminals;
+import datatypes.Terminals;
+import interfaces.IToken;
 
 /**
  * Created by tobi on 27/09/16.
  */
-public abstract class BaseLexical {
+public class BaseToken implements IToken{
     private final Terminals terminal;
 
-    BaseLexical(Terminals t) {
+    BaseToken(Terminals t) {
         terminal = t;
     }
 
-    Terminals getTerminal() {
+    public Terminals getTerminal() {
         return terminal;
     }
 
