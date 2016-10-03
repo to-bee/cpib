@@ -9,7 +9,7 @@ import interfaces.IToken;
 public class BaseToken implements IToken{
     private final Terminals terminal;
 
-    BaseToken(Terminals t) {
+    public BaseToken(Terminals t) {
         terminal = t;
     }
 

@@ -12,12 +12,9 @@ import java.util.Set;
  */
 public class Dictionary {
 	
-	private final Set<String> DICTIONARY = new HashSet<String>(Arrays.asList(new String[] {"while","sentinel","WHILE","SENTINEL"}));
+	private final Set<String> DICTIONARY = new HashSet<>(Arrays.asList(new String[]{"while", "sentinel"}));
 	
 	public boolean isLexemeWithoutAttribute(String toCheck){
-		if (DICTIONARY.contains(toCheck)) {
-			return false;
-		}
-		return true;
+		return DICTIONARY.contains(toCheck.toLowerCase());
 	}
 }

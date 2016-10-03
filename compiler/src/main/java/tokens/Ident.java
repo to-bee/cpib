@@ -6,11 +6,12 @@ import datatypes.Terminals;
  * 
  * @author Roman
  * taken from the slides
+ * example: (IDENT, "x36")
  */
 public class Ident extends BaseToken {
     private String ident;
 
-    Ident(String s) {
+    public Ident(String s) {
         super(Terminals.IDENT);
         ident = s;
     }

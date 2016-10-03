@@ -36,7 +36,11 @@ public class TokenList implements ITokenList {
 	}
 	
 	public String toString(){
-		return null;
+		StringBuilder sb = new StringBuilder();
+		for(IToken token : tokenList) {
+			sb.append(token.toString());
+		}
+		return sb.toString();
 	}
 
 }

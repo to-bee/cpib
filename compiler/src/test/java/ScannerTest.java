@@ -1,3 +1,5 @@
+import datatypes.TokenList;
+import interfaces.ITokenList;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,15 +12,18 @@ import static org.junit.Assert.*;
  */
 public class ScannerTest {
     private static String text;
+    private static String result;
 
     @Before
-    public static void init() {
+    public void init() {
         text = "while x36 <= 67 do\nx := x-1\nendwhile";
+        result = "[WHILE, (IDENT, \"x36\"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, \"x\"), BECOMES, (IDENT, \"x\"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, SENTINEL]";
     }
 
     @Test
-    public static void testCreateToken() {
+    public void testCreateToken() {
         Scanner scanner = new Scanner();
-        List<String> tokens = scanner.createTokens(text);
+        ITokenList tokenList = scanner.createTokenList(text);
+        String result = tokenList.toString();
     }
 }
