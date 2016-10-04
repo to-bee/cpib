@@ -24,7 +24,7 @@ public class ScannerTest {
 
     /**
      * Presentations result:
-     * [WHILE, (IDENT, "x36"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, "x"), BECOMES, (IDENT, "x"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, SENTINEL]
+     * [WHILE, (IDENT, "x36"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, "x"), BECOMES, (IDENT, "x"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, START_ROUTINE]
      *
      * Our result:
      * [WHILE, (IDENT, "x36"), (RELOPR, LE), (LITERAL, 67.0), DO, (IDENT, "x"), (ASSIGNOPR, BECOMES), (IDENT, "x"), MINUS, (LITERAL, 1.0), ENDWHILE],

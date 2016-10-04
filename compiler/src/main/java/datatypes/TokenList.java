@@ -1,9 +1,6 @@
 package datatypes;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 import interfaces.IToken;
 import interfaces.ITokenList;
@@ -37,9 +34,11 @@ public class TokenList implements ITokenList {
 	
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
+		Iterator<IToken> tokenIt = tokenList.iterator();
 		for(IToken token : tokenList) {
-			sb.append(String.format("%s, ", token.toString()));
+			sb.append(String.format("%s", token.toString()));
 		}
+
 		return sb.toString();
 	}
 

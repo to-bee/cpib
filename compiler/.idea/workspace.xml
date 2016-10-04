@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebaf0080-dc7f-4926-9415-dc7a5827aa42" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/datatypes/OperatorPosition.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/tokens/TokenSequence.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Scanner.java" afterPath="$PROJECT_DIR$/src/main/java/Scanner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/datatypes/Operators.java" afterPath="$PROJECT_DIR$/src/main/java/datatypes/Operators.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/datatypes/Terminals.java" afterPath="$PROJECT_DIR$/src/main/java/datatypes/Terminals.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/datatypes/TokenList.java" afterPath="$PROJECT_DIR$/src/main/java/datatypes/TokenList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tokens/BaseToken.java" afterPath="$PROJECT_DIR$/src/main/java/tokens/BaseToken.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tokens/Ident.java" afterPath="$PROJECT_DIR$/src/main/java/tokens/Ident.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tokens/Literal.java" afterPath="$PROJECT_DIR$/src/main/java/tokens/Literal.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tokens/Opr.java" afterPath="$PROJECT_DIR$/src/main/java/tokens/Opr.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ScannerTest.java" afterPath="$PROJECT_DIR$/src/test/java/ScannerTest.java" />
     </list>
@@ -32,49 +34,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ScannerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ScannerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Scanner.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Scanner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Scanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+            <state relative-caret-position="165">
+              <caret line="141" column="9" selection-start-line="141" selection-start-column="9" selection-end-line="141" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OperatorPosition.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/datatypes/OperatorPosition.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="10" column="91" selection-start-line="10" selection-start-column="91" selection-end-line="10" selection-end-column="91" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Operators.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/datatypes/Operators.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="11" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1144#1145#0" expanded="true" />
-                <element signature="e#1180#1181#0" expanded="true" />
-                <element signature="e#2548#2549#0" expanded="true" />
-                <element signature="e#2581#2582#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,14 +49,23 @@
       <file leaf-file-name="Terminals.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/datatypes/Terminals.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+            <state relative-caret-position="380">
+              <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
+              <folding>
+                <element signature="e#1345#1346#0" expanded="true" />
+                <element signature="e#1373#1374#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Operators.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/datatypes/Operators.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1057#1058#0" expanded="true" />
-                <element signature="e#1086#1087#0" expanded="true" />
-                <element signature="e#1121#1122#0" expanded="true" />
-                <element signature="e#1152#1153#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,8 +74,8 @@
       <file leaf-file-name="TokenList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/datatypes/TokenList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+            <state relative-caret-position="95">
+              <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -109,21 +84,8 @@
       <file leaf-file-name="BaseToken.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tokens/BaseToken.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="36" column="86" selection-start-line="36" selection-start-column="86" selection-end-line="36" selection-end-column="86" />
-              <folding>
-                <element signature="e#279#280#0" expanded="true" />
-                <element signature="e#307#308#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Literal.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tokens/Literal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="25" column="98" selection-start-line="25" selection-start-column="98" selection-end-line="25" selection-end-column="98" />
+            <state relative-caret-position="320">
+              <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -132,8 +94,18 @@
       <file leaf-file-name="Opr.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tokens/Opr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="22" column="139" selection-start-line="22" selection-start-column="139" selection-end-line="22" selection-end-column="139" />
+            <state relative-caret-position="285">
+              <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScannerTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ScannerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -187,15 +159,15 @@
         <option value="$PROJECT_DIR$/src/main/java/dictionary/Dictionary.java" />
         <option value="$PROJECT_DIR$/src/main/java/tokens/Literal.java" />
         <option value="$PROJECT_DIR$/src/main/java/tokens/Ident.java" />
-        <option value="$PROJECT_DIR$/src/main/java/datatypes/TokenList.java" />
         <option value="$PROJECT_DIR$/src/main/java/datatypes/OperatorTypes.java" />
         <option value="$PROJECT_DIR$/src/main/java/tokens/RelOpr.java" />
-        <option value="$PROJECT_DIR$/src/main/java/datatypes/Operators.java" />
-        <option value="$PROJECT_DIR$/src/main/java/tokens/Opr.java" />
-        <option value="$PROJECT_DIR$/src/main/java/tokens/BaseToken.java" />
-        <option value="$PROJECT_DIR$/src/main/java/datatypes/Terminals.java" />
         <option value="$PROJECT_DIR$/src/main/java/datatypes/OperatorPosition.java" />
         <option value="$PROJECT_DIR$/src/test/java/ScannerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/datatypes/TokenList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tokens/BaseToken.java" />
+        <option value="$PROJECT_DIR$/src/main/java/datatypes/Terminals.java" />
+        <option value="$PROJECT_DIR$/src/main/java/datatypes/Operators.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tokens/Opr.java" />
         <option value="$PROJECT_DIR$/src/main/java/Scanner.java" />
       </list>
     </option>
@@ -1230,7 +1202,7 @@
       <updated>1474983844947</updated>
       <workItem from="1474983848635" duration="63000" />
       <workItem from="1474989722914" duration="1787000" />
-      <workItem from="1475525487247" duration="19665000" />
+      <workItem from="1475525487247" duration="22620000" />
     </task>
     <task id="LOCAL-00001" summary="maven compiler plugin">
       <created>1475525604353</created>
@@ -1253,47 +1225,54 @@
       <option name="project" value="LOCAL" />
       <updated>1475569004756</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Scanner completly finished (some bugs might be there)">
+      <created>1475584688166</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1475584688166</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ScannerTest - 2016.10.04 at 13h 34m 23s.xml">
-      <configuration name="ScannerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ScannerTest - 2016.10.04 at 13h 53m 35s.xml">
-      <configuration name="ScannerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ScannerTest - 2016.10.04 at 14h 01m 03s.xml">
-      <configuration name="ScannerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ScannerTest_testCreateToken - 2016.10.04 at 14h 31m 29s.xml">
+    <history-entry file="ScannerTest_testCreateToken - 2016.10.04 at 15h 18m 44s.xml">
       <configuration name="ScannerTest.testCreateToken" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ScannerTest_testOperatorPosition - 2016.10.04 at 14h 14m 15s.xml">
-      <configuration name="ScannerTest.testOperatorPosition" configurationId="JUnit" />
+    <history-entry file="ScannerTest_testCreateToken - 2016.10.04 at 15h 19m 27s.xml">
+      <configuration name="ScannerTest.testCreateToken" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ScannerTest_testOperatorPosition - 2016.10.04 at 14h 14m 50s.xml">
-      <configuration name="ScannerTest.testOperatorPosition" configurationId="JUnit" />
+    <history-entry file="ScannerTest_testCreateToken - 2016.10.04 at 15h 21m 19s.xml">
+      <configuration name="ScannerTest.testCreateToken" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ScannerTest_testOperatorPosition - 2016.10.04 at 14h 17m 14s.xml">
-      <configuration name="ScannerTest.testOperatorPosition" configurationId="JUnit" />
+    <history-entry file="ScannerTest_testCreateToken - 2016.10.04 at 15h 34m 49s.xml">
+      <configuration name="ScannerTest.testCreateToken" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ScannerTest_testOperatorPosition - 2016.10.04 at 14h 17m 47s.xml">
-      <configuration name="ScannerTest.testOperatorPosition" configurationId="JUnit" />
+    <history-entry file="ScannerTest_testCreateToken - 2016.10.04 at 15h 36m 47s.xml">
+      <configuration name="ScannerTest.testCreateToken" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ScannerTest_testOperatorPosition - 2016.10.04 at 14h 18m 45s.xml">
-      <configuration name="ScannerTest.testOperatorPosition" configurationId="JUnit" />
+    <history-entry file="ScannerTest_testCreateToken - 2016.10.04 at 15h 37m 15s.xml">
+      <configuration name="ScannerTest.testCreateToken" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ScannerTest_testOperatorPosition - 2016.10.04 at 14h 26m 09s.xml">
-      <configuration name="ScannerTest.testOperatorPosition" configurationId="JUnit" />
+    <history-entry file="ScannerTest_testCreateToken - 2016.10.04 at 15h 37m 47s.xml">
+      <configuration name="ScannerTest.testCreateToken" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ScannerTest_testCreateToken - 2016.10.04 at 15h 38m 00s.xml">
+      <configuration name="ScannerTest.testCreateToken" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ScannerTest_testCreateToken - 2016.10.04 at 15h 38m 19s.xml">
+      <configuration name="ScannerTest.testCreateToken" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ScannerTest_testCreateToken - 2016.10.04 at 15h 39m 03s.xml">
+      <configuration name="ScannerTest.testCreateToken" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21515000" />
+    <option name="totallyTimeSpent" value="24470000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1866" height="1177" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1313,7 +1292,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4220963" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4220963" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1337,17 +1316,22 @@
     <MESSAGE value="maven compiler plugin" />
     <MESSAGE value="Scanner in progress" />
     <MESSAGE value="Operator types" />
-    <option name="LAST_COMMIT_MESSAGE" value="Operator types" />
+    <MESSAGE value="Scanner completly finished (some bugs might be there)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scanner completly finished (some bugs might be there)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="46" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ScannerTest.java</url>
+          <line>43</line>
+          <properties />
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="53" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="JUnit">
-        <watch expression="result" language="JAVA" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1450,9 +1434,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="2" selection-end-line="27" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1491,30 +1473,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tokens/Ident.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tokens/Literal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="98" selection-start-line="25" selection-start-column="98" selection-end-line="25" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/datatypes/TokenList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/datatypes/OperatorTypes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1531,39 +1489,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tokens/Opr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" column="139" selection-start-line="22" selection-start-column="139" selection-end-line="22" selection-end-column="139" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tokens/BaseToken.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="36" column="86" selection-start-line="36" selection-start-column="86" selection-end-line="36" selection-end-column="86" />
-          <folding>
-            <element signature="e#279#280#0" expanded="true" />
-            <element signature="e#307#308#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/datatypes/Terminals.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1057#1058#0" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
-            <element signature="e#1121#1122#0" expanded="true" />
-            <element signature="e#1152#1153#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/Assert.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -1572,32 +1497,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/datatypes/Operators.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1144#1145#0" expanded="true" />
-            <element signature="e#1180#1181#0" expanded="true" />
-            <element signature="e#2548#2549#0" expanded="true" />
-            <element signature="e#2581#2582#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/src.zip!/java/lang/CharSequence.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
           <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ScannerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1610,13 +1513,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tokens/Ident.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+        <state relative-caret-position="360">
+          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tokens/Literal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" column="98" selection-start-line="25" selection-start-column="98" selection-end-line="25" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tokens/Opr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/datatypes/Operators.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Scanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="141" column="9" selection-start-line="141" selection-start-column="9" selection-end-line="141" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/datatypes/Terminals.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
+          <folding>
+            <element signature="e#1345#1346#0" expanded="true" />
+            <element signature="e#1373#1374#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/datatypes/TokenList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tokens/BaseToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ScannerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

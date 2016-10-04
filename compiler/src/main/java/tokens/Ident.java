@@ -26,6 +26,6 @@ public class Ident extends BaseToken {
 
     @Override
     public String toString() {
-        return String.format("%s%s, \"%s\"%s", getTerminal().getPraeffix(), getTerminal().toString(), getIdent(), getTerminal().getSuffix());
+        return String.format("%s%s, \"%s\"%s", getTerminal().getPrefix(), getTerminal().toString(), getIdent(), getTerminal().getPostfix());
     }
 }

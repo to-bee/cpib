@@ -18,9 +18,9 @@ public class Opr extends BaseToken {
     @Override
     public String toString() {
         if(getTerminal() == Terminals.UNDEFINED) {
-            return String.format("%s", getOpr());
+            return String.format("%s, ", getOpr());
         } else {
-            return String.format("%s%s, %s%s", getTerminal().getPraeffix(), getTerminal().toString(), getOpr(), getTerminal().getSuffix());
+            return String.format("%s%s, %s%s", getTerminal().getPrefix(), getTerminal().toString(), getOpr(), getTerminal().getPostfix());
         }
     }
 

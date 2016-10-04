@@ -2,7 +2,6 @@ import datatypes.OperatorPosition;
 import datatypes.Operators;
 import datatypes.Terminals;
 import datatypes.TokenList;
-import dictionary.Dictionary;
 import errors.LexicalError;
 import interfaces.IToken;
 import interfaces.ITokenList;
@@ -39,6 +38,7 @@ public class Scanner {
      */
     public List<String> createWordList(String text) {
         List<String> wordList = new ArrayList<>();
+        wordList.add(Terminals.START_ROUTINE.toString());
 
         String delim = " \n\r\t,.;"; //insert here all delimitators
         StringTokenizer st = new StringTokenizer(text, delim);
@@ -98,6 +98,7 @@ public class Scanner {
             }
         }
 
+        wordList.add(Terminals.SENTINEL.toString());
         return wordList;
     }
 
@@ -138,9 +139,10 @@ public class Scanner {
         IToken token;
         Terminals terminal;
         Operators operator;
-        terminal = Terminals.getTerminalFromString(word);
-        if (terminal == Terminals.WHILE
+        if ((terminal = Terminals.getTerminalFromString(word)) == Terminals.WHILE
                 || terminal == Terminals.DO
+                || terminal == Terminals.START_ROUTINE
+                || terminal == Terminals.SENTINEL
                 || terminal == Terminals.ENDWHILE) {
             token = new BaseToken(terminal);
         } else if (isNumeric(word)) {
@@ -152,7 +154,6 @@ public class Scanner {
             } else {
                 token = new BaseToken(Terminals.UNDEFINED);
             }
-
         } else {
             token = new Ident(word);
         }
