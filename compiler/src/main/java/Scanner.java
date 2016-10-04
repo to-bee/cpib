@@ -27,7 +27,9 @@ public class Scanner {
 
     public static void printResult(String imlCode, String result, ITokenList tokenList) {
         System.out.printf("%s\n", imlCode);
-        System.out.printf("%s\n", result);
+        if(result != null) {
+            System.out.printf("%s\n", result);
+        }
         System.out.printf("%s\n\n", tokenList.toString());
     }
 
@@ -59,6 +61,7 @@ public class Scanner {
              * Word may not be splitted completely
              * Checks whether an terminal is articulated
              * DO, WHILE, ENDWHILE -> maybe this terminals should be treated as operators
+             * TODO: Check for leading numbers
              */
             for (Terminals op : TERMINAL_LIST) {
                 if (op.getValue() != null) {
@@ -112,6 +115,7 @@ public class Scanner {
             /**
              * Word may not be splitted completely
              * Checks whether an operator is articulated
+             * TODO: Check for leading numbers
              */
 
             for (Operators op : OPERATOR_LIST) {

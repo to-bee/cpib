@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -31,13 +30,9 @@ public enum Operators {
     CAND("&&", Terminals.CONDOPR),
     COR("||", Terminals.CONDOPR);
 
-    public List<Terminals> getOperatorTypes() {
-        return operatorTypes;
-    }
-
     private final List<Terminals> operatorTypes;
     String identifier;
-    Operators(String identifier, Terminals ... operatorTypes) {
+    Operators(String identifier, Terminals... operatorTypes) {
         this.identifier = identifier;
         this.operatorTypes = Arrays.asList(operatorTypes);
     }
@@ -49,12 +44,6 @@ public enum Operators {
             return Operators.UNDEFINED;
         }
     }
-
-    public static Set<Terminals> getAllOperatorTerminals() {
-        return getAllSorted().stream().flatMap(o -> o.getOperatorTypes().stream()).distinct().collect(Collectors.toSet());
-    }
-
-
 
     /**
      * Sorts Operators by identifier length
@@ -76,5 +65,13 @@ public enum Operators {
 
     public String getIdentifier() {
         return identifier;
+    }
+
+    public static Set<Terminals> getAllOperatorTerminals() {
+        return getAllSorted().stream().flatMap(o -> o.getOperatorTypes().stream()).distinct().collect(Collectors.toSet());
+    }
+
+    public List<Terminals> getOperatorTypes() {
+        return operatorTypes;
     }
 }
