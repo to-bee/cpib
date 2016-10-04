@@ -5,12 +5,13 @@ import java.util.List;
 
 /**
  * Created by tobi on 27/09/16.
+ * More informations about operators: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/opsummary.html
  */
 public enum Terminals {
     UNDEFINED("", ""),
     DO("", ""),
     WHILE("[", null),
-    ENDWHILE(null, null),
+    ENDWHILE(null, "]"),
     SENTINEL(null, "]"),
     IDENT("(", ")"),
     LITERAL("(", ")"),
