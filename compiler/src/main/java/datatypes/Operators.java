@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 public enum Operators {
     UNDEFINED("UNDEFINED", Terminals.UNDEFINED),
     NOT("!", Terminals.UNARYOPR),
-//    TIMES("", Terminals.UNDEFINED), // ???
     DIV("/", Terminals.ARITHMOPR),
     MOD("%", Terminals.ARITHMOPR),
     PLUS("+", Terminals.ARITHMOPR, Terminals.UNARYOPR),
@@ -30,7 +29,7 @@ public enum Operators {
     GE(">=", Terminals.RELOPR),
     LE("<=", Terminals.RELOPR),
     CAND("&&", Terminals.CONDOPR),
-    COR("||", Terminals.CONDOPR),;
+    COR("||", Terminals.CONDOPR);
 
     public List<Terminals> getOperatorTypes() {
         return operatorTypes;

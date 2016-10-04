@@ -18,8 +18,7 @@ public class ScannerTest {
 
     @Before
     public void init() {
-        text = "while x36 <= 67 do\nx := x-1\nendwhile";
-        result = "[WHILE, (IDENT, \"x36\"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, \"x\"), BECOMES, (IDENT, \"x\"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, SENTINEL]";
+
     }
 
     /**
@@ -39,8 +38,45 @@ public class ScannerTest {
     @Test
     public void testCreateToken() {
         Scanner scanner = new Scanner();
-        List<String> wordList = scanner.createWordList(text);
-        ITokenList tokenList = scanner.createTokenList(wordList);
+        ITokenList tokenList;
+
+//        text = "while x36 <= 67 do\nx := x-1\nendwhile";
+//        result = "[WHILE, (IDENT, \"x36\"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, \"x\"), BECOMES, (IDENT, \"x\"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, SENTINEL]";
+//        tokenList = scanner.scan(text);
+//        scanner.printResult(text, result, tokenList);
+//
+//        text = "Liebe Grossmutter!\nZu Deinem 67-ten Geburtstag";
+//        result = "[(IDENT, „Liebe\"), (IDENT, „Grossmutter\"), EXCLAMARK, (IDENT, „Zu\"), (IDENT, „Deinem\"), (LITERAL, 67), (ADDOPR, MINUS), (IDENT, „ten\"), (IDENT, „Geburtstag\"), ...]";
+//        tokenList = scanner.scan(text);
+//        scanner.printResult(text, result, tokenList);
+
+//        text = "div63";
+//        tokenList = scanner.scan(text);
+//
+//        text = "%63";
+//        tokenList = scanner.scan(text);
+////        scanner.printResult(text, result, tokenList);
+//
+//        text = "while632";
+//        tokenList = scanner.scan(text);
+
+        text = "72while";
+        tokenList = scanner.scan(text);
+
+        text = "a23";
+        tokenList = scanner.scan(text);
+
+        text = "whilea23abc";
+        tokenList = scanner.scan(text);
+
+        text = "a23abcwhile";
+        tokenList = scanner.scan(text);
+
+        text = "a23whilecde";
+        tokenList = scanner.scan(text);
+
+        text = "whilewhilea23abc";
+        tokenList = scanner.scan(text);
     }
 
     @Test

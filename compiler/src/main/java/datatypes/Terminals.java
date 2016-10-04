@@ -1,6 +1,8 @@
 package datatypes;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * Created by tobi on 27/09/16.
@@ -70,5 +72,25 @@ public enum Terminals {
         catch(Exception e) {
             return Terminals.UNDEFINED;
         }
+    }
+
+    /**
+     * Sorts Terminals by identifier length
+     * Longer identifiers have to be parsed first
+     * <= must be parsed before <
+     *
+     * @return
+     */
+    public static List<Terminals> getAllSorted() {
+        List<Terminals> list = Arrays.asList(Terminals.values());
+        list.sort(new Comparator<Terminals>() {
+            @Override
+            public int compare(Terminals o1, Terminals o2) {
+                int value1 = o1.getValue() != null ? o1.getValue().length() : 0;
+                int value2 = o2.getValue() != null ? o2.getValue().length() : 0;
+                return value1 - value2;
+            }
+        });
+        return list;
     }
 }

@@ -18,9 +18,17 @@ import java.util.StringTokenizer;
  * Created by tobi on 27/09/16.
  */
 public class Scanner {
+    private static final List<Operators> OPERATOR_LIST = Operators.getAllSorted();
+    private static final List<Terminals> TERMINAL_LIST = Terminals.getAllSorted();
+
 
     public Scanner() {
+    }
 
+    public static void printResult(String imlCode, String result, ITokenList tokenList) {
+        System.out.printf("%s\n", imlCode);
+        System.out.printf("%s\n", result);
+        System.out.printf("%s\n\n", tokenList.toString());
     }
 
     public ITokenList scan(String text) throws LexicalError {
@@ -33,6 +41,7 @@ public class Scanner {
      * Create a complete wordlist
      * Splits words by delimitators ( \n\r\t,.;)
      * Splits articulated operators like (5+2 -> 5, +, 2) and determines their type
+     *
      * @param text
      * @return
      */
@@ -47,48 +56,105 @@ public class Scanner {
             boolean articulatedOperatorFound = false;
 
             /**
-             * Token is may not be splitted completely
+             * Word may not be splitted completely
+             * Checks whether an terminal is articulated
+             * DO, WHILE, ENDWHILE -> maybe this terminals should be treated as operators
+             */
+            for (Terminals op : TERMINAL_LIST) {
+                if (op.getValue() != null) {
+                    /**
+                     * Operator contains more than one sign -> abort check
+                     * Example: <= Operator
+                     */
+                    String terminalIdentifier = op.getValue().toLowerCase();
+                    if (word.equals(terminalIdentifier)) {
+                        articulatedOperatorFound = false;
+                        break;
+                    }
+                    /**
+                     * Example: RelOpr without spaces between (2<=4)
+                     */
+                    else if (word.contains(terminalIdentifier)) {
+                        OperatorPosition oprPos = getOprPosition(word, terminalIdentifier);
+                        /**
+                         * whilea23abc -> [WHILE, (IDENT, "a23abc"), SENTINEL]
+                         */
+                        if (oprPos == OperatorPosition.PREFIX) {
+                            wordList.add(terminalIdentifier);
+                            wordList.add(word.replace(terminalIdentifier, ""));
+                            articulatedOperatorFound = true;
+                            break;
+                        }
+                        /**
+                         * 72while -> [(LITERAL, 72.0), WHILE, SENTINEL]
+                         */
+                        else if (oprPos == OperatorPosition.POSTFIX) {
+                            wordList.add(word.replace(terminalIdentifier, ""));
+                            wordList.add(terminalIdentifier);
+                            articulatedOperatorFound = true;
+                            break;
+                        }
+                        else if (oprPos == OperatorPosition.INFIX) {
+                            String[] words = word.split(terminalIdentifier);
+                            wordList.add(words[0]);
+                            wordList.add(terminalIdentifier);
+                            wordList.add(words[1]);
+                            articulatedOperatorFound = true;
+                            break;
+                        } else if (oprPos == OperatorPosition.UNDEFINED) {
+                            throw new IllegalArgumentException("Given opIdentifier is not ambigous. Please update the programming code!");
+                        }
+
+                    }
+                }
+            }
+
+            /**
+             * Word may not be splitted completely
              * Checks whether an operator is articulated
              */
-            for (Operators op : Operators.getAllSorted()) {
-                String opIdentifier = op.getIdentifier();
-                /**
-                 * Operator contains more than one sign -> abort check
-                 * Example: <= Operator
-                 */
-                if (word.equals(opIdentifier)) {
-                    articulatedOperatorFound = false;
-                    break;
-                }
-                /**
-                 * Example: RelOpr without spaces between (2<=4)
-                 */
-                else if (word.contains(opIdentifier)) {
-                    OperatorPosition oprPos = getOprPosition(word, opIdentifier);
-                    if(oprPos == OperatorPosition.PREFIX) {
-                        wordList.add(opIdentifier);
-                        wordList.add(word.replace(opIdentifier, ""));
-                        articulatedOperatorFound = true;
-                        break;
-                    }
-                    else if(oprPos == OperatorPosition.POSTFIX) {
-                        wordList.add(word.replace(opIdentifier, ""));
-                        wordList.add(opIdentifier);
-                        articulatedOperatorFound = true;
-                        break;
-                    }
-                    else if(oprPos == OperatorPosition.INFIX) {
-                        String[] words = word.split(opIdentifier);
-                        wordList.add(words[0]);
-                        wordList.add(opIdentifier);
-                        wordList.add(words[1]);
-                        articulatedOperatorFound = true;
-                        break;
-                    }
-                    else if(oprPos == OperatorPosition.UNDEFINED) {
-                        throw new IllegalArgumentException("Given opIdentifier is not ambigous. Please update the programming code!");
-                    }
 
+            for (Operators op : OPERATOR_LIST) {
+                if(op.getIdentifier() != null) {
+                    String opIdentifier = op.getIdentifier().toLowerCase();
+                    /**
+                     * Operator contains more than one sign -> abort check
+                     * Example: <= Operator
+                     */
+                    if (word.equals(opIdentifier)) {
+                        articulatedOperatorFound = false;
+                        break;
+                    }
+                    /**
+                     * Example: RelOpr without spaces between (2<=4)
+                     */
+                    else if (word.contains(opIdentifier)) {
+                        OperatorPosition oprPos = getOprPosition(word, opIdentifier);
+                        if (oprPos == OperatorPosition.PREFIX) {
+                            wordList.add(opIdentifier);
+                            wordList.add(word.replace(opIdentifier, ""));
+                            articulatedOperatorFound = true;
+                            break;
+                        }
+                        else if (oprPos == OperatorPosition.POSTFIX) {
+                            wordList.add(word.replace(opIdentifier, ""));
+                            wordList.add(opIdentifier);
+                            articulatedOperatorFound = true;
+                            break;
+                        }
+
+                        else if (oprPos == OperatorPosition.INFIX) {
+                            String[] words = word.split(opIdentifier);
+                            wordList.add(words[0]);
+                            wordList.add(opIdentifier);
+                            wordList.add(words[1]);
+                            articulatedOperatorFound = true;
+                            break;
+                        } else if (oprPos == OperatorPosition.UNDEFINED) {
+                            throw new IllegalArgumentException("Given opIdentifier is not ambigous. Please update the programming code!");
+                        }
+
+                    }
                 }
             }
 
@@ -110,7 +176,7 @@ public class Scanner {
      */
     public ITokenList createTokenList(List<String> wordList) {
         ITokenList tokenList = new TokenList();
-        for(String word : wordList) {
+        for (String word : wordList) {
             tokenList.add(getTokenByWord(word));
         }
 
@@ -118,15 +184,15 @@ public class Scanner {
     }
 
     public OperatorPosition getOprPosition(String word, String opIdentifier) {
-        if(word.indexOf(opIdentifier) == -1) {
+        if (word.indexOf(opIdentifier) == -1) {
             return OperatorPosition.UNDEFINED;
         }
         // Token is at the beginning (++i)
-        else if(word.indexOf(opIdentifier) == 0) {
+        else if (word.indexOf(opIdentifier) == 0) {
             return OperatorPosition.PREFIX;
         }
         // Token is at the end (i++)
-        else if(word.indexOf(opIdentifier) == word.length()-opIdentifier.length()) {
+        else if (word.indexOf(opIdentifier) == word.length() - opIdentifier.length()) {
             return OperatorPosition.POSTFIX;
         }
         // Token is in between (i+5)
