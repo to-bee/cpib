@@ -17,7 +17,16 @@ public class BaseToken implements IToken{
         return terminal;
     }
 
+    @Override
     public String toString() {
-        return terminal.toString();
+        switch(terminal) {
+            case WHILE:
+                return String.format("%s%s", terminal.getPraeffix(), terminal.toString());
+            case DO:
+                return String.format("%s", terminal.toString());
+            default:
+                return String.format("%s%s%s", terminal.getPraeffix(), terminal.toString(), terminal.getSuffix());
+        }
+
     }
 }

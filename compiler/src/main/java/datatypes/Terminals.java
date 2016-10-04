@@ -7,16 +7,53 @@ import java.util.List;
  * Created by tobi on 27/09/16.
  */
 public enum Terminals {
-    UNDEFINED,
-    IDENT,
-    LITERAL,
-    RELOPR,
-    WHILE,
-    DO, 
-    SENTINEL;
+    UNDEFINED("", ""),
+    DO("", ""),
+    WHILE("[", null),
+    ENDWHILE(null, null),
+    SENTINEL(null, "]"),
+    IDENT("(", ")"),
+    LITERAL("(", ")"),
+    /**
+     * Relational Operator
+     * (==, !=, >, >=, <, <=)
+     */
+    RELOPR("(", ")"),
+    /**
+     * Conditional Operator
+     * (&&, ||, ?:)
+     */
+    CONDOPR("(", ")"),
+    /**
+     * Arithmetic Operator
+     * (+, -, *, /, %)
+     */
+    ARITHMOPR("(", ")"),
+    /**
+     * Assignment Operator
+     * (=)
+     */
+    ASSIGNOPR("(", ")"),
+    /**
+     * Unary Operator
+     * (+, -, ++, --, !)
+     */
+    UNARYOPR("(", ")");
 
-    Terminals() {
+    private final String suffix;
+    private final String praeffix;
 
+    Terminals(String praeffix, String suffix) {
+        this.praeffix = praeffix;
+        this.suffix = suffix;
+    }
+
+    public String getSuffix() {
+        return suffix;
+    }
+
+    public String getPraeffix() {
+        return praeffix;
     }
 
     public static Terminals getTerminalFromString(String value) {

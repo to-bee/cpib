@@ -19,8 +19,13 @@ public class Ident extends BaseToken {
     public String getValue() {
     	return ident;
     }
- 
+
+    public String getIdent() {
+        return ident;
+    }
+
+    @Override
     public String toString() {
-    	return ident;
+        return String.format("%s%s, \"%s\"%s", getTerminal().getPraeffix(), getTerminal().toString(), getIdent(), getTerminal().getSuffix());
     }
 }

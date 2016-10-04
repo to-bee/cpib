@@ -20,9 +20,10 @@ public class Literal extends BaseToken {
     double getValue() {
     	return value;
     }
-    
-    public String toSting() {
-        return String.format("(%s,%s)", super.toString(), value);
+
+    @Override
+    public String toString() {
+        return String.format("%s%s, %s%s", getTerminal().getPraeffix(), getTerminal().toString(), getValue(), getTerminal().getSuffix());
     }
 }
 

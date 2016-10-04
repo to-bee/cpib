@@ -24,6 +24,5 @@ public class ScannerTest {
     public void testCreateToken() {
         Scanner scanner = new Scanner();
         ITokenList tokenList = scanner.createTokenList(text);
-        String result = tokenList.toString();
     }
 }

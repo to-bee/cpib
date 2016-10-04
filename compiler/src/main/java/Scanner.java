@@ -10,7 +10,7 @@ import interfaces.ITokenList;
 import tokens.BaseToken;
 import tokens.Ident;
 import tokens.Literal;
-import tokens.RelOpr;
+import tokens.Opr;
 
 /**
  * Created by tobi on 27/09/16.
@@ -43,18 +43,42 @@ public class Scanner {
             IToken token = null;
             Terminals terminal = null;
             Operators operator = null;
-            if((terminal = Terminals.getTerminalFromString(word)) == Terminals.WHILE) {
+            terminal = Terminals.getTerminalFromString(word);
+            if(terminal == Terminals.WHILE
+                    || terminal == Terminals.DO
+                    || terminal == Terminals.ENDWHILE) {
                 token = new BaseToken(terminal);
             }
-            else if((operator = Operators.getOperatorFromString(word)) != Operators.UNDEFINED) {
-                token = new RelOpr(operator);
-            }
+            // Will filter Unary operators (TODO: ++, --, !)
             else if(isNumeric(word)) {
                 double d = Double.parseDouble(word);
                 token = new Literal(d);
             }
+            else if((operator = Operators.getOperatorFromString(word)) != Operators.UNDEFINED) {
+                switch(operator.getOperatorType()) {
+                    case ARITHMOPR:
+                        token = new Opr(operator);
+                        break;
+                    case ASSIGNOPR:
+                        token = new Opr(operator);
+                        break;
+                    case CONDOPR:
+                        token = new Opr(operator);
+                        break;
+                    case RELOPR:
+                        token = new Opr(operator);
+                        break;
+                    case UNARYOPR:
+                        token = new Opr(operator);
+                        break;
+                    default:
+                        token = new BaseToken(Terminals.UNDEFINED);
+                        break;
+                }
+
+            }
             else {
-                token = new Ident(word); // Var name
+                token = new Ident(word);
             }
 
             tokenList.add(token);
