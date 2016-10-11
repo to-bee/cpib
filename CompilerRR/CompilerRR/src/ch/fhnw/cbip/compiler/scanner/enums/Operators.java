@@ -1,0 +1,31 @@
+package ch.fhnw.cbip.compiler.scanner.enums;
+
+public enum Operators {
+	EQ,
+    NE,
+    LT,
+    GT,
+    LE,
+    GE,
+    TIMES,
+    DIV_E,
+    MOD_E,
+    PLUS,
+    MINUS,
+    AND,
+    OR,
+    CAND,
+    COR,
+    BOOL,
+    INT32,
+    INT64,
+    CONST,
+    VAR,
+    COPY,
+    REF,
+    IN,
+    INOUT,
+    OUT,
+    FALSE,
+    TRUE
+}
