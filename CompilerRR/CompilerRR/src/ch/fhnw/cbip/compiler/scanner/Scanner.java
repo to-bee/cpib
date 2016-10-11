@@ -71,6 +71,8 @@ public class Scanner {
 	        	lineNumber++;
 	        }
 	        
+	        // add sentinel at the end
+	        tokenList.add(new Token(Terminals.SENTINEL, null));
 	        
 	        return tokenList;
 	    }
