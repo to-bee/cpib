@@ -1,16 +1,16 @@
 package scanner.token;
 
-import types.Datatypes;
+import types.Type;
 import types.Terminals;
 
 public class DataTypeToken extends BaseToken {
-	Datatypes type;
-	public DataTypeToken(Terminals terminal, Datatypes type) {
+	Type type;
+	public DataTypeToken(Terminals terminal, Type type) {
 		super(terminal);
 		this.type = type;	
 	}
 	
-	Datatypes getType() {
+	Type getType() {
 		return type;
 	}
 	

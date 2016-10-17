@@ -13,7 +13,7 @@ import scanner.token.LiteralToken;
 import scanner.token.OperatorToken;
 import scanner.token.TokenList;
 import scanner.token.DataTypeToken;
-import types.Datatypes;
+import types.Type;
 import types.Operators;
 import types.Terminals;
 
@@ -120,8 +120,6 @@ public class Scanner {
 
 	private void handleOperatorState(char c) {
 		String tmp = Character.toString(c);
-		
-		/*
 		 if(tmp.matches("[,;:()]")){	 
 			terminal += c;
 			state = State.OPERATORSTATE;
@@ -130,7 +128,7 @@ public class Scanner {
 			terminal += c;
 			state = State.OPERATORSTATE;
 		} else { 
-		*/
+		
 			IToken key = dictionary.getKeyword(terminal);
 			IToken op = dictionary.getOperator(terminal);
 			if(key == null && op == null){
@@ -141,7 +139,7 @@ public class Scanner {
 				tokenList.add(key);
 			indexCount--;
 			state = State.STARTSTATE;
-		//}
+		}
 
 	}
 

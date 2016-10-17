@@ -1,6 +1,6 @@
 package types;
 
-public enum Datatypes {
+public enum Type {
 	BOOL,
 	INT32,
 	INT64;

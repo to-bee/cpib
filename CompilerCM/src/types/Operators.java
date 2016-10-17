@@ -1,18 +1,27 @@
 package types;
 
 public enum Operators {
-	NOT,
-	TIMES,
-	DIV,
-	MOD,
+	DIV_E,
+	MOD_E,
+	DIV_F,
+	MOD_F,
+	DIV_T,
+	MOD_T,
+	PLUS,
+	MINUS,
+	LT,
+	GE,
 	EQ,
 	NE,
 	GT,
-	LT,
-	GE,
 	LE,
-	CNAD,
+	NOTOPR,
+	AND,
+	OR,
+	CAND,
 	COR,
-	PLUS,
-	MINUS;
+	TIMES,
+	DIV,
+	MOD,
+	NOT;
 }

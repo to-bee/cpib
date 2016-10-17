@@ -17,7 +17,7 @@ public enum Terminals {
 	ENDWHILE("ENDWHILE"),
 	FALSE("FALSE"),
 	FUN("FUN"),
-	GOBAL("GLOBAL"),
+	GLOBAL("GLOBAL"),
 	IF("IF"),
 	IN("IN"),
 	INIT("INIT"),
