@@ -15,11 +15,16 @@ do
 call divide(m, n, q init, r init)
 endprogram
 
-switch bool int 
-case true false nr
-docase
+---- SWITCH CASE EXAMPLES ------
 
-endcase
-default
-enddefault
+switchInt32 x
+	case 1 : do something;
+	case 2 : do something;
+	case 5 : do something;
+	default : do something;
+endswitch
+
+switchBool b
+	case True : do something;
+	case False : do something;
 endswitch
