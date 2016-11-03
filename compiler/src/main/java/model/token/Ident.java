@@ -1,6 +1,6 @@
-package tokens;
+package model.token;
 
-import datatypes.Terminals;
+import model.datatypes.Terminals;
 
 /**
  * 

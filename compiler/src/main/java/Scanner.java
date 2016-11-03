@@ -1,14 +1,14 @@
-import datatypes.OperatorPosition;
-import datatypes.Operators;
-import datatypes.Terminals;
-import datatypes.TokenList;
-import errors.LexicalError;
-import interfaces.IToken;
-import interfaces.ITokenList;
-import tokens.BaseToken;
-import tokens.Ident;
-import tokens.Literal;
-import tokens.Opr;
+import model.datatypes.OperatorPosition;
+import model.datatypes.Operators;
+import model.datatypes.Terminals;
+import tokenList.TokenList;
+import model.errors.LexicalError;
+import model.token.IToken;
+import tokenList.ITokenList;
+import model.token.BaseToken;
+import model.token.Ident;
+import model.token.Literal;
+import model.token.Opr;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,7 @@ public class Scanner {
      */
     public List<String> createWordList(String text) {
         List<String> wordList = new ArrayList<>();
-        wordList.add(Terminals.START_ROUTINE.toString());
+        wordList.add(Terminals.PROGRAM.toString());
 
         String delim = " \n\r\t,.;"; //insert here all delimitators
         StringTokenizer st = new StringTokenizer(text, delim);
@@ -211,7 +211,7 @@ public class Scanner {
         Operators operator;
         if ((terminal = Terminals.getTerminalFromString(word)) == Terminals.WHILE
                 || terminal == Terminals.DO
-                || terminal == Terminals.START_ROUTINE
+                || terminal == Terminals.PROGRAM
                 || terminal == Terminals.SENTINEL
                 || terminal == Terminals.ENDWHILE) {
             token = new BaseToken(terminal);

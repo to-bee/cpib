@@ -1,13 +1,17 @@
-package interfaces;
+package tokenList;
 
-import java.util.LinkedList;
+import model.token.BaseToken;
+import model.token.IToken;
+
+import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * 
  * @author Roman
  * taken from slides
  */
-public interface ITokenList {
+public interface ITokenList extends Cloneable {
 	/**
 	 * for constructing the token list by the scanner
 	 */
@@ -29,4 +33,12 @@ public interface ITokenList {
 	 * @return
 	 */
 	String toString();
+
+	Stream<IToken> stream();
+
+	ITokenList clone();
+
+    List<IToken> toList();
+
+	int size();
 }

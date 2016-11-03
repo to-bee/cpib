@@ -1,12 +1,12 @@
-package tokens;
+package model.token;
 
-import datatypes.Terminals;
+import model.datatypes.Terminals;
 
 /**
  * 
  * @author Roman
  * taken from the slides
- * tokens with a literal attribute always have terminal LITERAL
+ * model.token with a literal attribute always have terminal LITERAL
  * example: (LITERAL, 67)
  */
 public class Literal extends BaseToken {

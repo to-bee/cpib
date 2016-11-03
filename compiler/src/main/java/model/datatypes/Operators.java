@@ -1,4 +1,4 @@
-package datatypes;
+package model.datatypes;
 
 import java.util.Arrays;
 import java.util.Comparator;

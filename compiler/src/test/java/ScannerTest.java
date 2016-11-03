@@ -1,11 +1,8 @@
-import datatypes.OperatorPosition;
-import datatypes.TokenList;
-import interfaces.ITokenList;
-import org.junit.Assert;
+import model.datatypes.OperatorPosition;
+import tokenList.ITokenList;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.List;
+import parser.Parser;
 
 import static org.junit.Assert.*;
 
@@ -23,7 +20,7 @@ public class ScannerTest {
 
     /**
      * Presentations result:
-     * [WHILE, (IDENT, "x36"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, "x"), BECOMES, (IDENT, "x"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, START_ROUTINE]
+     * [WHILE, (IDENT, "x36"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, "x"), BECOMES, (IDENT, "x"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, PROGRAM]
      *
      * Our result:
      * [WHILE, (IDENT, "x36"), (RELOPR, LE), (LITERAL, 67.0), DO, (IDENT, "x"), (ASSIGNOPR, BECOMES), (IDENT, "x"), MINUS, (LITERAL, 1.0), ENDWHILE],
@@ -39,6 +36,17 @@ public class ScannerTest {
     public void testCreateToken() {
         Scanner scanner = new Scanner();
         ITokenList tokenList;
+
+        // Remove spaces
+        text = "a := (67 + 31) - 2";
+        result = "[WHILE, (IDENT, \"x36\"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, \"x\"), BECOMES, (IDENT, \"x\"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, SENTINEL]";
+        tokenList = scanner.scan(text);
+        scanner.printResult(text, result, tokenList);
+//        try {
+//            ParseTree parseTree = parser.createParseTree(tokenList);
+//        } catch (Exception e) {
+//            Assert.fail();
+//        }
 
         text = "while x36 <= 67 do\nx := x-1\nendwhile";
         result = "[WHILE, (IDENT, \"x36\"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, \"x\"), BECOMES, (IDENT, \"x\"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, SENTINEL]";
