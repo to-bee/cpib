@@ -177,6 +177,7 @@ public class Scanner {
 	
 	
 	private void initTerminalsMap() {
+		
 		terminalsMap.put("(", Terminals.LPAREN);
 	    terminalsMap.put(")", Terminals.RPAREN);
 	    terminalsMap.put(",", Terminals.COMMA);
@@ -232,6 +233,10 @@ public class Scanner {
 	    terminalsMap.put("true", Terminals.BOOLLITERAL);
 	    terminalsMap.put("var", Terminals.CHANGEMODE);
 	    terminalsMap.put("while", Terminals.WHILE);
+	    terminalsMap.put("switch", Terminals.SWITCH);
+	    terminalsMap.put("case", Terminals.CASE);
+	    terminalsMap.put("casedefault", Terminals.CASEDEFAULT);
+	    terminalsMap.put("endswitch", Terminals.ENDSWITCH);
 	}
 	
 	private void initOperatorsMap() {

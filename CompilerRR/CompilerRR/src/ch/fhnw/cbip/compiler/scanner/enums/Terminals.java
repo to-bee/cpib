@@ -40,5 +40,9 @@ public enum Terminals {
     THEN,
     WHILE,
     IDENT,
-    SENTINEL
+    SENTINEL,
+    SWITCH,
+    CASE,
+    CASEDEFAULT,
+    ENDSWITCH
 }
