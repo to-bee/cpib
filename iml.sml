@@ -92,6 +92,7 @@ datatype nonterm
   | functionDeclaration
   | optionalGlobalImports
   | globalImport
+  | repeatingOptionalGlobalImports
   | program
   | progamParameterList
   | optionalProgramParameters
@@ -115,6 +116,7 @@ datatype nonterm
   | repRELOPRterm2
   | term3
   | repADDOPRterm3
+  | repMULTOPRfactor
   | optionalIdent
   | monadicOperator
   | expressionList
@@ -163,6 +165,7 @@ val string_of_nonterm =
    | repRELOPRterm2                           => "repRELOPRterm2"
    | term3                                    => "term3"
    | repADDOPRterm3                           => "repADDOPRterm3"
+   | repMULTOPRfactor						  => "repMULTOPRfactor"
    | optionalIdent                            => "optionalIdent"
    | monadicOperator                          => "monadicOperator"
    | expressionList                           => "expressionList"
