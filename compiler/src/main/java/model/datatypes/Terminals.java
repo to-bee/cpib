@@ -43,7 +43,17 @@ public enum Terminals {
      * Unary Operator
      * (+, -, ++, --, !)
      */
-    UNARYOPR("UNARYOPR", "(", "), ");
+    UNARYOPR("UNARYOPR", "(", "), "),
+
+    IMAGINARY_PART("IMAGINARY_PART", "", ", "),
+    LPAREN("LPAREN", "", ", "),
+    RPAREN("RPAREN", "", ", "),
+    SEMICOLON("SEMICOLON", "", ", "), // ;
+    COLON("COLON", "", ", "), // :
+    CHANGEMODE("CHANGEMODE", "", ", "),
+    FLOWMODE("FLOWMODE", "", ", "),
+    MECHMODE("MECHMODE", "", ", "),
+    bla("bla", "", ", ");
 
     private final String postfix;
     private final String prefix;

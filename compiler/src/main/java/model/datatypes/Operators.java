@@ -28,7 +28,15 @@ public enum Operators {
     GE(">=", Terminals.RELOPR),
     LE("<=", Terminals.RELOPR),
     CAND("&&", Terminals.CONDOPR),
-    COR("||", Terminals.CONDOPR);
+    COR("||", Terminals.CONDOPR),
+    CONST("const", Terminals.CHANGEMODE),
+    VAR("var", Terminals.CHANGEMODE),
+    IN("in", Terminals.FLOWMODE),
+    INOUT("inout", Terminals.FLOWMODE),
+    OUT("out", Terminals.FLOWMODE),
+    COPY("copy", Terminals.MECHMODE),
+    REF("ref", Terminals.MECHMODE),
+    abc("basdfs", Terminals.CHANGEMODE);
 
     private final List<Terminals> operatorTypes;
     String identifier;

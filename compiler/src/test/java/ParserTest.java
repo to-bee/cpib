@@ -31,7 +31,7 @@ public class ParserTest {
     public void testParser() {
         try {
             Parser parser = new Parser(tokenList);
-            IConcSyn concSyn = parser.parse();
+            IConcSyn concSyn = parser.parseProgram();
         } catch (GrammarError grammarError) {
             grammarError.printStackTrace();
         }
