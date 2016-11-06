@@ -1,6 +1,6 @@
-package interfaces;
+package model.token;
 
-import datatypes.Terminals;
+import model.datatypes.Terminals;
 
 /**
  * To add the lexemes to the tokenlist

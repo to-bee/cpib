@@ -1,7 +1,6 @@
-package tokens;
+package model.token;
 
-import datatypes.Terminals;
-import interfaces.IToken;
+import model.datatypes.Terminals;
 
 import java.util.List;
 
@@ -43,7 +42,7 @@ public class BaseToken implements IToken{
             sb.append(postfix);
         }
 //        switch(terminal) {
-//            case START_ROUTINE:
+//            case PROGRAM:
 //                return String.format("%s", terminal.getPrefix());
 //            case SENTINEL:
 //                return String.format("%s%s", terminal.toString(), terminal.getPostfix());

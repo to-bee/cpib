@@ -1,4 +1,4 @@
-package datatypes;
+package model.datatypes;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -7,13 +7,15 @@ import java.util.List;
 /**
  * Created by tobi on 27/09/16.
  * More informations about operators: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/opsummary.html
+ * TODO: Extend this with func, proc, ..
+ * TODO: Only terminals according to iml_v2
  */
 public enum Terminals {
     UNDEFINED(null, "", ""),
     DO("DO", "", ", "),
     WHILE("WHILE", null, ", "),
     ENDWHILE("ENDWHILE", null, ", "),
-    START_ROUTINE(null, "[", null),
+    PROGRAM(null, "[", null),
     SENTINEL("SENTINEL", null, "]"),
     IDENT("IDENT", "(", "), "),
     LITERAL("LITERAL", "(", "), "),

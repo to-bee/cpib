@@ -1,7 +1,7 @@
-package tokens;
+package model.token;
 
-import datatypes.Operators;
-import datatypes.Terminals;
+import model.datatypes.Operators;
+import model.datatypes.Terminals;
 
 /**
  * @author Roman

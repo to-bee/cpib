@@ -1,10 +1,4 @@
-package datatypes;
-
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+package model.datatypes;
 
 /**
  * Created by tobi on 27/09/16.

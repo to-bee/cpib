@@ -1,10 +1,11 @@
-package datatypes;
+package tokenList;
 
 import java.util.*;
+import java.util.stream.Stream;
 
-import interfaces.IToken;
-import interfaces.ITokenList;
-import tokens.BaseToken;
+import model.token.BaseToken;
+import model.token.IToken;
+import tokenList.ITokenList;
 
 /**
  * Pretty pointless for now, since its just wrapping the linkedlist. Take out later if no need for this arises.
@@ -14,7 +15,14 @@ import tokens.BaseToken;
 public class TokenList implements ITokenList {
 	
 	private LinkedList<IToken> tokenList = new LinkedList<IToken>();
-	
+
+	public TokenList(LinkedList<IToken> tokenList) {
+		this.tokenList = tokenList;
+	}
+
+	public TokenList() {
+	}
+
 	public void reset() {
 		//Not the fastest, maybe think of a better solution
 		tokenList.clear();
@@ -26,9 +34,9 @@ public class TokenList implements ITokenList {
 
 	/**
 	 * returns first Token in list or NoSuchElementException - if this list is empty
+	 * 	Also removeLast() possible whichever we will need. Will destroy the tokenlist eventually.
 	 */
 	public IToken nextToken() {
-		//Also removeLast() possible whichever we will need. Will distroy the tokenlist eventually.
 		return tokenList.removeFirst();
 	}
 	
@@ -42,4 +50,26 @@ public class TokenList implements ITokenList {
 		return sb.toString();
 	}
 
+	@Override
+	public Stream<IToken> stream() {
+		return this.tokenList.stream();
+	}
+
+	/**
+	 * TODO:
+	 * @return
+	 */
+	@Override
+	public TokenList clone() {
+		return new TokenList(tokenList);
+	}
+
+	public List<IToken> toList() {
+		return new ArrayList<IToken>(this.tokenList);
+	}
+
+	@Override
+	public int size() {
+		return this.tokenList.size();
+	}
 }
