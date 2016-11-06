@@ -7,6 +7,7 @@ import java.util.LinkedList;
 
 import ch.fhnw.cpib.compiler.scanner.Scanner;
 import ch.fhnw.cpib.compiler.scanner.Token;
+import ch.fhnw.cpib.parser.ProgramParser;
 
 
 public class Compiler {
@@ -20,6 +21,9 @@ public class Compiler {
 			//compiler.compile(new BufferedReader(isr));
 			Scanner s = new Scanner();
 			LinkedList<Token> list = s.scan(new BufferedReader(isr));
+			
+			ProgramParser p = new ProgramParser(list);
+			
 			
 			System.out.println(list.toString());
 			
