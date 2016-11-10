@@ -15,41 +15,41 @@ public class BlockCmdParser extends AbstractParser {
 	@Override
 	public void parse() throws GrammarError {
 		if (terminal == Terminals.SWITCH) {
-			new CmdParser.parses();
-			new RepeatingOptionalCmds.parse();
+			new CmdParser().parse();
+			new RepeatingOptionalCmdsParser().parse();
 		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser.parses();
-			new RepeatingOptionalCmds.parse();
+			new CmdParser().parses();
+			new RepeatingOptionalCmdsParser().parse();
 		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser.parses();
-			new RepeatingOptionalCmds.parse();
+			new CmdParser().parses();
+			new RepeatingOptionalCmdsParser().parse();
 		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser.parses();
-			new RepeatingOptionalCmds.parse();
+			new CmdParser().parses();
+			new RepeatingOptionalCmdsParser().parse();
 		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser.parses();
-			new RepeatingOptionalCmds.parse();
+			new CmdParser().parses();
+			new RepeatingOptionalCmdsParser().parse();
 		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser.parses();
-			new RepeatingOptionalCmds.parse();
+			new CmdParser().parses();
+			new RepeatingOptionalCmdsParser().parse();
 		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser.parses();
-			new RepeatingOptionalCmds.parse();
+			new CmdParser().parses();
+			new RepeatingOptionalCmdsParser().parse();
 		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser.parses();
-			new RepeatingOptionalCmds.parse();
+			new CmdParser().parses();
+			new RepeatingOptionalCmdsParser().parse();
 		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser.parses();
-			new RepeatingOptionalCmds.parse();
+			new CmdParser().parses();
+			new RepeatingOptionalCmdsParser().parse();
 		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser.parses();
-			new RepeatingOptionalCmds.parse();
+			new CmdParser().parses();
+			new RepeatingOptionalCmdsParser().parse();
 		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser.parses();
-			new RepeatingOptionalCmds.parse();
+			new CmdParser().parses();
+			new RepeatingOptionalCmdsParser().parse();
 		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser.parses();
-			new RepeatingOptionalCmds.parse();
+			new CmdParser().parses();
+			new RepeatingOptionalCmdsParser().parse();
 		} else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}

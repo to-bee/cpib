@@ -10,7 +10,6 @@ public class CmdParser extends AbstractParser {
 
 	public CmdParser(LinkedList<Token> tokenlist) {
 		super(tokenlist);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
