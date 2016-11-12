@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class RepeatingOptionalGlobalImportsParser extends AbstractParser {
 
-	public RepeatingOptionalGlobalImportsParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public RepeatingOptionalGlobalImportsParser() {
+		super();
 	}
 
 	@Override

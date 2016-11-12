@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class ExpressionListParser extends AbstractParser {
 
-	public ExpressionListParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public ExpressionListParser() {
+		super();
 	}
 
 	@Override

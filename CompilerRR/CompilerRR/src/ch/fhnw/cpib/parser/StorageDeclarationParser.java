@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class StorageDeclarationParser extends AbstractParser {
 
-	public StorageDeclarationParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public StorageDeclarationParser() {
+		super();
 	}
 
 	@Override

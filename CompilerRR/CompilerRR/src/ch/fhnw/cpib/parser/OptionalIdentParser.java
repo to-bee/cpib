@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class OptionalIdentParser extends AbstractParser {
 
-	public OptionalIdentParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public OptionalIdentParser() {
+		super();
 	}
 
 	@Override

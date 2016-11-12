@@ -8,24 +8,24 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class GlobalImportParser extends AbstractParser {
 
-	public GlobalImportParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public GlobalImportParser() {
+		super();
 	}
 
 	@Override
 	public void parse() throws GrammarError {
 		if (terminal == Terminals.IDENT) {
-			new OptionalFlowmodeParser().parse();
+			new OptionalFlowModeParser().parse();
 			new OptionalChangemodeParser().parse();
 			consume(Terminals.IDENT);
 		} 
 		else if (terminal == Terminals.CHANGEMODE) {
-			new OptionalFlowmodeParser().parse();
+			new OptionalFlowModeParser().parse();
 			new OptionalChangemodeParser().parse();
 			consume(Terminals.IDENT);
 		} 
 		else if (terminal == Terminals.FLOWMODE) {
-			new OptionalFlowmodeParser().parse();
+			new OptionalFlowModeParser().parse();
 			new OptionalChangemodeParser().parse();
 			consume(Terminals.IDENT);
 		} 

@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class OptionalGlobalInitsParser extends AbstractParser {
 
-	public OptionalGlobalInitsParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public OptionalGlobalInitsParser() {
+		super();
 	}
 	
 	public void parse() throws GrammarError {

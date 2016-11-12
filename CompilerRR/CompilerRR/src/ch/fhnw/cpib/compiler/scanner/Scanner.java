@@ -49,7 +49,7 @@ public class Scanner {
 		        			handleInitState(currentChar);
 		        			break;
 						case ERROR:
-							handleErrorState();
+							handleErrorState(currentChar);
 							break;
 						case IDENT:
 							handleIdentState(currentChar);
@@ -171,8 +171,8 @@ public class Scanner {
 		}
 	}
 	
-	private void handleErrorState() throws LexicalError{
-		throw new LexicalError("Unknown character!", lineNumber);
+	private void handleErrorState(char currentChar) throws LexicalError{
+		throw new LexicalError("Unknown character: " + currentChar, lineNumber);
 	}
 	
 	

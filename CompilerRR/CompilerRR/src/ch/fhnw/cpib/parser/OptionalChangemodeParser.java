@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class OptionalChangemodeParser extends AbstractParser {
 
-	public OptionalChangemodeParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public OptionalChangemodeParser() {
+		super();
 	}
 
 	@Override

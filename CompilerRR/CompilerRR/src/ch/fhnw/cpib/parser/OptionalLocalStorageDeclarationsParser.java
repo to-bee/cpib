@@ -6,10 +6,10 @@ import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
-public class OptionalLocalStorageDeclarations extends AbstractParser {
+public class OptionalLocalStorageDeclarationsParser extends AbstractParser {
 
-	public OptionalLocalStorageDeclarations(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public OptionalLocalStorageDeclarationsParser() {
+		super();
 	}
 	
 	public void parse() throws GrammarError {
@@ -19,7 +19,7 @@ public class OptionalLocalStorageDeclarations extends AbstractParser {
 		else if(terminal == Terminals.LOCAL){
 			consume(Terminals.LOCAL);
 			new StorageDeclarationParser().parse();
-			new RepeatingOptionalSotrageDeclarationsParser().parse();
+			new RepeatingOptionalStorageDeclarationsParser().parse();
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);

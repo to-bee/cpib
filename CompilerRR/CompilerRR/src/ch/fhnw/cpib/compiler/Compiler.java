@@ -12,17 +12,18 @@ import ch.fhnw.cpib.parser.ProgramParser;
 
 public class Compiler {
 	
-	
 
 	public static void main(String[] args) {
 		try {
-			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/code.iml"));
+			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/Factorial.iml"));
 			Compiler compiler = new Compiler();
 			//compiler.compile(new BufferedReader(isr));
 			Scanner s = new Scanner();
 			LinkedList<Token> list = s.scan(new BufferedReader(isr));
+			System.out.println(list.toString());
 			
 			ProgramParser p = new ProgramParser(list);
+			p.parse();
 			
 			
 			System.out.println(list.toString());

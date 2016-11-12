@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class MonadicOperatorParser extends AbstractParser {
 
-	public MonadicOperatorParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public MonadicOperatorParser() {
+		super();
 	}
 	
 	public void parse() throws GrammarError {

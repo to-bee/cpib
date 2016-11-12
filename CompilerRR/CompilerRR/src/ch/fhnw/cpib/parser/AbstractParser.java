@@ -10,10 +10,10 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public abstract class AbstractParser implements IParser{
 	
-	private LinkedList<Token> tokenlist;
-	private Set<String> nonTerminals = new HashSet<String>();
-	protected Token token;
-	protected Terminals terminal;
+	private static LinkedList<Token> tokenlist;
+	private static Set<String> nonTerminals = new HashSet<String>();
+	protected static Token token;
+	protected static Terminals terminal;
 	
 	public AbstractParser(LinkedList<Token> tokenlist) {
 		this.tokenlist = tokenlist;
@@ -22,6 +22,8 @@ public abstract class AbstractParser implements IParser{
 		terminal = token.getTerminal();
 		
 	}
+	
+	public AbstractParser(){};
 	
 	public Token consume(Terminals expectedTerminal) throws GrammarError {
 		

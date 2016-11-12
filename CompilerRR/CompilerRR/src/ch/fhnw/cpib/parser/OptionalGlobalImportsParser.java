@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class OptionalGlobalImportsParser extends AbstractParser {
 
-	public OptionalGlobalImportsParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public OptionalGlobalImportsParser() {
+		super();
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public class OptionalGlobalImportsParser extends AbstractParser {
 		}
 		else if (terminal == Terminals.GLOBAL) {
 			consume(Terminals.GLOBAL);
-			new GlobalImportsParser().parse();
+			new GlobalImportParser().parse();
 			new RepeatingOptionalGlobalImportsParser().parse();
 		} 
 		else {

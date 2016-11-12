@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class OptionalParametersParser extends AbstractParser {
 
-	public OptionalParametersParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public OptionalParametersParser() {
+		super();
 	}
 
 	@Override

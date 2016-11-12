@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class OptionalFlowModeParser extends AbstractParser {
 
-	public OptionalFlowModeParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public OptionalFlowModeParser() {
+		super();
 	}
 
 	@Override

@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class BlockCmdParser extends AbstractParser {
 
-	public BlockCmdParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public BlockCmdParser() {
+		super();
 	}
 
 	@Override
@@ -18,40 +18,40 @@ public class BlockCmdParser extends AbstractParser {
 			new CmdParser().parse();
 			new RepeatingOptionalCmdsParser().parse();
 		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser().parses();
+			new CmdParser().parse();
 			new RepeatingOptionalCmdsParser().parse();
-		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser().parses();
+		} else if (terminal == Terminals.DEBUGIN) {
+			new CmdParser().parse();
 			new RepeatingOptionalCmdsParser().parse();
-		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser().parses();
+		} else if (terminal == Terminals.CALL) {
+			new CmdParser().parse();
 			new RepeatingOptionalCmdsParser().parse();
-		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser().parses();
+		} else if (terminal == Terminals.WHILE) {
+			new CmdParser().parse();
 			new RepeatingOptionalCmdsParser().parse();
-		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser().parses();
+		} else if (terminal == Terminals.IF) {
+			new CmdParser().parse();
 			new RepeatingOptionalCmdsParser().parse();
-		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser().parses();
+		} else if (terminal == Terminals.LPAREN) {
+			new CmdParser().parse();
 			new RepeatingOptionalCmdsParser().parse();
-		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser().parses();
+		} else if (terminal == Terminals.ADDOPR) {
+			new CmdParser().parse();
 			new RepeatingOptionalCmdsParser().parse();
-		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser().parses();
+		} else if (terminal == Terminals.NOTOPER) {
+			new CmdParser().parse();
 			new RepeatingOptionalCmdsParser().parse();
-		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser().parses();
+		} else if (terminal == Terminals.IDENT) {
+			new CmdParser().parse();
 			new RepeatingOptionalCmdsParser().parse();
-		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser().parses();
+		} else if (terminal == Terminals.LITERAL) {
+			new CmdParser().parse();
 			new RepeatingOptionalCmdsParser().parse();
-		} else if (terminal == Terminals.DEBUGOUT) {
-			new CmdParser().parses();
+		} else if (terminal == Terminals.SKIP) {
+			new CmdParser().parse();
 			new RepeatingOptionalCmdsParser().parse();
 		} else {
-			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
+			throw new GrammarError("GrammarError at: "+ this.getClass().toString() + " terminal found: " + terminal, 0);
 		}
 		
 	}

@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class ProgramParameterListParser extends AbstractParser {
 
-	public ProgramParameterListParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public ProgramParameterListParser() {
+		super();
 	}
 
 	@Override

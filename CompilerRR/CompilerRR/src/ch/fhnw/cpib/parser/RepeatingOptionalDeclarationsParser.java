@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class RepeatingOptionalDeclarationsParser extends AbstractParser {
 
-	public RepeatingOptionalDeclarationsParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public RepeatingOptionalDeclarationsParser() {
+		super();
 	}
 	
 	public void parse() throws GrammarError {

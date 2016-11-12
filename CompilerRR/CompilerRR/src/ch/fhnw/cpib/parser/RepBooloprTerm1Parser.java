@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class RepBooloprTerm1Parser extends AbstractParser {
 
-	public RepBooloprTerm1Parser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public RepBooloprTerm1Parser() {
+		super();
 	}
 	
 	public void parse() throws GrammarError {

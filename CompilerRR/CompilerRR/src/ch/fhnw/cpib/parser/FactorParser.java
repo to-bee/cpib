@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class FactorParser extends AbstractParser {
 
-	public FactorParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public FactorParser() {
+		super();
 	}
 	
 	public void parse() throws GrammarError {
@@ -21,11 +21,11 @@ public class FactorParser extends AbstractParser {
 			new OptionalIdentParser().parse();
 		}
 		else if(terminal == Terminals.ADDOPR){
-			new MonadicOperatorsParser().parse();
+			new MonadicOperatorParser().parse();
 			new FactorParser().parse();
 		}
 		else if(terminal == Terminals.NOTOPER){
-			new MonadicOperatorsParser().parse();
+			new MonadicOperatorParser().parse();
 			new FactorParser().parse();
 		}
 		else if(terminal == Terminals.LPAREN){

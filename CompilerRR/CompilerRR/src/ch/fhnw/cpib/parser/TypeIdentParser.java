@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class TypeIdentParser extends AbstractParser {
 
-	public TypeIdentParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public TypeIdentParser() {
+		super();
 	}
 
 	@Override

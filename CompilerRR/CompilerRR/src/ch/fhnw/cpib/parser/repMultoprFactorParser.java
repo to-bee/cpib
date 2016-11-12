@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class repMultoprFactorParser extends AbstractParser {
 
-	public repMultoprFactorParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public repMultoprFactorParser() {
+		super();
 	}
 	
 	public void parse() throws GrammarError {
@@ -70,7 +70,7 @@ public class repMultoprFactorParser extends AbstractParser {
 		else if(terminal == Terminals.MULTOPR){
 			consume(Terminals.MULTOPR);
 			new FactorParser().parse();
-			new RepMultoprFactorParser().parse();
+			new repMultoprFactorParser().parse();
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);

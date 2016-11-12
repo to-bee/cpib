@@ -8,8 +8,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class RepeatingOptionalExpressionsParser extends AbstractParser {
 
-	public RepeatingOptionalExpressionsParser(LinkedList<Token> tokenlist) {
-		super(tokenlist);
+	public RepeatingOptionalExpressionsParser() {
+		super();
 	}
 
 	@Override
@@ -18,7 +18,7 @@ public class RepeatingOptionalExpressionsParser extends AbstractParser {
 			//TODO: leer?
 		}
 		else if (terminal == Terminals.COMMA) {
-			consume(Terminals.COMMA),
+			consume(Terminals.COMMA);
 			new ExpressionParser().parse();
 			new RepeatingOptionalExpressionsParser().parse();
 		} 
