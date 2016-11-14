@@ -1,24 +1,24 @@
 program RSAExampleGallier(in isDebugout:bool)
 global
-  proc euclidExt(in copy a:int64, in copy b:int64, out copy var g:int64, out copy var u:int64, out copy var v:int64, out copy var u':int64, out copy var v':int64)
+  proc euclidExt(in copy a:int64, in copy b:int64, out copy var g:int64, out copy var u:int64, out copy var v:int64, out copy var uStr:int64, out copy var vStr:int64)
   global in
   local
-    var g':int64;
+    var gStr:int64;
     var q:int64
   do
-    g init := a; g' init := b;
-    u init := 1; u' init := 0;
-    v init := 0; v' init := 1;
+    g init := a; gStr init := b;
+    u init := 1; uStr init := 0;
+    v init := 0; vStr init := 1;
     q init := -1;
-    while g' > 0
+    while gStr > 0
     do
-      q := g divE g';
-      g := g - q * g'; call optDebugout(g);
-      u := u - q * u'; call optDebugout(u);
-      v := v - q * v'; call optDebugout(v);
-      call swap(g, g');
-      call swap(u, u');
-      call swap(v, v')
+      q := g divE gStr;
+      g := g - q * gStr; call optDebugout(g);
+      u := u - q * uStr; call optDebugout(u);
+      v := v - q * vStr; call optDebugout(v);
+      call swap(g, gStr);
+      call swap(u, uStr);
+      call swap(v, vStr)
     endwhile
   endproc;
 
@@ -33,10 +33,10 @@ global
   local
     const g:int64;
     const u:int64;
-    const u':int64;
-    const v':int64
+    const uStr:int64;
+    const vStr:int64
   do
-    call euclidExt(m, a, g init, u init, aInv init, u' init, v' init);
+    call euclidExt(m, a, g init, u init, aInv init, uStr init, vStr init);
     exists init := g = 1;
     aInv := aInv modE m
   endproc;
@@ -74,33 +74,33 @@ global
   const dA:int64;
   var y:int64;
   var x:int64;
-  var y':int64
+  var ygStr:int64
 do
-  pA init := 12'553'000'000;
-  qA init := 13'007;
+  pA init := 12553000;
+  qA init := 13007;
   mA init := pA * qA;
   phiA init := (pA - 1) * (qA - 1);
-  eA init := 79'921;
+  eA init := 79921;
   call modInverse(eA, phiA, exists init, dA init);
   debugout exists; debugout dA;
 
-  y init := 145'387'828;
+  y init := 145387828;
   x init := powerDijkstra(y, toInt32(dA), mA); debugout x;
-  y' init := powerDijkstra(x, toInt32(eA), mA); debugout y' = y;
+  yStr init := powerDijkstra(x, toInt32(eA), mA); debugout yStr = y;
 
-  y := 47'164'891;
+  y := 47164891;
   x := powerDijkstra(y, toInt32(dA), mA); debugout x;
-  y' := powerDijkstra(x, toInt32(eA), mA); debugout y' = y;
+  yStr := powerDijkstra(x, toInt32(eA), mA); debugout yStr = y;
 
-  y := 152'020'614;
+  y := 152020614;
   x := powerDijkstra(y, toInt32(dA), mA); debugout x;
-  y' := powerDijkstra(x, toInt32(eA), mA); debugout y' = y;
+  yStr := powerDijkstra(x, toInt32(eA), mA); debugout yStr = y;
 
-  y := 27'279'275;
+  y := 27279275;
   x := powerDijkstra(y, toInt32(dA), mA); debugout x;
-  y' := powerDijkstra(x, toInt32(eA), mA); debugout y' = y;
+  yStr := powerDijkstra(x, toInt32(eA), mA); debugout yStr = y;
 
-  y := 35'356'191;
+  y := 35356191;
   x := powerDijkstra(y, toInt32(dA), mA); debugout x;
-  y' := powerDijkstra(x, toInt32(eA), mA); debugout y' = y
+  yStr := powerDijkstra(x, toInt32(eA), mA); debugout yStr = y
 endprogram

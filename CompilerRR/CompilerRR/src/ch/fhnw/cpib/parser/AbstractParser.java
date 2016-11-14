@@ -10,7 +10,7 @@ import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public abstract class AbstractParser implements IParser{
 	
-	private static LinkedList<Token> tokenlist;
+	protected static LinkedList<Token> tokenlist;
 	private static Set<String> nonTerminals = new HashSet<String>();
 	protected static Token token;
 	protected static Terminals terminal;

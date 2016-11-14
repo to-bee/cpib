@@ -21,6 +21,8 @@ public class OptionalChangemodeParser extends AbstractParser {
 			consume(Terminals.CHANGEMODE);
 		}
 		else {
+			System.out.println(tokenlist.toString());
+			System.out.println(token);
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
 		

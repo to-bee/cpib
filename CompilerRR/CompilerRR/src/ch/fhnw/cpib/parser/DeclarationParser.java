@@ -27,6 +27,7 @@ public class DeclarationParser extends AbstractParser {
 			new ProcedureDeclarationParser().parse();
 		} 
 		else {
+			System.out.println(tokenlist.toString());
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString() + " terminal found: " + terminal, 0);
 		}
 		

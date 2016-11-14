@@ -18,7 +18,8 @@ public class IdentsParser extends AbstractParser {
 			new RepeatingOptionalIdentsParser().parse();
 		}
 		else {
-			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
+			System.out.println(tokenlist.toString());
+			throw new GrammarError("GrammarError at: "+ this.getClass().toString() + " terminal found: " + terminal, 0);
 		}
 	}
 	

@@ -19,7 +19,7 @@ public class RepeatingOptionalParametersParser extends AbstractParser {
 		else if(terminal == Terminals.COMMA){
 			consume(Terminals.COMMA);
 			new ParameterParser().parse();
-			new RepeatingOptionalParametersParser();
+			new RepeatingOptionalParametersParser().parse();
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
