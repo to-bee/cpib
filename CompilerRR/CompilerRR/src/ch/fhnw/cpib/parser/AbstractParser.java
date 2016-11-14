@@ -38,6 +38,7 @@ public abstract class AbstractParser implements IParser{
 			return consumedToken;
 		}
 		else {
+			System.out.println(tokenlist.toString());
 			throw new GrammarError("terminal expected: " + expectedTerminal + ", terminal found: " + terminal, 0);
 		}
 		

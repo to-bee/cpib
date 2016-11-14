@@ -14,10 +14,7 @@ public class ExpressionParser extends AbstractParser {
 
 	@Override
 	public void parse() throws GrammarError {
-		if (terminal == Terminals.RPAREN) {
-			//TODO: leer?
-		}
-		else if (terminal == Terminals.LPAREN) {
+		if (terminal == Terminals.LPAREN) {
 			new Term1Parser().parse();
 			new RepBooloprTerm1Parser().parse();
 		} 

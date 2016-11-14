@@ -27,7 +27,7 @@ public class DeclarationParser extends AbstractParser {
 			new ProcedureDeclarationParser().parse();
 		} 
 		else {
-			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
+			throw new GrammarError("GrammarError at: "+ this.getClass().toString() + " terminal found: " + terminal, 0);
 		}
 		
 	}

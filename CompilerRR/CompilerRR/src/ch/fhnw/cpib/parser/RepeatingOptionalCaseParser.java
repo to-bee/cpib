@@ -15,6 +15,7 @@ public class RepeatingOptionalCaseParser extends AbstractParser {
 	public void parse() throws GrammarError {
 		if (terminal == Terminals.CASEDEFAULT) {
 			//TODO: stimmt es, dass dies einfach leer ist?
+			
 		} 
 		else if(terminal == Terminals.CASE){
 			consume(Terminals.CASE);

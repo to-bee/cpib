@@ -1,7 +1,6 @@
 program RSAExampleGallier(in isDebugout:bool)
 global
-  proc euclidExt
-    (in copy a:int64, in copy b:int64, out copy var g :int64, out copy var u :int64, out copy var v :int64, out copy var u':int64, out copy var v':int64)
+  proc euclidExt(in copy a:int64, in copy b:int64, out copy var g:int64, out copy var u:int64, out copy var v:int64, out copy var u':int64, out copy var v':int64)
   global in
   local
     var g':int64;
