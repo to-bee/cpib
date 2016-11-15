@@ -20,7 +20,6 @@ public class ImlScanner {
 
 	@Test
 	public void test() throws IOException, LexicalError {
-		
 		// create a path for file named temp.txt from current folder
 		Path filePath = Paths.get("src/iml/Factorial.iml");
 		// read a complete file in one go as byte array

@@ -91,8 +91,8 @@ public class Dictionary {
 			
 		operators.put("&&", new Operator(Terminals.BOOLOPR, Operators.AND));
 		operators.put("||", new Operator(Terminals.BOOLOPR, Operators.OR));
-		operators.put("!&", new Operator(Terminals.BOOLOPR, Operators.CAND));
-		operators.put("!|", new Operator(Terminals.BOOLOPR, Operators.COR));
+		operators.put("&?", new Operator(Terminals.BOOLOPR, Operators.CAND));
+		operators.put("|?", new Operator(Terminals.BOOLOPR, Operators.COR));
 		
 		// ADDOPR
 		operators.put("+", new Operator(Terminals.ADDOPR, Operators.PLUS));
