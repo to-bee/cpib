@@ -1,12 +1,12 @@
-package scanner.token;
+package token;
 
+import terminal.Terminals;
 import types.Operators;
-import types.Terminals;
 
-public class OperatorToken extends BaseToken{
+public class Operator extends BaseToken{
 	private final Operators value;
 
-	public OperatorToken(Terminals terminal, Operators value) {
+	public Operator(Terminals terminal, Operators value) {
 		super(terminal);
 		this.value = value;
 	}

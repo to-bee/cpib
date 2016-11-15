@@ -1,11 +1,11 @@
-package scanner.token;
+package token;
 
+import terminal.Terminals;
 import types.Type;
-import types.Terminals;
 
-public class DataTypeToken extends BaseToken {
+public class DataType extends BaseToken {
 	Type type;
-	public DataTypeToken(Terminals terminal, Type type) {
+	public DataType(Terminals terminal, Type type) {
 		super(terminal);
 		this.type = type;	
 	}

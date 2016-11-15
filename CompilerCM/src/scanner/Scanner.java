@@ -5,17 +5,17 @@ import java.util.Map;
 import java.util.Set;
 
 import error.LexicalError;
-import scanner.token.BaseToken;
-import scanner.token.IToken;
-import scanner.token.ITokenList;
-import scanner.token.IdentToken;
-import scanner.token.LiteralToken;
-import scanner.token.OperatorToken;
-import scanner.token.TokenList;
-import scanner.token.DataTypeToken;
+import framework.IToken;
+import framework.ITokenList;
+import terminal.Terminals;
+import token.BaseToken;
+import token.DataType;
+import token.Ident;
+import token.Literal;
+import token.Operator;
+import token.TokenList;
 import types.Type;
 import types.Operators;
-import types.Terminals;
 
 public class Scanner {
 	private State state = State.STARTSTATE;
@@ -94,7 +94,7 @@ public class Scanner {
 		} else {
 			// Evaluate terminal
 			if (!dictionary.matchKeyword(terminal))
-				tokenList.add(new IdentToken(terminal));
+				tokenList.add(new Ident(terminal));
 			else
 				tokenList.add(dictionary.getKeyword(terminal));
 			indexCount--;
@@ -111,7 +111,7 @@ public class Scanner {
 				throw new LexicalError("Integer literal too large!");
 			}
 		} else {
-			tokenList.add(new LiteralToken(numAccu));
+			tokenList.add(new Literal(numAccu));
 			indexCount--;
 			state = State.STARTSTATE;
 		}

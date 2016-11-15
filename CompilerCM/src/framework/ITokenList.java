@@ -1,4 +1,4 @@
-package scanner.token;
+package framework;
 
 /**
  * Source: Slides02_ScanningV1, p. 9

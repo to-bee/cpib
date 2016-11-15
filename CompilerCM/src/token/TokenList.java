@@ -1,8 +1,11 @@
-package scanner.token;
+package token;
 
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+
+import framework.IToken;
+import framework.ITokenList;
 
 public class TokenList implements ITokenList {
 	private List<IToken> tokens;
@@ -38,6 +41,7 @@ public class TokenList implements ITokenList {
 			System.out.println(t.toString());
 			output += t.toString()+", ";
 		}
+		output = output.substring(0, output.length()-2);
 		return output+"]";
 	}
 

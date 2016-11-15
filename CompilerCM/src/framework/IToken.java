@@ -1,6 +1,6 @@
-package scanner.token;
+package framework;
 
-import types.Terminals;
+import terminal.Terminals;
 
 public interface IToken {
 	public Terminals getTerminal();

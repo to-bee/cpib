@@ -1,16 +1,16 @@
-package scanner.token;
+package token;
 
-import types.Terminals;
+import terminal.Terminals;
 
 /**
  * Source: Slides02_ScanningV1, p. 7
  * @author Simon
  *
  */
-public class LiteralToken extends BaseToken {
+public class Literal extends BaseToken {
 	private final int value;
 
-	public LiteralToken(int value) {
+	public Literal(int value) {
 		super(Terminals.LITERAL);
 		this.value = value;
 	}

@@ -1,6 +1,6 @@
-package scanner.token;
+package token;
 
-import types.Terminals;
+import terminal.Terminals;
 
 public class Sentinel extends BaseToken{
 	private final String value;

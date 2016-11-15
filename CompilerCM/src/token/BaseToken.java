@@ -1,6 +1,7 @@
-package scanner.token;
+package token;
 
-import types.Terminals;
+import framework.IToken;
+import terminal.Terminals;
 
 public class BaseToken implements IToken {
 	private final Terminals terminal;

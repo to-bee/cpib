@@ -1,11 +1,11 @@
-package scanner.token;
+package token;
 
-import types.Terminals;
+import terminal.Terminals;
 
-public class IdentToken extends BaseToken{
+public class Ident extends BaseToken{
 	private final String value;
 
-	public IdentToken(String value) {
+	public Ident(String value) {
 		super(Terminals.IDENT);
 		this.value = value;
 	}

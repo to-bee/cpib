@@ -13,16 +13,16 @@ import java.util.Arrays;
 import org.junit.Test;
 
 import error.LexicalError;
+import framework.ITokenList;
 import scanner.Scanner;
-import scanner.token.ITokenList;
 
-public class Example01 {
+public class ImlScanner {
 
 	@Test
 	public void test() throws IOException, LexicalError {
 		
 		// create a path for file named temp.txt from current folder
-		Path filePath = Paths.get("src/iml/Example01.iml");
+		Path filePath = Paths.get("src/iml/Factorial.iml");
 		// read a complete file in one go as byte array
 		// use this to read small files
 		byte[] byteArray = Files.readAllBytes(filePath);
@@ -36,8 +36,6 @@ public class Example01 {
 		*/
 		Scanner scanner = new Scanner();
 		String text = new String(byteArray);
-		// otherwise the scanner won't set the last word, needs to be fixed TODO
-		text+="\n"; 
 		
 		ITokenList list = scanner.scan(text);
 		System.out.println(list.toString());
