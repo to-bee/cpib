@@ -63,7 +63,7 @@ public class CmdParser extends AbstractParser {
 			new ExpressionParser().parse();
 		} else if (terminal == Terminals.SWITCH) {
 			consume(Terminals.SWITCH);
-			consume(Terminals.IDENT);
+			new ExpressionParser().parse();
 			consume(Terminals.CASE);
 			consume(Terminals.LITERAL);
 			consume(Terminals.COLON);
