@@ -34,6 +34,8 @@ public abstract class AbstractParser implements IParser{
 				token = tokenlist.removeFirst();
 				
 				terminal = token.getTerminal();
+				
+				
 			}
 			return consumedToken;
 		}

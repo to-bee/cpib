@@ -1,9 +1,12 @@
 package ch.fhnw.cpib.parser;
 
+import java.util.List;
+
+import ch.fhnw.cpib.compiler.cst.CSTNode;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 
 public interface IParser {
 
-	void parse() throws GrammarError;
+	List<CSTNode> parse() throws GrammarError;
 	
 }
