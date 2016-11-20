@@ -32,7 +32,7 @@ public class Compiler {
 			ProgramParser p = new ProgramParser(list);
 			Pair<String, List<CSTNode>> cst = new Pair<>("Program", p.parse());
 			
-			
+			System.out.println(cst.getSecond().toString());
 			System.out.println(list.toString());
 			
 		} catch (Exception e) {

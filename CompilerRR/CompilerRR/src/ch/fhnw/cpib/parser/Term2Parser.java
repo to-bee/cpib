@@ -1,7 +1,9 @@
 package ch.fhnw.cpib.parser;
 
 import java.util.LinkedList;
+import java.util.List;
 
+import ch.fhnw.cpib.compiler.cst.CSTNode;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
@@ -12,30 +14,32 @@ public class Term2Parser extends AbstractParser {
 		super();
 	}
 	
-	public void parse() throws GrammarError {
+	public List<CSTNode> parse() throws GrammarError {
+		List<CSTNode> list = new LinkedList<CSTNode>();
 		if (terminal == Terminals.LPAREN) {
-			new Term3Parser().parse();
-			new RepAddoprTerm3Parser().parse();
+			list.add(new CSTNode("Term3", new Term3Parser().parse()));
+			list.add(new CSTNode("RepAddoprTerm3", new RepAddoprTerm3Parser().parse()));
 		} 
 		else if(terminal == Terminals.ADDOPR){
-			new Term3Parser().parse();
-			new RepAddoprTerm3Parser().parse();
+			list.add(new CSTNode("Term3", new Term3Parser().parse()));
+			list.add(new CSTNode("RepAddoprTerm3", new RepAddoprTerm3Parser().parse()));
 		}
 		else if(terminal == Terminals.NOTOPER){
-			new Term3Parser().parse();
-			new RepAddoprTerm3Parser().parse();
+			list.add(new CSTNode("Term3", new Term3Parser().parse()));
+			list.add(new CSTNode("RepAddoprTerm3", new RepAddoprTerm3Parser().parse()));
 		}
 		else if(terminal == Terminals.IDENT){
-			new Term3Parser().parse();
-			new RepAddoprTerm3Parser().parse();
+			list.add(new CSTNode("Term3", new Term3Parser().parse()));
+			list.add(new CSTNode("RepAddoprTerm3", new RepAddoprTerm3Parser().parse()));
 		}
 		else if(terminal == Terminals.LITERAL){
-			new Term3Parser().parse();
-			new RepAddoprTerm3Parser().parse();
+			list.add(new CSTNode("Term3", new Term3Parser().parse()));
+			list.add(new CSTNode("RepAddoprTerm3", new RepAddoprTerm3Parser().parse()));
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
+		return list;
 	}
 	
 }

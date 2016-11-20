@@ -23,10 +23,10 @@ public class ProgramParser extends AbstractParser{
 			
 			list.add(new CSTNode(consume(Terminals.PROGRAM)));
 			list.add(new CSTNode(consume(Terminals.IDENT)));
-			list.add(new CSTNode("ProgramParameterList", new ProgramParameterListParser().parse());
-			list.add(new CSTNode(new OptionalGlobalDeclarationsParser().parse());
+			list.add(new CSTNode("ProgramParameterList", new ProgramParameterListParser().parse()));
+			list.add(new CSTNode("OptionalGlobalDeclarations", new OptionalGlobalDeclarationsParser().parse()));
 			list.add(new CSTNode(consume(Terminals.DO)));
-			list.add(new CSTNode(new BlockCmdParser().parse());
+			list.add(new CSTNode("BlockCmd", new BlockCmdParser().parse()));
 			list.add(new CSTNode(consume(Terminals.ENDPROGRAM)));
 			
 			return list;

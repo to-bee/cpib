@@ -1,7 +1,9 @@
 package ch.fhnw.cpib.parser;
 
 import java.util.LinkedList;
+import java.util.List;
 
+import ch.fhnw.cpib.compiler.cst.CSTNode;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
@@ -13,72 +15,73 @@ public class CmdParser extends AbstractParser {
 	}
 
 	@Override
-	public void parse() throws GrammarError {
+	public List<CSTNode> parse() throws GrammarError {
+		List<CSTNode> list = new LinkedList<CSTNode>();
 		if (terminal == Terminals.SKIP) {
-			consume(Terminals.SKIP);
+			list.add(new CSTNode(consume(Terminals.SKIP)));
 		} else if (terminal == Terminals.LPAREN) {
-			new ExpressionParser().parse();
-			consume(Terminals.BECOMES);
-			new ExpressionParser().parse();
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
+			list.add(new CSTNode(consume(Terminals.BECOMES)));
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
 		} else if (terminal == Terminals.ADDOPR) {
-			new ExpressionParser().parse();
-			consume(Terminals.BECOMES);
-			new ExpressionParser().parse();
-		} else if (terminal == Terminals.NOTOPER) { // FIXME: Acturally NOT in fixfox
-			new ExpressionParser().parse();
-			consume(Terminals.BECOMES);
-			new ExpressionParser().parse();
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
+			list.add(new CSTNode(consume(Terminals.BECOMES)));
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
+		} else if (terminal == Terminals.NOTOPER) {
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
+			list.add(new CSTNode(consume(Terminals.BECOMES)));
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
 		} else if (terminal == Terminals.IDENT) {
-			new ExpressionParser().parse();
-			consume(Terminals.BECOMES);
-			new ExpressionParser().parse();
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
+			list.add(new CSTNode(consume(Terminals.BECOMES)));
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
 		} else if (terminal == Terminals.LITERAL) {
-			new ExpressionParser().parse();
-			consume(Terminals.BECOMES);
-			new ExpressionParser().parse();
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
+			list.add(new CSTNode(consume(Terminals.BECOMES)));
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
 		} else if (terminal == Terminals.IF) {
-			consume(Terminals.IF);
-			new ExpressionParser().parse();
-			consume(Terminals.THEN);
-			new BlockCmdParser().parse();
-			consume(Terminals.ELSE);
-			new BlockCmdParser().parse();
-			consume(Terminals.ENDIF);
+			list.add(new CSTNode(consume(Terminals.IF)));
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
+			list.add(new CSTNode(consume(Terminals.THEN)));
+			list.add(new CSTNode("BlockCmd", new BlockCmdParser().parse()));
+			list.add(new CSTNode(consume(Terminals.ELSE)));
+			list.add(new CSTNode("BlockCmd", new BlockCmdParser().parse()));
+			list.add(new CSTNode(consume(Terminals.ENDIF)));
 		} else if (terminal == Terminals.WHILE) {
-			consume(Terminals.WHILE);
-			new ExpressionParser().parse();
-			consume(Terminals.DO);
-			new BlockCmdParser().parse();
-			consume(Terminals.ENDWHILE);
+			list.add(new CSTNode(consume(Terminals.WHILE)));
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
+			list.add(new CSTNode(consume(Terminals.DO)));
+			list.add(new CSTNode("BlockCmd", new BlockCmdParser().parse()));
+			list.add(new CSTNode(consume(Terminals.ENDWHILE)));
 		} else if (terminal == Terminals.CALL) {
-			consume(Terminals.CALL);
-			consume(Terminals.IDENT);
-			new ExpressionListParser().parse();
-			new OptionalGlobalInitsParser().parse();
+			list.add(new CSTNode(consume(Terminals.CALL)));
+			list.add(new CSTNode(consume(Terminals.IDENT)));
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
+			list.add(new CSTNode("OptionalGlobalInits", new OptionalGlobalInitsParser().parse()));
 		} else if (terminal == Terminals.DEBUGIN) {
-			consume(Terminals.DEBUGIN);
-			new ExpressionParser().parse();
+			list.add(new CSTNode(consume(Terminals.DEBUGIN)));
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
 		} else if (terminal == Terminals.DEBUGOUT) {
-			consume(Terminals.DEBUGOUT);
-			new ExpressionParser().parse();
+			list.add(new CSTNode(consume(Terminals.DEBUGOUT)));
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
 		} else if (terminal == Terminals.SWITCH) {
-			consume(Terminals.SWITCH);
-			new ExpressionParser().parse();
-			consume(Terminals.CASE);
-			consume(Terminals.LITERAL);
-			consume(Terminals.COLON);
-			new BlockCmdParser().parse();
-			new RepeatingOptionalCaseParser().parse();
-			consume(Terminals.CASEDEFAULT);
-			consume(Terminals.COLON);
-			new BlockCmdParser().parse();
-			consume(Terminals.ENDSWITCH);
+			list.add(new CSTNode(consume(Terminals.SWITCH)));
+			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
+			list.add(new CSTNode(consume(Terminals.CASE)));
+			list.add(new CSTNode(consume(Terminals.LITERAL)));
+			list.add(new CSTNode(consume(Terminals.COLON)));
+			list.add(new CSTNode("BlockCmd", new BlockCmdParser().parse()));
+			list.add(new CSTNode("RepeatingOptionalCase", new RepeatingOptionalCaseParser().parse()));
+			list.add(new CSTNode(consume(Terminals.CASEDEFAULT)));
+			list.add(new CSTNode(consume(Terminals.COLON)));
+			list.add(new CSTNode("BlockCmd", new BlockCmdParser().parse()));
+			list.add(new CSTNode(consume(Terminals.ENDSWITCH)));
 			
 		} else {
 			System.out.println(tokenlist.toString());
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString() + " terminal found: " + terminal, 0);
 		}
-		
+		return list;
 	}
 
 }
