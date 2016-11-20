@@ -37,8 +37,9 @@ datatype term
   | SKIP
   | DEBUGIN
   | DEBUGOUT
-
-  //
+  | IMAGINARY_PART
+  | IMAG
+  | REAL
 
 val string_of_term =
   fn ADDOPR     => "ADDOPR"
@@ -79,6 +80,9 @@ val string_of_term =
    | SKIP       => "SKIP"
    | DEBUGIN    => "DEBUGIN"
    | DEBUGOUT   => "DEBUGOUT"
+   | IMAGINARY_PART   => "IMAGINARY_PART"
+   | IMAG       => "IMAG"
+   | REAL       => "REAL"
 
 datatype nonterm
   = expression
@@ -128,6 +132,9 @@ datatype nonterm
   | optionalParameters
   | parameter
   | repeatingOptionalParameters
+  | compl
+  | complImag
+  | complReal
 
 val string_of_nonterm =
   fn expression                               => "expression"
@@ -177,6 +184,9 @@ val string_of_nonterm =
    | optionalParameters                       => "optionalParameters"
    | parameter                                => "parameter"
    | repeatingOptionalParameters              => "repeatingOptionalParameters"
+   | compl                                    => "compl"
+   | complImag                                => "complImag"
+   | complReal                                => "complReal"
       
 
 val string_of_gramsym = (string_of_term, string_of_nonterm)
@@ -313,9 +323,17 @@ val productions =
 	 [N expressionList]]),
 (monadicOperator,
 	[[T NOT],
-	 [T ADDOPR]])
+	 [T ADDOPR]]),
+(compl,
+	[[ T LITERAL, T ADDOPR, T IMAGINARY_PART, T MULTOPR, T LITERAL],
+	[T IDENT, T ADDOPR, T IMAGINARY_PART, T MULTOPR, T LITERAL],
+	[T LITERAL, T ADDOPR, T IMAGINARY_PART, T MULTOPR, T IDENT],
+	[T IDENT, T ADDOPR, T IMAGINARY_PART, T MULTOPR, T IDENT] ]),
+(complImag,
+	[[T IMAG, T LPAREN, T IDENT, T RPAREN]),
+(complReal,
+    [[T REAL, T LPAREN, T IDENT, T RPAREN])
 ]
-
 val S = program
 
 val result = fix_foxi productions S string_of_gramsym

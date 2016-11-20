@@ -37,6 +37,11 @@ public class ScannerTest {
         Scanner scanner = new Scanner();
         ITokenList tokenList;
 
+//        text = "4+i*2";
+//        tokenList = scanner.scan(text);
+//        scanner.printResult(text, result, tokenList);
+
+
         // Remove spaces
         text = "a := (67 + 31) - 2";
         result = "[WHILE, (IDENT, \"x36\"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, \"x\"), BECOMES, (IDENT, \"x\"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, SENTINEL]";
@@ -47,6 +52,8 @@ public class ScannerTest {
 //        } catch (Exception e) {
 //            Assert.fail();
 //        }
+
+
 
         text = "while x36 <= 67 do\nx := x-1\nendwhile";
         result = "[WHILE, (IDENT, \"x36\"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, \"x\"), BECOMES, (IDENT, \"x\"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, SENTINEL]";
