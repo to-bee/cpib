@@ -1,6 +1,7 @@
 package types;
 
 public enum Operators {
+	TIMES,
 	DIV_E,
 	MOD_E,
 	DIV_F,
@@ -19,9 +20,5 @@ public enum Operators {
 	AND,
 	OR,
 	CAND,
-	COR,
-	TIMES,
-	DIV,
-	MOD,
-	NOT;
+	COR;
 }

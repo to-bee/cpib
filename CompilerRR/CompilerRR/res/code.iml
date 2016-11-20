@@ -1,8 +1,6 @@
-program intDiv(in const m:int32, in const n:int32,
-out const q:int32, out const r:int32)
+program intDiv(in const m:int32, in const n:int32, out const q:int32, out const r:int32)
 global
-proc divide(in copy const m:int32, in copy const n:int32,
-out ref var q:int32, out ref var r:int32)
+proc divide(in copy const m:int32, in copy const n:int32, out ref var q:int32, out ref var r:int32)
 do
 q init := 0;
 r init := m;
@@ -15,16 +13,9 @@ do
 call divide(m, n, q init, r init)
 endprogram
 
----- SWITCH CASE EXAMPLES ------
-
-switchInt32 x
-	case 1 : do something;
-	case 2 : do something;
-	case 5 : do something;
-	default : do something;
-endswitch
-
-switchBool b
-	case True : do something;
-	case False : do something;
+switch x
+	case 1 : n+1
+	case 2 : n+2
+	case 5 : n*n
+	casedefault : n
 endswitch

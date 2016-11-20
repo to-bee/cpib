@@ -1,0 +1,16 @@
+program SwitchCase(in n:int32, out f:int32)
+global
+fun switchIntFun(n:int32) returns var res:int32
+    do
+      res init := 0;
+      switch n
+        case 1 : res := n + n;
+	        res := n - n
+        case 2 : res := n * n
+        case 3 : res := n * n + n
+        casedefault : res := n
+      endswitch
+    endfun
+do
+    f init := switchInt(n)
+endprogram
