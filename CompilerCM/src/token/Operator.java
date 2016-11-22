@@ -1,7 +1,7 @@
 package token;
 
+import enums.Operators;
 import terminal.Terminals;
-import types.Operators;
 
 public class Operator extends BaseToken{
 	private final Operators value;

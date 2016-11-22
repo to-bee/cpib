@@ -18,18 +18,18 @@ import token.Literal;
 import token.Operator;
 import token.TokenList;
 
-public class Scanner {
+public class Scanner_old {
 	private State state = State.STARTSTATE;
 	private ITokenList tokenList = new TokenList();
 
 	private int indexCount = 0;
 
-	BigInteger numAccu;
+	int numAccu;
 	String terminal;
 	Dictionary dictionary;
 
-	public Scanner() {
-		numAccu = BigInteger.ZERO;
+	public Scanner_old() {
+		numAccu = 0;
 		terminal = "";
 		dictionary = new Dictionary();
 	}
@@ -69,7 +69,7 @@ public class Scanner {
 	private void handleStartState(char c) {
 		String tmp = Character.toString(c);
 		if (Character.isDigit(c)) {
-			numAccu = BigInteger.valueOf(Character.digit(c, 10));
+			numAccu =Character.digit(c, 10);
 			state = State.LITERALSTATE;
 		} else if (Character.isAlphabetic(c)) {
 			terminal = tmp;
@@ -107,17 +107,15 @@ public class Scanner {
 		if (Character.isDigit(c)) {
 			state = State.LITERALSTATE;
 			int digit = Character.digit(c, 10);
-			numAccu = numAccu.multiply(BigInteger.TEN).add(BigInteger.valueOf(digit));
-			//numAccu = numAccu * 10 + digit;
-			/*
+			numAccu = numAccu * 10 + digit;
 			if (numAccu > Integer.MAX_VALUE) {
 				throw new LexicalError("Integer literal too large!");
 			}
-			*/
 		} else {
-			tokenList.add(new Literal(numAccu));
-			indexCount--;
-			state = State.STARTSTATE;
+			//tokenList.add(new Literal(numAccu));
+			throw new IllegalStateException();
+			//indexCount--;
+			//state = State.STARTSTATE;
 		}
 	}
 	

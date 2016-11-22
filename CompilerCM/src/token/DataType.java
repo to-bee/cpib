@@ -1,22 +1,25 @@
 package token;
 
+import enums.Type;
 import terminal.Terminals;
-import types.Type;
 
 public class DataType extends BaseToken {
-	Type type;
-	public DataType(Terminals terminal, Type type) {
+	private Type value;
+	
+	public DataType(Terminals terminal, Type value) {
 		super(terminal);
-		this.type = type;	
+		this.value = value;
 	}
 	
-	Type getType() {
-		return type;
+	public Type getValue() {
+		return value;
 	}
 	
 	@Override
 	public String toString() {
-		return "(" + super.toString() + "," + type.toString() + ")";
+		return "(" + super.toString() + "," + value.toString() + ")";
 	}
+	
+
 
 }

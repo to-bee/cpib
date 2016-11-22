@@ -3,13 +3,13 @@ package scanner;
 import java.util.HashMap;
 import java.util.Map;
 
+import enums.Operators;
+import enums.Type;
 import framework.IToken;
 import terminal.Terminals;
 import token.BaseToken;
 import token.DataType;
 import token.Operator;
-import types.Type;
-import types.Operators;
 
 /** 
  * A separate dictionary containing all symbols, keywords and operators.
@@ -37,6 +37,33 @@ public class Dictionary {
 		keywords.put(";", new BaseToken(Terminals.SEMICOLON));
 		keywords.put(":", new BaseToken(Terminals.COLON));
 		keywords.put(":=", new BaseToken(Terminals.BECOMES));
+	
+		// RELOPR
+		operators.put("=", new Operator(Terminals.RELOPR ,Operators.EQ));
+		operators.put("/=", new Operator(Terminals.RELOPR, Operators.NE));
+		operators.put("<=", new Operator(Terminals.RELOPR, Operators.LE));
+		operators.put(">=", new Operator(Terminals.RELOPR, Operators.GE));
+		operators.put(">", new Operator(Terminals.RELOPR, Operators.GT));
+		operators.put("<", new Operator(Terminals.RELOPR, Operators.LT));
+		
+		// BOOLOPR
+		operators.put("&&", new Operator(Terminals.BOOLOPR, Operators.AND));
+		operators.put("||", new Operator(Terminals.BOOLOPR, Operators.OR));
+		operators.put("&?", new Operator(Terminals.BOOLOPR, Operators.CAND));
+		operators.put("|?", new Operator(Terminals.BOOLOPR, Operators.COR));
+		
+		// ADDOPR
+		operators.put("+", new Operator(Terminals.ADDOPR, Operators.PLUS));
+		operators.put("-", new Operator(Terminals.ADDOPR, Operators.MINUS));
+		
+		// MULTOPR
+		operators.put("*", new Operator(Terminals.MULTOPR, Operators.TIMES));
+		operators.put("divE", new Operator(Terminals.MULTOPR, Operators.DIV_E));
+		operators.put("divF", new Operator(Terminals.MULTOPR, Operators.DIV_F));
+		operators.put("divT", new Operator(Terminals.MULTOPR, Operators.DIV_T));
+		operators.put("modE", new Operator(Terminals.MULTOPR, Operators.MOD_E));
+		operators.put("modF", new Operator(Terminals.MULTOPR, Operators.MOD_F));
+		operators.put("modT", new Operator(Terminals.MULTOPR, Operators.MOD_T));
 
 		// Terminals
 		keywords.put("call", new BaseToken(Terminals.CALL));
@@ -78,34 +105,6 @@ public class Dictionary {
 		keywords.put("literal", new BaseToken(Terminals.LITERAL));
 		keywords.put("ident", new BaseToken(Terminals.IDENT));
 
-		// Operators
-		// RELOPR
-		operators.put("==", new Operator(Terminals.RELOPR ,Operators.EQ));
-		operators.put("!=", new Operator(Terminals.RELOPR, Operators.NE));
-		operators.put("<=", new Operator(Terminals.RELOPR, Operators.LE));
-		operators.put(">=", new Operator(Terminals.RELOPR, Operators.GE));
-		operators.put(">", new Operator(Terminals.RELOPR, Operators.GT));
-		operators.put("<", new Operator(Terminals.RELOPR, Operators.LT));
-		
-		// BOOLOPR
-			
-		operators.put("&&", new Operator(Terminals.BOOLOPR, Operators.AND));
-		operators.put("||", new Operator(Terminals.BOOLOPR, Operators.OR));
-		operators.put("&?", new Operator(Terminals.BOOLOPR, Operators.CAND));
-		operators.put("|?", new Operator(Terminals.BOOLOPR, Operators.COR));
-		
-		// ADDOPR
-		operators.put("+", new Operator(Terminals.ADDOPR, Operators.PLUS));
-		operators.put("-", new Operator(Terminals.ADDOPR, Operators.MINUS));
-		
-		// MULTOPR
-		operators.put("*", new Operator(Terminals.MULTOPR, Operators.TIMES));
-		operators.put("divE", new Operator(Terminals.MULTOPR, Operators.DIV_E));
-		operators.put("divF", new Operator(Terminals.MULTOPR, Operators.DIV_F));
-		operators.put("divT", new Operator(Terminals.MULTOPR, Operators.DIV_T));
-		operators.put("modE", new Operator(Terminals.MULTOPR, Operators.MOD_E));
-		operators.put("modF", new Operator(Terminals.MULTOPR, Operators.MOD_F));
-		operators.put("modT", new Operator(Terminals.MULTOPR, Operators.MOD_T));
 	}
 	
 	public boolean matchOperator(String key){

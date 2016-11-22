@@ -1,5 +1,7 @@
 package token;
 
+import java.math.BigInteger;
+
 import terminal.Terminals;
 
 /**
@@ -8,14 +10,14 @@ import terminal.Terminals;
  *
  */
 public class Literal extends BaseToken {
-	private final int value;
+	private final BigInteger value;
 
-	public Literal(int value) {
+	public Literal(BigInteger value) {
 		super(Terminals.LITERAL);
 		this.value = value;
 	}
 
-	int getValue() {
+	BigInteger getValue() {
 		return this.value;
 	}
 	

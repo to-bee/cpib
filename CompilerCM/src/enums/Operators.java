@@ -1,4 +1,4 @@
-package types;
+package enums;
 
 public enum Operators {
 	TIMES,

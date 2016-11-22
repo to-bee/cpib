@@ -35,7 +35,8 @@ public class ImlScanner {
 		*/
 		Scanner scanner = new Scanner();
 		String text = new String(byteArray);
-		
+		Integer i = null;
+		i.byteValue();
 		ITokenList list = scanner.scan(text);
 		System.out.println(list.toString());
 		
