@@ -132,7 +132,6 @@ datatype nonterm
   | optionalParameters
   | parameter
   | repeatingOptionalParameters
-  | compl
   | complImag
   | complReal
 
@@ -184,7 +183,6 @@ val string_of_nonterm =
    | optionalParameters                       => "optionalParameters"
    | parameter                                => "parameter"
    | repeatingOptionalParameters              => "repeatingOptionalParameters"
-   | compl                                    => "compl"
    | complImag                                => "complImag"
    | complReal                                => "complReal"
       
@@ -316,7 +314,8 @@ val productions =
     [[T LITERAL],
 	 [T IDENT, N optionalIdent],
 	 [N monadicOperator, N factor],
-     [T LPAREN, N expression, T RPAREN]]),
+     [T LPAREN, N expression, T RPAREN],
+     [N factor, T ADDOPR, T IMAGINARY_PART, T MULTOPR, N factor]]),
 (optionalIdent,
 	[[],
 	 [T INIT],
@@ -324,19 +323,10 @@ val productions =
 (monadicOperator,
 	[[T NOT],
 	 [T ADDOPR]]),
-(compl,
-	[[ T LITERAL, T ADDOPR, T IMAGINARY_PART, T MULTOPR, T LITERAL],
-	[T IDENT, T ADDOPR, T IMAGINARY_PART, T MULTOPR, T LITERAL],
-	[T LITERAL, T ADDOPR, T IMAGINARY_PART, T MULTOPR, T IDENT],
-	[T IDENT, T ADDOPR, T IMAGINARY_PART, T MULTOPR, T IDENT] ],
-	[T LPAREN, N compl, T RPAREN, T ADDOPR, T IMAGINARY_PART, T MULTOPR, T LITERAL ],
-	[T LPAREN, N compl, T RPAREN, T ADDOPR, T IMAGINARY_PART, T MULTOPR, T IDENT ],
-	[T LITERAL, T ADDOPR, T LPAREN, N compl, T RPAREN ],
-	[T IDENT, T ADDOPR, T LPAREN, N compl, T RPAREN ]),
 (complImag,
-	[[T IMAG, T LPAREN, T IDENT, T RPAREN]),
+	[[T IMAG, T LPAREN, N factor, T RPAREN]]),
 (complReal,
-    [[T REAL, T LPAREN, T IDENT, T RPAREN])
+    [[T REAL, T LPAREN, N factor, T RPAREN]])
 ]
 val S = program
 
