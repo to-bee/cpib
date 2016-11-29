@@ -315,7 +315,6 @@ val productions =
 	 [T IDENT, N optionalIdent],
 	 [N monadicOperator, N factor],
      [T LPAREN, N expression, T RPAREN],
-     [N factor, T ADDOPR, T IMAGINARY_PART, T MULTOPR, N factor],
      [N complImag],
      [N complReal]]),
 (optionalIdent,
