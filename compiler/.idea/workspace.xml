@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebaf0080-dc7f-4926-9415-dc7a5827aa42" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iml-extension-ekdahlernst-gaiffilauber.sml" afterPath="$PROJECT_DIR$/iml-extension-ekdahlernst-gaiffilauber.sml" />
     </list>
@@ -31,8 +29,8 @@
       <file leaf-file-name="iml-extension-ekdahlernst-gaiffilauber.sml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/iml-extension-ekdahlernst-gaiffilauber.sml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="291" column="30" lean-forward="true" selection-start-line="291" selection-start-column="30" selection-end-line="291" selection-end-column="30" />
+            <state relative-caret-position="644">
+              <caret line="319" column="18" lean-forward="false" selection-start-line="319" selection-start-column="18" selection-end-line="319" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -54,6 +52,8 @@
     <findStrings>
       <find>factor</find>
       <find>compl</find>
+      <find>call</find>
+      <find>express</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1213,7 +1213,7 @@
       <workItem from="1478338390180" duration="9257000" />
       <workItem from="1479634315916" duration="4829000" />
       <workItem from="1480435941189" duration="68000" />
-      <workItem from="1480436021028" duration="1278000" />
+      <workItem from="1480436021028" duration="1904000" />
     </task>
     <task id="LOCAL-00001" summary="maven compiler plugin">
       <created>1475525604353</created>
@@ -1271,7 +1271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478191376971</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="sml">
+      <created>1480437592285</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1480437592285</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1307,7 +1314,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69381000" />
+    <option name="totallyTimeSpent" value="70007000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="934" height="1177" extended-state="0" />
@@ -1393,7 +1400,8 @@
     <MESSAGE value="SENTINEL support" />
     <MESSAGE value="split terminal keywords" />
     <MESSAGE value="parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="parser" />
+    <MESSAGE value="sml" />
+    <option name="LAST_COMMIT_MESSAGE" value="sml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1713,8 +1721,8 @@
     <entry file="file://$PROJECT_DIR$/iml-extension-malinernst-gaiffi-lauber.sml" />
     <entry file="file://$PROJECT_DIR$/iml-extension-ekdahlernst-gaiffilauber.sml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="291" column="30" lean-forward="true" selection-start-line="291" selection-start-column="30" selection-end-line="291" selection-end-column="30" />
+        <state relative-caret-position="644">
+          <caret line="319" column="18" lean-forward="false" selection-start-line="319" selection-start-column="18" selection-end-line="319" selection-end-column="18" />
           <folding />
         </state>
       </provider>
