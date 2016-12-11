@@ -316,7 +316,8 @@ val productions =
 	 [N monadicOperator, N factor],
      [T LPAREN, N expression, T RPAREN],
      [N complImag],
-     [N complReal]]),
+     [N complReal],
+     [T IMAGINARY_PART]]),
 (optionalIdent,
 	[[],
 	 [T INIT],
@@ -325,9 +326,9 @@ val productions =
 	[[T NOT],
 	 [T ADDOPR]]),
 (complImag,
-	[[T IMAG, T LPAREN, N factor, T RPAREN]]),
+	[[T IMAG, T LPAREN, N expression, T RPAREN]]),
 (complReal,
-    [[T REAL, T LPAREN, N factor, T RPAREN]])
+    [[T REAL, T LPAREN, N expression, T RPAREN]])
 ]
 val S = program
 

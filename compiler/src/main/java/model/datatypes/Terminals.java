@@ -53,7 +53,29 @@ public enum Terminals {
     CHANGEMODE("CHANGEMODE", "", ", "),
     FLOWMODE("FLOWMODE", "", ", "),
     MECHMODE("MECHMODE", "", ", "),
-    bla("bla", "", ", ");
+    TYPE("TYPE", "", ", "), // whatever
+    COMMA("COMMA", "", ""),
+    GLOBAL("GLOBAL", "", ""),
+    PROC("PROC", "", ""),
+    FUN("FUN", "", ""),
+    RETURNS("RETURNS", "", ""),
+    ENDFUN("ENDFUN", "", ""),
+    ENDPROC("ENDPROC", "", ""), LOCAL("LOCAL", "", ""),
+    ENDPROGRAM("ENDPROGRAM", "", ""),
+    DEBUGOUT("DEBUGOUT", "", ""),
+    DEBUGIN("DEBUGIN", "", ""),
+    CALL("CALL", "", ""),
+    IF("IF", "", ""),
+    REAL("REAL", "", ""),
+    IMAG("IMAG", "", ""),
+    ADDOPR("ADDOPR", "", ""),
+    NOT("NOT", "", ""),
+    SKIP("SKIP", "", ""), 
+    BECOMES("BECOMES", "", ""), 
+    THEN("THEN", "", ""), 
+    ELSE("ELSE", "", ""),
+    ENDIF("ENDIF", "", ""),
+    INIT("INIT", "", ""), BOOLOPR("BOOLOPR", "", "");
 
     private final String postfix;
     private final String prefix;
@@ -65,23 +87,10 @@ public enum Terminals {
         this.postfix = postfix;
     }
 
-    public String getPostfix() {
-        return postfix;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public String getPrefix() {
-        return prefix;
-    }
-
     public static Terminals getTerminalFromString(String value) {
         try {
             return Arrays.asList(Terminals.values()).stream().filter(t -> t.toString().toLowerCase().equals(value.toLowerCase())).findFirst().get();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             return Terminals.UNDEFINED;
         }
     }
@@ -104,5 +113,17 @@ public enum Terminals {
             }
         });
         return list;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public String getPostfix() {
+        return postfix;
+    }
+
+    public String getPrefix() {
+        return prefix;
     }
 }
