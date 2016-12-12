@@ -35,8 +35,7 @@ public enum Operators {
     INOUT("inout", Terminals.FLOWMODE),
     OUT("out", Terminals.FLOWMODE),
     COPY("copy", Terminals.MECHMODE),
-    REF("ref", Terminals.MECHMODE),
-    abc("basdfs", Terminals.CHANGEMODE);
+    REF("ref", Terminals.MECHMODE);
 
     private final List<Terminals> operatorTypes;
     String identifier;
