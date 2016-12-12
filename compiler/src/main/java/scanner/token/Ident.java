@@ -1,6 +1,6 @@
-package model.token;
+package scanner.token;
 
-import model.datatypes.Terminals;
+import scanner.datatypes.Terminal;
 
 /**
  * 
@@ -12,7 +12,7 @@ public class Ident extends BaseToken {
     private String ident;
 
     public Ident(String s) {
-        super(Terminals.IDENT);
+        super(Terminal.IDENT);
         ident = s;
     }
     
@@ -26,6 +26,6 @@ public class Ident extends BaseToken {
 
     @Override
     public String toString() {
-        return String.format("%s%s, \"%s\"%s", getTerminal().getPrefix(), getTerminal().toString(), getIdent(), getTerminal().getPostfix());
+        return String.format("%s, \"%s\"", getTerminal().toString(), getIdent());
     }
 }

@@ -1,11 +1,9 @@
-package tokenList;
+package scanner.tokenList;
 
 import java.util.*;
 import java.util.stream.Stream;
 
-import model.token.BaseToken;
-import model.token.IToken;
-import tokenList.ITokenList;
+import scanner.token.IToken;
 
 /**
  * Pretty pointless for now, since its just wrapping the linkedlist. Take out later if no need for this arises.

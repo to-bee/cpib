@@ -1,19 +1,19 @@
-package model.token;
+package scanner.token;
 
-import model.datatypes.Terminals;
+import scanner.datatypes.Terminal;
 
 /**
  * 
  * @author Roman
  * taken from the slides
- * model.token with a literal attribute always have terminal LITERAL
+ * scanner.token with a literal attribute always have terminal LITERAL
  * example: (LITERAL, 67)
  */
 public class Literal extends BaseToken {
     private final double value;
 
     public Literal(double v) {
-        super(Terminals.LITERAL);
+        super(Terminal.LITERAL);
         value = v;
     }
     
@@ -23,7 +23,7 @@ public class Literal extends BaseToken {
 
     @Override
     public String toString() {
-        return String.format("%s%s, %s%s", getTerminal().getPrefix(), getTerminal().toString(), getValue(), getTerminal().getPostfix());
+        return String.format("%s, %s", getTerminal().toString(), getValue());
     }
 }
 

@@ -1,7 +1,6 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import model.token.IToken;
+import scanner.token.IToken;
 
 
 public interface IConcSyn {

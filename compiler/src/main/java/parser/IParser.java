@@ -1,7 +1,7 @@
 package parser;
 
 import conSyn.IConcSyn;
-import model.errors.GrammarError;
+import scanner.errors.GrammarError;
 
 /**
  * Created by tobi on 18.10.16.

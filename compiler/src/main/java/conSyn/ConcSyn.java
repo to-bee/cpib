@@ -1,6 +1,6 @@
 package conSyn;
 
-import model.token.IToken;
+import scanner.token.IToken;
 
 import java.util.ArrayList;
 import java.util.List;

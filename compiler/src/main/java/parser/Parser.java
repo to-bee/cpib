@@ -2,10 +2,11 @@ package parser;
 
 import conSyn.ConcSyn;
 import conSyn.IConcSyn;
-import model.datatypes.Terminals;
-import model.errors.GrammarError;
-import model.token.IToken;
-import tokenList.ITokenList;
+import scanner.datatypes.Terminal;
+import scanner.datatypes.TerminalType;
+import scanner.errors.GrammarError;
+import scanner.token.IToken;
+import scanner.tokenList.ITokenList;
 
 /**
  * Created by tobi on 27/09/16.
@@ -25,18 +26,18 @@ public class Parser implements IParser {
     public IConcSyn parseProgram() throws GrammarError {
         // loads first token and checks if it starts with program
         next = tokenList.nextToken();
-        if (next.getTerminal() == Terminals.PROGRAM) {
+        if (next.getTerminal() == Terminal.PROGRAM) {
             // consume program
             consume();
             // check if netxt token is identifier
-            if (next.getTerminal() == Terminals.IDENT) {
+            if (next.getTerminal() == Terminal.IDENT) {
                 consume();
                 programParameterList();
                 optionalGlobalDeclarations();
-                if (next.getTerminal() == Terminals.DO) {
+                if (next.getTerminal() == Terminal.DO) {
                     consume();
                     blockCmd();
-                    if (next.getTerminal() == Terminals.ENDPROGRAM) {
+                    if (next.getTerminal() == Terminal.ENDPROGRAM) {
                         consume();
                     } else {
                         throwGrammarError();
@@ -55,9 +56,9 @@ public class Parser implements IParser {
     }
 
     private void optionalGlobalDeclarations() throws GrammarError {
-        if (next.getTerminal() == Terminals.DO) {
+        if (next.getTerminal() == Terminal.DO) {
             consume();
-        } else if (next.getTerminal() == Terminals.GLOBAL) {
+        } else if (next.getTerminal() == Terminal.GLOBAL) {
             consume();
             declarations();
         } else {
@@ -66,19 +67,19 @@ public class Parser implements IParser {
     }
 
     private void declarations() throws GrammarError {
-        if (next.getTerminal() == Terminals.PROC) {
+        if (next.getTerminal() == Terminal.PROC) {
             consume();
             declaration();
             repeatingOptionalDeclarations();
-        } else if (next.getTerminal() == Terminals.FUN) {
+        } else if (next.getTerminal() == Terminal.FUN) {
             consume();
             declaration();
             repeatingOptionalDeclarations();
-        } else if (next.getTerminal() == Terminals.IDENT) {
+        } else if (next.getTerminal() == Terminal.IDENT) {
             consume();
             declaration();
             repeatingOptionalDeclarations();
-        } else if (next.getTerminal() == Terminals.CHANGEMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.CHANGEMODE) {
             consume();
             declaration();
             repeatingOptionalProgramParameters();
@@ -88,9 +89,9 @@ public class Parser implements IParser {
     }
 
     private void repeatingOptionalDeclarations() throws GrammarError {
-        if (next.getTerminal() == Terminals.DO) {
+        if (next.getTerminal() == Terminal.DO) {
             consume();
-        } else if (next.getTerminal() == Terminals.SEMICOLON) {
+        } else if (next.getTerminal() == Terminal.SEMICOLON) {
             consume();
             declaration();
             repeatingOptionalDeclarations();
@@ -100,16 +101,16 @@ public class Parser implements IParser {
     }
 
     private void declaration() throws GrammarError {
-        if (next.getTerminal() == Terminals.IDENT) {
+        if (next.getTerminal() == Terminal.IDENT) {
             consume();
             storageDeclaration();
-        } else if (next.getTerminal() == Terminals.CHANGEMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.CHANGEMODE) {
             consume();
             storageDeclaration();
-        } else if (next.getTerminal() == Terminals.FUN) {
+        } else if (next.getTerminal() == Terminal.FUN) {
             consume();
             functionDeclaration();
-        } else if (next.getTerminal() == Terminals.PROC) {
+        } else if (next.getTerminal() == Terminal.PROC) {
             consume();
             procedureDeclaration();
         } else {
@@ -118,34 +119,35 @@ public class Parser implements IParser {
     }
 
     private void storageDeclaration() throws GrammarError {
-        if (next.getTerminal() == Terminals.IDENT) {
+        if (next.getTerminal() == Terminal.IDENT) {
             consume();
             optionalChangeMode();
             typedIdent();
-        } else if (next.getTerminal() == Terminals.CHANGEMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.CHANGEMODE) {
             consume();
             optionalChangeMode();
             typedIdent();
         } else {
+            // TODO: type zuweisung nicht unterstützt?
             throwGrammarError();
         }
     }
 
     private void functionDeclaration() throws GrammarError {
-        if (next.getTerminal() == Terminals.FUN) {
+        if (next.getTerminal() == Terminal.FUN) {
             consume();
-            if (next.getTerminal() == Terminals.IDENT) {
+            if (next.getTerminal() == Terminal.IDENT) {
                 consume();
                 parameterList();
-                if (next.getTerminal() == Terminals.RETURNS) {
+                if (next.getTerminal() == Terminal.RETURNS) {
                     consume();
                     storageDeclaration();
                     optionalGlobalImports();
                     optionalLocalStorageDeclarations();
-                    if (next.getTerminal() == Terminals.DO) {
+                    if (next.getTerminal() == Terminal.DO) {
                         consume();
                         blockCmd();
-                        if (next.getTerminal() == Terminals.ENDFUN) {
+                        if (next.getTerminal() == Terminal.ENDFUN) {
                             consume();
 
                         } else {
@@ -164,19 +166,19 @@ public class Parser implements IParser {
     }
 
     private void blockCmd() throws GrammarError {
-        if (next.getTerminal() == Terminals.DEBUGOUT
-                || next.getTerminal() == Terminals.DEBUGIN
-                || next.getTerminal() == Terminals.CALL
-                || next.getTerminal() == Terminals.WHILE
-                || next.getTerminal() == Terminals.IF
-                || next.getTerminal() == Terminals.REAL
-                || next.getTerminal() == Terminals.IMAG
-                || next.getTerminal() == Terminals.LPAREN
-                || next.getTerminal() == Terminals.ADDOPR
-                || next.getTerminal() == Terminals.NOT
-                || next.getTerminal() == Terminals.IDENT
-                || next.getTerminal() == Terminals.LITERAL
-                || next.getTerminal() == Terminals.SKIP) {
+        if (next.getTerminal() == Terminal.DEBUGOUT
+                || next.getTerminal() == Terminal.DEBUGIN
+                || next.getTerminal() == Terminal.CALL
+                || next.getTerminal() == Terminal.WHILE
+                || next.getTerminal() == Terminal.IF
+                || next.getTerminal() == Terminal.REAL
+                || next.getTerminal() == Terminal.IMAG
+                || next.getTerminal() == Terminal.LPAREN
+                || next.getTerminal() == Terminal.ADDOPR
+                || next.getTerminal() == Terminal.NOT
+                || next.getTerminal() == Terminal.IDENT
+                || next.getTerminal() == Terminal.LITERAL
+                || next.getTerminal() == Terminal.SKIP) {
             consume();
             cmd();
             repeatingOptionalCmds();
@@ -186,15 +188,15 @@ public class Parser implements IParser {
     }
 
     private void repeatingOptionalCmds() throws GrammarError {
-        if (next.getTerminal() == Terminals.ENDPROC
-                || next.getTerminal() == Terminals.ENDFUN
-                || next.getTerminal() == Terminals.ENDWHILE
-                || next.getTerminal() == Terminals.ENDIF
-                || next.getTerminal() == Terminals.ELSE
-                || next.getTerminal() == Terminals.ENDPROGRAM) {
+        if (next.getTerminal() == Terminal.ENDPROC
+                || next.getTerminal() == Terminal.ENDFUN
+                || next.getTerminal() == Terminal.ENDWHILE
+                || next.getTerminal() == Terminal.ENDIF
+                || next.getTerminal() == Terminal.ELSE
+                || next.getTerminal() == Terminal.ENDPROGRAM) {
             consume();
         }
-        else if (next.getTerminal() == Terminals.SEMICOLON) {
+        else if (next.getTerminal() == Terminal.SEMICOLON) {
             consume();
             cmd();
             repeatingOptionalCmds();
@@ -204,33 +206,33 @@ public class Parser implements IParser {
     }
 
     private void cmd() throws GrammarError {
-        if (next.getTerminal() == Terminals.SKIP) {
+        if (next.getTerminal() == Terminal.SKIP) {
             consume();
-        } else if (next.getTerminal() == Terminals.REAL
-                || next.getTerminal() == Terminals.IMAG
-                || next.getTerminal() == Terminals.LPAREN
-                || next.getTerminal() == Terminals.ADDOPR
-                || next.getTerminal() == Terminals.NOT
-                || next.getTerminal() == Terminals.IDENT
-                || next.getTerminal() == Terminals.LITERAL) {
+        } else if (next.getTerminal() == Terminal.REAL
+                || next.getTerminal() == Terminal.IMAG
+                || next.getTerminal() == Terminal.LPAREN
+                || next.getTerminal() == Terminal.ADDOPR
+                || next.getTerminal() == Terminal.NOT
+                || next.getTerminal() == Terminal.IDENT
+                || next.getTerminal() == Terminal.LITERAL) {
             consume();
             expression();
-            if (next.getTerminal() == Terminals.BECOMES) {
+            if (next.getTerminal() == Terminal.BECOMES) {
                 consume();
                 expression();
             } else {
                 throwGrammarError();
             }
-        } else if (next.getTerminal() == Terminals.IF) {
+        } else if (next.getTerminal() == Terminal.IF) {
             consume();
             expression();
-            if (next.getTerminal() == Terminals.THEN) {
+            if (next.getTerminal() == Terminal.THEN) {
                 consume();
                 blockCmd();
-                if (next.getTerminal() == Terminals.ELSE) {
+                if (next.getTerminal() == Terminal.ELSE) {
                     consume();
                     blockCmd();
-                    if (next.getTerminal() == Terminals.ENDIF) {
+                    if (next.getTerminal() == Terminal.ENDIF) {
                         consume();
                     } else {
                         throwGrammarError();
@@ -241,13 +243,13 @@ public class Parser implements IParser {
             } else {
                 throwGrammarError();
             }
-        } else if (next.getTerminal() == Terminals.WHILE) {
+        } else if (next.getTerminal() == Terminal.WHILE) {
             consume();
             expression();
-            if (next.getTerminal() == Terminals.DO) {
+            if (next.getTerminal() == Terminal.DO) {
                 consume();
                 blockCmd();
-                if (next.getTerminal() == Terminals.ENDWHILE) {
+                if (next.getTerminal() == Terminal.ENDWHILE) {
                     consume();
                 } else {
                     throwGrammarError();
@@ -255,17 +257,17 @@ public class Parser implements IParser {
             } else {
                 throwGrammarError();
             }
-        } else if (next.getTerminal() == Terminals.CALL) {
+        } else if (next.getTerminal() == Terminal.CALL) {
             consume();
-            if (next.getTerminal() == Terminals.IDENT) {
+            if (next.getTerminal() == Terminal.IDENT) {
                 consume();
                 expressionList();
                 optionalGlobalInits();
             } else {
                 throwGrammarError();
             }
-        } else if (next.getTerminal() == Terminals.DEBUGIN
-                || next.getTerminal() == Terminals.DEBUGOUT) {
+        } else if (next.getTerminal() == Terminal.DEBUGIN
+                || next.getTerminal() == Terminal.DEBUGOUT) {
             consume();
             expression();
         } else {
@@ -274,15 +276,15 @@ public class Parser implements IParser {
     }
 
     private void optionalGlobalInits() throws GrammarError {
-        if (next.getTerminal() == Terminals.ENDPROC
-                || next.getTerminal() == Terminals.ENDFUN
-                || next.getTerminal() == Terminals.ENDWHILE
-                || next.getTerminal() == Terminals.ENDIF
-                || next.getTerminal() == Terminals.ELSE
-                || next.getTerminal() == Terminals.ENDPROGRAM
-                || next.getTerminal() == Terminals.SEMICOLON) {
+        if (next.getTerminal() == Terminal.ENDPROC
+                || next.getTerminal() == Terminal.ENDFUN
+                || next.getTerminal() == Terminal.ENDWHILE
+                || next.getTerminal() == Terminal.ENDIF
+                || next.getTerminal() == Terminal.ELSE
+                || next.getTerminal() == Terminal.ENDPROGRAM
+                || next.getTerminal() == Terminal.SEMICOLON) {
             consume();
-        } else if (next.getTerminal() == Terminals.INIT) {
+        } else if (next.getTerminal() == Terminal.INIT) {
             consume();
             idents();
         } else {
@@ -291,7 +293,7 @@ public class Parser implements IParser {
     }
 
     private void idents() throws GrammarError {
-        if (next.getTerminal() == Terminals.SKIP) {
+        if (next.getTerminal() == Terminal.SKIP) {
             consume();
             repeatingOptionalIdents();
         }else {
@@ -300,18 +302,18 @@ public class Parser implements IParser {
     }
 
     private void repeatingOptionalIdents() throws GrammarError {
-        if (next.getTerminal() == Terminals.ENDPROC
-                || next.getTerminal() == Terminals.ENDFUN
-                || next.getTerminal() == Terminals.ENDWHILE
-                || next.getTerminal() == Terminals.ENDIF
-                || next.getTerminal() == Terminals.ELSE
-                || next.getTerminal() == Terminals.ENDPROGRAM
-                || next.getTerminal() == Terminals.SEMICOLON) {
+        if (next.getTerminal() == Terminal.ENDPROC
+                || next.getTerminal() == Terminal.ENDFUN
+                || next.getTerminal() == Terminal.ENDWHILE
+                || next.getTerminal() == Terminal.ENDIF
+                || next.getTerminal() == Terminal.ELSE
+                || next.getTerminal() == Terminal.ENDPROGRAM
+                || next.getTerminal() == Terminal.SEMICOLON) {
             consume();
         }
-        else if (next.getTerminal() == Terminals.COMMA) {
+        else if (next.getTerminal() == Terminal.COMMA) {
             consume();
-            if (next.getTerminal() == Terminals.IDENT) {
+            if (next.getTerminal() == Terminal.IDENT) {
                 consume();
                 idents();
             }  else {
@@ -324,10 +326,10 @@ public class Parser implements IParser {
     }
 
     private void expressionList() throws GrammarError {
-        if (next.getTerminal() == Terminals.LPAREN) {
+        if (next.getTerminal() == Terminal.LPAREN) {
             consume();
             optionalExpressions();
-            if (next.getTerminal() == Terminals.RPAREN) {
+            if (next.getTerminal() == Terminal.RPAREN) {
                 consume();
             } else {
                 throwGrammarError();
@@ -338,15 +340,15 @@ public class Parser implements IParser {
     }
 
     private void optionalExpressions() throws GrammarError {
-        if (next.getTerminal() == Terminals.RPAREN) {
+        if (next.getTerminal() == Terminal.RPAREN) {
             consume();
-            if (next.getTerminal() == Terminals.REAL
-                    || next.getTerminal() == Terminals.IMAG
-                    || next.getTerminal() == Terminals.LPAREN
-                    || next.getTerminal() == Terminals.ADDOPR
-                    || next.getTerminal() == Terminals.NOT
-                    || next.getTerminal() == Terminals.IDENT
-                    || next.getTerminal() == Terminals.LITERAL) {
+            if (next.getTerminal() == Terminal.REAL
+                    || next.getTerminal() == Terminal.IMAG
+                    || next.getTerminal() == Terminal.LPAREN
+                    || next.getTerminal() == Terminal.ADDOPR
+                    || next.getTerminal() == Terminal.NOT
+                    || next.getTerminal() == Terminal.IDENT
+                    || next.getTerminal() == Terminal.LITERAL) {
                 consume();
                 expression();
                 repeatingOptionalExpressions();
@@ -359,9 +361,9 @@ public class Parser implements IParser {
     }
 
     private void repeatingOptionalExpressions() throws GrammarError {
-        if (next.getTerminal() == Terminals.RPAREN) {
+        if (next.getTerminal() == Terminal.RPAREN) {
             consume();
-        } else if (next.getTerminal() == Terminals.COMMA) {
+        } else if (next.getTerminal() == Terminal.COMMA) {
             consume();
             expression();
             repeatingOptionalExpressions();
@@ -371,13 +373,13 @@ public class Parser implements IParser {
     }
 
     private void expression() throws GrammarError {
-        if (next.getTerminal() == Terminals.REAL
-                || next.getTerminal() == Terminals.IMAG
-                || next.getTerminal() == Terminals.LPAREN
-                || next.getTerminal() == Terminals.ADDOPR
-                || next.getTerminal() == Terminals.NOT
-                || next.getTerminal() == Terminals.IDENT
-                || next.getTerminal() == Terminals.LITERAL) {
+        if (next.getTerminal() == Terminal.REAL
+                || next.getTerminal() == Terminal.IMAG
+                || next.getTerminal() == Terminal.LPAREN
+                || next.getTerminal() == Terminal.ADDOPR
+                || next.getTerminal() == Terminal.NOT
+                || next.getTerminal() == Terminal.IDENT
+                || next.getTerminal() == Terminal.LITERAL) {
             consume();
             term1();
             repBoolOprTerm1();
@@ -387,21 +389,21 @@ public class Parser implements IParser {
     }
 
     private void repBoolOprTerm1() throws GrammarError {
-        if (next.getTerminal() == Terminals.RPAREN
-                || next.getTerminal() == Terminals.COMMA
-                || next.getTerminal() == Terminals.DO
-                || next.getTerminal() == Terminals.THEN
-                || next.getTerminal() == Terminals.ENDPROC
-                || next.getTerminal() == Terminals.ENDFUN
-                || next.getTerminal() == Terminals.ENDWHILE
-                || next.getTerminal() == Terminals.ENDIF
-                || next.getTerminal() == Terminals.ELSE
-                || next.getTerminal() == Terminals.ENDPROGRAM
-                || next.getTerminal() == Terminals.SEMICOLON
-                || next.getTerminal() == Terminals.BECOMES) {
+        if (next.getTerminal() == Terminal.RPAREN
+                || next.getTerminal() == Terminal.COMMA
+                || next.getTerminal() == Terminal.DO
+                || next.getTerminal() == Terminal.THEN
+                || next.getTerminal() == Terminal.ENDPROC
+                || next.getTerminal() == Terminal.ENDFUN
+                || next.getTerminal() == Terminal.ENDWHILE
+                || next.getTerminal() == Terminal.ENDIF
+                || next.getTerminal() == Terminal.ELSE
+                || next.getTerminal() == Terminal.ENDPROGRAM
+                || next.getTerminal() == Terminal.SEMICOLON
+                || next.getTerminal() == Terminal.BECOMES) {
             consume();
         }
-        else if(next.getTerminal() == Terminals.BOOLOPR) {
+        else if(next.getTerminal() == Terminal.BOOLOPR) {
             consume();
             term1();
             repBoolOprTerm1();
@@ -412,13 +414,13 @@ public class Parser implements IParser {
     }
 
     private void term1() throws GrammarError {
-        if (next.getTerminal() == Terminals.REAL
-                || next.getTerminal() == Terminals.IMAG
-                || next.getTerminal() == Terminals.LPAREN
-                || next.getTerminal() == Terminals.ADDOPR
-                || next.getTerminal() == Terminals.NOT
-                || next.getTerminal() == Terminals.IDENT
-                || next.getTerminal() == Terminals.LITERAL) {
+        if (next.getTerminal() == Terminal.REAL
+                || next.getTerminal() == Terminal.IMAG
+                || next.getTerminal() == Terminal.LPAREN
+                || next.getTerminal() == Terminal.ADDOPR
+                || next.getTerminal() == Terminal.NOT
+                || next.getTerminal() == Terminal.IDENT
+                || next.getTerminal() == Terminal.LITERAL) {
             consume();
             term2();
             repRelOprTerm2();
@@ -428,22 +430,22 @@ public class Parser implements IParser {
     }
 
     private void repRelOprTerm2() throws GrammarError {
-        if (next.getTerminal() == Terminals.RPAREN
-                || next.getTerminal() == Terminals.COMMA
-                || next.getTerminal() == Terminals.DO
-                || next.getTerminal() == Terminals.THEN
-                || next.getTerminal() == Terminals.ENDPROC
-                || next.getTerminal() == Terminals.ENDFUN
-                || next.getTerminal() == Terminals.ENDWHILE
-                || next.getTerminal() == Terminals.ENDIF
-                || next.getTerminal() == Terminals.ELSE
-                || next.getTerminal() == Terminals.ENDPROGRAM
-                || next.getTerminal() == Terminals.SEMICOLON
-                || next.getTerminal() == Terminals.BECOMES
-                || next.getTerminal() == Terminals.BOOLOPR) {
+        if (next.getTerminal() == Terminal.RPAREN
+                || next.getTerminal() == Terminal.COMMA
+                || next.getTerminal() == Terminal.DO
+                || next.getTerminal() == Terminal.THEN
+                || next.getTerminal() == Terminal.ENDPROC
+                || next.getTerminal() == Terminal.ENDFUN
+                || next.getTerminal() == Terminal.ENDWHILE
+                || next.getTerminal() == Terminal.ENDIF
+                || next.getTerminal() == Terminal.ELSE
+                || next.getTerminal() == Terminal.ENDPROGRAM
+                || next.getTerminal() == Terminal.SEMICOLON
+                || next.getTerminal() == Terminal.BECOMES
+                || next.getTerminal() == Terminal.BOOLOPR) {
             consume();
         }
-        else if (next.getTerminal() == Terminals.RELOPR) {
+        else if (next.getTerminal().getType() == TerminalType.RELOPR) {
             consume();
             term2();
             repRelOprTerm2();
@@ -455,13 +457,13 @@ public class Parser implements IParser {
         }
 
     private void term2()throws GrammarError {
-        if (next.getTerminal() == Terminals.REAL
-                || next.getTerminal() == Terminals.IMAG
-                || next.getTerminal() == Terminals.LPAREN
-                || next.getTerminal() == Terminals.ADDOPR
-                || next.getTerminal() == Terminals.NOT
-                || next.getTerminal() == Terminals.IDENT
-                || next.getTerminal() == Terminals.LITERAL) {
+        if (next.getTerminal() == Terminal.REAL
+                || next.getTerminal() == Terminal.IMAG
+                || next.getTerminal() == Terminal.LPAREN
+                || next.getTerminal() == Terminal.ADDOPR
+                || next.getTerminal() == Terminal.NOT
+                || next.getTerminal() == Terminal.IDENT
+                || next.getTerminal() == Terminal.LITERAL) {
             consume();
             term3();
             repAddOprTerm3();
@@ -471,25 +473,25 @@ public class Parser implements IParser {
     }
 
     private void repAddOprTerm3() throws GrammarError {
-        if (next.getTerminal() == Terminals.ADDOPR) {
+        if (next.getTerminal() == Terminal.ADDOPR) {
             consume();
             term3();
             repAddOprTerm3();
         }
-        else if (next.getTerminal() == Terminals.RPAREN
-                || next.getTerminal() == Terminals.COMMA
-                || next.getTerminal() == Terminals.DO
-                || next.getTerminal() == Terminals.THEN
-                || next.getTerminal() == Terminals.ENDPROC
-                || next.getTerminal() == Terminals.ENDFUN
-                || next.getTerminal() == Terminals.ENDWHILE
-                || next.getTerminal() == Terminals.ENDIF
-                || next.getTerminal() == Terminals.ELSE
-                || next.getTerminal() == Terminals.ENDPROGRAM
-                || next.getTerminal() == Terminals.SEMICOLON
-                || next.getTerminal() == Terminals.BECOMES
-                || next.getTerminal() == Terminals.BOOLOPR
-                || next.getTerminal() == Terminals.RELOPR) {
+        else if (next.getTerminal() == Terminal.RPAREN
+                || next.getTerminal() == Terminal.COMMA
+                || next.getTerminal() == Terminal.DO
+                || next.getTerminal() == Terminal.THEN
+                || next.getTerminal() == Terminal.ENDPROC
+                || next.getTerminal() == Terminal.ENDFUN
+                || next.getTerminal() == Terminal.ENDWHILE
+                || next.getTerminal() == Terminal.ENDIF
+                || next.getTerminal() == Terminal.ELSE
+                || next.getTerminal() == Terminal.ENDPROGRAM
+                || next.getTerminal() == Terminal.SEMICOLON
+                || next.getTerminal() == Terminal.BECOMES
+                || next.getTerminal() == Terminal.BOOLOPR
+                || next.getTerminal().getType() == TerminalType.RELOPR) {
             consume();
         }
         else {
@@ -498,13 +500,13 @@ public class Parser implements IParser {
     }
 
     private void term3() throws GrammarError {
-        if (next.getTerminal() == Terminals.REAL
-                || next.getTerminal() == Terminals.IMAG
-                || next.getTerminal() == Terminals.LPAREN
-                || next.getTerminal() == Terminals.ADDOPR
-                || next.getTerminal() == Terminals.NOT
-                || next.getTerminal() == Terminals.IDENT
-                || next.getTerminal() == Terminals.LITERAL) {
+        if (next.getTerminal() == Terminal.REAL
+                || next.getTerminal() == Terminal.IMAG
+                || next.getTerminal() == Terminal.LPAREN
+                || next.getTerminal() == Terminal.ADDOPR
+                || next.getTerminal() == Terminal.NOT
+                || next.getTerminal() == Terminal.IDENT
+                || next.getTerminal() == Terminal.LITERAL) {
             consume();
             factor();
             repMultOprFactor();
@@ -514,24 +516,24 @@ public class Parser implements IParser {
     }
 
     private void repMultOprFactor() throws GrammarError {
-        if (next.getTerminal() == Terminals.RPAREN
-                || next.getTerminal() == Terminals.COMMA
-                || next.getTerminal() == Terminals.DO
-                || next.getTerminal() == Terminals.THEN
-                || next.getTerminal() == Terminals.ENDPROC
-                || next.getTerminal() == Terminals.ENDFUN
-                || next.getTerminal() == Terminals.ENDWHILE
-                || next.getTerminal() == Terminals.ENDIF
-                || next.getTerminal() == Terminals.ELSE
-                || next.getTerminal() == Terminals.ENDPROGRAM
-                || next.getTerminal() == Terminals.SEMICOLON
-                || next.getTerminal() == Terminals.BECOMES
-                || next.getTerminal() == Terminals.BOOLOPR
-                || next.getTerminal() == Terminals.RELOPR
-                || next.getTerminal() == Terminals.ADDOPR) {
+        if (next.getTerminal() == Terminal.RPAREN
+                || next.getTerminal() == Terminal.COMMA
+                || next.getTerminal() == Terminal.DO
+                || next.getTerminal() == Terminal.THEN
+                || next.getTerminal() == Terminal.ENDPROC
+                || next.getTerminal() == Terminal.ENDFUN
+                || next.getTerminal() == Terminal.ENDWHILE
+                || next.getTerminal() == Terminal.ENDIF
+                || next.getTerminal() == Terminal.ELSE
+                || next.getTerminal() == Terminal.ENDPROGRAM
+                || next.getTerminal() == Terminal.SEMICOLON
+                || next.getTerminal() == Terminal.BECOMES
+                || next.getTerminal() == Terminal.BOOLOPR
+                || next.getTerminal().getType() == TerminalType.RELOPR
+                || next.getTerminal() == Terminal.ADDOPR) {
             consume();
         }
-        else if (next.getTerminal() == Terminals.MULTOPR) {
+        else if (next.getTerminal() == Terminal.MULTOPR) {
             consume();
             factor();
             repMultOprFactor();
@@ -541,37 +543,37 @@ public class Parser implements IParser {
     }
 
     private void factor() throws GrammarError {
-        if (next.getTerminal() == Terminals.LITERAL) {
+        if (next.getTerminal() == Terminal.LITERAL) {
             consume();
         }
-        else if (next.getTerminal() == Terminals.IDENT) {
+        else if (next.getTerminal() == Terminal.IDENT) {
             consume();
             optionalIdent();
         }
-        else if (next.getTerminal() == Terminals.ADDOPR ) {
+        else if (next.getTerminal() == Terminal.ADDOPR ) {
             consume();
             monadicOperator();
             factor();
         }
-        else if (next.getTerminal() == Terminals.NOT ) {
+        else if (next.getTerminal() == Terminal.NOT ) {
             consume();
             monadicOperator();
             factor();
         }
-        else if (next.getTerminal() == Terminals.LPAREN ) {
+        else if (next.getTerminal() == Terminal.LPAREN ) {
             consume();
             expression();
-            if (next.getTerminal() == Terminals.RPAREN) {
+            if (next.getTerminal() == Terminal.RPAREN) {
                 consume();
             } else {
                 throwGrammarError();
             }
         }
-        else if (next.getTerminal() == Terminals.IMAG) {
+        else if (next.getTerminal() == Terminal.IMAG) {
             consume();
             complImag();
         }
-        else if (next.getTerminal() == Terminals.REAL) {
+        else if (next.getTerminal() == Terminal.REAL) {
             consume();
             complReal();
         }
@@ -583,12 +585,12 @@ public class Parser implements IParser {
     }
 
     private void complImag() throws GrammarError {
-        if (next.getTerminal() == Terminals.IMAG) {
+        if (next.getTerminal() == Terminal.IMAG) {
             consume();
-            if (next.getTerminal() == Terminals.LPAREN ) {
+            if (next.getTerminal() == Terminal.LPAREN ) {
                 consume();
                 factor();
-                if (next.getTerminal() == Terminals.RPAREN) {
+                if (next.getTerminal() == Terminal.RPAREN) {
                     consume();
                 } else {
                     throwGrammarError();
@@ -602,12 +604,12 @@ public class Parser implements IParser {
     }
 
     private void complReal() throws GrammarError {
-        if (next.getTerminal() == Terminals.REAL) {
+        if (next.getTerminal() == Terminal.REAL) {
             consume();
-            if (next.getTerminal() == Terminals.LPAREN) {
+            if (next.getTerminal() == Terminal.LPAREN) {
                 consume();
                 factor();
-                if (next.getTerminal() == Terminals.RPAREN) {
+                if (next.getTerminal() == Terminal.RPAREN) {
                     consume();
                 } else {
                     throwGrammarError();
@@ -621,26 +623,26 @@ public class Parser implements IParser {
     }
 
     private void optionalIdent() throws GrammarError {
-        if (next.getTerminal() == Terminals.RPAREN
-                || next.getTerminal() == Terminals.COMMA
-                || next.getTerminal() == Terminals.DO
-                || next.getTerminal() == Terminals.THEN
-                || next.getTerminal() == Terminals.ENDPROC
-                || next.getTerminal() == Terminals.ENDFUN
-                || next.getTerminal() == Terminals.ENDWHILE
-                || next.getTerminal() == Terminals.ENDIF
-                || next.getTerminal() == Terminals.ELSE
-                || next.getTerminal() == Terminals.ENDPROGRAM
-                || next.getTerminal() == Terminals.SEMICOLON
-                || next.getTerminal() == Terminals.BECOMES
-                || next.getTerminal() == Terminals.BOOLOPR
-                || next.getTerminal() == Terminals.RELOPR
-                || next.getTerminal() == Terminals.ADDOPR
-                || next.getTerminal() == Terminals.MULTOPR
-                || next.getTerminal() == Terminals.INIT) {
+        if (next.getTerminal() == Terminal.RPAREN
+                || next.getTerminal() == Terminal.COMMA
+                || next.getTerminal() == Terminal.DO
+                || next.getTerminal() == Terminal.THEN
+                || next.getTerminal() == Terminal.ENDPROC
+                || next.getTerminal() == Terminal.ENDFUN
+                || next.getTerminal() == Terminal.ENDWHILE
+                || next.getTerminal() == Terminal.ENDIF
+                || next.getTerminal() == Terminal.ELSE
+                || next.getTerminal() == Terminal.ENDPROGRAM
+                || next.getTerminal() == Terminal.SEMICOLON
+                || next.getTerminal() == Terminal.BECOMES
+                || next.getTerminal() == Terminal.BOOLOPR
+                || next.getTerminal().getType() == TerminalType.RELOPR
+                || next.getTerminal() == Terminal.ADDOPR
+                || next.getTerminal() == Terminal.MULTOPR
+                || next.getTerminal() == Terminal.INIT) {
             consume();
         }
-        else if (next.getTerminal() == Terminals.LPAREN) {
+        else if (next.getTerminal() == Terminal.LPAREN) {
             expressionList();
 
         } else {
@@ -649,10 +651,10 @@ public class Parser implements IParser {
     }
 
     private void monadicOperator() throws GrammarError {
-        if (next.getTerminal() == Terminals.NOT) {
+        if (next.getTerminal() == Terminal.NOT) {
             consume();
         }
-        else if (next.getTerminal() == Terminals.ADDOPR) {
+        else if (next.getTerminal() == Terminal.ADDOPR) {
             consume();
         } else {
             throwGrammarError();
@@ -661,9 +663,9 @@ public class Parser implements IParser {
     }
 
     private void optionalLocalStorageDeclarations() throws GrammarError {
-        if (next.getTerminal() == Terminals.DO) {
+        if (next.getTerminal() == Terminal.DO) {
             consume();
-        } else if (next.getTerminal() == Terminals.LOCAL) {
+        } else if (next.getTerminal() == Terminal.LOCAL) {
             consume();
             storageDeclaration();
             repeatingOptionalStorageDeclarations();
@@ -673,9 +675,9 @@ public class Parser implements IParser {
     }
 
     private void repeatingOptionalStorageDeclarations() throws GrammarError {
-        if (next.getTerminal() == Terminals.DO) {
+        if (next.getTerminal() == Terminal.DO) {
             consume();
-        } else if (next.getTerminal() == Terminals.SEMICOLON) {
+        } else if (next.getTerminal() == Terminal.SEMICOLON) {
             consume();
             storageDeclaration();
             repeatingOptionalStorageDeclarations();
@@ -685,11 +687,11 @@ public class Parser implements IParser {
     }
 
     private void optionalGlobalImports() throws GrammarError {
-        if (next.getTerminal() == Terminals.DO) {
+        if (next.getTerminal() == Terminal.DO) {
             consume();
-        } else if (next.getTerminal() == Terminals.LOCAL) {
+        } else if (next.getTerminal() == Terminal.LOCAL) {
             consume();
-        } else if (next.getTerminal() == Terminals.GLOBAL) {
+        } else if (next.getTerminal() == Terminal.GLOBAL) {
             consume();
             globalImport();
             repeatingOptionalGlobalImports();
@@ -697,11 +699,11 @@ public class Parser implements IParser {
     }
 
     private void repeatingOptionalGlobalImports() throws GrammarError {
-        if (next.getTerminal() == Terminals.DO) {
+        if (next.getTerminal() == Terminal.DO) {
             consume();
-        } else if (next.getTerminal() == Terminals.LOCAL) {
+        } else if (next.getTerminal() == Terminal.LOCAL) {
             consume();
-        } else if (next.getTerminal() == Terminals.COMMA) {
+        } else if (next.getTerminal() == Terminal.COMMA) {
             consume();
             globalImport();
             repeatingOptionalGlobalImports();
@@ -711,29 +713,29 @@ public class Parser implements IParser {
     }
 
     private void globalImport() throws GrammarError {
-        if (next.getTerminal() == Terminals.IDENT) {
+        if (next.getTerminal() == Terminal.IDENT) {
             consume();
             optionalFlowMode();
             optionalChangeMode();
-            if (next.getTerminal() == Terminals.IDENT) {
+            if (next.getTerminal() == Terminal.IDENT) {
                 consume();
             } else {
                 throwGrammarError();
             }
-        } else if (next.getTerminal() == Terminals.CHANGEMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.CHANGEMODE) {
             consume();
             optionalFlowMode();
             optionalChangeMode();
-            if (next.getTerminal() == Terminals.IDENT) {
+            if (next.getTerminal() == Terminal.IDENT) {
                 consume();
             } else {
                 throwGrammarError();
             }
-        } else if (next.getTerminal() == Terminals.FLOWMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.FLOWMODE) {
             consume();
             optionalFlowMode();
             optionalChangeMode();
-            if (next.getTerminal() == Terminals.IDENT) {
+            if (next.getTerminal() == Terminal.IDENT) {
                 consume();
             } else {
                 throwGrammarError();
@@ -742,11 +744,11 @@ public class Parser implements IParser {
     }
 
     private void parameterList() throws GrammarError {
-        if (next.getTerminal() == Terminals.LPAREN) {
+        if (next.getTerminal() == Terminal.LPAREN) {
             consume();
             optionalParameters();
             // TODO: maybe change
-            if (next.getTerminal() == Terminals.RPAREN) {
+            if (next.getTerminal() == Terminal.RPAREN) {
                 consume();
             } else {
                 throwGrammarError();
@@ -757,21 +759,21 @@ public class Parser implements IParser {
     }
 
     private void optionalParameters() throws GrammarError {
-        if (next.getTerminal() == Terminals.RPAREN) {
+        if (next.getTerminal() == Terminal.RPAREN) {
             consume();
-        } else if (next.getTerminal() == Terminals.IDENT) {
-            consume();
-            parameter();
-            repeatingOptionalParameters();
-        } else if (next.getTerminal() == Terminals.CHANGEMODE) {
+        } else if (next.getTerminal() == Terminal.IDENT) {
             consume();
             parameter();
             repeatingOptionalParameters();
-        } else if (next.getTerminal() == Terminals.MECHMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.CHANGEMODE) {
             consume();
             parameter();
             repeatingOptionalParameters();
-        } else if (next.getTerminal() == Terminals.FLOWMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.MECHMODE) {
+            consume();
+            parameter();
+            repeatingOptionalParameters();
+        } else if (next.getTerminal().getType() == TerminalType.FLOWMODE) {
             consume();
             parameter();
             repeatingOptionalParameters();
@@ -781,9 +783,9 @@ public class Parser implements IParser {
     }
 
     private void repeatingOptionalParameters() throws GrammarError {
-        if (next.getTerminal() == Terminals.RPAREN) {
+        if (next.getTerminal() == Terminal.RPAREN) {
             consume();
-        } else if (next.getTerminal() == Terminals.COMMA) {
+        } else if (next.getTerminal() == Terminal.COMMA) {
             consume();
             parameter();
             repeatingOptionalParameters();
@@ -793,22 +795,22 @@ public class Parser implements IParser {
     }
 
     private void parameter() throws GrammarError {
-        if (next.getTerminal() == Terminals.IDENT) {
+        if (next.getTerminal() == Terminal.IDENT) {
             consume();
             optionalFlowMode();
             optionalMechMode();
             storageDeclaration();
-        } else if (next.getTerminal() == Terminals.CHANGEMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.CHANGEMODE) {
             consume();
             optionalFlowMode();
             optionalMechMode();
             storageDeclaration();
-        } else if (next.getTerminal() == Terminals.MECHMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.MECHMODE) {
             consume();
             optionalFlowMode();
             optionalMechMode();
             storageDeclaration();
-        } else if (next.getTerminal() == Terminals.FLOWMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.FLOWMODE) {
             consume();
             optionalFlowMode();
             optionalMechMode();
@@ -817,11 +819,11 @@ public class Parser implements IParser {
     }
 
     private void optionalMechMode() throws GrammarError {
-        if (next.getTerminal() == Terminals.IDENT) {
+        if (next.getTerminal() == Terminal.IDENT) {
             consume();
-        } else if (next.getTerminal() == Terminals.CHANGEMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.CHANGEMODE) {
             consume();
-        } else if (next.getTerminal() == Terminals.MECHMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.MECHMODE) {
             consume();
         } else {
             throwGrammarError();
@@ -829,17 +831,17 @@ public class Parser implements IParser {
     }
 
     private void procedureDeclaration() throws GrammarError {
-        if (next.getTerminal() == Terminals.PROC) {
+        if (next.getTerminal() == Terminal.PROC) {
             consume();
-            if (next.getTerminal() == Terminals.IDENT) {
+            if (next.getTerminal() == Terminal.IDENT) {
                 consume();
                 parameterList();
                 optionalGlobalImports();
                 optionalLocalStorageDeclarations();
-                if (next.getTerminal() == Terminals.DO) {
+                if (next.getTerminal() == Terminal.DO) {
                     consume();
                     blockCmd();
-                    if (next.getTerminal() == Terminals.ENDPROC) {
+                    if (next.getTerminal() == Terminal.ENDPROC) {
                         consume();
 
                     } else {
@@ -855,7 +857,7 @@ public class Parser implements IParser {
     }
 
     /**
-     * TODO: output position from Scanner
+     * TODO: output position from scanner.Scanner
      *
      * @throws GrammarError
      */
@@ -869,7 +871,7 @@ public class Parser implements IParser {
      * @throws GrammarError
      */
     private void programParameterList() throws GrammarError {
-        if (next.getTerminal() == Terminals.LPAREN) {
+        if (next.getTerminal() == Terminal.LPAREN) {
             consume();
             optionalProgramParam();
         } else {
@@ -878,19 +880,19 @@ public class Parser implements IParser {
     }
 
     private void optionalProgramParam() throws GrammarError {
-        if (next.getTerminal() == Terminals.RPAREN) {
+        if (next.getTerminal() == Terminal.RPAREN) {
             consume();
-        } else if (next.getTerminal() == Terminals.IDENT) {
+        } else if (next.getTerminal() == Terminal.IDENT) {
             optionalFlowMode();
             optionalChangeMode();
             typedIdent();
             repeatingOptionalProgramParameters();
-        } else if (next.getTerminal() == Terminals.CHANGEMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.CHANGEMODE) {
             optionalFlowMode();
             optionalChangeMode();
             typedIdent();
             repeatingOptionalProgramParameters();
-        } else if (next.getTerminal() == Terminals.FLOWMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.FLOWMODE) {
             optionalFlowMode();
             optionalChangeMode();
             typedIdent();
@@ -901,9 +903,9 @@ public class Parser implements IParser {
     }
 
     private void repeatingOptionalProgramParameters() throws GrammarError {
-        if (next.getTerminal() == Terminals.RPAREN) {
+        if (next.getTerminal() == Terminal.RPAREN) {
             consume();
-        } else if (next.getTerminal() == Terminals.COMMA) {
+        } else if (next.getTerminal() == Terminal.COMMA) {
             consume();
             optionalFlowMode();
             optionalChangeMode();
@@ -915,9 +917,9 @@ public class Parser implements IParser {
     }
 
     private void typedIdent() throws GrammarError {
-        if (next.getTerminal() == Terminals.IDENT) {
+        if (next.getTerminal() == Terminal.IDENT) {
             consume();
-            if (next.getTerminal() == Terminals.COLON) {
+            if (next.getTerminal() == Terminal.COLON) {
                 consume();
                 typeDeclaration();
             } else {
@@ -929,9 +931,9 @@ public class Parser implements IParser {
     }
 
     private void typeDeclaration() throws GrammarError {
-        if (next.getTerminal() == Terminals.TYPE) {
+        if (next.getTerminal() == Terminal.TYPE) {
             consume();
-        } else if (next.getTerminal() == Terminals.IDENT) {
+        } else if (next.getTerminal() == Terminal.IDENT) {
             consume();
         } else {
             throwGrammarError();
@@ -939,11 +941,11 @@ public class Parser implements IParser {
     }
 
     private void optionalChangeMode() throws GrammarError {
-        if (next.getTerminal() == Terminals.IDENT) {
+        if (next.getTerminal() == Terminal.IDENT) {
             consume();
-        } else if (next.getTerminal() == Terminals.CHANGEMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.CHANGEMODE) {
             consume();
-            if (next.getTerminal() == Terminals.CHANGEMODE) {
+            if (next.getTerminal().getType() == TerminalType.CHANGEMODE) {
                 consume();
             } else {
                 throwGrammarError();
@@ -954,15 +956,15 @@ public class Parser implements IParser {
     }
 
     private void optionalFlowMode() throws GrammarError {
-        if (next.getTerminal() == Terminals.MECHMODE) {
+        if (next.getTerminal().getType() == TerminalType.MECHMODE) {
             consume();
-        } else if (next.getTerminal() == Terminals.IDENT) {
+        } else if (next.getTerminal() == Terminal.IDENT) {
             consume();
-        } else if (next.getTerminal() == Terminals.CHANGEMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.CHANGEMODE) {
             consume();
-        } else if (next.getTerminal() == Terminals.FLOWMODE) {
+        } else if (next.getTerminal().getType() == TerminalType.FLOWMODE) {
             consume();
-            if (next.getTerminal() == Terminals.FLOWMODE) {
+            if (next.getTerminal().getType() == TerminalType.FLOWMODE) {
                 consume();
             } else {
                 throwGrammarError();
@@ -984,7 +986,7 @@ public class Parser implements IParser {
     public void consumeWhile(IToken token) throws GrammarError {
         this.concSyn.add(token);
         IToken next = tokenList.nextToken();
-        if (next.getTerminal() == Terminals.IDENT) {
+        if (next.getTerminal() == Terminal.IDENT) {
             consumeIdent(next);
         } else {
             throw new GrammarError("Not a correct Grammar: line xy, token: xy");
@@ -994,7 +996,7 @@ public class Parser implements IParser {
     private void consumeIdent(IToken token) throws GrammarError {
         this.concSyn.add(token);
         IToken next = tokenList.nextToken();
-        if (next.getTerminal() == Terminals.RELOPR) {
+        if (next.getTerminal().getType() == TerminalType.RELOPR) {
             consumeRelopr(next);
         } else {
             throw new GrammarError("Not a correct Grammar: line xy, token: xy");
@@ -1004,7 +1006,7 @@ public class Parser implements IParser {
     private void consumeRelopr(IToken token) throws GrammarError {
         this.concSyn.add(token);
         IToken next = tokenList.nextToken();
-        if (next.getTerminal() == Terminals.SENTINEL) {
+        if (next.getTerminal() == Terminal.SENTINEL) {
             consumeSentinel(next);
         } else {
             throw new GrammarError("Not a correct Grammar: line xy, token: xy");
@@ -1020,13 +1022,13 @@ public class Parser implements IParser {
     private void consumeSentinel(IToken last) throws GrammarError {
         this.concSyn.add(last);
         if (tokenList.size() > 0) {
-            throw new GrammarError(String.format("%s must be the last token", Terminals.SENTINEL));
+            throw new GrammarError(String.format("%s must be the last token", Terminal.SENTINEL));
         } else {
             throw new GrammarError("Not a correct Grammar: line xy, token: xy");
         }
     }
 
-    private ITokenList getPossibleFollowingToken(Terminals terminal, Terminals followingTerminal) throws GrammarError {
+    private ITokenList getPossibleFollowingToken(Terminal terminal, Terminal followingTerminal) throws GrammarError {
         throw new GrammarError(String.format("%s cannot follow to %s", terminal, followingTerminal));
     }
 

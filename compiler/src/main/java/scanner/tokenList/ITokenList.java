@@ -1,7 +1,6 @@
-package tokenList;
+package scanner.tokenList;
 
-import model.token.BaseToken;
-import model.token.IToken;
+import scanner.token.IToken;
 
 import java.util.List;
 import java.util.stream.Stream;

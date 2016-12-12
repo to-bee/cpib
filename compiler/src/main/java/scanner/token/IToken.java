@@ -1,6 +1,7 @@
-package model.token;
+package scanner.token;
 
-import model.datatypes.Terminals;
+
+import scanner.datatypes.Terminal;
 
 /**
  * To add the lexemes to the tokenlist
@@ -11,6 +12,6 @@ public interface IToken {
 	
 	String toString();
 	
-	Terminals getTerminal();
+	Terminal getTerminal();
 
 }

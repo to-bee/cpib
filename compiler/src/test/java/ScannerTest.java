@@ -1,10 +1,9 @@
-import model.datatypes.OperatorPosition;
-import tokenList.ITokenList;
+import org.junit.Assert;
+import scanner.Scanner;
 import org.junit.Before;
 import org.junit.Test;
-import parser.Parser;
-
-import static org.junit.Assert.*;
+import scanner.errors.LexicalError;
+import scanner.tokenList.ITokenList;
 
 /**
  * Created by tobi on 27/09/16.
@@ -38,22 +37,14 @@ public class ScannerTest {
         ITokenList tokenList;
 
 //        text = "4+i*2";
-//        tokenList = scanner.scan(text);
-//        scanner.printResult(text, result, tokenList);
+//        scanner.model.tokenList = scanner.scan(text);
+//        scanner.printResult(text, result, scanner.model.tokenList);
 
 
         // Remove spaces
-        text = "a := (67 + 31) - 2";
-        result = "[WHILE, (IDENT, \"x36\"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, \"x\"), BECOMES, (IDENT, \"x\"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, SENTINEL]";
-        tokenList = scanner.scan(text);
-        scanner.printResult(text, result, tokenList);
-//        try {
-//            ParseTree parseTree = parser.createParseTree(tokenList);
-//        } catch (Exception e) {
-//            Assert.fail();
-//        }
-
-
+//        text = "a := (67 + 31) - 2";
+//        tokenList = scanner.scan(text);
+//        scanner.printResult(text, result, tokenList);
 
         text = "while x36 <= 67 do\nx := x-1\nendwhile";
         result = "[WHILE, (IDENT, \"x36\"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, \"x\"), BECOMES, (IDENT, \"x\"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, SENTINEL]";
@@ -70,47 +61,41 @@ public class ScannerTest {
 
         text = "%63";
         tokenList = scanner.scan(text);
-        scanner.printResult(text, result, tokenList);
 
         text = "while632";
         tokenList = scanner.scan(text);
-        scanner.printResult(text, null, tokenList);
 
         text = "72while";
-        tokenList = scanner.scan(text);
-        scanner.printResult(text, null, tokenList);
+        try {
+            tokenList = scanner.scan(text);
+            Assert.fail();
+        }
+        catch(LexicalError e) {
+
+        }
 
         text = "abc23";
         tokenList = scanner.scan(text);
-        scanner.printResult(text, null, tokenList);
 
         text = "23abc";
-        tokenList = scanner.scan(text);
-        scanner.printResult(text, null, tokenList);
+        try {
+            tokenList = scanner.scan(text);
+            Assert.fail();
+        }
+        catch(LexicalError e) {
+
+        }
 
         text = "whilea23abc";
         tokenList = scanner.scan(text);
-        scanner.printResult(text, null, tokenList);
 
         text = "a23abcwhile";
         tokenList = scanner.scan(text);
-        scanner.printResult(text, null, tokenList);
 
         text = "a23whilecde";
         tokenList = scanner.scan(text);
-        scanner.printResult(text, null, tokenList);
 
         text = "whilewhilea23abc";
         tokenList = scanner.scan(text);
-        scanner.printResult(text, null, tokenList);
-    }
-
-    @Test
-    public void testOperatorPosition() {
-        Scanner scanner = new Scanner();
-        assertEquals(scanner.getOprPosition("22--", "+"), OperatorPosition.UNDEFINED);
-        assertEquals(scanner.getOprPosition("22+5", "+"), OperatorPosition.INFIX);
-        assertEquals(scanner.getOprPosition("++5", "++"), OperatorPosition.PREFIX);
-        assertEquals(scanner.getOprPosition("22--", "--"), OperatorPosition.POSTFIX);
     }
 }

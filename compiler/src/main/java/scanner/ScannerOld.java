@@ -1,14 +1,12 @@
-import model.datatypes.OperatorPosition;
-import model.datatypes.Operators;
-import model.datatypes.Terminals;
-import tokenList.TokenList;
-import model.errors.LexicalError;
-import model.token.IToken;
-import tokenList.ITokenList;
-import model.token.BaseToken;
-import model.token.Ident;
-import model.token.Literal;
-import model.token.Opr;
+package scanner;
+
+import scanner.datatypes.OperatorPosition;
+import scanner.datatypes.TerminalType;
+import scanner.datatypes.Terminal;
+import scanner.errors.LexicalError;
+import scanner.token.*;
+import scanner.tokenList.ITokenList;
+import scanner.tokenList.TokenList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +15,12 @@ import java.util.StringTokenizer;
 /**
  * Created by tobi on 27/09/16.
  */
-public class Scanner {
-    private static final List<Operators> OPERATOR_LIST = Operators.getAllSorted();
-    private static final List<Terminals> TERMINAL_LIST = Terminals.getAllSorted();
+public class ScannerOld {
+    private static final List<TerminalType> OPERATOR_LIST = TerminalType.getAllSorted();
+    private static final List<Terminal> TERMINAL_LIST = Terminal.getAllSorted();
 
 
-    public Scanner() {
+    public ScannerOld() {
     }
 
     public static void printResult(String imlCode, String result, ITokenList tokenList) {
@@ -49,7 +47,7 @@ public class Scanner {
      */
     public List<String> createWordList(String text) {
         List<String> wordList = new ArrayList<>();
-        wordList.add(Terminals.PROGRAM.toString());
+        wordList.add(Terminal.PROGRAM.toString());
 
         String delim = " \n\r\t,.;"; //insert here all delimitators
         StringTokenizer st = new StringTokenizer(text, delim);
@@ -63,7 +61,7 @@ public class Scanner {
              * DO, WHILE, ENDWHILE -> maybe this terminals should be treated as operators
              * TODO: Check for leading numbers
              */
-            for (Terminals op : TERMINAL_LIST) {
+            for (Terminal op : TERMINAL_LIST) {
                 if (op.getValue() != null) {
                     /**
                      * Operator contains more than one sign -> abort check
@@ -118,7 +116,7 @@ public class Scanner {
              * TODO: Check for leading numbers
              */
 
-            for (Operators op : OPERATOR_LIST) {
+            for (TerminalType op : OPERATOR_LIST) {
                 if(op.getIdentifier() != null) {
                     String opIdentifier = op.getIdentifier().toLowerCase();
                     /**
@@ -168,7 +166,7 @@ public class Scanner {
             }
         }
 
-        wordList.add(Terminals.SENTINEL.toString());
+        wordList.add(Terminal.SENTINEL.toString());
         return wordList;
     }
 
@@ -207,22 +205,22 @@ public class Scanner {
 
     private IToken getTokenByWord(String word) {
         IToken token;
-        Terminals terminal;
-        Operators operator;
-        if ((terminal = Terminals.getTerminalFromString(word)) == Terminals.WHILE
-                || terminal == Terminals.DO
-                || terminal == Terminals.PROGRAM
-                || terminal == Terminals.SENTINEL
-                || terminal == Terminals.ENDWHILE) {
+        Terminal terminal;
+        TerminalType operator;
+        if ((terminal = Terminal.getTerminalFromString(word)) == Terminal.WHILE
+                || terminal == Terminal.DO
+                || terminal == Terminal.PROGRAM
+                || terminal == Terminal.SENTINEL
+                || terminal == Terminal.ENDWHILE) {
             token = new BaseToken(terminal);
         } else if (isNumeric(word)) {
             double d = Double.parseDouble(word);
             token = new Literal(d);
-        } else if ((operator = Operators.getOperatorFromString(word)) != Operators.UNDEFINED) {
-            if (operator.getOperatorTypes().stream().anyMatch(Operators.getAllOperatorTerminals()::contains)) {
+        } else if ((operator = TerminalType.getOperatorFromString(word)) != null) {
+            if (operator.getOperatorTypes().stream().anyMatch(TerminalType.getAllOperatorTerminals()::contains)) {
                 token = new Opr(operator);
             } else {
-                token = new BaseToken(Terminals.UNDEFINED);
+                token = new BaseToken(Terminal.UNDEFINED);
             }
         } else {
             token = new Ident(word);

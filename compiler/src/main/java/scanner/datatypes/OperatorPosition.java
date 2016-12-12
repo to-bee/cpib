@@ -1,4 +1,4 @@
-package model.datatypes;
+package scanner.datatypes;
 
 /**
  * Created by tobi on 27/09/16.
