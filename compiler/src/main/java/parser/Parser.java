@@ -292,8 +292,22 @@ public class Parser implements IParser {
         }
     }
 
-    private void repeatingOptionalCmds() {
-
+    private void repeatingOptionalCmds() throws GrammarError {
+        if (next.getTerminal() == Terminals.ENDPROC
+                || next.getTerminal() == Terminals.ENDFUN
+                || next.getTerminal() == Terminals.ENDWHILE
+                || next.getTerminal() == Terminals.ENDIF
+                || next.getTerminal() == Terminals.ELSE
+                || next.getTerminal() == Terminals.ENDPROGRAM) {
+            consume();
+        }
+        else if (next.getTerminal() == Terminals.SEMICOLON) {
+            consume();
+            cmd();
+            repeatingOptionalCmds();
+        } else {
+            throwGrammarError();
+        }
     }
 
     private void cmd() throws GrammarError {
@@ -383,8 +397,37 @@ public class Parser implements IParser {
         }
     }
 
-    private void idents() {
+    private void idents() throws GrammarError {
+        if (next.getTerminal() == Terminals.SKIP) {
+            consume();
+            repeatingOptionalIdents();
+        }else {
+            throwGrammarError();
+        }
+    }
 
+    private void repeatingOptionalIdents() throws GrammarError {
+        if (next.getTerminal() == Terminals.ENDPROC
+                || next.getTerminal() == Terminals.ENDFUN
+                || next.getTerminal() == Terminals.ENDWHILE
+                || next.getTerminal() == Terminals.ENDIF
+                || next.getTerminal() == Terminals.ELSE
+                || next.getTerminal() == Terminals.ENDPROGRAM
+                || next.getTerminal() == Terminals.SEMICOLON) {
+            consume();
+        }
+        else if (next.getTerminal() == Terminals.COMMA) {
+            consume();
+            if (next.getTerminal() == Terminals.IDENT) {
+                consume();
+                idents();
+            }  else {
+                throwGrammarError();
+            }
+        }
+        else {
+            throwGrammarError();
+        }
     }
 
     private void expressionList() throws GrammarError {
