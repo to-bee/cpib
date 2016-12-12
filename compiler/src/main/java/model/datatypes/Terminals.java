@@ -69,6 +69,7 @@ public enum Terminals {
     REAL("REAL", "", ""),
     IMAG("IMAG", "", ""),
     ADDOPR("ADDOPR", "", ""),
+    MULTOPR("MULTOPR", "", ""),
     NOT("NOT", "", ""),
     SKIP("SKIP", "", ""), 
     BECOMES("BECOMES", "", ""), 
