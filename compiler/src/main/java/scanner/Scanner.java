@@ -16,8 +16,6 @@ import java.util.List;
  * Created by tobi on 27/09/16.
  */
 public class Scanner {
-    private static final List<TerminalType> OPERATOR_LIST = TerminalType.getAllSorted();
-    private static final List<Terminal> TERMINAL_LIST = Terminal.getAllSorted();
     private ITokenState tokenState;
     private ITokenList tokenList;
 
