@@ -15,14 +15,6 @@ public class BaseToken implements IToken{
         terminal = t;
     }
 
-    public BaseToken(List<Terminal> operatorTypes) {
-        if(operatorTypes.size() == 1) {
-            this.terminal = operatorTypes.get(0);
-        } else {
-            this.terminal = Terminal.UNDEFINED;
-        }
-    }
-
     public Terminal getTerminal() {
         return terminal;
     }

@@ -81,16 +81,7 @@ public class InstructionTokenState extends AbstractTokenState {
         IToken token = null;
         Terminal terminal;
         TerminalType operator;
-        // Operator
-        if ((operator = TerminalType.getOperatorFromString(word)) != null) {
-            token = new Opr(operator);
-//            if (operator.getOperatorTypes().stream().anyMatch(TerminalType.getAllOperatorTerminals()::contains)) {
-//                token = new Opr(operator);
-//            } else {
-//                token = new BaseToken(Terminal.UNDEFINED);
-//            }
-        }
-        else if ((terminal = Terminal.getTerminalFromString(word)) != Terminal.UNDEFINED) {
+        if ((terminal = Terminal.getTerminalFromString(word)) != Terminal.UNDEFINED) {
             token = new BaseToken(terminal);
         }
 

@@ -38,14 +38,14 @@ public enum TerminalType {
      * Unary Operator
      * (+, -, ++, --, !)
      */
-    UNARYOPR("UNARYOPR");
+    UNARYOPR("UNARYOPR"),
 
-    private final List<Terminal> operatorTypes;
+    TYPE("TYPE");
+
     String identifier;
 
-    TerminalType(String identifier, Terminal... operatorTypes) {
+    TerminalType(String identifier) {
         this.identifier = identifier;
-        this.operatorTypes = Arrays.asList(operatorTypes);
     }
 
     public static TerminalType getOperatorFromString(String value) {
@@ -76,13 +76,5 @@ public enum TerminalType {
 
     public String getIdentifier() {
         return identifier;
-    }
-
-    public static Set<Terminal> getAllOperatorTerminals() {
-        return getAllSorted().stream().flatMap(o -> o.getOperatorTypes().stream()).distinct().collect(Collectors.toSet());
-    }
-
-    public List<Terminal> getOperatorTypes() {
-        return operatorTypes;
     }
 }

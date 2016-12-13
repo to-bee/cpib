@@ -24,7 +24,6 @@ public enum Terminal {
     RPAREN(")", null),
     SEMICOLON(";", null), // ;
     COLON(":", null), // :
-    TYPE("TYPE", null), // whatever
     COMMA("COMMA", null),
     GLOBAL("GLOBAL", null),
     PROC("PROC", null),
@@ -69,11 +68,11 @@ public enum Terminal {
     OUT("out", TerminalType.FLOWMODE),
     COPY("copy", TerminalType.MECHMODE),
     REF("ref", TerminalType.MECHMODE),
-    INT32("Int32", null),
-    BOOL("Bool", null),
-    TUPLE("Tuple", null),
-    COMPL("Compl", null),
-    IMAGINARY_PART("I", null);
+    INT32("Int32", TerminalType.TYPE),
+    BOOL("Bool", TerminalType.TYPE),
+    TUPLE("Tuple", TerminalType.TYPE),
+    COMPL("Compl", TerminalType.TYPE),
+    IMAGINARY_PART("I", TerminalType.TYPE);
 
     private final String value;
     private final TerminalType type;

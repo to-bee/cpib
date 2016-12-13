@@ -8,23 +8,16 @@ import scanner.datatypes.Terminal;
  *         example: (RELOPR, LE)
  */
 public class Opr extends BaseToken {
-    private TerminalType opr;
-
-    public Opr(TerminalType o) {
-        super(o.getOperatorTypes());
-        opr = o;
+    public Opr(Terminal t) {
+        super(t);
     }
 
     @Override
     public String toString() {
         if(getTerminal() == Terminal.UNDEFINED) {
-            return String.format("%s, ", getOpr());
+            return String.format("%s, ", getTerminal());
         } else {
-            return String.format("%s, %s", getTerminal().toString(), getOpr());
+            return String.format("%s, %s", getTerminal().toString(), getTerminal());
         }
-    }
-
-    public TerminalType getOpr() {
-        return opr;
     }
 }
