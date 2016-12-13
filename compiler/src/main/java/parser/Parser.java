@@ -71,11 +71,11 @@ public class Parser implements IParser {
 
     private void declarations() throws GrammarError {
         if (next.getTerminal() == Terminal.PROC) {
-            consume();
+//            consume();
             declaration();
             repeatingOptionalDeclarations();
         } else if (next.getTerminal() == Terminal.FUN) {
-            consume();
+//            consume();
             declaration();
             repeatingOptionalDeclarations();
         } else if (next.getTerminal() == Terminal.IDENT) {
@@ -111,10 +111,10 @@ public class Parser implements IParser {
             consume();
             storageDeclaration();
         } else if (next.getTerminal() == Terminal.FUN) {
-            consume();
+//            consume();
             functionDeclaration();
         } else if (next.getTerminal() == Terminal.PROC) {
-            consume();
+//            consume();
             procedureDeclaration();
         } else {
             throwGrammarError();
