@@ -23,26 +23,35 @@ public class ParserTest {
 
     @Test
     public void testParser() {
-        text = "program add() global\n" +
-                "var bsp1:compl; var bsp2:compl; var result:compl;\n" +
+        //        "programm subtract() global\n" +
+//                "var bsp1:compl; var bsp2:compl; var result:compl;\n" +
+//                "do\n" +
+//                "bsp1 := 2+I*3;\n" +
+//                "bsp2 := 3-I*4;\n" +
+//                "result := bsp1 - bsp2;\n" +
+//                "endprogram\n" +
+//                "programm multiply() global\n" +
+//                "var bsp1:compl; var bsp2:compl; var result:compl;\n" +
+//                "do\n" +
+//                "bsp1 := 5+I*4;\n" +
+//                "bsp2 := 4-I*5;\n" +
+//                "result := bsp1 * bsp2;\n" +
+
+        text = "program ComplexTest()\n" +
+                "global\n" +
+                "fun add(bsp1:Compl) returns s:Int32\n" +
+                    "local\n" +
+                    "var bsp1:Compl;\n" +
+                    "var bsp2:Compl;\n" +
+                    "var result:Compl;\n" +
+                    "do\n" +
+                        "bsp1 := 5+I*4;\n" +
+                        "bsp2 := 4-I*5;\n" +
+                        "result := bsp1 + bsp2;\n" +
+                "endfun\n" +
                 "do\n" +
-                "bsp1 := 5+i*4;\n" +
-                "bsp2 := 4-i*5;\n" +
-                "result := bsp1 + bsp2;\n" +
-                "endprogram\n" +
-                "programm subtract() global\n" +
-                "var bsp1:compl; var bsp2:compl; var result:compl;\n" +
-                "do\n" +
-                "bsp1 := 2+i*3;\n" +
-                "bsp2 := 3-i*4;\n" +
-                "result := bsp1 - bsp2;\n" +
-                "endprogram\n" +
-                "programm multiply() global\n" +
-                "var bsp1:compl; var bsp2:compl; var result:compl;\n" +
-                "do\n" +
-                "bsp1 := 5+i*4;\n" +
-                "bsp2 := 4-i*5;\n" +
-                "result := bsp1 * bsp2;\n" +
+                    "call add()\n" +
+                    "s init := 1\n" +
                 "endprogram";
 
         try {

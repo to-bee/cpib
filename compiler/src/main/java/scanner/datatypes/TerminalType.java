@@ -20,10 +20,10 @@ public enum TerminalType {
      */
     RELOPR("RELOPR"),
     /**
-     * Conditional Operator
+     * Conditional/BoolOpr Operator
      * (&&, ||, ?:)
      */
-    CONDOPR("CONDOPR"),
+    BOOLOPR("BOOLOPR"),
     /**
      * Arithmetic Operator
      * (+, -, *, /, %)

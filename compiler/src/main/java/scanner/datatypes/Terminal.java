@@ -13,17 +13,17 @@ import java.util.List;
 public enum Terminal {
     UNDEFINED("UNDEFINED", null),
     DO("DO", null),
+    INT("int", null),
     WHILE("WHILE", null),
     ENDWHILE("ENDWHILE", null),
     PROGRAM("PROGRAM", null),
     SENTINEL("SENTINEL", null),
     IDENT("IDENT", null),
     LITERAL("LITERAL", null),
-    IMAGINARY_PART("I", null),
     LPAREN("(", null),
     RPAREN(")", null),
     SEMICOLON(";", null), // ;
-    COLON("COLON", null), // :
+    COLON(":", null), // :
     TYPE("TYPE", null), // whatever
     COMMA("COMMA", null),
     GLOBAL("GLOBAL", null),
@@ -49,8 +49,6 @@ public enum Terminal {
     ELSE("ELSE", null),
     ENDIF("ENDIF", null),
     INIT("INIT", null),
-    BOOLOPR("BOOLOPR", null),
-    TYPEDEF(":", null),
     NOT("!", TerminalType.UNARYOPR),
     DIV("/", TerminalType.ARITHMOPR),
     MOD("%", TerminalType.ARITHMOPR),
@@ -62,15 +60,20 @@ public enum Terminal {
     LT("<", TerminalType.RELOPR),
     GE(">=", TerminalType.RELOPR),
     LE("<=", TerminalType.RELOPR),
-    CAND("&&", TerminalType.CONDOPR),
-    COR("||", TerminalType.CONDOPR),
+    CAND("&&", TerminalType.BOOLOPR),
+    COR("||", TerminalType.BOOLOPR),
     CONST("const", TerminalType.CHANGEMODE),
     VAR("var", TerminalType.CHANGEMODE),
     IN("in", TerminalType.FLOWMODE),
     INOUT("inout", TerminalType.FLOWMODE),
     OUT("out", TerminalType.FLOWMODE),
     COPY("copy", TerminalType.MECHMODE),
-    REF("ref", TerminalType.MECHMODE);
+    REF("ref", TerminalType.MECHMODE),
+    INT32("Int32", null),
+    BOOL("Bool", null),
+    TUPLE("Tuple", null),
+    COMPL("Compl", null),
+    IMAGINARY_PART("I", null);
 
     private final String value;
     private final TerminalType type;

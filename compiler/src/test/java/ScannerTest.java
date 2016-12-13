@@ -49,12 +49,10 @@ public class ScannerTest {
         text = "while x36 <= 67 do\nx := x-1\nendwhile";
         result = "[WHILE, (IDENT, \"x36\"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, \"x\"), BECOMES, (IDENT, \"x\"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, SENTINEL]";
         tokenList = scanner.scan(text);
-        scanner.printResult(text, result, tokenList);
 
         text = "Liebe Grossmutter!\nZu Deinem 67-ten Geburtstag";
         result = "[(IDENT, „Liebe\"), (IDENT, „Grossmutter\"), EXCLAMARK, (IDENT, „Zu\"), (IDENT, „Deinem\"), (LITERAL, 67), (ADDOPR, MINUS), (IDENT, „ten\"), (IDENT, „Geburtstag\"), ...]";
         tokenList = scanner.scan(text);
-        scanner.printResult(text, result, tokenList);
 
         text = "div63";
         tokenList = scanner.scan(text);

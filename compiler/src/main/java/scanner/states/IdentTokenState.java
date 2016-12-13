@@ -56,13 +56,6 @@ public class IdentTokenState extends AbstractTokenState {
         if ((terminal = Terminal.getTerminalFromString(word)) != Terminal.UNDEFINED) {
             token = new BaseToken(terminal);
         }
-//        if ((terminal = Terminal.getTerminalFromString(word)) == Terminal.WHILE
-//                || terminal == Terminal.DO
-//                || terminal == Terminal.PROGRAM
-//                || terminal == Terminal.SENTINEL
-//                || terminal == Terminal.ENDWHILE) {
-//            token = new BaseToken(terminal);
-//        }
         // Ident
         else {
             token = new Ident(word);
