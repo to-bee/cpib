@@ -25,16 +25,27 @@ public class Parser implements IParser {
         this.concSyn = new ConcSyn();
     }
 
+    /**
+     * consyn
+     *      program
+     *          ident
+     *
+     * iconsyn:
+     *      parse
+     * @return
+     * @throws GrammarError
+     */
+
     @Override
     public IConcSyn parseProgram() throws GrammarError {
         // loads first token and checks if it starts with program
         next = tokenList.nextToken();
-        if (next.getTerminal() == Terminal.PROGRAM) {
+        if (next.getTerminal() == Terminal.PROGRAM) { // current state = consyn
             // consume program
-            consume();
+            consume(); // add program to current state
             // check if netxt token is identifier
             if (next.getTerminal() == Terminal.IDENT) {
-                consume();
+                consume(); // add ident to current state
                 programParameterList();
                 optionalGlobalDeclarations();
                 if (next.getTerminal() == Terminal.DO) {
