@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ebaf0080-dc7f-4926-9415-dc7a5827aa42" name="Default" comment="parser">
+    <list default="true" id="ebaf0080-dc7f-4926-9415-dc7a5827aa42" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parser/Parser.java" afterPath="$PROJECT_DIR$/src/main/java/parser/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/iml-extension-ekdahlernst-gaiffilauber.sml" afterPath="$PROJECT_DIR$/src/main/resources/iml-extension-ekdahlernst-gaiffilauber.sml" />
     </list>
     <ignored path="compiler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1459,7 +1457,7 @@
       <workItem from="1480436021028" duration="2944000" />
       <workItem from="1481444569387" duration="14010000" />
       <workItem from="1481564052020" duration="38332000" />
-      <workItem from="1481749960460" duration="1532000" />
+      <workItem from="1481749960460" duration="1625000" />
     </task>
     <task id="LOCAL-00001" summary="maven compiler plugin">
       <created>1475525604353</created>
@@ -1601,7 +1599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481712670201</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="resources">
+      <created>1481753941779</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1481753941779</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1637,7 +1642,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124921000" />
+    <option name="totallyTimeSpent" value="125014000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1866" height="1177" extended-state="6" />
@@ -1699,7 +1704,8 @@
     <MESSAGE value="scanner" />
     <MESSAGE value="parser issues" />
     <MESSAGE value="parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="parser" />
+    <MESSAGE value="resources" />
+    <option name="LAST_COMMIT_MESSAGE" value="resources" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
