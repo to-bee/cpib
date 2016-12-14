@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebaf0080-dc7f-4926-9415-dc7a5827aa42" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/iml-extension-ekdahlernst-gaiffilauber.sml" afterPath="$PROJECT_DIR$/src/main/resources/iml-extension-ekdahlernst-gaiffilauber.sml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/iml-output-ekdahlernst.txt" afterPath="$PROJECT_DIR$/src/main/resources/iml-output-ekdahlernst.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parser/Parser.java" afterPath="$PROJECT_DIR$/src/main/java/parser/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scanner/tokenList/TokenList.java" afterPath="$PROJECT_DIR$/src/main/java/scanner/tokenList/TokenList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" />
     </list>
     <ignored path="compiler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,8 +31,8 @@
           <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/parser/Parser.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="197">
-                  <caret line="456" column="22" lean-forward="false" selection-start-line="456" selection-start-column="17" selection-end-line="456" selection-end-column="22" />
+                <state relative-caret-position="258">
+                  <caret line="501" column="37" lean-forward="false" selection-start-line="501" selection-start-column="37" selection-end-line="501" selection-end-column="37" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -161,8 +157,8 @@
           <file leaf-file-name="iml-extension-ekdahlernst-gaiffilauber.sml" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/resources/iml-extension-ekdahlernst-gaiffilauber.sml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="323" column="16" lean-forward="true" selection-start-line="323" selection-start-column="16" selection-end-line="323" selection-end-column="16" />
+                <state relative-caret-position="194">
+                  <caret line="289" column="12" lean-forward="false" selection-start-line="289" selection-start-column="12" selection-end-line="289" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -226,8 +222,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>import</find>
-      <find>optionalProgramParameters</find>
       <find>program</find>
       <find>optionalLocalStorageDeclarations</find>
       <find>ident(</find>
@@ -254,8 +248,10 @@
       <find>next</find>
       <find>init</find>
       <find>optional</find>
-      <find>expressionList</find>
       <find>term3</find>
+      <find>expressionList</find>
+      <find>expression</find>
+      <find>without</find>
     </findStrings>
     <replaceStrings>
       <replace>(&quot;BITCH&quot;, &quot;&quot;, &quot;&quot;),</replace>
@@ -337,9 +333,9 @@
         <option value="$PROJECT_DIR$/src/main/java/scanner/token/Opr.java" />
         <option value="$PROJECT_DIR$/src/main/java/scanner/states/InstructionTokenState.java" />
         <option value="$PROJECT_DIR$/src/main/java/scanner/datatypes/Terminal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/parser/Parser.java" />
         <option value="$PROJECT_DIR$/src/main/java/scanner/tokenList/TokenList.java" />
         <option value="$PROJECT_DIR$/src/test/java/ParserTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/parser/Parser.java" />
       </list>
     </option>
   </component>
@@ -1603,7 +1599,7 @@
       <workItem from="1480435941189" duration="68000" />
       <workItem from="1480436021028" duration="2944000" />
       <workItem from="1481444569387" duration="14010000" />
-      <workItem from="1481564052020" duration="36331000" />
+      <workItem from="1481564052020" duration="38323000" />
     </task>
     <task id="LOCAL-00001" summary="maven compiler plugin">
       <created>1475525604353</created>
@@ -1731,31 +1727,17 @@
       <option name="project" value="LOCAL" />
       <updated>1481673685632</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="parser">
+      <created>1481709725130</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1481709725130</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ParserTest - 2016.12.14 at 10h 39m 40s.xml">
-      <configuration name="ParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParserTest - 2016.12.14 at 10h 42m 07s.xml">
-      <configuration name="ParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParserTest - 2016.12.14 at 10h 42m 15s.xml">
-      <configuration name="ParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParserTest - 2016.12.14 at 10h 43m 26s.xml">
-      <configuration name="ParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParserTest - 2016.12.14 at 10h 43m 42s.xml">
-      <configuration name="ParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParserTest - 2016.12.14 at 10h 44m 08s.xml">
-      <configuration name="ParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParserTest - 2016.12.14 at 10h 45m 11s.xml">
-      <configuration name="ParserTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ParserTest - 2016.12.14 at 10h 45m 41s.xml">
       <configuration name="ParserTest" configurationId="JUnit" />
     </history-entry>
@@ -1765,9 +1747,30 @@
     <history-entry file="ParserTest - 2016.12.14 at 11h 01m 52s.xml">
       <configuration name="ParserTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ParserTest - 2016.12.14 at 11h 23m 41s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParserTest - 2016.12.14 at 11h 26m 15s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParserTest - 2016.12.14 at 11h 42m 14s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParserTest - 2016.12.14 at 11h 43m 02s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParserTest - 2016.12.14 at 11h 43m 37s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParserTest - 2016.12.14 at 11h 49m 10s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParserTest - 2016.12.14 at 11h 50m 39s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121388000" />
+    <option name="totallyTimeSpent" value="123380000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1866" height="1177" extended-state="6" />
@@ -1827,9 +1830,9 @@
     <MESSAGE value="split terminal keywords" />
     <MESSAGE value="sml" />
     <MESSAGE value="scanner" />
-    <MESSAGE value="parser" />
     <MESSAGE value="parser issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="parser issues" />
+    <MESSAGE value="parser" />
+    <option name="LAST_COMMIT_MESSAGE" value="parser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1860,15 +1863,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/parser/Parser.java</url>
-          <line>434</line>
+          <line>503</line>
           <properties />
-          <option name="timeStamp" value="228" />
+          <option name="timeStamp" value="233" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="229" />
+      <option name="time" value="234" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -2239,16 +2242,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="55" column="31" lean-forward="true" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/iml-output-ekdahlernst.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -2257,10 +2250,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/Parser.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="456" column="22" lean-forward="false" selection-start-line="456" selection-start-column="17" selection-end-line="456" selection-end-column="22" />
+        <state relative-caret-position="426">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2269,9 +2262,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/iml-extension-ekdahlernst-gaiffilauber.sml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="323" column="16" lean-forward="true" selection-start-line="323" selection-start-column="16" selection-end-line="323" selection-end-column="16" />
+        <state relative-caret-position="194">
+          <caret line="289" column="12" lean-forward="false" selection-start-line="289" selection-start-column="12" selection-end-line="289" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/parser/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="501" column="37" lean-forward="false" selection-start-line="501" selection-start-column="37" selection-end-line="501" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

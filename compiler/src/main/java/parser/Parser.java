@@ -338,6 +338,7 @@ public class Parser implements IParser {
     private void expression() throws GrammarError {
         if (next.getTerminal() == Terminal.REAL
                 || next.getTerminal() == Terminal.IMAG
+                || next.getTerminal() == Terminal.IMAGINARY_PART // added without sml support
                 || next.getTerminal() == Terminal.LPAREN
                 || next.getTerminal() == Terminal.ADDOPR
                 || next.getTerminal() == Terminal.NOT
@@ -376,6 +377,7 @@ public class Parser implements IParser {
     private void term1() throws GrammarError {
         if (next.getTerminal() == Terminal.REAL
                 || next.getTerminal() == Terminal.IMAG
+                || next.getTerminal() == Terminal.IMAGINARY_PART // added without sml support
                 || next.getTerminal() == Terminal.LPAREN
                 || next.getTerminal() == Terminal.ADDOPR
                 || next.getTerminal() == Terminal.NOT
@@ -417,6 +419,7 @@ public class Parser implements IParser {
     private void term2() throws GrammarError {
         if (next.getTerminal() == Terminal.REAL
                 || next.getTerminal() == Terminal.IMAG
+                || next.getTerminal() == Terminal.IMAGINARY_PART // added without sml support
                 || next.getTerminal() == Terminal.LPAREN
                 || next.getTerminal() == Terminal.ADDOPR
                 || next.getTerminal() == Terminal.NOT
@@ -457,6 +460,7 @@ public class Parser implements IParser {
     private void term3() throws GrammarError {
         if (next.getTerminal() == Terminal.REAL
                 || next.getTerminal() == Terminal.IMAG
+                || next.getTerminal() == Terminal.IMAGINARY_PART // added without sml support
                 || next.getTerminal() == Terminal.LPAREN
                 || next.getTerminal() == Terminal.ADDOPR
                 || next.getTerminal() == Terminal.NOT
@@ -496,7 +500,10 @@ public class Parser implements IParser {
     }
 
     private void factor() throws GrammarError {
-        if (next.getTerminal() == Terminal.LITERAL) {
+        // added without sml support
+        if (next.getTerminal() == Terminal.IMAGINARY_PART) {
+            consume();
+        } else if (next.getTerminal() == Terminal.LITERAL) {
             consume();
         } else if (next.getTerminal() == Terminal.IDENT) {
             consume();
