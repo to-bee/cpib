@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebaf0080-dc7f-4926-9415-dc7a5827aa42" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/iml-output-ekdahlernst.txt" afterPath="$PROJECT_DIR$/src/main/resources/iml-output-ekdahlernst-old.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/iml-extension-ekdahlernst-gaiffilauber.sml" afterPath="$PROJECT_DIR$/src/main/resources/iml-extension-ekdahlernst-gaiffilauber.sml" />
     </list>
     <ignored path="compiler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -666,6 +664,11 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/scanner" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="conSyn" />
+      <recent name="model.tree" />
+      <recent name="" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
@@ -675,7 +678,9 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/scanner" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -685,15 +690,8 @@
       <recent name="concreteSyntaxTree" />
       <recent name="model.tree" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/scanner" />
-      <recent name="$PROJECT_DIR$" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="conSyn" />
-      <recent name="model.tree" />
-      <recent name="" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.ParserTest">
@@ -1459,7 +1457,7 @@
       <workItem from="1480436021028" duration="2944000" />
       <workItem from="1481444569387" duration="14010000" />
       <workItem from="1481564052020" duration="38332000" />
-      <workItem from="1481749960460" duration="2822000" />
+      <workItem from="1481749960460" duration="3294000" />
     </task>
     <task id="LOCAL-00001" summary="maven compiler plugin">
       <created>1475525604353</created>
@@ -1608,7 +1606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481753941779</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="rename">
+      <created>1481755494332</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1481755494332</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1644,7 +1649,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126211000" />
+    <option name="totallyTimeSpent" value="126683000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1866" height="1177" extended-state="6" />
@@ -1707,7 +1712,8 @@
     <MESSAGE value="parser issues" />
     <MESSAGE value="parser" />
     <MESSAGE value="resources" />
-    <option name="LAST_COMMIT_MESSAGE" value="resources" />
+    <MESSAGE value="rename" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
