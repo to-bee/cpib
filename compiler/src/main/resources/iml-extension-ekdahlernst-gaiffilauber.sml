@@ -317,7 +317,7 @@ val productions =
      [T LPAREN, N expression, T RPAREN],
      [N complImag],
      [N complReal],
-     [T IMAGINARY_PART]]),
+     [T IMAGINARY_PART]])
 (optionalIdent,
 	[[],
 	 [T INIT],
