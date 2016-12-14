@@ -96,7 +96,7 @@ public class Parser implements IParser {
 
     private void repeatingOptionalDeclarations() throws GrammarError {
         if (next.getTerminal() == Terminal.DO) {
-            consume();
+
         } else if (next.getTerminal() == Terminal.SEMICOLON) {
             consume();
             declaration();
@@ -165,7 +165,7 @@ public class Parser implements IParser {
                 || next.getTerminal() == Terminal.ENDIF
                 || next.getTerminal() == Terminal.ELSE
                 || next.getTerminal() == Terminal.ENDPROGRAM) {
-            consume();
+
         } else if (next.getTerminal() == Terminal.SEMICOLON) {
             consume();
             cmd();
@@ -252,7 +252,7 @@ public class Parser implements IParser {
                 || next.getTerminal() == Terminal.ELSE
                 || next.getTerminal() == Terminal.ENDPROGRAM
                 || next.getTerminal() == Terminal.SEMICOLON) {
-            consume();
+
         } else if (next.getTerminal() == Terminal.INIT) {
             consume();
             idents();
@@ -308,20 +308,16 @@ public class Parser implements IParser {
 
     private void optionalExpressions() throws GrammarError {
         if (next.getTerminal() == Terminal.RPAREN) {
-            consume();
-            if (next.getTerminal() == Terminal.REAL
-                    || next.getTerminal() == Terminal.IMAG
-                    || next.getTerminal() == Terminal.LPAREN
-                    || next.getTerminal() == Terminal.ADDOPR
-                    || next.getTerminal() == Terminal.NOT
-                    || next.getTerminal() == Terminal.IDENT
-                    || next.getTerminal() == Terminal.LITERAL) {
-                consume();
-                expression();
-                repeatingOptionalExpressions();
-            } else {
-                throwGrammarError();
-            }
+
+        } else if (next.getTerminal() == Terminal.REAL
+                || next.getTerminal() == Terminal.IMAG
+                || next.getTerminal() == Terminal.LPAREN
+                || next.getTerminal() == Terminal.ADDOPR
+                || next.getTerminal() == Terminal.NOT
+                || next.getTerminal() == Terminal.IDENT
+                || next.getTerminal() == Terminal.LITERAL) {
+            expression();
+            repeatingOptionalExpressions();
         } else {
             throwGrammarError();
         }

@@ -35,7 +35,7 @@ public class TokenList implements ITokenList {
 	 * 	Also removeLast() possible whichever we will need. Will destroy the tokenlist eventually.
 	 */
 	public IToken nextToken() {
-		return tokenList.removeFirst();
+		return tokenList.size() > 0 ? tokenList.removeFirst() : null;
 	}
 	
 	public String toString(){

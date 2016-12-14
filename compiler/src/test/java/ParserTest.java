@@ -39,39 +39,37 @@ public class ParserTest {
 //                "result := bsp1 * bsp2;\n" +
 
         // without complex
-        text = "program ComplexTest()\n" +
-                "global\n" +
-                "fun add(bsp1:Compl) returns s:Int32\n" +
-                "local\n" +
-                "var bsp1:Compl;\n" +
-                "var bsp2:Compl;\n" +
-                "var result:Compl\n" +
-                "do\n" +
-                "bsp1 := 5*4;\n" +
-                "bsp2 := 4*5;\n" +
-                "result := bsp1 + bsp2\n" +
-                "endfun\n" +
-                "do\n" +
-                "call add()\n" +
-                "s init := 1\n" +
-                "endprogram";
-
 //        text = "program ComplexTest()\n" +
 //                "global\n" +
 //                "fun add(bsp1:Compl) returns s:Int32\n" +
-//                    "local\n" +
-//                    "var bsp1:Compl;\n" +
-//                    "var bsp2:Compl;\n" +
-//                    "var result:Compl\n" +
-//                    "do\n" +
-//                        "bsp1 := 5+I*4;\n" +
-//                        "bsp2 := 4-I*5;\n" +
-//                        "result := bsp1 + bsp2\n" +
+//                "local\n" +
+//                "var bsp1:Compl;\n" +
+//                "var bsp2:Compl;\n" +
+//                "var result:Compl\n" +
+//                "do\n" +
+//                "bsp1 := 5*4;\n" +
+//                "bsp2 := 4*5;\n" +
+//                "result := bsp1 + bsp2\n" +
 //                "endfun\n" +
 //                "do\n" +
-//                    "call add()\n" +
-//                    "s init := 1\n" +
+//                "call add()\n" +
 //                "endprogram";
+
+        text = "program ComplexTest()\n" +
+                "global\n" +
+                "fun add(bsp1:Compl) returns s:Int32\n" +
+                    "local\n" +
+                    "var bsp1:Compl;\n" +
+                    "var bsp2:Compl;\n" +
+                    "var result:Compl\n" +
+                    "do\n" +
+                        "bsp1 := 5+I*4;\n" +
+                        "bsp2 := 4-I*5;\n" +
+                        "result := bsp1 + bsp2\n" +
+                "endfun\n" +
+                "do\n" +
+                    "call add()\n" +
+                "endprogram";
 
         try {
             Scanner scanner = new Scanner();
