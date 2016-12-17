@@ -23,7 +23,7 @@ public class Program extends AbstractConcSyn {
                 consume();
 
                 parseNext(new ProgramParameterList(getTokenList()));
-                parseNext(new OptionalGlobalImports(getTokenList()));
+                parseNext(new OptionalGlobalDeclarations(getTokenList()));
 
                 if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
                     consume();

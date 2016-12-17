@@ -2,62 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebaf0080-dc7f-4926-9415-dc7a5827aa42" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/BlockCmd.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Cmd.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ComplImag.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ComplReal.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Declaration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Declarations.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Expression.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ExpressionList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Factor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/FunctionDeclaration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/GlobalImport.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Idents.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/MonadictOperator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalChangeMode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressions.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalFlowMode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalDeclarations.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImports.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInits.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalIdent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalLocalStorageDeclarations.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalMechMode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalParameters.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParam.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Parameter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ParameterList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ProcedureDeclaration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Program.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ProgramParameterList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepAddOprTerm3.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepBoolOprTerm1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepMultOprFactor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepRelOprTerm2.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalCmds.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarations.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalExpressions.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalGlobalImports.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalIdents.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalParameters.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalProgramParameters.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalStorageDeclarations.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/StorageDeclaration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Term1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Term2.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Term3.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclaration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/TypedIdent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/conSyn/ConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/AbstractConcSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MWCompiler-example-infboard/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../MWCompiler-example-infboard/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/IConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/IConcSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parser/IParser.java" afterPath="$PROJECT_DIR$/src/main/java/parser/IParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parser/Parser.java" afterPath="$PROJECT_DIR$/src/main/java/parser/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scanner/tokenList/ITokenList.java" afterPath="$PROJECT_DIR$/src/main/java/scanner/tokenList/ITokenList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scanner/tokenList/TokenList.java" afterPath="$PROJECT_DIR$/src/main/java/scanner/tokenList/TokenList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImports.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImports.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/Program.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Program.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalGlobalImports.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalGlobalImports.java" />
     </list>
     <ignored path="compiler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -106,39 +54,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GlobalImport.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/GlobalImport.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="393">
-                  <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#323#324#0" expanded="true" />
-                    <element signature="e#355#356#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="OptionalGlobalImports.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImports.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="34" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#302#303#0" expanded="true" />
-                    <element signature="e#334#335#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Program.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Program.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Program.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+                <state relative-caret-position="195">
+                  <caret line="28" column="13" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -149,9 +69,55 @@
           <file leaf-file-name="ParserTest.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/test/java/ParserTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="378">
-                  <caret line="67" column="13" lean-forward="true" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+                <state relative-caret-position="153">
+                  <caret line="47" column="31" lean-forward="false" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FunctionDeclaration.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/FunctionDeclaration.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="135">
+                  <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="32" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Declaration.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Declaration.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Declarations.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Declarations.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="105">
+                  <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="OptionalGlobalDeclarations.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalDeclarations.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="135">
+                  <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="39" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -159,8 +125,8 @@
           <file leaf-file-name="AbstractConcSyn.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/AbstractConcSyn.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="333">
-                  <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+                <state relative-caret-position="343">
+                  <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -173,8 +139,8 @@
           <file leaf-file-name="iml-output-ekdahlernst.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/resources/iml-output-ekdahlernst.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="168" column="58" lean-forward="false" selection-start-line="168" selection-start-column="58" selection-end-line="168" selection-end-column="58" />
+                <state relative-caret-position="30">
+                  <caret line="2" column="67" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="67" />
                   <folding />
                 </state>
               </provider>
@@ -322,11 +288,11 @@
         <option value="$PROJECT_DIR$/src/main/java/scanner/tokenList/ITokenList.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/Declarations.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/BlockCmd.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/Program.java" />
         <option value="$PROJECT_DIR$/src/main/java/scanner/tokenList/TokenList.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImports.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/GlobalImport.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalGlobalImports.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImports.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/Program.java" />
       </list>
     </option>
   </component>
@@ -1507,7 +1473,7 @@
       <workItem from="1481444569387" duration="14010000" />
       <workItem from="1481564052020" duration="38332000" />
       <workItem from="1481749960460" duration="9374000" />
-      <workItem from="1481967906481" duration="8979000" />
+      <workItem from="1481967906481" duration="10104000" />
     </task>
     <task id="LOCAL-00001" summary="maven compiler plugin">
       <created>1475525604353</created>
@@ -1677,25 +1643,17 @@
       <option name="project" value="LOCAL" />
       <updated>1481759119964</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="new parser structure">
+      <created>1481977642133</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1481977642133</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ParserTest - 2016.12.17 at 12h 55m 44s.xml">
-      <configuration name="ParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParserTest - 2016.12.17 at 12h 56m 07s.xml">
-      <configuration name="ParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParserTest - 2016.12.17 at 12h 58m 49s.xml">
-      <configuration name="ParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParserTest - 2016.12.17 at 13h 00m 20s.xml">
-      <configuration name="ParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParserTest - 2016.12.17 at 13h 01m 46s.xml">
-      <configuration name="ParserTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ParserTest - 2016.12.17 at 13h 02m 09s.xml">
       <configuration name="ParserTest" configurationId="JUnit" />
     </history-entry>
@@ -1711,9 +1669,24 @@
     <history-entry file="ParserTest - 2016.12.17 at 13h 10m 51s.xml">
       <configuration name="ParserTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ParserTest - 2016.12.17 at 13h 33m 39s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParserTest - 2016.12.17 at 13h 33m 40s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParserTest - 2016.12.17 at 13h 33m 44s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParserTest - 2016.12.17 at 13h 45m 14s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParserTest - 2016.12.17 at 13h 45m 24s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141742000" />
+    <option name="totallyTimeSpent" value="142867000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1866" height="1177" extended-state="6" />
@@ -1741,7 +1714,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4523135" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4523135" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1803,22 +1776,10 @@
           <option name="timeStamp" value="247" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImports.java</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="249" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/conSyn/GlobalImport.java</url>
           <line>21</line>
           <properties />
           <option name="timeStamp" value="254" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/conSyn/Program.java</url>
-          <line>25</line>
-          <properties />
-          <option name="timeStamp" value="255" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1855,16 +1816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Declaration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="61" lean-forward="false" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Expression.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1891,16 +1842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="40" column="36" lean-forward="false" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/FunctionDeclaration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="67" lean-forward="false" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1979,16 +1920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="18" column="62" lean-forward="false" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalDeclarations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2223,14 +2154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Declarations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/BlockCmd.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -2271,18 +2194,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/AbstractConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/GlobalImport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+        <state relative-caret-position="285">
+          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#323#324#0" expanded="true" />
@@ -2291,20 +2206,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/AbstractConcSyn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="67" column="13" lean-forward="true" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+        <state relative-caret-position="343">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Program.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+        <state relative-caret-position="153">
+          <caret line="47" column="31" lean-forward="false" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Declaration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Declarations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalDeclarations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/FunctionDeclaration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImports.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2329,14 +2292,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImports.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Program.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="34" />
+        <state relative-caret-position="195">
+          <caret line="28" column="13" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-            <element signature="e#334#335#0" expanded="true" />
           </folding>
         </state>
       </provider>

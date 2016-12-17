@@ -22,8 +22,6 @@ public class RepeatingOptionalGlobalImports extends AbstractConcSyn implements I
             consume();
             parseNext(new GlobalImport(getTokenList()));
             parseNext(new RepeatingOptionalGlobalImports(getTokenList()));
-        } else {
-            throwGrammarError();
         }
     }
 }
