@@ -23,7 +23,7 @@ public class Literal extends BaseToken {
 
     @Override
     public String toString() {
-        return String.format("%s, %s", getTerminal().toString(), getValue());
+        return String.format("(%s, %s)", getTerminal().toString(), getValue());
     }
 }
 

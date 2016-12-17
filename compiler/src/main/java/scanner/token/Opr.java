@@ -17,7 +17,7 @@ public class Opr extends BaseToken {
         if(getTerminal() == Terminal.UNDEFINED) {
             return String.format("%s, ", getTerminal());
         } else {
-            return String.format("%s, %s", getTerminal().toString(), getTerminal());
+            return String.format("(%s, %s)", getTerminal().toString(), getTerminal());
         }
     }
 }

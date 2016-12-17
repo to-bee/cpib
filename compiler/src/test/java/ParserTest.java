@@ -5,7 +5,6 @@ import org.junit.Test;
 import parser.Parser;
 import scanner.Scanner;
 import scanner.errors.GrammarError;
-import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
 
 /**
@@ -21,6 +20,7 @@ public class ParserTest {
 
     @Test
     public void testParser() {
+        IConcSyn parseTree;
         String complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
                 "fun add(bsp1:Compl) returns s:Int32\n" +
@@ -29,15 +29,15 @@ public class ParserTest {
                     "var bsp2:Compl;\n" +
                     "var result:Compl\n" +
                     "do\n" +
-                        "bsp1 := 5+I*4;\n" +
+                        "bsp1 := (5+I*4);\n" +
                         "bsp2 := 4-I*5;\n" +
                         "result := bsp1 + bsp2\n" +
                 "endfun\n" +
                 "do\n" +
                     "call add()\n" +
                 "endprogram";
-        checkProgram(complexAddProgram);
-
+        parseTree = checkProgram(complexAddProgram);
+        parseTree.toString();
 
         String complexMultiplyProgram = "program ComplexTest()\n" +
                 "global\n" +
@@ -54,26 +54,29 @@ public class ParserTest {
                 "do\n" +
                 "call add()\n" +
                 "endprogram";
-        checkProgram(complexMultiplyProgram);
+        parseTree = checkProgram(complexMultiplyProgram);
     }
 
-    private void checkProgram(String addProgram) {
+    private IConcSyn checkProgram(String addProgram) {
         ITokenList tokenList = null;
         try {
             Scanner scanner = new Scanner();
             tokenList = scanner.scan(addProgram);
-            scanner.printResult(addProgram, addProgram, tokenList);
+//            scanner.printResult(addProgram, addProgram, tokenList);
         } catch (Exception lexicalError) {
             lexicalError.printStackTrace();
         }
 
         try {
-            Parser parser = new Parser(tokenList);
-            IConcSyn concSyn = parser.parseProgram();
+            Parser parseTree = new Parser(tokenList);
+            parseTree.parse();
+            return parseTree;
         } catch (GrammarError grammarError) {
             grammarError.printStackTrace();
             Assert.fail();
         }
+
+        return null;
     }
 
 

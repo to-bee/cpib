@@ -12,7 +12,8 @@ import scanner.token.IToken;
  */
 public class TokenList implements ITokenList {
 	
-	private LinkedList<IToken> tokenList = new LinkedList<IToken>();
+	private LinkedList<IToken> tokenList = new LinkedList<>();
+	private int position;
 
 	public TokenList(LinkedList<IToken> tokenList) {
 		this.tokenList = tokenList;
@@ -30,17 +31,26 @@ public class TokenList implements ITokenList {
 		tokenList.add(token);
 	}
 
+	private boolean isOutOfBounce() {
+		return this.position < 0 || this.position >= this.tokenList.size();
+	}
+
 	/**
 	 * returns first Token in list or NoSuchElementException - if this list is empty
 	 * 	Also removeLast() possible whichever we will need. Will destroy the tokenlist eventually.
 	 */
 	public IToken nextToken() {
-		return tokenList.size() > 0 ? tokenList.removeFirst() : null;
+		position++;
+		return getCurrent();
 	}
-	
+
+	@Override
+	public IToken getCurrent() {
+		return this.isOutOfBounce() ? null : this.tokenList.get(position);
+	}
+
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
-		Iterator<IToken> tokenIt = tokenList.iterator();
 		for(IToken token : tokenList) {
 			sb.append(String.format("%s", token.toString()));
 		}

@@ -40,4 +40,6 @@ public interface ITokenList extends Cloneable {
     List<IToken> toList();
 
 	int size();
+
+    IToken getCurrent();
 }
