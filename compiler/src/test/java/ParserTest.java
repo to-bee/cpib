@@ -29,7 +29,7 @@ public class ParserTest {
                     "var bsp2:Compl;\n" +
                     "var result:Compl\n" +
                     "do\n" +
-                        "bsp1 := 5+I*4;\n" +
+                        "bsp1 := (5+I*4);\n" +
                         "bsp2 := 4-I*5;\n" +
                         "result := bsp1 + bsp2\n" +
                 "endfun\n" +
@@ -54,7 +54,7 @@ public class ParserTest {
                 "do\n" +
                 "call add()\n" +
                 "endprogram";
-        parseTree = checkProgram(complexAddProgram);
+        parseTree = checkProgram(complexMultiplyProgram);
     }
 
     private IConcSyn checkProgram(String addProgram) {
@@ -62,7 +62,7 @@ public class ParserTest {
         try {
             Scanner scanner = new Scanner();
             tokenList = scanner.scan(addProgram);
-            scanner.printResult(addProgram, addProgram, tokenList);
+//            scanner.printResult(addProgram, addProgram, tokenList);
         } catch (Exception lexicalError) {
             lexicalError.printStackTrace();
         }

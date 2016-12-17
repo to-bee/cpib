@@ -8,8 +8,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class FunctionDeclaration extends AbstractConcSyn implements IConcSyn {
-    public FunctionDeclaration(ITokenList tokenList) {
-        super(tokenList);
+    public FunctionDeclaration(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -18,15 +18,15 @@ public class FunctionDeclaration extends AbstractConcSyn implements IConcSyn {
             consume();
             if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
                 consume();
-                parseNext(new ParameterList(getTokenList()));
+                parseNext(new ParameterList(getTokenList(), getCounter()));
                 if (getTokenList().getCurrent().getTerminal() == Terminal.RETURNS) {
                     consume();
-                    parseNext(new StorageDeclaration(getTokenList()));
-                    parseNext(new OptionalGlobalImports(getTokenList()));
-                    parseNext(new OptionalLocalStorageDeclarations(getTokenList()));
+                    parseNext(new StorageDeclaration(getTokenList(), getCounter()));
+                    parseNext(new OptionalGlobalImports(getTokenList(), getCounter()));
+                    parseNext(new OptionalLocalStorageDeclarations(getTokenList(), getCounter()));
                     if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
                         consume();
-                        parseNext(new BlockCmd(getTokenList()));
+                        parseNext(new BlockCmd(getTokenList(), getCounter()));
                         if (getTokenList().getCurrent().getTerminal() == Terminal.ENDFUN) {
                             consume();
                         } else {

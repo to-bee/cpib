@@ -8,8 +8,8 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class BlockCmd extends AbstractConcSyn implements IConcSyn {
-    public BlockCmd(ITokenList tokenList) {
-        super(tokenList);
+    public BlockCmd(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -29,8 +29,8 @@ public class BlockCmd extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL
                 || getTokenList().getCurrent().getTerminal() == Terminal.SKIP) {
-            this.parseNext(new Cmd(this.getTokenList()));
-            this.parseNext(new RepeatingOptionalCmds(this.getTokenList()));
+            this.parseNext(new Cmd(getTokenList(), getCounter()));
+            this.parseNext(new RepeatingOptionalCmds(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

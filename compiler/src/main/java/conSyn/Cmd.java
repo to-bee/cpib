@@ -8,8 +8,8 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class Cmd extends AbstractConcSyn implements IConcSyn {
-    public Cmd(ITokenList tokenList) {
-        super(tokenList);
+    public Cmd(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -25,22 +25,22 @@ public class Cmd extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
-            parseNext(new Expression(getTokenList()));
+            parseNext(new Expression(getTokenList(), getCounter()));
             if (getTokenList().getCurrent().getTerminal() == Terminal.BECOMES) {
                 consume();
-                parseNext(new Expression(getTokenList()));
+                parseNext(new Expression(getTokenList(), getCounter()));
             } else {
                 throwGrammarError();
             }
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IF) {
             consume();
-            parseNext(new Expression(getTokenList()));
+            parseNext(new Expression(getTokenList(), getCounter()));
             if (getTokenList().getCurrent().getTerminal() == Terminal.THEN) {
                 consume();
-                parseNext(new BlockCmd(getTokenList()));
+                parseNext(new BlockCmd(getTokenList(), getCounter()));
                 if (getTokenList().getCurrent().getTerminal() == Terminal.ELSE) {
                     consume();
-                    parseNext(new BlockCmd(getTokenList()));
+                    parseNext(new BlockCmd(getTokenList(), getCounter()));
                     if (getTokenList().getCurrent().getTerminal() == Terminal.ENDIF) {
                         consume();
                     } else {
@@ -54,10 +54,10 @@ public class Cmd extends AbstractConcSyn implements IConcSyn {
             }
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.WHILE) {
             consume();
-            parseNext(new Expression(getTokenList()));
+            parseNext(new Expression(getTokenList(), getCounter()));
             if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
                 consume();
-                parseNext(new BlockCmd(getTokenList()));
+                parseNext(new BlockCmd(getTokenList(), getCounter()));
                 if (getTokenList().getCurrent().getTerminal() == Terminal.ENDWHILE) {
                     consume();
                 } else {
@@ -70,15 +70,15 @@ public class Cmd extends AbstractConcSyn implements IConcSyn {
             consume();
             if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
                 consume();
-                parseNext(new ExpressionList(getTokenList()));
-                parseNext(new OptionalGlobalInits(getTokenList()));
+                parseNext(new ExpressionList(getTokenList(), getCounter()));
+                parseNext(new OptionalGlobalInits(getTokenList(), getCounter()));
             } else {
                 throwGrammarError();
             }
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.DEBUGIN
                 || getTokenList().getCurrent().getTerminal() == Terminal.DEBUGOUT) {
             consume();
-            parseNext(new Expression(getTokenList()));
+            parseNext(new Expression(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

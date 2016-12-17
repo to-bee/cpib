@@ -8,8 +8,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class Expression extends AbstractConcSyn implements IConcSyn {
-    public Expression(ITokenList tokenList) {
-        super(tokenList);
+    public Expression(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -23,8 +23,8 @@ public class Expression extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
-            parseNext(new Term1(getTokenList()));
-            parseNext(new RepBoolOprTerm1(getTokenList()));
+            parseNext(new Term1(getTokenList(), getCounter()));
+            parseNext(new RepBoolOprTerm1(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

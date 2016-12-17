@@ -8,8 +8,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class OptionalGlobalInits extends AbstractConcSyn implements IConcSyn {
-    public OptionalGlobalInits(ITokenList tokenList) {
-        super(tokenList);
+    public OptionalGlobalInits(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -24,7 +24,7 @@ public class OptionalGlobalInits extends AbstractConcSyn implements IConcSyn {
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.INIT) {
             consume();
-            parseNext(new Idents(getTokenList()));
+            parseNext(new Idents(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

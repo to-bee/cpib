@@ -8,8 +8,8 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class OptionalGlobalDeclarations extends AbstractConcSyn implements IConcSyn {
-    public OptionalGlobalDeclarations(ITokenList tokenList) {
-        super(tokenList);
+    public OptionalGlobalDeclarations(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -18,7 +18,7 @@ public class OptionalGlobalDeclarations extends AbstractConcSyn implements IConc
             consume();
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.GLOBAL) {
             consume();
-            parseNext(new Declarations(getTokenList()));
+            parseNext(new Declarations(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

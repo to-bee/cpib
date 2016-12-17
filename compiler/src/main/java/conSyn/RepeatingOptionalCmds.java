@@ -8,8 +8,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalCmds extends AbstractConcSyn implements IConcSyn {
-    public RepeatingOptionalCmds(ITokenList tokenList) {
-        super(tokenList);
+    public RepeatingOptionalCmds(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -23,8 +23,8 @@ public class RepeatingOptionalCmds extends AbstractConcSyn implements IConcSyn {
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON) {
             consume();
-            parseNext(new Cmd(getTokenList()));
-            parseNext(new RepeatingOptionalCmds(getTokenList()));
+            parseNext(new Cmd(getTokenList(), getCounter()));
+            parseNext(new RepeatingOptionalCmds(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

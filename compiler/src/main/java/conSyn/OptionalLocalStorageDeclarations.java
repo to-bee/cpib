@@ -8,8 +8,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class OptionalLocalStorageDeclarations extends AbstractConcSyn implements IConcSyn {
-    public OptionalLocalStorageDeclarations(ITokenList tokenList) {
-        super(tokenList);
+    public OptionalLocalStorageDeclarations(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -18,8 +18,8 @@ public class OptionalLocalStorageDeclarations extends AbstractConcSyn implements
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LOCAL) {
             consume();
-            parseNext(new StorageDeclaration(getTokenList()));
-            parseNext(new RepeatingOptionalStorageDeclarations(getTokenList()));
+            parseNext(new StorageDeclaration(getTokenList(), getCounter()));
+            parseNext(new RepeatingOptionalStorageDeclarations(getTokenList(), getCounter()));
         }
     }
 }

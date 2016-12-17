@@ -13,24 +13,45 @@ import java.util.List;
  */
 public abstract class AbstractConcSyn implements IConcSyn {
     private final ITokenList tokenList;
+    private final int counter;
     private List<IConcSyn> childs = new ArrayList<>();
 
-    public AbstractConcSyn(ITokenList tokenList) {
+    public AbstractConcSyn(ITokenList tokenList, int i) {
         this.tokenList = tokenList;
+        this.counter = i+1;
     }
 
     public ITokenList getTokenList() {
         return tokenList;
     }
 
+    public int getCounter() {
+        return counter;
+    }
+
     /**
      * Loads the next token
      *
      * @throws GrammarError
+
      */
     public void consume() throws GrammarError {
         IToken token = tokenList.nextToken();
+
+        if(token != null) {
+            String tabs = getTabs(getCounter());
+            System.out.printf("%s%s: %s\n", tabs, getClass().getName(), token.toString());
+        }
+
 //        tokens.add(token);
+    }
+
+    private String getTabs(int tabsCount) {
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < tabsCount*2; i++) {
+            sb.append("  ");
+        }
+        return sb.toString();
     }
 
     public void parseNext(IConcSyn concSyn) throws GrammarError {
@@ -51,13 +72,18 @@ public abstract class AbstractConcSyn implements IConcSyn {
         throw new GrammarError(String.format("%s cannot follow to %s", terminal, followingTerminal));
     }
 
-    @Override
-    public String toString() {
+
+
+//    @Override
+//    public String toString() {
 //        StringBuilder sb = new StringBuilder();
+//        for(int i = 0; i<tabs*4; i++) {
+//            sb.append(" ");
+//        }
 //        for(IConcSyn child : childs) {
-//            child.
+//            sb.append(child.toString());
+//            sb.append("\n");
 //        }
 //        return sb.toString();
-        return "dinimuetter";
-    }
+//    }
 }

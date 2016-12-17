@@ -8,8 +8,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalIdents extends AbstractConcSyn implements IConcSyn {
-    public RepeatingOptionalIdents(ITokenList tokenList) {
-        super(tokenList);
+    public RepeatingOptionalIdents(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class RepeatingOptionalIdents extends AbstractConcSyn implements IConcSyn
             consume();
             if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
                 consume();
-                parseNext(new Idents(getTokenList()));
+                parseNext(new Idents(getTokenList(), getCounter()));
             } else {
                 throwGrammarError();
             }

@@ -9,8 +9,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class RepRelOprTerm2 extends AbstractConcSyn implements IConcSyn {
-    public RepRelOprTerm2(ITokenList tokenList) {
-        super(tokenList);
+    public RepRelOprTerm2(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -31,8 +31,8 @@ public class RepRelOprTerm2 extends AbstractConcSyn implements IConcSyn {
 
         } else if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.RELOPR) {
             consume();
-            parseNext(new Term2(getTokenList()));
-            parseNext(new RepRelOprTerm2(getTokenList()));
+            parseNext(new Term2(getTokenList(), getCounter()));
+            parseNext(new RepRelOprTerm2(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

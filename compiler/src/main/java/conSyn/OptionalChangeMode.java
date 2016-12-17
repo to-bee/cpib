@@ -9,8 +9,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class OptionalChangeMode extends AbstractConcSyn implements IConcSyn {
-    public OptionalChangeMode(ITokenList tokenList) {
-        super(tokenList);
+    public OptionalChangeMode(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override

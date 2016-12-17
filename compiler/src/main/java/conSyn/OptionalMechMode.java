@@ -9,8 +9,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class OptionalMechMode extends AbstractConcSyn implements IConcSyn {
-    public OptionalMechMode(ITokenList tokenList) {
-        super(tokenList);
+    public OptionalMechMode(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override

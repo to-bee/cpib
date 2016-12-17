@@ -9,8 +9,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class OptionalIdent extends AbstractConcSyn implements IConcSyn {
-    public OptionalIdent(ITokenList tokenList) {
-        super(tokenList);
+    public OptionalIdent(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class OptionalIdent extends AbstractConcSyn implements IConcSyn {
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.INIT) {
             consume();
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
-            parseNext(new ExpressionList(getTokenList()));
+            parseNext(new ExpressionList(getTokenList(), getCounter()));
 
         } else {
             throwGrammarError();

@@ -9,8 +9,8 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class Declarations extends AbstractConcSyn implements IConcSyn {
-    public Declarations(ITokenList tokenList) {
-        super(tokenList);
+    public Declarations(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -19,8 +19,8 @@ public class Declarations extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.FUN
                 || getTokenList().getCurrent().getTerminal() == Terminal.PROC
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
-            this.parseNext(new Declaration(this.getTokenList()));
-            this.parseNext(new RepeatingOptionalDeclarations(this.getTokenList()));
+            this.parseNext(new Declaration(this.getTokenList(), getCounter()));
+            this.parseNext(new RepeatingOptionalDeclarations(this.getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

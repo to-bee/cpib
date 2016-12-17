@@ -9,8 +9,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class RepMultOprFactor extends AbstractConcSyn implements IConcSyn {
-    public RepMultOprFactor(ITokenList tokenList) {
-        super(tokenList);
+    public RepMultOprFactor(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -34,8 +34,8 @@ public class RepMultOprFactor extends AbstractConcSyn implements IConcSyn {
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR) {
             consume();
-            parseNext(new Factor(getTokenList()));
-            parseNext(new RepMultOprFactor(getTokenList()));
+            parseNext(new Factor(getTokenList(), getCounter()));
+            parseNext(new RepMultOprFactor(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

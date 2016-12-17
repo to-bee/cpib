@@ -9,16 +9,16 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class StorageDeclaration extends AbstractConcSyn implements IConcSyn {
-    public StorageDeclaration(ITokenList tokenList) {
-        super(tokenList);
+    public StorageDeclaration(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
-            parseNext(new OptionalChangeMode(getTokenList()));
-            parseNext(new TypedIdent(getTokenList()));
+            parseNext(new OptionalChangeMode(getTokenList(), getCounter()));
+            parseNext(new TypedIdent(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

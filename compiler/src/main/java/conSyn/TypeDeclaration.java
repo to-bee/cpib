@@ -9,8 +9,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class TypeDeclaration extends AbstractConcSyn implements IConcSyn {
-    public TypeDeclaration(ITokenList tokenList) {
-        super(tokenList);
+    public TypeDeclaration(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override

@@ -8,8 +8,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class MonadictOperator extends AbstractConcSyn implements IConcSyn {
-    public MonadictOperator(ITokenList tokenList) {
-        super(tokenList);
+    public MonadictOperator(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override

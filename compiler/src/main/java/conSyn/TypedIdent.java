@@ -8,8 +8,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class TypedIdent extends AbstractConcSyn implements IConcSyn {
-    public TypedIdent(ITokenList tokenList) {
-        super(tokenList);
+    public TypedIdent(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -18,7 +18,7 @@ public class TypedIdent extends AbstractConcSyn implements IConcSyn {
             consume();
             if (getTokenList().getCurrent().getTerminal() == Terminal.COLON) {
                 consume();
-                parseNext(new TypeDeclaration(getTokenList()));
+                parseNext(new TypeDeclaration(getTokenList(), getCounter()));
             }
         } else {
             throwGrammarError();

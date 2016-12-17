@@ -9,8 +9,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class OptionalParameters extends AbstractConcSyn implements IConcSyn {
-    public OptionalParameters(ITokenList tokenList) {
-        super(tokenList);
+    public OptionalParameters(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -21,8 +21,8 @@ public class OptionalParameters extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.MECHMODE
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
-            parseNext(new Parameter(getTokenList()));
-            parseNext(new RepeatingOptionalParameters(getTokenList()));
+            parseNext(new Parameter(getTokenList(), getCounter()));
+            parseNext(new RepeatingOptionalParameters(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

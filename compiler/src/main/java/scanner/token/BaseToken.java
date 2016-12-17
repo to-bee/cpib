@@ -21,6 +21,6 @@ public class BaseToken implements IToken{
 
     @Override
     public String toString() {
-        return String.format("%s", getTerminal().toString());
+        return String.format("(%s)", getTerminal().toString());
     }
 }

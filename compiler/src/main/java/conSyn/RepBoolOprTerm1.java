@@ -9,8 +9,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class RepBoolOprTerm1 extends AbstractConcSyn implements IConcSyn {
-    public RepBoolOprTerm1(ITokenList tokenList) {
-        super(tokenList);
+    public RepBoolOprTerm1(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -30,8 +30,8 @@ public class RepBoolOprTerm1 extends AbstractConcSyn implements IConcSyn {
 
         } else if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.BOOLOPR) {
             consume();
-            parseNext(new Term1(getTokenList()));
-            parseNext(new RepBoolOprTerm1(getTokenList()));
+            parseNext(new Term1(getTokenList(), getCounter()));
+            parseNext(new RepBoolOprTerm1(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

@@ -8,8 +8,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalStorageDeclarations extends AbstractConcSyn implements IConcSyn {
-    public RepeatingOptionalStorageDeclarations(ITokenList tokenList) {
-        super(tokenList);
+    public RepeatingOptionalStorageDeclarations(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -18,8 +18,8 @@ public class RepeatingOptionalStorageDeclarations extends AbstractConcSyn implem
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON) {
             consume();
-            parseNext(new StorageDeclaration(getTokenList()));
-            parseNext(new RepeatingOptionalStorageDeclarations(getTokenList()));
+            parseNext(new StorageDeclaration(getTokenList(), getCounter()));
+            parseNext(new RepeatingOptionalStorageDeclarations(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

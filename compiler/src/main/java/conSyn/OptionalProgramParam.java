@@ -9,8 +9,8 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class OptionalProgramParam extends AbstractConcSyn implements IConcSyn {
-    public OptionalProgramParam(ITokenList tokenList) {
-        super(tokenList);
+    public OptionalProgramParam(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -20,10 +20,10 @@ public class OptionalProgramParam extends AbstractConcSyn implements IConcSyn {
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
-            parseNext(new OptionalFlowMode(getTokenList()));
-            parseNext(new OptionalChangeMode(getTokenList()));
-            parseNext(new TypedIdent(getTokenList()));
-            parseNext(new RepeatingOptionalProgramParameters(getTokenList()));
+            parseNext(new OptionalFlowMode(getTokenList(), getCounter()));
+            parseNext(new OptionalChangeMode(getTokenList(), getCounter()));
+            parseNext(new TypedIdent(getTokenList(), getCounter()));
+            parseNext(new RepeatingOptionalProgramParameters(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

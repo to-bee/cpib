@@ -8,8 +8,8 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class ComplImag extends AbstractConcSyn implements IConcSyn {
-    public ComplImag(ITokenList tokenList) {
-        super(tokenList);
+    public ComplImag(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -18,7 +18,7 @@ public class ComplImag extends AbstractConcSyn implements IConcSyn {
             consume();
             if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
                 consume();
-                this.parseNext(new Expression(this.getTokenList()));
+                this.parseNext(new Expression(this.getTokenList(), getCounter()));
                 if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
                     consume();
                 } else {

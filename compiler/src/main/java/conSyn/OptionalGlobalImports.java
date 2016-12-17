@@ -8,8 +8,8 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class OptionalGlobalImports extends AbstractConcSyn implements IConcSyn {
-    public OptionalGlobalImports(ITokenList tokenList) {
-        super(tokenList);
+    public OptionalGlobalImports(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -19,8 +19,8 @@ public class OptionalGlobalImports extends AbstractConcSyn implements IConcSyn {
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.GLOBAL) {
             consume();
-            parseNext(new GlobalImport(getTokenList()));
-            parseNext(new RepeatingOptionalGlobalImports(getTokenList()));
+            parseNext(new GlobalImport(getTokenList(), getCounter()));
+            parseNext(new RepeatingOptionalGlobalImports(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

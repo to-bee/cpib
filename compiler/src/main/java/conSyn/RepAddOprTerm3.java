@@ -9,16 +9,16 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class RepAddOprTerm3 extends AbstractConcSyn implements IConcSyn {
-    public RepAddOprTerm3(ITokenList tokenList) {
-        super(tokenList);
+    public RepAddOprTerm3(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR) {
             consume();
-            parseNext(new Term3(getTokenList()));
-            parseNext(new RepAddOprTerm3(getTokenList()));
+            parseNext(new Term3(getTokenList(), getCounter()));
+            parseNext(new RepAddOprTerm3(getTokenList(), getCounter()));
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN
                 || getTokenList().getCurrent().getTerminal() == Terminal.COMMA
                 || getTokenList().getCurrent().getTerminal() == Terminal.DO

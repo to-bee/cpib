@@ -8,8 +8,8 @@ import scanner.datatypes.Terminal;
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalExpressions extends AbstractConcSyn implements IConcSyn {
-    public RepeatingOptionalExpressions(ITokenList tokenList) {
-        super(tokenList);
+    public RepeatingOptionalExpressions(ITokenList tokenList, int i) {
+        super(tokenList, i);
     }
 
     @Override
@@ -18,8 +18,8 @@ public class RepeatingOptionalExpressions extends AbstractConcSyn implements ICo
             consume();
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA) {
             consume();
-            parseNext(new Expression(getTokenList()));
-            parseNext(new RepeatingOptionalExpressions(getTokenList()));
+            parseNext(new Expression(getTokenList(), getCounter()));
+            parseNext(new RepeatingOptionalExpressions(getTokenList(), getCounter()));
         } else {
             throwGrammarError();
         }

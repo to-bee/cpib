@@ -15,11 +15,11 @@ public class Parser extends AbstractConcSyn implements IParser, IConcSyn {
     private final ITokenList tokenList;
 
     public Parser(ITokenList tokenList) {
-        super(tokenList);
+        super(tokenList, -1);
         this.tokenList = tokenList.clone();
     }
 
     public void parse() throws GrammarError {
-        this.parseNext((new Program(tokenList)));
+        this.parseNext(new Program(tokenList, this.getCounter()));
     }
 }
