@@ -1,8 +1,9 @@
 package absSyn;
 
 public interface IAbsSyn {
+    void check();
+}
 
-//  public interface IAbsSynNode {
 //    /** Check the Context and Types of the Node. */
 //    void check() throws ContextException;
 //
@@ -131,4 +132,3 @@ public interface IAbsSyn {
 //     */
 //    public Type getType();
 //  }
-}

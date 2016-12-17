@@ -1,5 +1,6 @@
 package conSyn;
 
+import absSyn.IAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.GrammarError;
 import scanner.token.IToken;
@@ -14,6 +15,11 @@ import java.util.List;
 public abstract class AbstractConcSyn implements IConcSyn {
     private final ITokenList tokenList;
     private final int counter;
+
+    public List<IConcSyn> getChilds() {
+        return childs;
+    }
+
     private List<IConcSyn> childs = new ArrayList<>();
 
     public AbstractConcSyn(ITokenList tokenList, int i) {
@@ -71,6 +77,8 @@ public abstract class AbstractConcSyn implements IConcSyn {
     private ITokenList getPossibleFollowingToken(Terminal terminal, Terminal followingTerminal) throws GrammarError {
         throw new GrammarError(String.format("%s cannot follow to %s", terminal, followingTerminal));
     }
+
+    public abstract IAbsSyn toAbsSyn();
 
 
 
