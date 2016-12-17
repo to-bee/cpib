@@ -20,6 +20,7 @@ public class ParserTest {
 
     @Test
     public void testParser() {
+        IConcSyn parseTree;
         String complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
                 "fun add(bsp1:Compl) returns s:Int32\n" +
@@ -35,15 +36,8 @@ public class ParserTest {
                 "do\n" +
                     "call add()\n" +
                 "endprogram";
-        checkProgram(complexAddProgram);
-
-
-        /**
-         * program
-         *      ComplexTest
-         *          ()
-         */
-
+        parseTree = checkProgram(complexAddProgram);
+        parseTree.toString();
 
         String complexMultiplyProgram = "program ComplexTest()\n" +
                 "global\n" +
@@ -60,10 +54,10 @@ public class ParserTest {
                 "do\n" +
                 "call add()\n" +
                 "endprogram";
-        checkProgram(complexMultiplyProgram);
+        parseTree = checkProgram(complexAddProgram);
     }
 
-    private void checkProgram(String addProgram) {
+    private IConcSyn checkProgram(String addProgram) {
         ITokenList tokenList = null;
         try {
             Scanner scanner = new Scanner();
@@ -76,11 +70,13 @@ public class ParserTest {
         try {
             Parser parseTree = new Parser(tokenList);
             parseTree.parse();
-            System.out.println("done");
+            return parseTree;
         } catch (GrammarError grammarError) {
             grammarError.printStackTrace();
             Assert.fail();
         }
+
+        return null;
     }
 
 

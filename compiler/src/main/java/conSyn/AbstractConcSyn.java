@@ -29,7 +29,8 @@ public abstract class AbstractConcSyn implements IConcSyn {
      * @throws GrammarError
      */
     public void consume() throws GrammarError {
-        tokenList.nextToken();
+        IToken token = tokenList.nextToken();
+//        tokens.add(token);
     }
 
     public void parseNext(IConcSyn concSyn) throws GrammarError {
@@ -48,5 +49,15 @@ public abstract class AbstractConcSyn implements IConcSyn {
 
     private ITokenList getPossibleFollowingToken(Terminal terminal, Terminal followingTerminal) throws GrammarError {
         throw new GrammarError(String.format("%s cannot follow to %s", terminal, followingTerminal));
+    }
+
+    @Override
+    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        for(IConcSyn child : childs) {
+//            child.
+//        }
+//        return sb.toString();
+        return "dinimuetter";
     }
 }
