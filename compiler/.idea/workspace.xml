@@ -2,63 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebaf0080-dc7f-4926-9415-dc7a5827aa42" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MWCompiler-example-infboard/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../MWCompiler-example-infboard/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/AbstractConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/AbstractConcSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/BlockCmd.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/BlockCmd.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/Cmd.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Cmd.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/ComplImag.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ComplImag.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/ComplReal.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ComplReal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/Declaration.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Declaration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/Declarations.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Declarations.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/Expression.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Expression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/ExpressionList.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ExpressionList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/Factor.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Factor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/FunctionDeclaration.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/FunctionDeclaration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/GlobalImport.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/GlobalImport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/IConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/IConcSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/Idents.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Idents.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/MonadictOperator.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/MonadictOperator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalChangeMode.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalChangeMode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressions.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalFlowMode.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalFlowMode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalDeclarations.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalDeclarations.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImports.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImports.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInits.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInits.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalIdent.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalIdent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalLocalStorageDeclarations.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalLocalStorageDeclarations.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalMechMode.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalMechMode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalParameters.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalParameters.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParam.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParam.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/Parameter.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Parameter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/ParameterList.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ParameterList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/ProcedureDeclaration.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ProcedureDeclaration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/Program.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Program.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/ProgramParameterList.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ProgramParameterList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepAddOprTerm3.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepAddOprTerm3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepBoolOprTerm1.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepBoolOprTerm1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepMultOprFactor.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepMultOprFactor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepRelOprTerm2.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepRelOprTerm2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalCmds.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalCmds.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarations.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarations.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalExpressions.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalExpressions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalGlobalImports.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalGlobalImports.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalIdents.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalIdents.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalParameters.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalParameters.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalProgramParameters.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalProgramParameters.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalStorageDeclarations.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalStorageDeclarations.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/StorageDeclaration.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/StorageDeclaration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/Term1.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Term1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/Term2.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Term2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/Term3.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/Term3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclaration.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclaration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/TypedIdent.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/TypedIdent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parser/Parser.java" afterPath="$PROJECT_DIR$/src/main/java/parser/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scanner/token/BaseToken.java" afterPath="$PROJECT_DIR$/src/main/java/scanner/token/BaseToken.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scanner/token/Ident.java" afterPath="$PROJECT_DIR$/src/main/java/scanner/token/Ident.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scanner/token/Literal.java" afterPath="$PROJECT_DIR$/src/main/java/scanner/token/Literal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scanner/token/Opr.java" afterPath="$PROJECT_DIR$/src/main/java/scanner/token/Opr.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" />
     </list>
     <ignored path="compiler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,18 +27,6 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Program.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Program.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="217">
-                  <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="ParserTest.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/test/java/ParserTest.java">
               <provider selected="true" editor-type-id="text-editor">
@@ -127,7 +59,17 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="IAbsSyn.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="iml-extension-ekdahlernst-gaiffilauber.sml" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/iml-extension-ekdahlernst-gaiffilauber.sml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-4603">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IAbsSyn.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/IAbsSyn.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="105">
@@ -1559,7 +1501,7 @@
       <workItem from="1481444569387" duration="14010000" />
       <workItem from="1481564052020" duration="38332000" />
       <workItem from="1481749960460" duration="9374000" />
-      <workItem from="1481967906481" duration="14694000" />
+      <workItem from="1481967906481" duration="15025000" />
     </task>
     <task id="LOCAL-00001" summary="maven compiler plugin">
       <created>1475525604353</created>
@@ -1750,7 +1692,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481980490950</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="errori del parsereros">
+      <created>1481983393090</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1481983393090</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1786,7 +1735,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147457000" />
+    <option name="totallyTimeSpent" value="147788000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1866" height="1177" extended-state="6" />
@@ -1901,14 +1850,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalChangeMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="57" lean-forward="false" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -2365,6 +2306,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="47" column="28" lean-forward="true" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/iml-extension-ekdahlernst-gaiffilauber.sml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4603">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
