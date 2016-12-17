@@ -1,186 +1,113 @@
 package conSyn;
 
-import scanner.token.IToken;
-
+import scanner.errors.GrammarError;
 
 public interface IConcSyn {
-    boolean add(IToken token);
-//    public void setProgram(IProgram program);
+    void parse() throws GrammarError;
+
+//    void optionalGlobalDeclarations() throws GrammarError;
 //
-//    public void printTree();
+//    void declarations() throws GrammarError;
 //
-//    interface IConcSynNode {
-//        public void appendAsString(StringBuilder sb, String indent);
-//    }
+//    void declaration() throws GrammarError;
 //
-//    interface IProgram extends IConcSynNode {
-//        public IAbsSyn.IProgram toAbsSyn();
-//    }
+//    void repeatingOptionalDeclarations() throws GrammarError;
 //
-//    interface IOptGlobalCpsDecl extends IConcSynNode {
-//        public IList<ch.fhnw.cpib.iml.parser.abssyntaxtree.IAbsSyn.IDecl> toAbsSyn();
-//    }
+//    void functionDeclaration() throws GrammarError;
 //
-//    interface IDecl extends IConcSynNode {
-//        public IAbsSyn.IDecl toAbsSyn();
-//    }
+//    void blockCmd() throws GrammarError;
 //
-//    interface IStoreDecl extends IConcSynNode, IDecl {
-//        @Override
-//        public StoreDecl toAbsSyn();
-//    }
+//    void repeatingOptionalCmds() throws GrammarError;
 //
-//    interface IFunDecl extends IConcSynNode, IDecl {
-//        @Override
-//        public ch.fhnw.cpib.iml.parser.abssyntaxtree.FunDecl toAbsSyn();
-//    }
+//    void cmd() throws GrammarError;
 //
-//    interface IOptGlobImpList extends IConcSynNode {
-//        public IList<IGlobalImport> toAbsSyn();
-//    }
+//    void optionalGlobalInits() throws GrammarError;
 //
-//    interface IOptLocalCpsDecl extends IConcSynNode {
-//        public IList<ch.fhnw.cpib.iml.parser.abssyntaxtree.IAbsSyn.IDecl> toAbsSyn();
-//    }
+//    void idents() throws GrammarError;
 //
-//    interface IProcDecl extends IConcSynNode, IDecl {
-//        @Override
-//        public ch.fhnw.cpib.iml.parser.abssyntaxtree.ProcDecl toAbsSyn();
-//    }
+//    void repeatingOptionalIdents() throws GrammarError;
 //
-//    interface ICpsDecl extends IConcSynNode {
-//        public IList<ch.fhnw.cpib.iml.parser.abssyntaxtree.IAbsSyn.IDecl> toAbsSyn();
-//    }
+//    void expressionList() throws GrammarError;
 //
-//    interface IRepDecl extends IConcSynNode {
-//        public IList<ch.fhnw.cpib.iml.parser.abssyntaxtree.IAbsSyn.IDecl> toAbsSyn();
-//    }
+//    void optionalExpressions() throws GrammarError;
 //
-//    interface IParamList extends IConcSynNode {
-//        public IList<IParameter> toAbsSyn();
-//    }
+//    void repeatingOptionalExpressions() throws GrammarError;
 //
-//    interface IOptParam extends IConcSynNode {
-//        public IList<IParameter> toAbsSyn();
-//    }
+//    void expression() throws GrammarError;
 //
-//    interface IRepParam extends IConcSynNode {
-//        public IList<IParameter> toAbsSyn();
-//    }
+//    void repBoolOprTerm1() throws GrammarError;
 //
-//    interface IParam extends IConcSynNode {
-//        public IParameter toAbsSyn();
-//    }
+//    void term1() throws GrammarError;
 //
-//    interface IOptFlowMode extends IConcSynNode {
-//        public Attribute<FlowMode> toAbsSyn();
-//    }
+//    void repRelOprTerm2() throws GrammarError;
 //
-//    interface IOptMechMode extends IConcSynNode {
-//        public Attribute<MechMode> toAbsSyn();
-//    }
+//    void term2() throws GrammarError;
 //
-//    interface IGlobImpList extends IConcSynNode {
-//        public IList<IGlobalImport> toAbsSyn();
-//    }
+//    void repAddOprTerm3() throws GrammarError;
 //
-//    interface IRepGlobImp extends IConcSynNode {
-//        public IList<IGlobalImport> toAbsSyn();
-//    }
+//    void term3() throws GrammarError;
 //
-//    interface IGlobImp extends IConcSynNode {
-//        public IAbsSyn.IGlobalImport toAbsSyn();
-//    }
+//    void repMultOprFactor() throws GrammarError;
 //
-//    interface IOptChangeMode extends IConcSynNode {
-//        public Attribute<ChangeMode> toAbsSyn();
-//    }
+//    void factor() throws GrammarError;
 //
-//    interface ICmd extends IConcSynNode {
-//        public IAbsSyn.ICmd toAbsSyn();
-//    }
+//    void complImag() throws GrammarError;
 //
-//    interface IOptGlobInitList extends IConcSynNode {
-//        public IList<IIdent> toAbsSyn();
-//    }
+//    void complReal() throws GrammarError;
 //
-//    interface IBlockCmd extends IConcSynNode {
-//        public IAbsSyn.ICmd toAbsSyn();
-//    }
+//    void optionalIdent() throws GrammarError;
 //
-//    interface IRepCmd extends IConcSynNode {
-//        public IAbsSyn.IList<ch.fhnw.cpib.iml.parser.abssyntaxtree.IAbsSyn.ICmd> toAbsSyn();
-//    }
+//    void monadicOperator() throws GrammarError;
 //
-//    interface IGlobInitList extends IConcSynNode {
-//        public IAbsSyn.IList<IIdent> toAbsSyn();
-//    }
+//    void optionalLocalStorageDeclarations() throws GrammarError;
 //
-//    interface IRepIdent extends IConcSynNode {
-//        public IAbsSyn.IList<IIdent> toAbsSyn();
-//    }
+//    void repeatingOptionalStorageDeclarations() throws GrammarError;
 //
-//    interface IExpr extends IConcSynNode {
-//        public IAbsSyn.IExpr toAbsSyn();
-//    }
+//    void optionalGlobalImports() throws GrammarError;
 //
-//    interface IRepBoolOprTerm1 extends IConcSynNode {
-//        public IAbsSyn.IExpr toAbsSyn(ITerm1 term1);
-//    }
+//    void repeatingOptionalGlobalImports() throws GrammarError;
 //
-//    interface ITerm1 extends IConcSynNode {
-//        public IAbsSyn.IExpr toAbsSyn();
-//    }
+//    void globalImport() throws GrammarError;
 //
-//    interface IOptRelOprTerm2 extends IConcSynNode {
-//        public IAbsSyn.IExpr toAbsSyn(ITerm2 term2);
-//    }
+//    void parameterList() throws GrammarError;
 //
-//    interface ITerm2 extends IConcSynNode {
-//        public IAbsSyn.IExpr toAbsSyn();
-//    }
+//    void optionalParameters() throws GrammarError;
 //
-//    interface IRepAddOprTerm3 extends IConcSynNode {
-//        public IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr dyadicExpr);
-//    }
+//    void repeatingOptionalParameters() throws GrammarError;
 //
-//    interface ITerm3 extends IConcSynNode {
-//        public IAbsSyn.IExpr toAbsSyn();
-//    }
+//    void parameter() throws GrammarError;
 //
-//    interface IRepMultOprFactor extends IConcSynNode {
-//        public IAbsSyn.IExpr toAbsSyn(IFactor factor);
-//    }
+//    void storageDeclaration() throws GrammarError;
 //
-//    interface IFactor extends IConcSynNode {
-//        public IAbsSyn.IExpr toAbsSyn();
-//    }
+//    void procedureDeclaration() throws GrammarError;
 //
-//    interface IArrFactor extends IConcSynNode {
-//        public IAbsSyn.IExpr toAbsSyn();
-//    }
+//    void throwGrammarError() throws GrammarError;
 //
-//    interface IOptFactorIdent extends IConcSynNode {
-//        public IAbsSyn.IExpr toAbsSyn(Token<String> ident);
-//    }
+//    void programParameterList() throws GrammarError;
 //
-//    interface IOptArrFactor extends IConcSynNode {
-//        public IAbsSyn.IExpr toAbsSyn();
-//    }
+//    void optionalProgramParam() throws GrammarError;
 //
-//    interface IExprList extends IConcSynNode {
-//        public IAbsSyn.IList<ch.fhnw.cpib.iml.parser.abssyntaxtree.IAbsSyn.IExpr> toAbsSyn();
-//    }
+//    void repeatingOptionalProgramParameters() throws GrammarError;
 //
-//    interface IOptExpr extends IConcSynNode {
-//        public IList<ch.fhnw.cpib.iml.parser.abssyntaxtree.IAbsSyn.IExpr> toAbsSyn();
-//    }
+//    void typedIdent() throws GrammarError;
 //
-//    interface IRepExpr extends IConcSynNode {
-//        public IList<ch.fhnw.cpib.iml.parser.abssyntaxtree.IAbsSyn.IExpr> toAbsSyn();
-//    }
+//    void typeDeclaration() throws GrammarError;
 //
-//    interface IMonadicOpr extends IConcSynNode {
-//        public Token<?> toAbsSyn();
-//    }
+//    void optionalChangeMode() throws GrammarError;
+//
+//    void parseNext(new OptionalFlowMode(getTokenList())); throws GrammarError;
+//
+//    void optionalMechMode() throws GrammarError;
+//
+//    void consume() throws GrammarError;
+//
+//    void consumeWhile(IToken token) throws GrammarError;
+//
+//    void consumeIdent(IToken token) throws GrammarError;
+//
+//    void consumeRelopr(IToken token) throws GrammarError;
+//
+//    void consumeSentinel(IToken last) throws GrammarError;
+//
+//    ITokenList getPossibleFollowingToken(Terminal terminal, Terminal followingTerminal) throws GrammarError;
 }

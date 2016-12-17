@@ -1,0 +1,46 @@
+package conSyn;
+
+import scanner.errors.GrammarError;
+import scanner.tokenList.ITokenList;
+import scanner.datatypes.Terminal;
+
+/**
+ * Created by tobi on 17.12.16.
+ */
+public class FunctionDeclaration extends AbstractConcSyn implements IConcSyn {
+    public FunctionDeclaration(ITokenList tokenList) {
+        super(tokenList);
+    }
+
+    @Override
+    public void parse() throws GrammarError {
+        if (getTokenList().getCurrent().getTerminal() == Terminal.FUN) {
+            consume();
+            if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+                consume();
+                parseNext(new ParameterList(getTokenList()));
+                if (getTokenList().getCurrent().getTerminal() == Terminal.RETURNS) {
+                    consume();
+                    parseNext(new StorageDeclaration(getTokenList()));
+                    parseNext(new OptionalGlobalImports(getTokenList()));
+                    parseNext(new OptionalLocalStorageDeclarations(getTokenList()));
+                    if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
+                        consume();
+                        parseNext(new BlockCmd(getTokenList()));
+                        if (getTokenList().getCurrent().getTerminal() == Terminal.ENDFUN) {
+                            consume();
+                        } else {
+                            throwGrammarError();
+                        }
+                    } else {
+                        throwGrammarError();
+                    }
+                } else {
+                    throwGrammarError();
+                }
+            }
+        } else {
+            throwGrammarError();
+        }
+    }
+}

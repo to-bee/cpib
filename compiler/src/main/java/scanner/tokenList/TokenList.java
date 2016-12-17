@@ -13,6 +13,7 @@ import scanner.token.IToken;
 public class TokenList implements ITokenList {
 	
 	private LinkedList<IToken> tokenList = new LinkedList<IToken>();
+	private IToken current;
 
 	public TokenList(LinkedList<IToken> tokenList) {
 		this.tokenList = tokenList;
@@ -35,9 +36,16 @@ public class TokenList implements ITokenList {
 	 * 	Also removeLast() possible whichever we will need. Will destroy the tokenlist eventually.
 	 */
 	public IToken nextToken() {
-		return tokenList.size() > 0 ? tokenList.removeFirst() : null;
+		this.current = tokenList.size() > 0 ? tokenList.removeFirst() : null;
+		return this.current;
+
 	}
-	
+
+	@Override
+	public IToken getCurrent() {
+		return this.current;
+	}
+
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		Iterator<IToken> tokenIt = tokenList.iterator();

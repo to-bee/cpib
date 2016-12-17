@@ -5,7 +5,6 @@ import org.junit.Test;
 import parser.Parser;
 import scanner.Scanner;
 import scanner.errors.GrammarError;
-import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
 
 /**
@@ -39,6 +38,13 @@ public class ParserTest {
         checkProgram(complexAddProgram);
 
 
+        /**
+         * program
+         *      ComplexTest
+         *          ()
+         */
+
+
         String complexMultiplyProgram = "program ComplexTest()\n" +
                 "global\n" +
                 "fun add(bsp1:Compl) returns s:Int32\n" +
@@ -68,8 +74,9 @@ public class ParserTest {
         }
 
         try {
-            Parser parser = new Parser(tokenList);
-            IConcSyn concSyn = parser.parseProgram();
+            Parser parseTree = new Parser(tokenList);
+            parseTree.parse();
+            System.out.println("done");
         } catch (GrammarError grammarError) {
             grammarError.printStackTrace();
             Assert.fail();
