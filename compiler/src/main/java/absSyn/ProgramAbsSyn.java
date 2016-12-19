@@ -26,8 +26,9 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
      */
     @Override
     public void check() {
-        this.optionalGlobalDeclarationList.foreach.check();
-        this.programParameterList.foreach.check();
-        this.blockCmd.check();
+        //TODO: Implement
+//        this.optionalGlobalDeclarationList.foreach.check();
+//        this.programParameterList.foreach.check();
+//        this.blockCmd.check();
     }
 }

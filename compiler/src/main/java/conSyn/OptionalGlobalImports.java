@@ -1,5 +1,6 @@
 package conSyn;
 
+import absSyn.IAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
@@ -10,6 +11,12 @@ import scanner.tokenList.ITokenList;
 public class OptionalGlobalImports extends AbstractConcSyn implements IConcSyn {
     public OptionalGlobalImports(ITokenList tokenList, int i) {
         super(tokenList, i);
+    }
+
+    @Override
+    public IAbsSyn toAbsSyn() {
+        //TODO: implement
+        return null;
     }
 
     @Override

@@ -156,7 +156,7 @@ val it = () : unit
   terminal TYPE
     TYPE
   terminal LPAREN
-    LPAREN <subTypeDeclaration> COMMA <subTypeDeclaration> <optionalTypeDeclaration> RPAREN
+        LPAREN <subTypeDeclaration> COMMA <subTypeDeclaration> <optionalTypeDeclaration> RPAREN
   terminal IDENT
     IDENT
 <subTypeDeclaration>

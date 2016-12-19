@@ -1,5 +1,6 @@
 package conSyn;
 
+import absSyn.IAbsSyn;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
 import scanner.datatypes.Terminal;
@@ -10,6 +11,12 @@ import scanner.datatypes.Terminal;
 public class Expression extends AbstractConcSyn implements IConcSyn {
     public Expression(ITokenList tokenList, int i) {
         super(tokenList, i);
+    }
+
+    @Override
+    public IAbsSyn toAbsSyn() {
+        //TODO: implement
+        return null;
     }
 
     @Override

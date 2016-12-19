@@ -1,5 +1,6 @@
 package conSyn;
 
+import absSyn.IAbsSyn;
 import scanner.datatypes.TerminalType;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
@@ -11,6 +12,12 @@ import scanner.datatypes.Terminal;
 public class RepBoolOprTerm1 extends AbstractConcSyn implements IConcSyn {
     public RepBoolOprTerm1(ITokenList tokenList, int i) {
         super(tokenList, i);
+    }
+
+    @Override
+    public IAbsSyn toAbsSyn() {
+        //TODO: implement
+        return null;
     }
 
     @Override

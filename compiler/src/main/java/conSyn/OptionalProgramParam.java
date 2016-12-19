@@ -1,5 +1,6 @@
 package conSyn;
 
+import absSyn.IAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.GrammarError;
@@ -11,6 +12,12 @@ import scanner.tokenList.ITokenList;
 public class OptionalProgramParam extends AbstractConcSyn implements IConcSyn {
     public OptionalProgramParam(ITokenList tokenList, int i) {
         super(tokenList, i);
+    }
+
+    @Override
+    public IAbsSyn toAbsSyn() {
+        //TODO: implement
+        return null;
     }
 
     @Override
