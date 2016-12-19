@@ -14,22 +14,21 @@ public class ParserTupleTest {
 
     }
 
-
     @Test
     public void testParser() {
         IConcSyn parseTree;
         String TupleDeclaration = "program TupleTest()\n" +
-                //TODO: TupleTest here
                 "global\n" +
-                "fun bla(mytuple1:(int32,bool,int32)) returns s:Int32\n" +
+                "fun add(mytuple1:(int32,int32)) returns s:Int32\n" +
                 "local\n" +
-                "const mytuple1:(int32,bool,int32)\n" +
+                "const mytuple1:(int32,int32)\n" +
                 "do\n" +
-                "myTuple1 init := (1,True,23412);\n" +
-                "result := 1\n" +
+                "mytuple1 := (1 , 2);\n" +
+                "bsp2 := 4-I*5;\n" +
+                "result := bsp1 * bsp2\n" +
                 "endfun\n" +
                 "do\n" +
-                "call bla()\n" +
+                "call add()\n" +
                 "endprogram";
         parseTree = checkProgram(TupleDeclaration);
         parseTree.toString();

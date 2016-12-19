@@ -40,6 +40,8 @@ datatype term
   | IMAGINARY_PART
   | IMAG
   | REAL
+  | LSBRACKET
+  | RSBRACKET
 
 val string_of_term =
   fn ADDOPR     => "ADDOPR"
@@ -83,6 +85,8 @@ val string_of_term =
    | IMAGINARY_PART   => "IMAGINARY_PART"
    | IMAG       => "IMAG"
    | REAL       => "REAL"
+   | LSBRACKET  => "LSBRACKET"
+   | RSBRACKET  => "RSBRACKET"
 
 datatype nonterm
   = expression
@@ -134,6 +138,8 @@ datatype nonterm
   | repeatingOptionalParameters
   | complImag
   | complReal
+  | subTypeDeclaration
+  | optionalTypeDeclaration
 
 val string_of_nonterm =
   fn expression                               => "expression"
@@ -185,7 +191,8 @@ val string_of_nonterm =
    | repeatingOptionalParameters              => "repeatingOptionalParameters"
    | complImag                                => "complImag"
    | complReal                                => "complReal"
-      
+   | subTypeDeclaration                       => "subTypeDeclaration"
+   | optionalTypeDeclaration                  => "optionalTypeDeclaration"
 
 val string_of_gramsym = (string_of_term, string_of_nonterm)
 
@@ -237,7 +244,15 @@ val productions =
 	[[T IDENT, T COLON, N typeDeclaration]]),
 (typeDeclaration,
 	[[T TYPE],
+	 [T LPAREN, N subTypeDeclaration, T COMMA, N subTypeDeclaration, N optionalTypeDeclaration, T RPAREN],
 	 [T IDENT]]),
+(subTypeDeclaration,
+    [[T TYPE],
+     [T IDENT],
+     [T LPAREN, N subTypeDeclaration, T COMMA, N subTypeDeclaration, N optionalTypeDeclaration, T RPAREN]]),
+(optionalTypeDeclaration,
+	[[],
+	 [T COMMA, N subTypeDeclaration]]),
 (functionDeclaration,
 	[[T FUN, T IDENT, N parameterList, T RETURNS, N storageDeclaration, N optionalGlobalImports, N optionalLocalStorageDeclarations, T DO, N blockCmd, T ENDFUN]]),
 (procedureDeclaration,
@@ -316,7 +331,7 @@ val productions =
 	 [N monadicOperator, N factor],
      [T LPAREN, N expression, T RPAREN],
      [N complImag],
-     [N complRealcomplReal],
+     [N complReal],
      [T IMAGINARY_PART]]),
 (optionalIdent,
 	[[],

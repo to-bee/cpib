@@ -17,6 +17,7 @@ public class optionalTypeDeclaration extends AbstractConcSyn implements IConcSyn
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
+
         }
         else if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA){
             consume();
