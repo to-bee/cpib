@@ -22,9 +22,11 @@ public enum Terminal {
     LITERAL("LITERAL", null),
     LPAREN("(", null),
     RPAREN(")", null),
+    LSBRACKET("[", null),
+    RSBRACKET("]", null),
     SEMICOLON(";", null), // ;
     COLON(":", null), // :
-    COMMA("COMMA", null),
+    COMMA(",", null),
     GLOBAL("GLOBAL", null),
     PROC("PROC", null),
     FUN("FUN", null),
