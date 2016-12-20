@@ -10,11 +10,11 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
-    private final List<IConcSyn> optionalGlobalDeclarationList;
-    private final List<IConcSyn> programParameterList;
-    private final IConcSyn blockCmd;
+    private final List<IAbsSyn> optionalGlobalDeclarationList;
+    private final List<IAbsSyn> programParameterList;
+    private final IAbsSyn blockCmd;
 
-    public ProgramAbsSyn(IToken t, List<IConcSyn> optionalGlobalDeclarationList, List<IConcSyn> programParameterList, IConcSyn blockCmd) {
+    public ProgramAbsSyn(IToken t, List<IAbsSyn> optionalGlobalDeclarationList, List<IAbsSyn> programParameterList, IAbsSyn blockCmd) {
         super(t);
         this.optionalGlobalDeclarationList = optionalGlobalDeclarationList;
         this.programParameterList = programParameterList;
@@ -26,7 +26,7 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
      */
     @Override
     public void check() {
-        //TODO: Implement
+        //TODO: Implement Scope Check and Type Check
 //        this.optionalGlobalDeclarationList.foreach.check();
 //        this.programParameterList.foreach.check();
 //        this.blockCmd.check();
