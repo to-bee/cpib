@@ -1,39 +1,40 @@
+import absSyn.IAbsSyn;
 import conSyn.IConcSyn;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import parser.Parser;
 import scanner.Scanner;
+import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
 
-public class ParserTupleTest {
-
-    @Before
-    public void init() {
-
-    }
-
+/**
+ * Created by tobi on 27/09/16.
+ */
+public class AbsSynTest {
     @Test
-    public void testParser() {
-        IConcSyn parseTree;
-        String TupleDeclaration = "program TupleTest()\n" +
+    public void testComplex() {
+        IAbsSyn absSyn;
+        String complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
-                "fun add(mytuple1:(int32,int32)) returns s:Int32\n" +
+                "fun add(bsp1:Compl) returns s:Int32\n" +
                 "local\n" +
-                "const mytuple1:(int32,int32)\n" +
+                "var bsp1:Compl;\n" +
+                "var bsp2:Compl;\n" +
+                "var result:Compl\n" +
                 "do\n" +
-                "mytuple1 := (1,2);\n" +
-                "result := 2\n" +
+                "bsp1 := (5+I*4);\n" +
+                "bsp2 := 4-I*5;\n" +
+                "result := bsp1 + bsp2\n" +
                 "endfun\n" +
                 "do\n" +
                 "call add()\n" +
                 "endprogram";
-        parseTree = checkProgram(TupleDeclaration);
-        parseTree.toString();
+        absSyn = checkProgram(complexAddProgram);
     }
 
-    private IConcSyn checkProgram(String addProgram) {
+    private IAbsSyn checkProgram(String addProgram) {
         ITokenList tokenList = null;
         try {
             Scanner scanner = new Scanner();
@@ -43,12 +44,20 @@ public class ParserTupleTest {
             lexicalError.printStackTrace();
         }
 
+        IConcSyn parseTree = null;
         try {
-            Parser parseTree = new Parser(tokenList);
+            parseTree = new Parser(tokenList);
             parseTree.parse();
-            return parseTree;
         } catch (GrammarError grammarError) {
             grammarError.printStackTrace();
+            Assert.fail();
+        }
+
+        try {
+            IAbsSyn absSyn = parseTree.toAbsSyn();
+            return absSyn;
+        } catch (ContextError contextError) {
+            contextError.printStackTrace();
             Assert.fail();
         }
 

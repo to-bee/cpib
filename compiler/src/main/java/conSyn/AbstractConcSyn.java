@@ -2,6 +2,7 @@ package conSyn;
 
 import absSyn.IAbsSyn;
 import scanner.datatypes.Terminal;
+import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
@@ -78,7 +79,7 @@ public abstract class AbstractConcSyn implements IConcSyn {
         throw new GrammarError(String.format("%s cannot follow to %s", terminal, followingTerminal));
     }
 
-public abstract IAbsSyn toAbsSyn();
+public abstract IAbsSyn toAbsSyn() throws ContextError;
 
 
 

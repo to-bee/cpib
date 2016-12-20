@@ -3,6 +3,7 @@ package conSyn;
 import absSyn.IAbsSyn;
 import absSyn.ProgramAbsSyn;
 import scanner.datatypes.Terminal;
+import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
@@ -23,17 +24,31 @@ public class Program extends AbstractConcSyn {
     }
 
     @Override
-    public IAbsSyn toAbsSyn() {
+    public IAbsSyn toAbsSyn() throws ContextError {
         List<IAbsSyn> optionalGlobalDeclarationList = new ArrayList<>();
         try {
-            optionalGlobalDeclarationList = this.getChilds().stream().filter(c -> c.getClass() == OptionalGlobalDeclarations.class).map(c -> c.toAbsSyn()).collect(Collectors.toList());
+            optionalGlobalDeclarationList = this.getChilds().stream().filter(c -> c.getClass() == OptionalGlobalDeclarations.class).map(c -> {
+                try {
+                    return c.toAbsSyn();
+                } catch (ContextError contextError) {
+                    contextError.printStackTrace();
+                }
+                return null;
+            }).collect(Collectors.toList());
         } catch (NoSuchElementException e) {
 
         }
 
         List<IAbsSyn> optionalProgramParameterList = new ArrayList<>();
         try {
-            optionalProgramParameterList = this.getChilds().stream().filter(c -> c.getClass() == ProgramParameterList.class).map(c -> c.toAbsSyn()).collect(Collectors.toList());
+            optionalProgramParameterList = this.getChilds().stream().filter(c -> c.getClass() == ProgramParameterList.class).map(c -> {
+                try {
+                    return c.toAbsSyn();
+                } catch (ContextError contextError) {
+                    contextError.printStackTrace();
+                }
+                return null;
+            }).collect(Collectors.toList());
         } catch (NoSuchElementException e) {
 
         }
