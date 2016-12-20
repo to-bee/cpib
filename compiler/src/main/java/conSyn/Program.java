@@ -26,36 +26,11 @@ public class Program extends AbstractConcSyn {
     @Override
     public IAbsSyn toAbsSyn() throws ContextError {
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> OptionalGlobalDeclarations = new ArrayList<>();
-        try {
-            OptionalGlobalDeclarations = this.getChilds().stream().filter(c -> c.getClass() == OptionalGlobalDeclarations.class).map(c -> {
-                try {
-                    return c.toAbsSyn();
-                } catch (ContextError contextError) {
-                    contextError.printStackTrace();
-                }
-                return null;
-            }).collect(Collectors.toList());
-        } catch (NoSuchElementException e) {
+        List<IAbsSyn> OptionalGlobalDeclarations = super.getListByType(OptionalGlobalDeclarations.class);
+        List<IAbsSyn> ProgramParameterList = super.getListByType(ProgramParameterList.class);
+        IAbsSyn BlockCmd = super.getOneByType(BlockCmd.class);
 
-        }
-
-        List<IAbsSyn> ProgramParameterList = new ArrayList<>();
-        try {
-            ProgramParameterList = this.getChilds().stream().filter(c -> c.getClass() == ProgramParameterList.class).map(c -> {
-                try {
-                    return c.toAbsSyn();
-                } catch (ContextError contextError) {
-                    contextError.printStackTrace();
-                }
-                return null;
-            }).collect(Collectors.toList());
-        } catch (NoSuchElementException e) {
-
-        }
-
-        IAbsSyn BlockCmd = this.getChilds().stream().filter(c -> c.getClass() == BlockCmd.class).findFirst().get().toAbsSyn();
-        return new ProgramAbsSyn(token, OptionalGlobalDeclarations, ProgramParameterList, BlockCmd);
+        return new ProgramAbsSyn(token, ProgramParameterList, OptionalGlobalDeclarations,BlockCmd);
     }
 
     @Override
