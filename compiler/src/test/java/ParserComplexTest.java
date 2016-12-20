@@ -10,7 +10,7 @@ import scanner.tokenList.ITokenList;
 /**
  * Created by tobi on 27/09/16.
  */
-public class ParserTest {
+public class ParserComplexTest {
 
     @Before
     public void init() {

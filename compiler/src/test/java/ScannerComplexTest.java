@@ -8,7 +8,7 @@ import scanner.tokenList.ITokenList;
 /**
  * Created by tobi on 27/09/16.
  */
-public class ScannerTest {
+public class ScannerComplexTest {
     private static String text;
     private static String result;
 

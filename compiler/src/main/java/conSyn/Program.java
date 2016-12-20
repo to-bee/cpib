@@ -24,23 +24,21 @@ public class Program extends AbstractConcSyn {
 
     @Override
     public IAbsSyn toAbsSyn() {
-
-
-        List<IConcSyn> optionalGlobalDeclarationList = new ArrayList<>();
+        List<IAbsSyn> optionalGlobalDeclarationList = new ArrayList<>();
         try {
-            optionalGlobalDeclarationList = this.getChilds().stream().filter(c -> c.getClass() == OptionalGlobalDeclarations.class).collect(Collectors.toList());
+            optionalGlobalDeclarationList = this.getChilds().stream().filter(c -> c.getClass() == OptionalGlobalDeclarations.class).map(c -> c.toAbsSyn()).collect(Collectors.toList());
         } catch (NoSuchElementException e) {
 
         }
 
-        List<IConcSyn> optionalProgramParameterList = new ArrayList<>();
+        List<IAbsSyn> optionalProgramParameterList = new ArrayList<>();
         try {
-            optionalProgramParameterList = this.getChilds().stream().filter(c -> c.getClass() == ProgramParameterList.class).collect(Collectors.toList());
+            optionalProgramParameterList = this.getChilds().stream().filter(c -> c.getClass() == ProgramParameterList.class).map(c -> c.toAbsSyn()).collect(Collectors.toList());
         } catch (NoSuchElementException e) {
 
         }
 
-        IConcSyn blockCmd = this.getChilds().stream().filter(c -> c.getClass() == BlockCmd.class).findFirst().get();
+        IAbsSyn blockCmd = this.getChilds().stream().filter(c -> c.getClass() == BlockCmd.class).findFirst().get().toAbsSyn();
         return new ProgramAbsSyn(token, optionalGlobalDeclarationList, optionalProgramParameterList, blockCmd);
     }
 

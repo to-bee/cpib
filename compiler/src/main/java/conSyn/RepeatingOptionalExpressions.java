@@ -22,7 +22,7 @@ public class RepeatingOptionalExpressions extends AbstractConcSyn implements ICo
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
-            consume();
+
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA) {
             consume();
             parseNext(new Expression(getTokenList(), getCounter()));
