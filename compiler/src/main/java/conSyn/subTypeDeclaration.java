@@ -16,8 +16,7 @@ public class subTypeDeclaration  extends AbstractConcSyn implements IConcSyn{
 
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.TYPE
-                || getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+        if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.TYPE) {
             consume();
         }
         else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {

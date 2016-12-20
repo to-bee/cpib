@@ -248,7 +248,6 @@ val productions =
 	 [T IDENT]]),
 (subTypeDeclaration,
     [[T TYPE],
-     [T IDENT],
      [T LPAREN, N subTypeDeclaration, T COMMA, N subTypeDeclaration, N optionalTypeDeclaration, T RPAREN]]),
 (optionalTypeDeclaration,
 	[[],

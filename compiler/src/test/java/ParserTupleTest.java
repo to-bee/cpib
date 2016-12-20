@@ -23,9 +23,8 @@ public class ParserTupleTest {
                 "local\n" +
                 "const mytuple1:(int32,int32)\n" +
                 "do\n" +
-                "mytuple1 := (1 , 2);\n" +
-                "bsp2 := 4-I*5;\n" +
-                "result := bsp1 * bsp2\n" +
+                "mytuple1 := (1,2);\n" +
+                "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
                 "call add()\n" +
