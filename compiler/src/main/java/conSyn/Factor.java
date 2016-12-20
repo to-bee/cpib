@@ -37,6 +37,7 @@ public class Factor extends AbstractConcSyn implements IConcSyn {
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
             consume();
             parseNext(new Expression(getTokenList(), getCounter()));
+            parseNext(new RepeatingOptionalExpressions(getTokenList(), getCounter()));
             if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
                 consume();
             } else {
