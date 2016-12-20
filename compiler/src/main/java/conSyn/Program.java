@@ -25,9 +25,10 @@ public class Program extends AbstractConcSyn {
 
     @Override
     public IAbsSyn toAbsSyn() throws ContextError {
-        List<IAbsSyn> optionalGlobalDeclarationList = new ArrayList<>();
+        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
+        List<IAbsSyn> OptionalGlobalDeclarations = new ArrayList<>();
         try {
-            optionalGlobalDeclarationList = this.getChilds().stream().filter(c -> c.getClass() == OptionalGlobalDeclarations.class).map(c -> {
+            OptionalGlobalDeclarations = this.getChilds().stream().filter(c -> c.getClass() == OptionalGlobalDeclarations.class).map(c -> {
                 try {
                     return c.toAbsSyn();
                 } catch (ContextError contextError) {
@@ -39,9 +40,9 @@ public class Program extends AbstractConcSyn {
 
         }
 
-        List<IAbsSyn> optionalProgramParameterList = new ArrayList<>();
+        List<IAbsSyn> ProgramParameterList = new ArrayList<>();
         try {
-            optionalProgramParameterList = this.getChilds().stream().filter(c -> c.getClass() == ProgramParameterList.class).map(c -> {
+            ProgramParameterList = this.getChilds().stream().filter(c -> c.getClass() == ProgramParameterList.class).map(c -> {
                 try {
                     return c.toAbsSyn();
                 } catch (ContextError contextError) {
@@ -53,8 +54,8 @@ public class Program extends AbstractConcSyn {
 
         }
 
-        IAbsSyn blockCmd = this.getChilds().stream().filter(c -> c.getClass() == BlockCmd.class).findFirst().get().toAbsSyn();
-        return new ProgramAbsSyn(token, optionalGlobalDeclarationList, optionalProgramParameterList, blockCmd);
+        IAbsSyn BlockCmd = this.getChilds().stream().filter(c -> c.getClass() == BlockCmd.class).findFirst().get().toAbsSyn();
+        return new ProgramAbsSyn(token, OptionalGlobalDeclarations, ProgramParameterList, BlockCmd);
     }
 
     @Override
