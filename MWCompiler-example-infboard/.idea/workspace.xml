@@ -2,17 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d301c309-f902-4f24-ab8c-278fb47ccc13" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/scanner/errors/ContextError.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/test/java/AbsSynTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../compiler/src/test/java/ParserTupleTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../compiler/src/test/java/ScannerTupleTest.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/test/java/ParserComplexTest.java" afterPath="$PROJECT_DIR$/../compiler/src/test/java/ConSynTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/BlockCmd.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/BlockCmdConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Cmd.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/CmdConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ComplImag.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ComplImagConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ComplReal.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ComplRealConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Declaration.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/DeclarationConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Declarations.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/DeclarationsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Expression.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ExpressionConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ExpressionList.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ExpressionListConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Factor.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/FactorConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/FunctionDeclaration.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/FunctionDeclarationConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/GlobalImport.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/GlobalImportConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Idents.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/IdentsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/MonadictOperator.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/MonadictOperatorConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalChangeMode.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalChangeModeConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalExpressions.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalExpressionsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalFlowMode.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalFlowModeConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalGlobalDeclarations.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalGlobalDeclarationsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalGlobalImports.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalGlobalImportsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalGlobalInits.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalGlobalInitsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalIdent.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalIdentConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalLocalStorageDeclarations.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalLocalStorageDeclarationsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalMechMode.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalMechModeConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalParameters.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalParametersConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalProgramParam.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalProgramParamConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Parameter.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ParameterConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ParameterList.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ParameterListConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ProcedureDeclaration.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ProcedureDeclarationConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Program.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ProgramConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ProgramParameterList.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/ProgramParameterListConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepAddOprTerm3.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepAddOprTerm3ConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepBoolOprTerm1.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepBoolOprTerm1ConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepMultOprFactor.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepMultOprFactorConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepRelOprTerm2.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepRelOprTerm2ConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalCmds.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalCmdsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalDeclarations.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalDeclarationsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalExpressions.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalExpressionsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalGlobalImports.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalGlobalImportsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalIdents.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalIdentsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalParameters.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalParametersConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalProgramParameters.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalProgramParametersConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalStorageDeclarations.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalStorageDeclarationsConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/StorageDeclaration.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/StorageDeclarationConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Term1.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Term1ConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Term2.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Term2ConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Term3.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Term3ConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/TypeDeclaration.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/TypeDeclarationConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/TypedIdent.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/TypedIdentConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/optionalTypeDeclaration.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalTypeDeclarationConcSyn.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/subTypeDeclaration.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/SubTypeDeclarationConcSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../compiler/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/AbstractConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/AbstractConcSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/IConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/IConcSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Program.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/Program.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/test/java/ScannerComplexTest.java" afterPath="$PROJECT_DIR$/../compiler/src/test/java/ScannerComplexTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/IAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/IAbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/parser/Parser.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/parser/Parser.java" />
     </list>
     <ignored path="MWCompiler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -961,16 +1003,16 @@
       <workItem from="1478022216489" duration="1371000" />
       <workItem from="1481758000857" duration="366000" />
       <workItem from="1481970583956" duration="1136000" />
-      <workItem from="1482255995151" duration="413000" />
+      <workItem from="1482255995151" duration="608000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3937000" />
+    <option name="totallyTimeSpent" value="4132000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1867" height="1177" extended-state="1" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
