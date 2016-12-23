@@ -6,8 +6,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.List;
 
-import ch.fhnw.cpib.compiler.cst.CSTNode;
-import ch.fhnw.cpib.compiler.cst.Pair;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.scanner.Scanner;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.parser.ProgramParser;
@@ -30,10 +29,8 @@ public class Compiler {
 			System.out.println(list.toString());
 			
 			ProgramParser p = new ProgramParser(list);
-			Pair<String, List<CSTNode>> cst = new Pair<>("Program", p.parse());
+			IConcSyn.IProgram cst = p.parse();
 			
-			System.out.println(cst.getSecond().toString());
-			System.out.println(list.toString());
 			
 		} catch (Exception e) {
 			e.printStackTrace();

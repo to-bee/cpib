@@ -1,9 +1,8 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.TypeDeclarationIdent;
+import ch.fhnw.cpib.compiler.classes.TypeDeclarationType;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
@@ -14,19 +13,18 @@ public class TypeDeclarationParser extends AbstractParser {
 		super();
 	}
 
-	@Override
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.ITypeDeclaration parse() throws GrammarError {
 		if (terminal == Terminals.TYPE) {
-			list.add(new CSTNode(consume(Terminals.TYPE)));
+			Token type = consume(Terminals.TYPE);
+			return new TypeDeclarationType(type);
 		} 
 		else if(terminal == Terminals.IDENT){
-			list.add(new CSTNode(consume(Terminals.IDENT)));
+			Token ident = consume(Terminals.IDENT);
+			return new TypeDeclarationIdent(ident);
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
-		return list;
 	}
 
 }

@@ -8,7 +8,7 @@ import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
-public abstract class AbstractParser implements IParser{
+public abstract class AbstractParser /*implements IParser*/{
 	
 	protected static LinkedList<Token> tokenlist;
 	private static Set<String> nonTerminals = new HashSet<String>();

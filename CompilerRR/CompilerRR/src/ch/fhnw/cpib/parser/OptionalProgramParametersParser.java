@@ -1,11 +1,9 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.OptionalProgramParameters;
+import ch.fhnw.cpib.compiler.classes.OptionalProgramParametersEps;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
-import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class OptionalProgramParametersParser extends AbstractParser {
@@ -14,34 +12,34 @@ public class OptionalProgramParametersParser extends AbstractParser {
 		super();
 	}
 
-	@Override
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IOptionalProgramParameters parse() throws GrammarError {
 		if (terminal == Terminals.RPAREN) {
-			// TODO: leer?
+			return new OptionalProgramParametersEps();
 		}
 		else if (terminal == Terminals.IDENT) {
-			list.add(new CSTNode("OptionalFlowMode", new OptionalFlowModeParser().parse()));
-			list.add(new CSTNode("OptionalChangemode", new OptionalChangemodeParser().parse()));
-			list.add(new CSTNode("TypeIdent", new TypeIdentParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalProgramParameters", new RepeatingOptionalProgramParametersParser().parse()));
+			IConcSyn.IOptionalFLOWMODE flowMode = new OptionalFlowModeParser().parse();
+			IConcSyn.IOptionalCHANGEMODE changeMode = new OptionalChangemodeParser().parse();
+			IConcSyn.ITypedIdent typedIdent = new TypedIdentParser().parse();
+			IConcSyn.IRepeatingOptionalProgramParameters repOptProPar = new RepeatingOptionalProgramParametersParser().parse();
+			return new OptionalProgramParameters(flowMode, changeMode, typedIdent, repOptProPar);
 		} 
 		else if (terminal == Terminals.CHANGEMODE) {
-			list.add(new CSTNode("OptionalFlowMode", new OptionalFlowModeParser().parse()));
-			list.add(new CSTNode("OptionalChangemode", new OptionalChangemodeParser().parse()));
-			list.add(new CSTNode("TypeIdent", new TypeIdentParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalProgramParameters", new RepeatingOptionalProgramParametersParser().parse()));
+			IConcSyn.IOptionalFLOWMODE flowMode = new OptionalFlowModeParser().parse();
+			IConcSyn.IOptionalCHANGEMODE changeMode = new OptionalChangemodeParser().parse();
+			IConcSyn.ITypedIdent typedIdent = new TypedIdentParser().parse();
+			IConcSyn.IRepeatingOptionalProgramParameters repOptProPar = new RepeatingOptionalProgramParametersParser().parse();
+			return new OptionalProgramParameters(flowMode, changeMode, typedIdent, repOptProPar);
 		}
 		else if (terminal == Terminals.FLOWMODE) {
-			list.add(new CSTNode("OptionalFlowMode", new OptionalFlowModeParser().parse()));
-			list.add(new CSTNode("OptionalChangemode", new OptionalChangemodeParser().parse()));
-			list.add(new CSTNode("TypeIdent", new TypeIdentParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalProgramParameters", new RepeatingOptionalProgramParametersParser().parse()));
+			IConcSyn.IOptionalFLOWMODE flowMode = new OptionalFlowModeParser().parse();
+			IConcSyn.IOptionalCHANGEMODE changeMode = new OptionalChangemodeParser().parse();
+			IConcSyn.ITypedIdent typedIdent = new TypedIdentParser().parse();
+			IConcSyn.IRepeatingOptionalProgramParameters repOptProPar = new RepeatingOptionalProgramParametersParser().parse();
+			return new OptionalProgramParameters(flowMode, changeMode, typedIdent, repOptProPar);
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
-		return list;
 	}
 
 }

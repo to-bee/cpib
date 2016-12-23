@@ -1,11 +1,9 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.OptionalChangemode;
+import ch.fhnw.cpib.compiler.classes.OptionalChangemodeEps;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
-import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class OptionalChangemodeParser extends AbstractParser {
@@ -14,21 +12,18 @@ public class OptionalChangemodeParser extends AbstractParser {
 		super();
 	}
 
-	@Override
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IOptionalCHANGEMODE parse() throws GrammarError {
 		if (terminal == Terminals.IDENT) {
-			// TODO: leer?
+			return new OptionalChangemodeEps();
 		} 
 		else if (terminal == Terminals.CHANGEMODE) {
-			list.add(new CSTNode(consume(Terminals.CHANGEMODE)));
+			return new OptionalChangemode(consume(Terminals.CHANGEMODE));
 		}
 		else {
 			System.out.println(tokenlist.toString());
 			System.out.println(token);
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
-		return list;
 	}
 
 }

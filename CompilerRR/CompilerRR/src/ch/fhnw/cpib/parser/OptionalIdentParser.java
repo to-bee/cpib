@@ -1,11 +1,10 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.OptionalIdentEps;
+import ch.fhnw.cpib.compiler.classes.OptionalIdentExprList;
+import ch.fhnw.cpib.compiler.classes.OptionalIdentInit;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
-import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class OptionalIdentParser extends AbstractParser {
@@ -14,76 +13,74 @@ public class OptionalIdentParser extends AbstractParser {
 		super();
 	}
 
-	@Override
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IOptionalIdent parse() throws GrammarError {
 		if (terminal == Terminals.RPAREN) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.COMMA) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.DO) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.THEN) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.ENDPROC) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.ENDFUN) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.ENDSWITCH) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.CASEDEFAULT) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.CASE) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.ENDWHILE) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.ENDIF) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.ELSE) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.ENDPROGRAM) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.SEMICOLON) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.BECOMES) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.BOOLOPR) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.RELOPR) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.ADDOPR) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.MULTOPR) {
-			// TODO: leer?
+			return new OptionalIdentEps();
 		}
 		else if (terminal == Terminals.INIT) {
-			list.add(new CSTNode(consume(Terminals.INIT)));
+			return new OptionalIdentInit(consume(Terminals.INIT));
 		}
 		else if (terminal == Terminals.LPAREN) {
-			list.add(new CSTNode("ExpressionList", new ExpressionListParser().parse()));
+			IConcSyn.IExpressionList expr = new ExpressionListParser().parse();
+			return new OptionalIdentExprList(expr);
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
-		return list;
 	}
 
 }

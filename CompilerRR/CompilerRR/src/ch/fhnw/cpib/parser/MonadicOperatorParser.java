@@ -1,11 +1,9 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.MoniadicOperatorAddOpr;
+import ch.fhnw.cpib.compiler.classes.MoniadicOperatorNot;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
-import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class MonadicOperatorParser extends AbstractParser {
@@ -14,19 +12,17 @@ public class MonadicOperatorParser extends AbstractParser {
 		super();
 	}
 	
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IMonadicOperator parse() throws GrammarError {
 		if (terminal == Terminals.NOTOPER) {
-			list.add(new CSTNode(consume(Terminals.NOTOPER)));
+			return new MoniadicOperatorNot(consume(Terminals.NOTOPER));
 		} 
 		else if(terminal == Terminals.ADDOPR){
-			list.add(new CSTNode(consume(Terminals.ADDOPR)));
+			return new MoniadicOperatorAddOpr(consume(Terminals.ADDOPR));
 		}
 		else {
 			System.out.println(tokenlist.toString());
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString() + " terminal found: " + terminal, 0);
 		}
-		return list;
 	}
 	
 }

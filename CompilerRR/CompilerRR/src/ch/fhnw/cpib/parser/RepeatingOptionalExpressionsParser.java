@@ -1,9 +1,8 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.RepeatingOptionalExpressions;
+import ch.fhnw.cpib.compiler.classes.RepeatingOptionalExpressionsEps;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
@@ -14,21 +13,19 @@ public class RepeatingOptionalExpressionsParser extends AbstractParser {
 		super();
 	}
 
-	@Override
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IRepeatingOptionalExpressions parse() throws GrammarError {
 		if (terminal == Terminals.RPAREN) {
-			//TODO: leer?
+			return new RepeatingOptionalExpressionsEps();
 		}
 		else if (terminal == Terminals.COMMA) {
-			list.add(new CSTNode(consume(Terminals.COMMA)));
-			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalExpressions", new RepeatingOptionalExpressionsParser().parse()));
+			Token comma = consume(Terminals.COMMA);
+			IConcSyn.IExpression expr = new ExpressionParser().parse();
+			IConcSyn.IRepeatingOptionalExpressions repOptExpr = new RepeatingOptionalExpressionsParser().parse();
+			return new RepeatingOptionalExpressions(comma, expr, repOptExpr);
 		} 
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
-		return list;
 	}
 
 }

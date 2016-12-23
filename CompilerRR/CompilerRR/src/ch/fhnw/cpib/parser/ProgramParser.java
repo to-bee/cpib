@@ -1,11 +1,9 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
 
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.Program;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
@@ -17,19 +15,16 @@ public class ProgramParser extends AbstractParser{
 		super(tokenlist);
 	}
 	
-	public List<CSTNode> parse() throws GrammarError {
+	public IConcSyn.IProgram parse() throws GrammarError {
 		if (terminal == Terminals.PROGRAM) {
-			List<CSTNode> list = new LinkedList<CSTNode>();
-			
-			list.add(new CSTNode(consume(Terminals.PROGRAM)));
-			list.add(new CSTNode(consume(Terminals.IDENT)));
-			list.add(new CSTNode("ProgramParameterList", new ProgramParameterListParser().parse()));
-			list.add(new CSTNode("OptionalGlobalDeclarations", new OptionalGlobalDeclarationsParser().parse()));
-			list.add(new CSTNode(consume(Terminals.DO)));
-			list.add(new CSTNode("BlockCmd", new BlockCmdParser().parse()));
-			list.add(new CSTNode(consume(Terminals.ENDPROGRAM)));
-			
-			return list;
+			Token program = consume(Terminals.PROGRAM);
+			Token ident = consume(Terminals.IDENT);
+			IConcSyn.IProgamParameterList proParList = new ProgramParameterListParser().parse();
+			IConcSyn.IOptionalGlobalDeclarations optGlobDecl = new OptionalGlobalDeclarationsParser().parse();
+			Token doToken = consume(Terminals.DO);
+			IConcSyn.IBlockCmd blockCmd = new BlockCmdParser().parse();
+			Token endProgram = consume(Terminals.ENDPROGRAM);
+			return new Program(program, ident, proParList, optGlobDecl, doToken, blockCmd, endProgram);
 		} else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}

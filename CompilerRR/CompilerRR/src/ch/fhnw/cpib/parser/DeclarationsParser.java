@@ -1,11 +1,8 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.Declarations;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
-import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class DeclarationsParser extends AbstractParser {
@@ -14,31 +11,31 @@ public class DeclarationsParser extends AbstractParser {
 		super();
 	}
 
-	@Override
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IDeclarations parse() throws GrammarError {
 		if (terminal == Terminals.PROC) {
-			list.add(new CSTNode("Declaration", new DeclarationParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalDeclarations", new RepeatingOptionalDeclarationsParser().parse()));
+			IConcSyn.IDeclaration decl = new DeclarationParser().parse();
+			IConcSyn.IRepeatingOptionalDeclarations repOptDecl = new RepeatingOptionalDeclarationsParser().parse();
+			return new Declarations(decl, repOptDecl);
 		}
 		else if (terminal == Terminals.FUN) {
-			list.add(new CSTNode("Declaration", new DeclarationParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalDeclarations", new RepeatingOptionalDeclarationsParser().parse()));
+			IConcSyn.IDeclaration decl = new DeclarationParser().parse();
+			IConcSyn.IRepeatingOptionalDeclarations repOptDecl = new RepeatingOptionalDeclarationsParser().parse();
+			return new Declarations(decl, repOptDecl);
 		}
 		else if (terminal == Terminals.IDENT) {
-			list.add(new CSTNode("Declaration", new DeclarationParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalDeclarations", new RepeatingOptionalDeclarationsParser().parse()));
+			IConcSyn.IDeclaration decl = new DeclarationParser().parse();
+			IConcSyn.IRepeatingOptionalDeclarations repOptDecl = new RepeatingOptionalDeclarationsParser().parse();
+			return new Declarations(decl, repOptDecl);
 		}
 		else if (terminal == Terminals.CHANGEMODE) {
-			list.add(new CSTNode("Declaration", new DeclarationParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalDeclarations", new RepeatingOptionalDeclarationsParser().parse()));
+			IConcSyn.IDeclaration decl = new DeclarationParser().parse();
+			IConcSyn.IRepeatingOptionalDeclarations repOptDecl = new RepeatingOptionalDeclarationsParser().parse();
+			return new Declarations(decl, repOptDecl);
 		}
 		else {
 			System.out.println(tokenlist.toString());
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString() + " terminal found: " + terminal, 0);
 		}
-		return list;
-		
 	}
 
 }

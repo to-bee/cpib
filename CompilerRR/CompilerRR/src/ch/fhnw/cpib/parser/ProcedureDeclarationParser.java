@@ -1,9 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.ProcedureDeclaration;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
@@ -14,23 +12,21 @@ public class ProcedureDeclarationParser extends AbstractParser {
 		super();
 	}
 
-	@Override
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IProcedureDeclaration parse() throws GrammarError {
 		if (terminal == Terminals.PROC) {
-			list.add(new CSTNode(consume(Terminals.PROC)));
-			list.add(new CSTNode(consume(Terminals.IDENT)));
-			list.add(new CSTNode("ParameterList", new ParameterListParser().parse()));
-			list.add(new CSTNode("OptionalGlobalImports", new OptionalGlobalImportsParser().parse()));
-			list.add(new CSTNode("OptionalLocalStorageDeclarations", new OptionalLocalStorageDeclarationsParser().parse()));
-			list.add(new CSTNode(consume(Terminals.DO)));
-			list.add(new CSTNode("BlockCmd", new BlockCmdParser().parse()));
-			list.add(new CSTNode(consume(Terminals.ENDPROC)));
+			Token proc = consume(Terminals.PROC);
+			Token ident = consume(Terminals.IDENT);
+			IConcSyn.IParameterList parList = new ParameterListParser().parse();
+			IConcSyn.IOptionalGlobalImports optGlobImp = new OptionalGlobalImportsParser().parse();
+			IConcSyn.IOptionalLocalStorageDeclarations optLocStoDec = new OptionalLocalStorageDeclarationsParser().parse();
+			Token doToken = consume(Terminals.DO);
+			IConcSyn.IBlockCmd blockCmd = new BlockCmdParser().parse();
+			Token endProc = consume(Terminals.ENDPROC);
+			return new ProcedureDeclaration(proc, ident, parList, optGlobImp, optLocStoDec, doToken, blockCmd, endProc);
 		} 
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
-		return list;
 	}
 
 }

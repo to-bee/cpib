@@ -1,11 +1,9 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.OptionalParameters;
+import ch.fhnw.cpib.compiler.classes.OptionalParametersEps;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
-import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class OptionalParametersParser extends AbstractParser {
@@ -14,32 +12,34 @@ public class OptionalParametersParser extends AbstractParser {
 		super();
 	}
 
-	@Override
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	//<parameter> <repeatingOptionalParameters>
+	public IConcSyn.IOptionalParameters parse() throws GrammarError {
 		if (terminal == Terminals.RPAREN) {
-			// TODO: leer?
+			return new OptionalParametersEps();
 		}
 		else if (terminal == Terminals.IDENT) {
-			list.add(new CSTNode("Parameter", new ParameterParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalParameters", new RepeatingOptionalParametersParser().parse()));
+			IConcSyn.IParameter par = new ParameterParser().parse();
+			IConcSyn.IRepeatingOptionalParameters repOptPar = new RepeatingOptionalParametersParser().parse();
+			return new OptionalParameters(par, repOptPar);
 		} 
 		else if (terminal == Terminals.CHANGEMODE) {
-			list.add(new CSTNode("Parameter", new ParameterParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalParameters", new RepeatingOptionalParametersParser().parse()));
+			IConcSyn.IParameter par = new ParameterParser().parse();
+			IConcSyn.IRepeatingOptionalParameters repOptPar = new RepeatingOptionalParametersParser().parse();
+			return new OptionalParameters(par, repOptPar);
 		}
 		else if (terminal == Terminals.MECHMODE) {
-			list.add(new CSTNode("Parameter", new ParameterParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalParameters", new RepeatingOptionalParametersParser().parse()));
+			IConcSyn.IParameter par = new ParameterParser().parse();
+			IConcSyn.IRepeatingOptionalParameters repOptPar = new RepeatingOptionalParametersParser().parse();
+			return new OptionalParameters(par, repOptPar);
 		}
 		else if (terminal == Terminals.FLOWMODE) {
-			list.add(new CSTNode("Parameter", new ParameterParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalParameters", new RepeatingOptionalParametersParser().parse()));
+			IConcSyn.IParameter par = new ParameterParser().parse();
+			IConcSyn.IRepeatingOptionalParameters repOptPar = new RepeatingOptionalParametersParser().parse();
+			return new OptionalParameters(par, repOptPar);
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
-		return list;
 	}
 
 }

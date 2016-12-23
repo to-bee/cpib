@@ -1,11 +1,8 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.StorageDeclaration;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
-import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class StorageDeclarationParser extends AbstractParser {
@@ -14,21 +11,20 @@ public class StorageDeclarationParser extends AbstractParser {
 		super();
 	}
 
-	@Override
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IStorageDeclaration parse() throws GrammarError {
 		if (terminal == Terminals.IDENT) {
-			list.add(new CSTNode("OptionalChangemode", new OptionalChangemodeParser().parse()));
-			list.add(new CSTNode("TypeIdent", new TypeIdentParser().parse()));
+			IConcSyn.IOptionalCHANGEMODE changeMode = new OptionalChangemodeParser().parse();
+			IConcSyn.ITypedIdent typedIdent = new TypedIdentParser().parse();
+			return new StorageDeclaration(changeMode, typedIdent);
 		} 
 		else if (terminal == Terminals.CHANGEMODE) {
-			list.add(new CSTNode("OptionalChangemode", new OptionalChangemodeParser().parse()));
-			list.add(new CSTNode("TypeIdent", new TypeIdentParser().parse()));
+			IConcSyn.IOptionalCHANGEMODE changeMode = new OptionalChangemodeParser().parse();
+			IConcSyn.ITypedIdent typedIdent = new TypedIdentParser().parse();
+			return new StorageDeclaration(changeMode, typedIdent);
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
-		return list;
 	}
 
 }

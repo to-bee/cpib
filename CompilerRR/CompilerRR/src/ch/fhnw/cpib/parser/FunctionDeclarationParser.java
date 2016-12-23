@@ -1,9 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.FunctionDeclaration;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
@@ -14,26 +12,24 @@ public class FunctionDeclarationParser extends AbstractParser {
 		super();
 	}
 
-	@Override
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IFunctionDeclaration parse() throws GrammarError {
 		if (terminal == Terminals.FUN) {
-			list.add(new CSTNode(consume(Terminals.FUN)));
-			list.add(new CSTNode(consume(Terminals.IDENT)));
-			list.add(new CSTNode("ParameterList", new ParameterListParser().parse()));
-			list.add(new CSTNode(consume(Terminals.RETURNS)));
-			list.add(new CSTNode("StorageDeclaration", new StorageDeclarationParser().parse()));
-			list.add(new CSTNode("OptionalGlobalImports", new OptionalGlobalImportsParser().parse()));
-			list.add(new CSTNode("OptionalLocalStorageDeclarations", new OptionalLocalStorageDeclarationsParser().parse()));
-			list.add(new CSTNode(consume(Terminals.DO)));
-			list.add(new CSTNode("BlockCmd", new BlockCmdParser().parse()));
-			list.add(new CSTNode(consume(Terminals.ENDFUN)));
+			Token funToken = consume(Terminals.FUN);
+			Token identToken = consume(Terminals.IDENT);
+			IConcSyn.IParameterList parList = new ParameterListParser().parse();
+			Token returnsToken = consume(Terminals.RETURNS);
+			IConcSyn.IStorageDeclaration stoDecl = new StorageDeclarationParser().parse();
+			IConcSyn.IOptionalGlobalImports globImp = new OptionalGlobalImportsParser().parse();
+			IConcSyn.IOptionalLocalStorageDeclarations optLoc = new OptionalLocalStorageDeclarationsParser().parse();
+			Token doToken = consume(Terminals.DO);
+			IConcSyn.IBlockCmd blockCmd = new BlockCmdParser().parse();
+			Token endFun = consume(Terminals.ENDFUN);
+			return new FunctionDeclaration(funToken, identToken, parList, returnsToken, stoDecl, globImp, optLoc, doToken, blockCmd, endFun);
 		} 
 		else {
 			System.out.println(tokenlist.toString());
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString() + " terminal found: " + terminal, 0);
 		}
-		return list;
 	}
 
 }

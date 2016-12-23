@@ -1,9 +1,8 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.OptionalGlobalInits;
+import ch.fhnw.cpib.compiler.classes.OptionalGlobalInitsEps;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
@@ -14,46 +13,45 @@ public class OptionalGlobalInitsParser extends AbstractParser {
 		super();
 	}
 	
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IOptionalGlobalInits parse() throws GrammarError {
 		if (terminal == Terminals.ENDPROC) {
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new OptionalGlobalInitsEps();
 		} 
 		else if(terminal == Terminals.ENDFUN){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new OptionalGlobalInitsEps();
 		}
 		else if(terminal == Terminals.ENDSWITCH){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new OptionalGlobalInitsEps();
 		}
 		else if(terminal == Terminals.CASEDEFAULT){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new OptionalGlobalInitsEps();
 		}
 		else if(terminal == Terminals.CASE){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new OptionalGlobalInitsEps();
 		}
 		else if(terminal == Terminals.ENDWHILE){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new OptionalGlobalInitsEps();
 		}
 		else if(terminal == Terminals.ENDIF){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new OptionalGlobalInitsEps();
 		}
 		else if(terminal == Terminals.ELSE){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new OptionalGlobalInitsEps();
 		}
 		else if(terminal == Terminals.ENDPROGRAM){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new OptionalGlobalInitsEps();
 		}
 		else if(terminal == Terminals.SEMICOLON){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new OptionalGlobalInitsEps();
 		}
 		else if(terminal == Terminals.INIT){
-			list.add(new CSTNode(consume(Terminals.INIT)));
-			list.add(new CSTNode("Idents", new IdentsParser().parse()));
+			Token init = consume(Terminals.INIT);
+			IConcSyn.IIdents idents = new IdentsParser().parse();
+			return new OptionalGlobalInits(init, idents);
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
-		return list;
 	}
 	
 }

@@ -1,9 +1,8 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.RepeatingOptionalStorageDeclarations;
+import ch.fhnw.cpib.compiler.classes.RepeatingOptionalStorageDeclarationsEps;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
@@ -14,20 +13,19 @@ public class RepeatingOptionalStorageDeclarationsParser extends AbstractParser {
 		super();
 	}
 	
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IRepeatingOptionalStorageDeclarations parse() throws GrammarError {
 		if (terminal == Terminals.DO) {
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalStorageDeclarationsEps();
 		} 
 		else if(terminal == Terminals.SEMICOLON){
-			list.add(new CSTNode(consume(Terminals.SEMICOLON)));
-			list.add(new CSTNode("StorageDeclaration", new StorageDeclarationParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalStorageDeclarations", new RepeatingOptionalStorageDeclarationsParser().parse()));
+			Token semicolon = consume(Terminals.SEMICOLON);
+			IConcSyn.IStorageDeclaration stoDecl = new StorageDeclarationParser().parse();
+			IConcSyn.IRepeatingOptionalStorageDeclarations repOptStoDecl = new RepeatingOptionalStorageDeclarationsParser().parse();
+			return new RepeatingOptionalStorageDeclarations(semicolon, stoDecl, repOptStoDecl);
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
-		return list;
 	}
 	
 }

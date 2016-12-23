@@ -1,9 +1,8 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.RepeatingOptionalIdents;
+import ch.fhnw.cpib.compiler.classes.RepeatingOptionalIdentsEps;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
@@ -14,47 +13,46 @@ public class RepeatingOptionalIdentsParser extends AbstractParser {
 		super();
 	}
 	
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IRepeatingOptionalIdents parse() throws GrammarError {
 		if (terminal == Terminals.ENDPROC) {
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalIdentsEps();
 		} 
 		else if(terminal == Terminals.ENDFUN){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalIdentsEps();
 		}
 		else if(terminal == Terminals.ENDSWITCH){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalIdentsEps();
 		}
 		else if(terminal == Terminals.CASEDEFAULT){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalIdentsEps();
 		}
 		else if(terminal == Terminals.CASE){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalIdentsEps();
 		}
 		else if(terminal == Terminals.ENDWHILE){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalIdentsEps();
 		}
 		else if(terminal == Terminals.ENDIF){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalIdentsEps();
 		}
 		else if(terminal == Terminals.ELSE){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalIdentsEps();
 		}
 		else if(terminal == Terminals.ENDPROGRAM){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalIdentsEps();
 		}
 		else if(terminal == Terminals.SEMICOLON){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalIdentsEps();
 		}
 		else if(terminal == Terminals.COMMA){
-			list.add(new CSTNode(consume(Terminals.COMMA)));
-			list.add(new CSTNode(consume(Terminals.IDENT)));
-			list.add(new CSTNode("Idents", new IdentsParser().parse()));
+			Token comma = consume(Terminals.COMMA);
+			Token ident = consume(Terminals.IDENT);
+			IConcSyn.IIdents idents = new IdentsParser().parse();
+			return new RepeatingOptionalIdents(comma, ident, idents);
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
-		return list;
 	}
 	
 }

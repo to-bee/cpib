@@ -1,11 +1,9 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.OptionalExpressions;
+import ch.fhnw.cpib.compiler.classes.OptionalExpressionsEps;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
-import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class OptionalExpressionsParser extends AbstractParser {
@@ -14,37 +12,39 @@ public class OptionalExpressionsParser extends AbstractParser {
 		super();
 	}
 
-	@Override
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IOptionalExpressions parse() throws GrammarError {
 		if (terminal == Terminals.RPAREN) {
-			//TODO: leer?
+			return new OptionalExpressionsEps();
 		}
 		else if (terminal == Terminals.LPAREN) {
-			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalExpressions", new RepeatingOptionalExpressionsParser().parse()));
+			IConcSyn.IExpression expr = new ExpressionParser().parse();
+			IConcSyn.IRepeatingOptionalExpressions repOptExpr = new RepeatingOptionalExpressionsParser().parse();
+			return new OptionalExpressions(expr, repOptExpr);
 		} 
 		else if (terminal == Terminals.ADDOPR) {
-			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalExpressions", new RepeatingOptionalExpressionsParser().parse()));
+			IConcSyn.IExpression expr = new ExpressionParser().parse();
+			IConcSyn.IRepeatingOptionalExpressions repOptExpr = new RepeatingOptionalExpressionsParser().parse();
+			return new OptionalExpressions(expr, repOptExpr);
 		}
 		else if (terminal == Terminals.NOTOPER) {
-			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalExpressions", new RepeatingOptionalExpressionsParser().parse()));
+			IConcSyn.IExpression expr = new ExpressionParser().parse();
+			IConcSyn.IRepeatingOptionalExpressions repOptExpr = new RepeatingOptionalExpressionsParser().parse();
+			return new OptionalExpressions(expr, repOptExpr);
 		} 
 		else if (terminal == Terminals.IDENT) {
-			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalExpressions", new RepeatingOptionalExpressionsParser().parse()));
+			IConcSyn.IExpression expr = new ExpressionParser().parse();
+			IConcSyn.IRepeatingOptionalExpressions repOptExpr = new RepeatingOptionalExpressionsParser().parse();
+			return new OptionalExpressions(expr, repOptExpr);
 		} 
 		else if (terminal == Terminals.LITERAL) {
-			list.add(new CSTNode("Expression", new ExpressionParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalExpressions", new RepeatingOptionalExpressionsParser().parse()));
+			IConcSyn.IExpression expr = new ExpressionParser().parse();
+			IConcSyn.IRepeatingOptionalExpressions repOptExpr = new RepeatingOptionalExpressionsParser().parse();
+			return new OptionalExpressions(expr, repOptExpr);
 		} 
 		else {
 			System.out.println(tokenlist.toString());
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString() + " terminal found: " + terminal, 0);
 		}
-		return list;
 	}
 
 }

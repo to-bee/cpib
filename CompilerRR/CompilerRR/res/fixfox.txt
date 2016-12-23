@@ -1,0 +1,540 @@
+<program>
+  terminal PROGRAM
+    PROGRAM IDENT <progamParameterList> <optionalGlobalDeclarations> DO <blockCmd> ENDPROGRAM
+<blockCmd>
+  terminal SWITCH
+    <cmd> <repeatingOptionalCmds>
+  terminal DEBUGOUT
+    <cmd> <repeatingOptionalCmds>
+  terminal DEBUGIN
+    <cmd> <repeatingOptionalCmds>
+  terminal CALL
+    <cmd> <repeatingOptionalCmds>
+  terminal WHILE
+    <cmd> <repeatingOptionalCmds>
+  terminal IF
+    <cmd> <repeatingOptionalCmds>
+  terminal LPAREN
+    <cmd> <repeatingOptionalCmds>
+  terminal ADDOPR
+    <cmd> <repeatingOptionalCmds>
+  terminal NOT
+    <cmd> <repeatingOptionalCmds>
+  terminal IDENT
+    <cmd> <repeatingOptionalCmds>
+  terminal LITERAL
+    <cmd> <repeatingOptionalCmds>
+  terminal SKIP
+    <cmd> <repeatingOptionalCmds>
+<cmd>
+  terminal SKIP
+    SKIP
+  terminal LPAREN
+    <expression> BECOMES <expression>
+  terminal ADDOPR
+    <expression> BECOMES <expression>
+  terminal NOT
+    <expression> BECOMES <expression>
+  terminal IDENT
+    <expression> BECOMES <expression>
+  terminal LITERAL
+    <expression> BECOMES <expression>
+  terminal IF
+    IF <expression> THEN <blockCmd> ELSE <blockCmd> ENDIF
+  terminal WHILE
+    WHILE <expression> DO <blockCmd> ENDWHILE
+  terminal CALL
+    CALL IDENT <expressionList> <optionalGlobalInits>
+  terminal DEBUGIN
+    DEBUGIN <expression>
+  terminal DEBUGOUT
+    DEBUGOUT <expression>
+  terminal SWITCH
+    SWITCH IDENT CASE LITERAL COLON <blockCmd> <repeatingOptionalCase> CASEDEFAULT COLON <blockCmd> ENDSWITCH
+<repeatingOptionalCase>
+  terminal CASEDEFAULT
+
+  terminal CASE
+    CASE LITERAL COLON <blockCmd> <repeatingOptionalCase>
+<optionalGlobalInits>
+  terminal ENDPROC
+
+  terminal ENDFUN
+
+  terminal ENDSWITCH
+
+  terminal CASEDEFAULT
+
+  terminal CASE
+
+  terminal ENDWHILE
+
+  terminal ENDIF
+
+  terminal ELSE
+
+  terminal ENDPROGRAM
+
+  terminal SEMICOLON
+
+  terminal INIT
+    INIT <idents>
+<idents>
+  terminal IDENT
+    IDENT <repeatingOptionalIdents>
+<repeatingOptionalIdents>
+  terminal ENDPROC
+
+  terminal ENDFUN
+
+  terminal ENDSWITCH
+
+  terminal CASEDEFAULT
+
+  terminal CASE
+
+  terminal ENDWHILE
+
+  terminal ENDIF
+
+  terminal ELSE
+
+  terminal ENDPROGRAM
+
+  terminal SEMICOLON
+
+  terminal COMMA
+    COMMA IDENT <idents>
+<repeatingOptionalCmds>
+  terminal ENDPROC
+
+  terminal ENDFUN
+
+  terminal ENDSWITCH
+
+  terminal CASEDEFAULT
+
+  terminal CASE
+
+  terminal ENDWHILE
+
+  terminal ENDIF
+
+  terminal ELSE
+
+  terminal ENDPROGRAM
+
+  terminal SEMICOLON
+    SEMICOLON <cmd> <repeatingOptionalCmds>
+<declaration>
+  terminal IDENT
+    <storageDeclaration>
+  terminal CHANGEMODE
+    <storageDeclaration>
+  terminal FUN
+    <functionDeclaration>
+  terminal PROC
+    <procedureDeclaration>
+<storageDeclaration>
+  terminal IDENT
+    <optionalCHANGEMODE> <typedIdent>
+  terminal CHANGEMODE
+    <optionalCHANGEMODE> <typedIdent>
+<optionalCHANGEMODE>
+  terminal IDENT
+
+  terminal CHANGEMODE
+    CHANGEMODE
+<optionalFLOWMODE>
+  terminal MECHMODE
+
+  terminal IDENT
+
+  terminal CHANGEMODE
+
+  terminal FLOWMODE
+    FLOWMODE
+<optionalMECHMODE>
+  terminal IDENT
+
+  terminal CHANGEMODE
+
+  terminal MECHMODE
+    MECHMODE
+<typedIdent>
+  terminal IDENT
+    IDENT COLON <typeDeclaration>
+<typeDeclaration>
+  terminal TYPE
+    TYPE
+  terminal IDENT
+    IDENT
+<functionDeclaration>
+  terminal FUN
+    FUN IDENT <parameterList> RETURNS <storageDeclaration> <optionalGlobalImports> <optionalLocalStorageDeclarations> DO <blockCmd> ENDFUN
+<procedureDeclaration>
+  terminal PROC
+    PROC IDENT <parameterList> <optionalGlobalImports> <optionalLocalStorageDeclarations> DO <blockCmd> ENDPROC
+<optionalGlobalImports>
+  terminal DO
+
+  terminal LOCAL
+
+  terminal GLOBAL
+    GLOBAL <globalImport> <repeatingOptionalGlobalImports>
+<globalImport>
+  terminal IDENT
+    <optionalFLOWMODE> <optionalCHANGEMODE> IDENT
+  terminal CHANGEMODE
+    <optionalFLOWMODE> <optionalCHANGEMODE> IDENT
+  terminal FLOWMODE
+    <optionalFLOWMODE> <optionalCHANGEMODE> IDENT
+<repeatingOptionalGlobalImports>
+  terminal DO
+
+  terminal LOCAL
+
+  terminal COMMA
+    COMMA <globalImport> <repeatingOptionalGlobalImports>
+<progamParameterList>
+  terminal LPAREN
+    LPAREN <optionalProgramParameters> RPAREN
+<optionalProgramParameters>
+  terminal RPAREN
+
+  terminal IDENT
+    <optionalFLOWMODE> <optionalCHANGEMODE> <typedIdent> <repeatingOptionalProgramParameters>
+  terminal CHANGEMODE
+    <optionalFLOWMODE> <optionalCHANGEMODE> <typedIdent> <repeatingOptionalProgramParameters>
+  terminal FLOWMODE
+    <optionalFLOWMODE> <optionalCHANGEMODE> <typedIdent> <repeatingOptionalProgramParameters>
+<repeatingOptionalProgramParameters>
+  terminal RPAREN
+
+  terminal COMMA
+    COMMA <optionalFLOWMODE> <optionalCHANGEMODE> <typedIdent> <repeatingOptionalProgramParameters>
+<optionalGlobalDeclarations>
+  terminal DO
+
+  terminal GLOBAL
+    GLOBAL <declarations>
+<declarations>
+  terminal PROC
+    <declaration> <repeatingOptionalDeclarations>
+  terminal FUN
+    <declaration> <repeatingOptionalDeclarations>
+  terminal IDENT
+    <declaration> <repeatingOptionalDeclarations>
+  terminal CHANGEMODE
+    <declaration> <repeatingOptionalDeclarations>
+<repeatingOptionalDeclarations>
+  terminal DO
+
+  terminal SEMICOLON
+    SEMICOLON <declaration> <repeatingOptionalDeclarations>
+<optionalLocalStorageDeclarations>
+  terminal DO
+
+  terminal LOCAL
+    LOCAL <storageDeclaration> <repeatingOptionalStorageDeclarations>
+<repeatingOptionalStorageDeclarations>
+  terminal DO
+
+  terminal SEMICOLON
+    SEMICOLON <storageDeclaration> <repeatingOptionalStorageDeclarations>
+<parameterList>
+  terminal LPAREN
+    LPAREN <optionalParameters> RPAREN
+<optionalParameters>
+  terminal RPAREN
+
+  terminal IDENT
+    <parameter> <repeatingOptionalParameters>
+  terminal CHANGEMODE
+    <parameter> <repeatingOptionalParameters>
+  terminal MECHMODE
+    <parameter> <repeatingOptionalParameters>
+  terminal FLOWMODE
+    <parameter> <repeatingOptionalParameters>
+<parameter>
+  terminal IDENT
+    <optionalFLOWMODE> <optionalMECHMODE> <storageDeclaration>
+  terminal CHANGEMODE
+    <optionalFLOWMODE> <optionalMECHMODE> <storageDeclaration>
+  terminal MECHMODE
+    <optionalFLOWMODE> <optionalMECHMODE> <storageDeclaration>
+  terminal FLOWMODE
+    <optionalFLOWMODE> <optionalMECHMODE> <storageDeclaration>
+<repeatingOptionalParameters>
+  terminal RPAREN
+
+  terminal COMMA
+    COMMA <parameter> <repeatingOptionalParameters>
+<expressionList>
+  terminal LPAREN
+    LPAREN <optionalExpressions> RPAREN
+<optionalExpressions>
+  terminal RPAREN
+
+  terminal LPAREN
+    <expression> <repeatingOptionalExpressions>
+  terminal ADDOPR
+    <expression> <repeatingOptionalExpressions>
+  terminal NOT
+    <expression> <repeatingOptionalExpressions>
+  terminal IDENT
+    <expression> <repeatingOptionalExpressions>
+  terminal LITERAL
+    <expression> <repeatingOptionalExpressions>
+<expression>
+  terminal LPAREN
+    <term1> <repBOOLOPRterm1>
+  terminal ADDOPR
+    <term1> <repBOOLOPRterm1>
+  terminal NOT
+    <term1> <repBOOLOPRterm1>
+  terminal IDENT
+    <term1> <repBOOLOPRterm1>
+  terminal LITERAL
+    <term1> <repBOOLOPRterm1>
+<repeatingOptionalExpressions>
+  terminal RPAREN
+
+  terminal COMMA
+    COMMA <expression> <repeatingOptionalExpressions>
+<repBOOLOPRterm1>
+  terminal RPAREN
+
+  terminal COMMA
+
+  terminal DO
+
+  terminal THEN
+
+  terminal ENDPROC
+
+  terminal ENDFUN
+
+  terminal ENDSWITCH
+
+  terminal CASEDEFAULT
+
+  terminal CASE
+
+  terminal ENDWHILE
+
+  terminal ENDIF
+
+  terminal ELSE
+
+  terminal ENDPROGRAM
+
+  terminal SEMICOLON
+
+  terminal BECOMES
+
+  terminal BOOLOPR
+    BOOLOPR <term1> <repBOOLOPRterm1>
+<term1>
+  terminal LPAREN
+    <term2> <repRELOPRterm2>
+  terminal ADDOPR
+    <term2> <repRELOPRterm2>
+  terminal NOT
+    <term2> <repRELOPRterm2>
+  terminal IDENT
+    <term2> <repRELOPRterm2>
+  terminal LITERAL
+    <term2> <repRELOPRterm2>
+<repRELOPRterm2>
+  terminal RPAREN
+
+  terminal COMMA
+
+  terminal DO
+
+  terminal THEN
+
+  terminal ENDPROC
+
+  terminal ENDFUN
+
+  terminal ENDSWITCH
+
+  terminal CASEDEFAULT
+
+  terminal CASE
+
+  terminal ENDWHILE
+
+  terminal ENDIF
+
+  terminal ELSE
+
+  terminal ENDPROGRAM
+
+  terminal SEMICOLON
+
+  terminal BECOMES
+
+  terminal BOOLOPR
+
+  terminal RELOPR
+    RELOPR <term2> <repRELOPRterm2>
+<term2>
+  terminal LPAREN
+    <term3> <repADDOPRterm3>
+  terminal ADDOPR
+    <term3> <repADDOPRterm3>
+  terminal NOT
+    <term3> <repADDOPRterm3>
+  terminal IDENT
+    <term3> <repADDOPRterm3>
+  terminal LITERAL
+    <term3> <repADDOPRterm3>
+<repADDOPRterm3>
+  terminal ADDOPR
+    ADDOPR <term3> <repADDOPRterm3>
+  terminal RPAREN
+
+  terminal COMMA
+
+  terminal DO
+
+  terminal THEN
+
+  terminal ENDPROC
+
+  terminal ENDFUN
+
+  terminal ENDSWITCH
+
+  terminal CASEDEFAULT
+
+  terminal CASE
+
+  terminal ENDWHILE
+
+  terminal ENDIF
+
+  terminal ELSE
+
+  terminal ENDPROGRAM
+
+  terminal SEMICOLON
+
+  terminal BECOMES
+
+  terminal BOOLOPR
+
+  terminal RELOPR
+
+<term3>
+  terminal LPAREN
+    <factor> <repMULTOPRfactor>
+  terminal ADDOPR
+    <factor> <repMULTOPRfactor>
+  terminal NOT
+    <factor> <repMULTOPRfactor>
+  terminal IDENT
+    <factor> <repMULTOPRfactor>
+  terminal LITERAL
+    <factor> <repMULTOPRfactor>
+<repMULTOPRfactor>
+  terminal RPAREN
+
+  terminal COMMA
+
+  terminal DO
+
+  terminal THEN
+
+  terminal ENDPROC
+
+  terminal ENDFUN
+
+  terminal ENDSWITCH
+
+  terminal CASEDEFAULT
+
+  terminal CASE
+
+  terminal ENDWHILE
+
+  terminal ENDIF
+
+  terminal ELSE
+
+  terminal ENDPROGRAM
+
+  terminal SEMICOLON
+
+  terminal BECOMES
+
+  terminal BOOLOPR
+
+  terminal RELOPR
+
+  terminal ADDOPR
+
+  terminal MULTOPR
+    MULTOPR <factor> <repMULTOPRfactor>
+<factor>
+  terminal LITERAL
+    LITERAL
+  terminal IDENT
+    IDENT <optionalIdent>
+  terminal ADDOPR
+    <monadicOperator> <factor>
+  terminal NOT
+    <monadicOperator> <factor>
+  terminal LPAREN
+    LPAREN <expression> RPAREN
+<optionalIdent>
+  terminal RPAREN
+
+  terminal COMMA
+
+  terminal DO
+
+  terminal THEN
+
+  terminal ENDPROC
+
+  terminal ENDFUN
+
+  terminal ENDSWITCH
+
+  terminal CASEDEFAULT
+
+  terminal CASE
+
+  terminal ENDWHILE
+
+  terminal ENDIF
+
+  terminal ELSE
+
+  terminal ENDPROGRAM
+
+  terminal SEMICOLON
+
+  terminal BECOMES
+
+  terminal BOOLOPR
+
+  terminal RELOPR
+
+  terminal ADDOPR
+
+  terminal MULTOPR
+
+  terminal INIT
+    INIT
+  terminal LPAREN
+    <expressionList>
+<monadicOperator>
+  terminal NOT
+    NOT
+  terminal ADDOPR
+    ADDOPR

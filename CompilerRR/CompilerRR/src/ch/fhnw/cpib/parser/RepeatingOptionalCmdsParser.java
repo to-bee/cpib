@@ -1,9 +1,8 @@
 package ch.fhnw.cpib.parser;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.cst.CSTNode;
+import ch.fhnw.cpib.compiler.classes.RepeatingOptionalCmds;
+import ch.fhnw.cpib.compiler.classes.RepeatingOptionalCmdsEps;
+import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
@@ -14,44 +13,43 @@ public class RepeatingOptionalCmdsParser extends AbstractParser {
 		super();
 	}
 	
-	public List<CSTNode> parse() throws GrammarError {
-		List<CSTNode> list = new LinkedList<CSTNode>();
+	public IConcSyn.IRepeatingOptionalCmds parse() throws GrammarError {
 		if (terminal == Terminals.ENDPROC) {
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalCmdsEps();
 		} 
 		else if(terminal == Terminals.ENDFUN){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalCmdsEps();
 		}
 		else if(terminal == Terminals.ENDSWITCH){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalCmdsEps();
 		}
 		else if(terminal == Terminals.CASEDEFAULT){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalCmdsEps();
 		}
 		else if(terminal == Terminals.CASE){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalCmdsEps();
 		}
 		else if(terminal == Terminals.ENDWHILE){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalCmdsEps();
 		}
 		else if(terminal == Terminals.ENDIF){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalCmdsEps();
 		}
 		else if(terminal == Terminals.ELSE){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalCmdsEps();
 		}
 		else if(terminal == Terminals.ENDPROGRAM){
-			//TODO: stimmt es, dass dies einfach leer ist?
+			return new RepeatingOptionalCmdsEps();
 		}
 		else if(terminal == Terminals.SEMICOLON){
-			list.add(new CSTNode(consume(Terminals.SEMICOLON)));
-			list.add(new CSTNode("Cmd", new CmdParser().parse()));
-			list.add(new CSTNode("RepeatingOptionalCmds", new RepeatingOptionalCmdsParser().parse()));
+			Token semicolon = consume(Terminals.SEMICOLON);
+			IConcSyn.ICmd cmd = new CmdParser().parse();
+			IConcSyn.IRepeatingOptionalCmds repOptCmds = new RepeatingOptionalCmdsParser().parse();
+			return new RepeatingOptionalCmds(semicolon, cmd, repOptCmds);
 		}
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString(), 0);
 		}
-		return list;
 	}
 	
 }
