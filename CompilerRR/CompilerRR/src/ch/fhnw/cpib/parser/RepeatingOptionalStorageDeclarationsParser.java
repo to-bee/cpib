@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.RepeatingOptionalStorageDeclarations;
-import ch.fhnw.cpib.compiler.classes.RepeatingOptionalStorageDeclarationsEps;
+import ch.fhnw.cpib.compiler.cst.classes.RepeatingOptionalStorageDeclarations;
+import ch.fhnw.cpib.compiler.cst.classes.RepeatingOptionalStorageDeclarationsEps;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;

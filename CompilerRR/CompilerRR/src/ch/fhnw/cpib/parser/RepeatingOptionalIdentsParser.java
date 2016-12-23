@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.RepeatingOptionalIdents;
-import ch.fhnw.cpib.compiler.classes.RepeatingOptionalIdentsEps;
+import ch.fhnw.cpib.compiler.cst.classes.RepeatingOptionalIdents;
+import ch.fhnw.cpib.compiler.cst.classes.RepeatingOptionalIdentsEps;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;

@@ -1,9 +1,9 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.FactorExpression;
-import ch.fhnw.cpib.compiler.classes.FactorIdent;
-import ch.fhnw.cpib.compiler.classes.FactorLiteral;
-import ch.fhnw.cpib.compiler.classes.FactorMoniadic;
+import ch.fhnw.cpib.compiler.cst.classes.FactorExpression;
+import ch.fhnw.cpib.compiler.cst.classes.FactorIdent;
+import ch.fhnw.cpib.compiler.cst.classes.FactorLiteral;
+import ch.fhnw.cpib.compiler.cst.classes.FactorMoniadic;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;

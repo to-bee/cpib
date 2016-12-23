@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.OptionalLocalStorageDeclaration;
-import ch.fhnw.cpib.compiler.classes.OptionalLocalStorageDeclarationEps;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalLocalStorageDeclaration;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalLocalStorageDeclarationEps;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;

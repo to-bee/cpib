@@ -1,13 +1,13 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.CmdBecomes;
-import ch.fhnw.cpib.compiler.classes.CmdCall;
-import ch.fhnw.cpib.compiler.classes.CmdDebugIn;
-import ch.fhnw.cpib.compiler.classes.CmdDebugOut;
-import ch.fhnw.cpib.compiler.classes.CmdIf;
-import ch.fhnw.cpib.compiler.classes.CmdSkip;
-import ch.fhnw.cpib.compiler.classes.CmdSwitch;
-import ch.fhnw.cpib.compiler.classes.CmdWhile;
+import ch.fhnw.cpib.compiler.cst.classes.CmdBecomes;
+import ch.fhnw.cpib.compiler.cst.classes.CmdCall;
+import ch.fhnw.cpib.compiler.cst.classes.CmdDebugIn;
+import ch.fhnw.cpib.compiler.cst.classes.CmdDebugOut;
+import ch.fhnw.cpib.compiler.cst.classes.CmdIf;
+import ch.fhnw.cpib.compiler.cst.classes.CmdSkip;
+import ch.fhnw.cpib.compiler.cst.classes.CmdSwitch;
+import ch.fhnw.cpib.compiler.cst.classes.CmdWhile;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;

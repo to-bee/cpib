@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.RepMultOprFactor;
-import ch.fhnw.cpib.compiler.classes.RepMultOprFactorEps;
+import ch.fhnw.cpib.compiler.cst.classes.RepMultOprFactor;
+import ch.fhnw.cpib.compiler.cst.classes.RepMultOprFactorEps;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;

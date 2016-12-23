@@ -1,8 +1,8 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.OptionalIdentEps;
-import ch.fhnw.cpib.compiler.classes.OptionalIdentExprList;
-import ch.fhnw.cpib.compiler.classes.OptionalIdentInit;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalIdentEps;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalIdentExprList;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalIdentInit;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;

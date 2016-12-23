@@ -1,8 +1,8 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.DeclarationFunction;
-import ch.fhnw.cpib.compiler.classes.DeclarationProcedure;
-import ch.fhnw.cpib.compiler.classes.DeclarationStorage;
+import ch.fhnw.cpib.compiler.cst.classes.DeclarationFunction;
+import ch.fhnw.cpib.compiler.cst.classes.DeclarationProcedure;
+import ch.fhnw.cpib.compiler.cst.classes.DeclarationStorage;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;

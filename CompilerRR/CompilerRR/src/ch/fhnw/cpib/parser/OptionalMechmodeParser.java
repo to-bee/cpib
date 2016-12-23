@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.OptionalMechmode;
-import ch.fhnw.cpib.compiler.classes.OptionalMechmodeEps;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalMechmode;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalMechmodeEps;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;

@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.OptionalProgramParameters;
-import ch.fhnw.cpib.compiler.classes.OptionalProgramParametersEps;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalProgramParameters;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalProgramParametersEps;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;

@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.TypeDeclarationIdent;
-import ch.fhnw.cpib.compiler.classes.TypeDeclarationType;
+import ch.fhnw.cpib.compiler.cst.classes.TypeDeclarationIdent;
+import ch.fhnw.cpib.compiler.cst.classes.TypeDeclarationType;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;

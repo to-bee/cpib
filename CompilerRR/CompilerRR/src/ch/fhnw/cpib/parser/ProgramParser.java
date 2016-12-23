@@ -2,7 +2,7 @@ package ch.fhnw.cpib.parser;
 
 import java.util.LinkedList;
 
-import ch.fhnw.cpib.compiler.classes.Program;
+import ch.fhnw.cpib.compiler.cst.classes.Program;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;

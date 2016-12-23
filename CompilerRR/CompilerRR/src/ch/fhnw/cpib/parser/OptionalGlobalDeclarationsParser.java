@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.OptionalGlobalDeclarations;
-import ch.fhnw.cpib.compiler.classes.OptionalGlobalDeclarationsEps;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalGlobalDeclarations;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalGlobalDeclarationsEps;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;

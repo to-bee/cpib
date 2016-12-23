@@ -1,6 +1,6 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.Term1;
+import ch.fhnw.cpib.compiler.cst.classes.Term1;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn.ITerm1;
 import ch.fhnw.cpib.compiler.error.GrammarError;

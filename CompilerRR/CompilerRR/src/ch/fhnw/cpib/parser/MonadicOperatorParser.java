@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.MoniadicOperatorAddOpr;
-import ch.fhnw.cpib.compiler.classes.MoniadicOperatorNot;
+import ch.fhnw.cpib.compiler.cst.classes.MoniadicOperatorAddOpr;
+import ch.fhnw.cpib.compiler.cst.classes.MoniadicOperatorNot;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;

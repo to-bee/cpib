@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.OptionalFlowmode;
-import ch.fhnw.cpib.compiler.classes.OptionalFlowmodeEps;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalFlowmode;
+import ch.fhnw.cpib.compiler.cst.classes.OptionalFlowmodeEps;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;

@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.RepeatingOptionalDeclarations;
-import ch.fhnw.cpib.compiler.classes.RepeatingOptionalDeclarationsEps;
+import ch.fhnw.cpib.compiler.cst.classes.RepeatingOptionalDeclarations;
+import ch.fhnw.cpib.compiler.cst.classes.RepeatingOptionalDeclarationsEps;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;

@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.parser;
 
-import ch.fhnw.cpib.compiler.classes.RepBoolOprTerm1;
-import ch.fhnw.cpib.compiler.classes.RepBoolOprTerm1Eps;
+import ch.fhnw.cpib.compiler.cst.classes.RepBoolOprTerm1;
+import ch.fhnw.cpib.compiler.cst.classes.RepBoolOprTerm1Eps;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.error.GrammarError;
 import ch.fhnw.cpib.compiler.scanner.Token;
