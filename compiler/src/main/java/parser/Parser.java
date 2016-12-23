@@ -3,7 +3,7 @@ package parser;
 import absSyn.IAbsSyn;
 import conSyn.AbstractConcSyn;
 import conSyn.IConcSyn;
-import conSyn.Program;
+import conSyn.ProgramConcSyn;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -22,7 +22,7 @@ public class Parser extends AbstractConcSyn implements IParser, IConcSyn {
     }
 
     public void parse() throws GrammarError {
-        this.parseNext(new Program(tokenList, this.getCounter()));
+        this.parseNext(new ProgramConcSyn(tokenList, this.getCounter()));
     }
 
     @Override

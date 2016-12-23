@@ -77,7 +77,7 @@ public interface IAbsSyn {
 //    public void check();
 //
 //    /**
-//     * The Type of the Expression. For some expressions the actual Type is
+//     * The Type of the ExpressionConcSyn. For some expressions the actual Type is
 //     * determined in {@link #check()} and is therefore not available prior to a
 //     * call of {@link #check()}.
 //     */
@@ -112,7 +112,7 @@ public interface IAbsSyn {
 //   * <dt>IList&lt;{@link IExpr}&gt;</dt>
 //   * <dd>{@link ParamCallList}</dd>
 //   * <dt>IList&lt;{@link IParameter}&gt;</dt>
-//   * <dd>{@link ParameterList}</dd>
+//   * <dd>{@link ParameterListConcSyn}</dd>
 //   * <dt>IList&lt;?&gt;</dt>
 //   * <dd>{@link Empty}</dd>
 //   * </dl>
