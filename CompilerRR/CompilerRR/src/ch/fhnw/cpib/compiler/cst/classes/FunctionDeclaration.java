@@ -8,7 +8,7 @@ import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn.IParameterList;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn.IStorageDeclaration;
 import ch.fhnw.cpib.compiler.scanner.Token;
 
-public class FunctionDeclaration implements IConcSyn.IFunctionDeclaration{
+public class FunctionDeclaration implements IConcSyn.IFunctionDeclaration {
 
 	Token func;
 	Token ident;
@@ -38,8 +38,12 @@ public class FunctionDeclaration implements IConcSyn.IFunctionDeclaration{
 	@Override
 	public ch.fhnw.cpib.compiler.ast.classes.FunctionDeclaration toAbs() {
 		return new ch.fhnw.cpib.compiler.ast.classes.FunctionDeclaration(
-				ident, parList.toAbs(), stoDec.toAbs(), optGlobImp.toAbs(), 
-				optLocStorDec.toAbs(), blockCmd.toAbs());
+				ident, 
+				parList.toAbs(), 
+				stoDec.toAbs(), 
+				optGlobImp.toAbs(), 
+				optLocStorDec.toAbs(), 
+				blockCmd.toAbs());
 	
 	}
 	

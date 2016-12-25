@@ -21,9 +21,8 @@ public class RepeatingOptionalStorageDeclarations implements IConcSyn.IRepeating
 	}
 	
 	@Override
-	public List<ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IStorageDeclaration> toAbs() {
-		List<ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IStorageDeclaration>
-		decls = new LinkedList<IAbsSyn.IStorageDeclaration>();
+	public List<ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IDeclaration> toAbs() {
+		List<ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IDeclaration> decls = new LinkedList<>();
 		decls.add(stoDecl.toAbs());
 		decls.addAll(repOptStoDecl.toAbs());
 		return decls;

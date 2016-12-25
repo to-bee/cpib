@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.List;
 
+import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.scanner.Scanner;
 import ch.fhnw.cpib.compiler.scanner.Token;
@@ -31,6 +32,7 @@ public class Compiler {
 			ProgramParser p = new ProgramParser(list);
 			IConcSyn.IProgram cst = p.parse();
 			
+			IAbsSyn.IProgram ast = cst.toAbs();
 			
 			
 		} catch (Exception e) {

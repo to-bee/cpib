@@ -10,9 +10,10 @@ public class OptionalGlobalDeclarations implements IConcSyn.IOptionalGlobalDecla
 	Token global;
 	IConcSyn.IDeclarations decls;
 
-	public OptionalGlobalDeclarations(Token global) {
+	public OptionalGlobalDeclarations(Token global, IDeclarations decls) {
 		super();
 		this.global = global;
+		this.decls = decls;
 	}
 
 	@Override

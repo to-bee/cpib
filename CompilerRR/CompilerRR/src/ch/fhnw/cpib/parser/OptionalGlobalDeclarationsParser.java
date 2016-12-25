@@ -20,7 +20,7 @@ public class OptionalGlobalDeclarationsParser extends AbstractParser {
 		else if (terminal == Terminals.GLOBAL) {
 			Token globalToken = consume(Terminals.GLOBAL);
 			IConcSyn.IDeclarations decl = new DeclarationsParser().parse();
-			return new OptionalGlobalDeclarations(globalToken);
+			return new OptionalGlobalDeclarations(globalToken, decl);
 		} 
 		else {
 			throw new GrammarError("GrammarError at: "+ this.getClass().toString() + " terminal found: " + terminal, 0);

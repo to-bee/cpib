@@ -13,7 +13,7 @@ public class RepeatingOptionalStorageDeclarationsEps implements IConcSyn.IRepeat
 	}
 
 	@Override
-	public List<ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IStorageDeclaration> toAbs() {
-		return new LinkedList<IAbsSyn.IStorageDeclaration>();
+	public List<ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IDeclaration> toAbs() {
+		return new LinkedList<ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IDeclaration>();
 	}
 }

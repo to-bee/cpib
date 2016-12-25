@@ -10,9 +10,10 @@ import ch.fhnw.cpib.compiler.scanner.Token;
 public class OptionalLocalStorageDeclaration implements IConcSyn.IOptionalLocalStorageDeclarations{
 
 	Token local;
-	IConcSyn.IStorageDeclaration stoDecl;
+	ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn.IStorageDeclaration stoDecl;
 	IConcSyn.IRepeatingOptionalStorageDeclarations repOptDecl;
-	public OptionalLocalStorageDeclaration(Token local, IStorageDeclaration stoDecl,
+	
+	public OptionalLocalStorageDeclaration(Token local, ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn.IStorageDeclaration stoDecl,
 			IRepeatingOptionalStorageDeclarations repOptStoDecl) {
 		super();
 		this.local = local;
@@ -21,9 +22,9 @@ public class OptionalLocalStorageDeclaration implements IConcSyn.IOptionalLocalS
 	}
 	
 	@Override
-	public List<ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IStorageDeclaration> toAbs() {
-		List<ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IStorageDeclaration>
-		declarations = new LinkedList<IAbsSyn.IStorageDeclaration>();
+	public List<ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IDeclaration> toAbs() {
+		
+		List<ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IDeclaration> declarations = new LinkedList<IAbsSyn.IDeclaration>();
 		declarations.add(stoDecl.toAbs());
 		declarations.addAll(repOptDecl.toAbs());
 		return declarations;

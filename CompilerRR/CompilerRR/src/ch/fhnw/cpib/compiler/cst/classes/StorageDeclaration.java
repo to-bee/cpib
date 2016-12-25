@@ -8,15 +8,16 @@ public class StorageDeclaration implements IConcSyn.IStorageDeclaration {
 
 	IConcSyn.IOptionalCHANGEMODE mode;
 	IConcSyn.ITypedIdent ident;
+	
 	public StorageDeclaration(IOptionalCHANGEMODE mode, ITypedIdent ident) {
 		super();
 		this.mode = mode;
 		this.ident = ident;
 	}
 	
+
 	@Override
-	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IStorageDeclaration toAbs() {
-		// TODO Auto-generated method stub
+	public ch.fhnw.cpib.compiler.ast.classes.StorageDeclaration toAbs() {
 		return new ch.fhnw.cpib.compiler.ast.classes.StorageDeclaration(
 				mode.toAbs(), ident.toAbs());
 	}

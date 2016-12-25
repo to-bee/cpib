@@ -25,6 +25,8 @@ public interface IConcSyn {
 	public interface ICmd extends IConcSyn {
 		IAbsSyn.ICommand toAbs();
 	}
+	
+	
 
 	public interface IDeclaration extends IConcSyn {
 		IAbsSyn.IDeclaration toAbs();
@@ -33,6 +35,35 @@ public interface IConcSyn {
 	public interface IDeclarations extends IConcSyn {
 		List<IAbsSyn.IDeclaration> toAbs();
 	}
+	
+	public interface IOptionalLocalStorageDeclarations extends IConcSyn {
+		List<ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IDeclaration> toAbs();
+	}
+	
+	public interface IRepeatingOptionalDeclarations extends IConcSyn {
+		List<IAbsSyn.IDeclaration> toAbs();
+	}
+	
+	public interface IRepeatingOptionalStorageDeclarations extends IConcSyn {
+		List<IAbsSyn.IDeclaration> toAbs();
+	}
+	
+	public interface IProcedureDeclaration extends IConcSyn, IDeclaration {
+		@Override
+		ProcedureDeclaration toAbs();
+	}
+	
+	public interface IFunctionDeclaration extends IConcSyn, IDeclaration {
+		@Override
+		FunctionDeclaration toAbs();
+	}
+	
+	public interface IStorageDeclaration  extends IConcSyn, IDeclaration{
+		@Override
+		StorageDeclaration toAbs();
+	}
+
+	
 
 	public interface IExpression extends IConcSyn {
 		IAbsSyn.IExpression toAbs();
@@ -82,9 +113,7 @@ public interface IConcSyn {
 		IAbsSyn.IOptionalIdent toAbs();
 	}
 
-	public interface IOptionalLocalStorageDeclarations extends IConcSyn {
-		List<IAbsSyn.IStorageDeclaration> toAbs();
-	}
+	
 
 	public interface IOptionalMECHMODE extends IConcSyn {
 		Token toAbs();
@@ -130,10 +159,6 @@ public interface IConcSyn {
 		List<IAbsSyn.ICommand> toAbs();
 	}
 
-	public interface IRepeatingOptionalDeclarations extends IConcSyn {
-		List<IAbsSyn.IDeclaration> toAbs();
-	}
-
 	public interface IRepeatingOptionalExpressions extends IConcSyn {
 		List<IAbsSyn.IExpression> toAbs();
 	}
@@ -154,9 +179,6 @@ public interface IConcSyn {
 		List<IAbsSyn.IProgramParameter> toAbs();
 	}
 
-	public interface IRepeatingOptionalStorageDeclarations extends IConcSyn {
-		List<IAbsSyn.IStorageDeclaration> toAbs();
-	}
 
 	public interface IRepMULTOPRfactor extends IConcSyn {
 		List<IAbsSyn.IMULTOPRfactor> toAbs();
@@ -166,20 +188,7 @@ public interface IConcSyn {
 		List<IAbsSyn.IRELOPRterm2> toAbs();
 	}
 
-	public interface IProcedureDeclaration extends IConcSyn, IDeclaration {
-		@Override
-		ProcedureDeclaration toAbs();
-	}
-	
-	public interface IFunctionDeclaration extends IConcSyn, IDeclaration {
-		@Override
-		FunctionDeclaration toAbs();
-	}
-	
-	public interface IStorageDeclaration  extends IConcSyn, IDeclaration{
-		@Override
-		StorageDeclaration toAbs();
-	}
+
 
 	public interface ITerm1 extends IConcSyn {
 		IAbsSyn.ITerm1 toAbs();
