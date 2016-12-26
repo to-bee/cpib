@@ -22,11 +22,11 @@ public class ProgramConcSyn extends AbstractConcSyn {
     @Override
     public IAbsSyn toAbsSyn() throws ContextError {
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> OptionalGlobalDeclarations = super.getListByType(OptionalGlobalDeclarationsConcSyn.class);
-        List<IAbsSyn> ProgramParameterList = super.getListByType(ProgramParameterListConcSyn.class);
-        IAbsSyn BlockCmd = super.getOneByType(BlockCmdConcSyn.class);
+        List<IAbsSyn> ProgramParameterListConcSyn = super.getListByType(ProgramParameterListConcSyn.class);
+        List<IAbsSyn> OptionalGlobalDeclarationsConcSyn = super.getListByType(OptionalGlobalDeclarationsConcSyn.class);
+        List<IAbsSyn> BlockCmdConcSyn = super.getListByType(BlockCmdConcSyn.class);
 
-        return new ProgramAbsSyn(token, ProgramParameterList,OptionalGlobalDeclarations,BlockCmd);
+        return new ProgramAbsSyn(token, ProgramParameterListConcSyn,OptionalGlobalDeclarationsConcSyn,BlockCmdConcSyn);
     }
 
     @Override

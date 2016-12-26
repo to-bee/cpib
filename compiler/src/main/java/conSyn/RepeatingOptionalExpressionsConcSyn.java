@@ -21,12 +21,11 @@ public class RepeatingOptionalExpressionsConcSyn extends AbstractConcSyn impleme
     private IToken token;
     @Override
     public IAbsSyn toAbsSyn() throws ContextError {
-        //TODO: implement
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> TODO = super.getListByType(TODO.class);
-        IAbsSyn TODO2 = super.getOneByType(TODO2.class);
+        List<IAbsSyn> ExpressionConcSyn = super.getListByType(ExpressionConcSyn.class);
+        List<IAbsSyn> RepeatingOptionalExpressionsConcSyn = super.getListByType(RepeatingOptionalExpressionsConcSyn.class);
 
-        return new Schnurzel(token, TODO, TODO2);
+        return new RepeatingOptionalExpressionsAbsSyn(token, ExpressionConcSyn, RepeatingOptionalExpressionsConcSyn);
     }
 
 

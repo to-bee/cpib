@@ -21,12 +21,11 @@ public class RepeatingOptionalGlobalImportsConcSyn extends AbstractConcSyn imple
     private IToken token;
     @Override
     public IAbsSyn toAbsSyn() throws ContextError {
-        //TODO: implement
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> TODO = super.getListByType(TODO.class);
-        IAbsSyn TODO2 = super.getOneByType(TODO2.class);
+        List<IAbsSyn> GlobalImportConcSyn = super.getListByType(GlobalImportConcSyn.class);
+        List<IAbsSyn> RepeatingOptionalGlobalImportsConcSyn = super.getListByType(RepeatingOptionalGlobalImportsConcSyn.class);
 
-        return new Schnurzel(token, TODO, TODO2);
+        return new RepeatingOptionalGlobalImportsAbsSyn(token, GlobalImportConcSyn, RepeatingOptionalGlobalImportsConcSyn);
     }
 
 

@@ -7,13 +7,17 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class OptionalProgramParamAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> OptionalFlowModeConcSyn;
+    private final List<IAbsSyn> OptionalChangeModeConcSyn;
+    private final List<IAbsSyn> TypedIdentConcSyn;
+    private final List<IAbsSyn> RepeatingOptionalProgramParametersConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+    public OptionalProgramParamAbsSyn(IToken t, List<IAbsSyn> OptionalFlowModeConcSyn, List<IAbsSyn> OptionalChangeModeConcSyn, List<IAbsSyn> TypedIdentConcSyn, List<IAbsSyn> RepeatingOptionalProgramParametersConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.OptionalFlowModeConcSyn = OptionalFlowModeConcSyn;
+        this.OptionalChangeModeConcSyn = OptionalChangeModeConcSyn;
+        this.TypedIdentConcSyn = TypedIdentConcSyn;
+        this.RepeatingOptionalProgramParametersConcSyn = RepeatingOptionalProgramParametersConcSyn;
     }
 
     @Override

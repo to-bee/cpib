@@ -16,7 +16,6 @@ public class MonadictOperatorConcSyn extends AbstractConcSyn implements IConcSyn
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public IAbsSyn toAbsSyn() throws ContextError {
     //besitzt keine Nonterminals.

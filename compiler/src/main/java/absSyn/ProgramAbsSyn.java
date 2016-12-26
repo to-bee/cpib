@@ -11,13 +11,13 @@ import java.util.List;
 public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     private final List<IAbsSyn> optionalGlobalDeclarationList;
     private final List<IAbsSyn> programParameterList;
-    private final IAbsSyn blockCmd;
+    private final List<IAbsSyn> BlockCmdConcSyn;
 
-    public ProgramAbsSyn(IToken t, List<IAbsSyn> optionalGlobalDeclarationList, List<IAbsSyn> programParameterList, IAbsSyn blockCmd) {
+    public ProgramAbsSyn(IToken t, List<IAbsSyn> optionalGlobalDeclarationList, List<IAbsSyn> programParameterList, List<IAbsSyn> BlockCmdConcSyn) {
             super(t);
             this.optionalGlobalDeclarationList = optionalGlobalDeclarationList;
             this.programParameterList = programParameterList;
-            this.blockCmd = blockCmd;
+            this.BlockCmdConcSyn = BlockCmdConcSyn;
     }
 
     @Override

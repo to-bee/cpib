@@ -7,13 +7,13 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class StorageDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> OptionalChangeModeConcSyn;
+    private final List<IAbsSyn> TypedIdentConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+    public StorageDeclarationAbsSyn(IToken t, List<IAbsSyn> OptionalChangeModeConcSyn, List<IAbsSyn>  TypedIdentConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.OptionalChangeModeConcSyn = OptionalChangeModeConcSyn;
+        this.TypedIdentConcSyn = TypedIdentConcSyn;
     }
 
     @Override

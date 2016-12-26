@@ -7,13 +7,11 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class OptionalIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> ExpressionListConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+    public OptionalIdentAbsSyn(IToken t, List<IAbsSyn> ExpressionListConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.ExpressionListConcSyn = ExpressionListConcSyn;
     }
 
     @Override

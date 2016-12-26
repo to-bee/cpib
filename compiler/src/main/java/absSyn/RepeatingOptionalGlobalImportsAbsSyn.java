@@ -7,13 +7,13 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class RepeatingOptionalGlobalImportsAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> GlobalImportConcSyn;
+    private final List<IAbsSyn> RepeatingOptionalGlobalImportsConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+    public RepeatingOptionalGlobalImportsAbsSyn(IToken t, List<IAbsSyn> GlobalImportConcSyn, List<IAbsSyn> RepeatingOptionalGlobalImportsConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.GlobalImportConcSyn = GlobalImportConcSyn;
+        this.RepeatingOptionalGlobalImportsConcSyn = RepeatingOptionalGlobalImportsConcSyn;
     }
 
     @Override

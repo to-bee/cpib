@@ -7,13 +7,13 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class OptionalLocalStorageDeclarationsAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> StorageDeclarationConcSyn;
+    private final List<IAbsSyn> RepeatingOptionalStorageDeclarationsConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+    public OptionalLocalStorageDeclarationsAbsSyn(IToken t, List<IAbsSyn> StorageDeclarationConcSyn, List<IAbsSyn> RepeatingOptionalStorageDeclarationsConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.StorageDeclarationConcSyn = StorageDeclarationConcSyn;
+        this.RepeatingOptionalStorageDeclarationsConcSyn = RepeatingOptionalStorageDeclarationsConcSyn;
     }
 
     @Override

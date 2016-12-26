@@ -22,12 +22,12 @@ public class ParameterConcSyn extends AbstractConcSyn implements IConcSyn {
     private IToken token;
     @Override
     public IAbsSyn toAbsSyn() throws ContextError {
-        //TODO: implement
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> TODO = super.getListByType(TODO.class);
-        IAbsSyn TODO2 = super.getOneByType(TODO2.class);
+        List<IAbsSyn> OptionalFlowModeConcSyn = super.getListByType(OptionalFlowModeConcSyn.class);
+        List<IAbsSyn> OptionalMechModeConcSyn = super.getListByType(OptionalMechModeConcSyn.class);
+        List<IAbsSyn> StorageDeclarationConcSyn = super.getListByType(StorageDeclarationConcSyn.class);
 
-        return new Schnurzel(token, TODO, TODO2);
+        return new ParameterAbsSyn(token, OptionalFlowModeConcSyn, OptionalMechModeConcSyn, StorageDeclarationConcSyn);
     }
 
 

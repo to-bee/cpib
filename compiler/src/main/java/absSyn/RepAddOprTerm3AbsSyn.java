@@ -7,13 +7,13 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class RepAddOprTerm3AbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> Term3ConcSyn;
+    private final List<IAbsSyn> RepAddOprTerm3ConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+    public RepAddOprTerm3AbsSyn(IToken t, List<IAbsSyn> Term3ConcSyn, List<IAbsSyn> RepAddOprTerm3ConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.Term3ConcSyn = Term3ConcSyn;
+        this.RepAddOprTerm3ConcSyn = RepAddOprTerm3ConcSyn;
     }
 
     @Override

@@ -7,13 +7,15 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class ParameterAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> OptionalFlowModeConcSyn;
+    private final List<IAbsSyn> OptionalMechModeConcSyn;
+    private final List<IAbsSyn> StorageDeclarationConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+    public ParameterAbsSyn(IToken t, List<IAbsSyn> OptionalFlowModeConcSyn, List<IAbsSyn> OptionalMechModeConcSyn, List<IAbsSyn> StorageDeclarationConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.OptionalFlowModeConcSyn = OptionalFlowModeConcSyn;
+        this.OptionalMechModeConcSyn = OptionalMechModeConcSyn;
+        this.StorageDeclarationConcSyn = StorageDeclarationConcSyn;
     }
 
     @Override

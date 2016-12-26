@@ -21,7 +21,6 @@ public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
     private IToken token;
     @Override
     public IAbsSyn toAbsSyn() throws ContextError {
-        //TODO: implement
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
         List<IAbsSyn> OptionalIdentConcSyn = super.getListByType(OptionalIdentConcSyn.class);
         List<IAbsSyn> MonadictOperatorConcSyn = super.getListByType(MonadictOperatorConcSyn.class);

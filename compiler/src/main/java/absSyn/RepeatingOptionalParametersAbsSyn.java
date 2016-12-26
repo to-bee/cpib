@@ -7,13 +7,13 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class RepeatingOptionalParametersAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> ParameterConcSyn;
+    private final List<IAbsSyn> RepeatingOptionalParametersConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+    public RepeatingOptionalParametersAbsSyn(IToken t, List<IAbsSyn> ParameterConcSyn, List<IAbsSyn>  RepeatingOptionalParametersConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.ParameterConcSyn = ParameterConcSyn;
+        this.RepeatingOptionalParametersConcSyn = RepeatingOptionalParametersConcSyn;
     }
 
     @Override

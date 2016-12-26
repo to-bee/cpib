@@ -7,13 +7,13 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class RepeatingOptionalExpressionsAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> ExpressionConcSyn;
+    private final List<IAbsSyn> RepeatingOptionalExpressionsConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+    public RepeatingOptionalExpressionsAbsSyn(IToken t, List<IAbsSyn> ExpressionConcSyn, List<IAbsSyn> RepeatingOptionalExpressionsConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.ExpressionConcSyn = ExpressionConcSyn;
+        this.RepeatingOptionalExpressionsConcSyn = RepeatingOptionalExpressionsConcSyn;
     }
 
     @Override

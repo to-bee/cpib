@@ -21,12 +21,11 @@ public class Term2ConcSyn extends AbstractConcSyn implements IConcSyn {
     private IToken token;
     @Override
     public IAbsSyn toAbsSyn() throws ContextError {
-        //TODO: implement
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> TODO = super.getListByType(TODO.class);
-        IAbsSyn TODO2 = super.getOneByType(TODO2.class);
+        List<IAbsSyn> Term3ConcSyn = super.getListByType(Term3ConcSyn.class);
+        List<IAbsSyn> RepAddOprTerm3ConcSyn = super.getListByType(RepAddOprTerm3ConcSyn.class);
 
-        return new Schnurzel(token, TODO, TODO2);
+        return new Term2AbsSyn(token, Term3ConcSyn, RepAddOprTerm3ConcSyn);
     }
 
 

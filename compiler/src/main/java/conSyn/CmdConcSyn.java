@@ -20,7 +20,6 @@ public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
     private IToken token;
     @Override
     public IAbsSyn toAbsSyn() throws ContextError {
-        //TODO: implement
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
         List<IAbsSyn> ExpressionConcSyn = super.getListByType(ExpressionConcSyn.class);
         List<IAbsSyn> BlockCmdConcSyn = super.getListByType(BlockCmdConcSyn.class);
