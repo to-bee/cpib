@@ -7,13 +7,19 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class FunctionDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> ParameterListConcSyn;
+    private final List<IAbsSyn> StorageDeclarationConcSyn;
+    private final List<IAbsSyn> OptionalGlobalImportsConcSyn;
+    private final List<IAbsSyn> OptionalLocalStorageDeclarationsConcSyn;
+    private final List<IAbsSyn> BlockCmdConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+    public FunctionDeclarationAbsSyn(IToken t, List<IAbsSyn> ParameterListConcSyn, List<IAbsSyn> StorageDeclarationConcSyn, List<IAbsSyn> OptionalGlobalImportsConcSyn, List<IAbsSyn> OptionalLocalStorageDeclarationsConcSyn, List<IAbsSyn> BlockCmdConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.ParameterListConcSyn = ParameterListConcSyn;
+        this.StorageDeclarationConcSyn = StorageDeclarationConcSyn;
+        this.OptionalGlobalImportsConcSyn = OptionalGlobalImportsConcSyn;
+        this.OptionalLocalStorageDeclarationsConcSyn = OptionalLocalStorageDeclarationsConcSyn;
+        this.BlockCmdConcSyn = BlockCmdConcSyn;
     }
 
     @Override

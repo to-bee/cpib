@@ -3,6 +3,7 @@ package conSyn;
 import absSyn.BlockCmdAbsSyn;
 import absSyn.IAbsSyn;
 import scanner.datatypes.Terminal;
+import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
@@ -19,7 +20,7 @@ public class BlockCmdConcSyn extends AbstractConcSyn implements IConcSyn {
     }
 
     @Override
-    public IAbsSyn toAbsSyn() {
+    public IAbsSyn toAbsSyn() throws ContextError {
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
         List<IAbsSyn> Cmd = super.getListByType(CmdConcSyn.class);
         List<IAbsSyn> RepeatingOptionalCmds = super.getListByType(RepeatingOptionalCmdsConcSyn.class);

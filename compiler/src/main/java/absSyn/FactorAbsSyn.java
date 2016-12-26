@@ -7,13 +7,24 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> OptionalIdentConcSyn;
+    private final List<IAbsSyn> MonadictOperatorConcSyn;
+    private final List<IAbsSyn> FactorConcSyn;
+    private final List<IAbsSyn> ExpressionConcSyn;
+    private final List<IAbsSyn> RepeatingOptionalExpressionsConcSyn;
+    private final List<IAbsSyn> ComplImagConcSyn;
+    private final List<IAbsSyn> ComplRealConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+
+    public FactorAbsSyn(IToken t, List<IAbsSyn> OptionalIdentConcSyn, List<IAbsSyn> MonadictOperatorConcSyn, List<IAbsSyn> FactorConcSyn, List<IAbsSyn> ExpressionConcSyn, List<IAbsSyn> RepeatingOptionalExpressionsConcSyn, List<IAbsSyn> ComplImagConcSyn, List<IAbsSyn> ComplRealConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.OptionalIdentConcSyn = OptionalIdentConcSyn;
+        this.MonadictOperatorConcSyn = MonadictOperatorConcSyn;
+        this.FactorConcSyn = FactorConcSyn;
+        this.ExpressionConcSyn = ExpressionConcSyn;
+        this.RepeatingOptionalExpressionsConcSyn = RepeatingOptionalExpressionsConcSyn;
+        this.ComplImagConcSyn = ComplImagConcSyn;
+        this.ComplRealConcSyn = ComplRealConcSyn;
     }
 
     @Override

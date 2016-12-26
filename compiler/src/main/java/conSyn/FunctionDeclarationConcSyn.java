@@ -1,6 +1,7 @@
 package conSyn;
 
 import absSyn.IAbsSyn;
+import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
 import scanner.datatypes.Terminal;
@@ -19,13 +20,16 @@ public class FunctionDeclarationConcSyn extends AbstractConcSyn implements IConc
 
     private IToken token;
     @Override
-    public IAbsSyn toAbsSyn() {
+    public IAbsSyn toAbsSyn() throws ContextError {
         //TODO: implement
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> TODO = super.getListByType(TODO.class);
-        IAbsSyn TODO2 = super.getOneByType(TODO2.class);
+        List<IAbsSyn> ParameterListConcSyn = super.getListByType(ParameterListConcSyn.class);
+        List<IAbsSyn> StorageDeclarationConcSyn = super.getListByType(StorageDeclarationConcSyn.class);
+        List<IAbsSyn> OptionalGlobalImportsConcSyn = super.getListByType(OptionalGlobalImportsConcSyn.class);
+        List<IAbsSyn> OptionalLocalStorageDeclarationsConcSyn = super.getListByType(OptionalLocalStorageDeclarationsConcSyn.class);
+        List<IAbsSyn> BlockCmdConcSyn = super.getListByType(BlockCmdConcSyn.class);
 
-        return new Schnurzel(token, TODO, TODO2);
+        return new FunctionDeclarationAbsSyn(token, ParameterListConcSyn, StorageDeclarationConcSyn, OptionalGlobalImportsConcSyn, OptionalLocalStorageDeclarationsConcSyn, BlockCmdConcSyn);
     }
 
 

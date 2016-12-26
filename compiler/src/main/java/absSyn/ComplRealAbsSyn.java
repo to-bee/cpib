@@ -7,13 +7,11 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class ComplRealAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> ExpressionConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+    public ComplRealAbsSyn(IToken t, List<IAbsSyn> ExpressionConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.ExpressionConcSyn = ExpressionConcSyn;
     }
 
     @Override

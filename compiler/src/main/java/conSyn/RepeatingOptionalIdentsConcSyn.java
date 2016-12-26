@@ -1,6 +1,7 @@
 package conSyn;
 
 import absSyn.IAbsSyn;
+import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
 import scanner.datatypes.Terminal;
@@ -19,7 +20,7 @@ public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements I
 
     private IToken token;
     @Override
-    public IAbsSyn toAbsSyn() {
+    public IAbsSyn toAbsSyn() throws ContextError {
         //TODO: implement
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
         List<IAbsSyn> TODO = super.getListByType(TODO.class);

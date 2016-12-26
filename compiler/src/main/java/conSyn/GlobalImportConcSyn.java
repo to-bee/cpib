@@ -1,10 +1,16 @@
 package conSyn;
 
+import absSyn.GlobalImportAbsSyn;
 import absSyn.IAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
+import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
+import absSyn.FunctionDeclarationAbsSyn;
+import scanner.token.IToken;
+import scanner.tokenList.ITokenList;
+import java.util.List;
 
 /**
  * Created by tobi on 17.12.16.
@@ -16,13 +22,13 @@ public class GlobalImportConcSyn extends AbstractConcSyn implements IConcSyn {
 
     private IToken token;
     @Override
-    public IAbsSyn toAbsSyn() {
+    public IAbsSyn toAbsSyn()throws ContextError {
         //TODO: implement
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> TODO = super.getListByType(TODO.class);
-        IAbsSyn TODO2 = super.getOneByType(TODO2.class);
+        List<IAbsSyn> OptionalFlowModeConcSyn = super.getListByType(OptionalFlowModeConcSyn.class);
+        List<IAbsSyn> OptionalChangeModeConcSyn = super.getListByType(OptionalChangeModeConcSyn.class);
 
-        return new Schnurzel(token, TODO, TODO2);
+        return new GlobalImportAbsSyn(token, OptionalFlowModeConcSyn, OptionalChangeModeConcSyn);
     }
 
 

@@ -1,5 +1,8 @@
 package absSyn;
+import conSyn.FunctionDeclarationConcSyn;
 import conSyn.IConcSyn;
+import conSyn.ProcedureDeclarationConcSyn;
+import conSyn.StorageDeclarationConcSyn;
 import scanner.datatypes.Terminal;
 import scanner.token.IToken;
 import java.util.List;
@@ -7,13 +10,15 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class DeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TODO;
-    private final IAbsSyn TODO2;
+    private final List<IAbsSyn> StorageDeclarationConcSyn;
+    private final List<IAbsSyn> FunctionDeclarationConcSyn;
+    private final List<IAbsSyn> ProcedureDeclarationConcSyn;
 
-    public Schnurzel(IToken t, List<IAbsSyn> TODO, IAbsSyn TODO2) {
+    public DeclarationAbsSyn(IToken t, List<IAbsSyn> StorageDeclarationConcSyn, List<IAbsSyn> FunctionDeclarationConcSyn, List<IAbsSyn> ProcedureDeclarationConcSyn) {
         super(t);
-        this.TODO = TODO;
-        this.TODO2 = TODO2;
+        this.StorageDeclarationConcSyn = StorageDeclarationConcSyn;
+        this.FunctionDeclarationConcSyn = FunctionDeclarationConcSyn;
+        this.ProcedureDeclarationConcSyn = ProcedureDeclarationConcSyn;
     }
 
     @Override
