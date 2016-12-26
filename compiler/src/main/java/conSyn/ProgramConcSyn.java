@@ -7,7 +7,6 @@ import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
-
 import java.util.List;
 
 /**

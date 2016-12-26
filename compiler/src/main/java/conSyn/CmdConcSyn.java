@@ -12,12 +12,11 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
-    private IToken token;
-
     public CmdConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
+    private IToken token;
     @Override
     public IAbsSyn toAbsSyn() {
         //TODO: implement

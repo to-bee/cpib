@@ -1,5 +1,9 @@
 package conSyn;
 
+import absSyn.FactorAbsSyn;
+import scanner.token.IToken;
+import scanner.tokenList.ITokenList;
+import java.util.List;
 import absSyn.IAbsSyn;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
@@ -13,11 +17,17 @@ public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
         super(tokenList, i);
     }
 
+    private IToken token;
     @Override
     public IAbsSyn toAbsSyn() {
         //TODO: implement
-        return null;
+        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
+        List<IAbsSyn> TODO = super.getListByType(TODO.class);
+        IAbsSyn TODO2 = super.getOneByType(TODO2.class);
+
+        return new Schnurzel(token, TODO, TODO2);
     }
+
 
     @Override
     public void parse() throws GrammarError {
