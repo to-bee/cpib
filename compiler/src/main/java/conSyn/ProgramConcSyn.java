@@ -27,7 +27,7 @@ public class ProgramConcSyn extends AbstractConcSyn {
         List<IAbsSyn> ProgramParameterList = super.getListByType(ProgramParameterListConcSyn.class);
         IAbsSyn BlockCmd = super.getOneByType(BlockCmdConcSyn.class);
 
-        return new ProgramAbsSyn(token, ProgramParameterList, OptionalGlobalDeclarations,BlockCmd);
+        return new ProgramAbsSyn(token, ProgramParameterList,OptionalGlobalDeclarations,BlockCmd);
     }
 
     @Override

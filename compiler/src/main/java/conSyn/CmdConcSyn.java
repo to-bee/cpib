@@ -1,14 +1,19 @@
 package conSyn;
 
 import absSyn.IAbsSyn;
+import absSyn.CmdAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.GrammarError;
+import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
+import java.util.List;
 
 /**
  * Created by tobi on 17.12.16.
  */
 public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
+    private IToken token;
+
     public CmdConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
@@ -16,7 +21,13 @@ public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
     @Override
     public IAbsSyn toAbsSyn() {
         //TODO: implement
-        return null;
+        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
+        List<IAbsSyn> ExpressionConcSyn = super.getListByType(ExpressionConcSyn.class);
+        List<IAbsSyn> BlockCmdConcSyn = super.getListByType(BlockCmdConcSyn.class);
+        List<IAbsSyn> ExpressionListConcSyn = super.getListByType(ExpressionListConcSyn.class);
+        List<IAbsSyn> OptionalGlobalInitsConcSyn = super.getListByType(OptionalGlobalInitsConcSyn.class);
+
+        return new CmdAbsSyn(token, ExpressionConcSyn, BlockCmdConcSyn, ExpressionListConcSyn, OptionalGlobalInitsConcSyn);
     }
 
     @Override

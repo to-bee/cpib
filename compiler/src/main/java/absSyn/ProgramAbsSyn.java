@@ -3,7 +3,6 @@ package absSyn;
 import conSyn.IConcSyn;
 import scanner.datatypes.Terminal;
 import scanner.token.IToken;
-
 import java.util.List;
 
 /**
