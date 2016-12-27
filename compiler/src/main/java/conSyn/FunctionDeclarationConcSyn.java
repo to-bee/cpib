@@ -15,6 +15,11 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class FunctionDeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
+    private BlockCmdConcSyn blockCmdConcSyn;
+    private StorageDeclarationConcSyn storageDeclarationConcSyn;
+    private OptionalGlobalImportsConcSyn optionalGlobalImportsConcSyn;
+    private OptionalLocalStorageDeclarationsConcSyn optionalLocalStorageDeclarationsConcSyn;
+
     public FunctionDeclarationConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
@@ -22,14 +27,11 @@ public class FunctionDeclarationConcSyn extends AbstractConcSyn implements IConc
     private IToken token;
     @Override
     public FunctionDeclarationAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> ParameterListConcSyn = super.getListByType(ParameterListConcSyn.class);
-        List<IAbsSyn> StorageDeclarationConcSyn = super.getListByType(StorageDeclarationConcSyn.class);
-        List<IAbsSyn> OptionalGlobalImportsConcSyn = super.getListByType(OptionalGlobalImportsConcSyn.class);
-        List<IAbsSyn> OptionalLocalStorageDeclarationsConcSyn = super.getListByType(OptionalLocalStorageDeclarationsConcSyn.class);
-        List<IAbsSyn> BlockCmdConcSyn = super.getListByType(BlockCmdConcSyn.class);
-
-        return new FunctionDeclarationAbsSyn(token, ParameterListConcSyn, StorageDeclarationConcSyn, OptionalGlobalImportsConcSyn, OptionalLocalStorageDeclarationsConcSyn, BlockCmdConcSyn);
+        return new FunctionDeclarationAbsSyn(
+                storageDeclarationConcSyn.toAbsSyn(),
+                optionalGlobalImportsConcSyn.toAbsSyn(),
+                optionalLocalStorageDeclarationsConcSyn.toAbsSyn(),
+                blockCmdConcSyn.toAbsSyn());
     }
 
 
@@ -42,12 +44,22 @@ public class FunctionDeclarationConcSyn extends AbstractConcSyn implements IConc
                 parseNext(new ParameterListConcSyn(getTokenList(), getCounter()));
                 if (getTokenList().getCurrent().getTerminal() == Terminal.RETURNS) {
                     consume();
-                    parseNext(new StorageDeclarationConcSyn(getTokenList(), getCounter()));
-                    parseNext(new OptionalGlobalImportsConcSyn(getTokenList(), getCounter()));
-                    parseNext(new OptionalLocalStorageDeclarationsConcSyn(getTokenList(), getCounter()));
+
+                    storageDeclarationConcSyn = new StorageDeclarationConcSyn(getTokenList(), getCounter());
+                    parseNext(storageDeclarationConcSyn);
+
+                    optionalGlobalImportsConcSyn = new OptionalGlobalImportsConcSyn(getTokenList(), getCounter());
+                    parseNext(optionalGlobalImportsConcSyn);
+
+                    optionalLocalStorageDeclarationsConcSyn = new OptionalLocalStorageDeclarationsConcSyn(getTokenList(), getCounter())
+                    parseNext(optionalLocalStorageDeclarationsConcSyn);
+
                     if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
                         consume();
-                        parseNext(new BlockCmdConcSyn(getTokenList(), getCounter()));
+
+                        blockCmdConcSyn = new BlockCmdConcSyn(getTokenList(), getCounter());
+                        parseNext(blockCmdConcSyn);
+
                         if (getTokenList().getCurrent().getTerminal() == Terminal.ENDFUN) {
                             consume();
                         } else {
