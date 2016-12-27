@@ -16,6 +16,7 @@ hs_err_pid*
 
 compiler/target/
 compiler/.idea/
+compiler/.idea/workspace.xml
 compiler/src/compiler.iml
 compiler/src/main/main.iml
 
