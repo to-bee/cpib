@@ -7,15 +7,14 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class ComplRealAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> ExpressionConcSyn;
+    private final ExpressionAbsSyn expressionAbsSyn;
 
-    public ComplRealAbsSyn(IToken t, List<IAbsSyn> ExpressionConcSyn) {
-        super(t);
-        this.ExpressionConcSyn = ExpressionConcSyn;
+    public ComplRealAbsSyn(ExpressionAbsSyn expressionAbsSyn) {
+        this.expressionAbsSyn = expressionAbsSyn;
     }
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        expressionAbsSyn.check();
     }
 }

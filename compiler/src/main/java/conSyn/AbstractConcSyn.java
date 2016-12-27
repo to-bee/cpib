@@ -1,17 +1,13 @@
 package conSyn;
 
 import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
 /**
  * Created by tobi on 01.11.16.

@@ -1,20 +1,18 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.ComplImagAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
-import scanner.tokenList.ITokenList;
-import absSyn.ComplImagAbsSyn;
 import scanner.token.IToken;
-
-import java.util.List;
+import scanner.tokenList.ITokenList;
 
 /**
  * Created by tobi on 17.12.16.
  */
 public class ComplImagConcSyn extends AbstractConcSyn implements IConcSyn {
+    private ExpressionConcSyn expressionConcSyn;
+
     public ComplImagConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
@@ -22,10 +20,7 @@ public class ComplImagConcSyn extends AbstractConcSyn implements IConcSyn {
     private IToken token;
     @Override
     public ComplImagAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> ExpressionConcSyn = super.getListByType(ExpressionConcSyn.class);
-
-        return new ComplImagAbsSyn(token, ExpressionConcSyn);
+        return new ComplImagAbsSyn(expressionConcSyn.toAbsSyn());
     }
 
 
@@ -35,7 +30,8 @@ public class ComplImagConcSyn extends AbstractConcSyn implements IConcSyn {
             consume();
             if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
                 consume();
-                this.parseNext(new ExpressionConcSyn(this.getTokenList(), getCounter()));
+                expressionConcSyn = new ExpressionConcSyn(this.getTokenList(), getCounter());
+                this.parseNext(expressionConcSyn);
                 if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
                     consume();
                 } else {

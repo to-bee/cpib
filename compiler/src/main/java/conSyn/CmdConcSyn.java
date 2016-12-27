@@ -14,6 +14,9 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
+    private ExpressionConcSyn expressionConcSyn1;
+    private ExpressionConcSyn expressionConcSyn2;
+
     public CmdConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
@@ -44,10 +47,12 @@ public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
-            parseNext(new ExpressionConcSyn(getTokenList(), getCounter()));
+            expressionConcSyn1 = new ExpressionConcSyn(getTokenList(), getCounter());
+            parseNext(expressionConcSyn1);
             if (getTokenList().getCurrent().getTerminal() == Terminal.BECOMES) {
                 consume();
-                parseNext(new ExpressionConcSyn(getTokenList(), getCounter()));
+                expressionConcSyn2 = new ExpressionConcSyn(getTokenList(), getCounter());
+                parseNext(expressionConcSyn2);
             } else {
                 throwGrammarError();
             }
