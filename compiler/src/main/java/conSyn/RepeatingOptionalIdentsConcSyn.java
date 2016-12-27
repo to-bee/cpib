@@ -4,6 +4,7 @@ import absSyn.IAbsSyn;
 import absSyn.ProgramParameterListAbsSyn;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
 import scanner.datatypes.Terminal;
 
@@ -15,6 +16,8 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements IConcSyn {
+    private Ident ident;
+
     public RepeatingOptionalIdentsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
@@ -42,6 +45,7 @@ public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements I
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA) {
             consume();
             if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+                this.ident = (Ident) this.getTokenList().getCurrent();
                 consume();
                 parseNext(new IdentsConcSyn(getTokenList(), getCounter()));
             } else {

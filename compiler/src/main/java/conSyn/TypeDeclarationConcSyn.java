@@ -5,6 +5,7 @@ import absSyn.ProgramParameterListAbsSyn;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
 import scanner.datatypes.Terminal;
 
@@ -16,6 +17,11 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class TypeDeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
+    private Ident ident;
+    private SubTypeDeclarationConcSyn subTypeDeclarationConcSyn1;
+    private SubTypeDeclarationConcSyn subTypeDeclarationConcSyn2;
+    private OptionalTypeDeclarationConcSyn optionalTypeDeclarationConcSyn;
+
     public TypeDeclarationConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
@@ -35,15 +41,21 @@ public class TypeDeclarationConcSyn extends AbstractConcSyn implements IConcSyn 
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.TYPE
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+            this.ident = (Ident) this.getTokenList().getCurrent();
             consume();
         }
         else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
             consume();
-            parseNext(new SubTypeDeclarationConcSyn(getTokenList(), getCounter()));
+            subTypeDeclarationConcSyn1 = new SubTypeDeclarationConcSyn(getTokenList(), getCounter());
+            parseNext(subTypeDeclarationConcSyn1);
             if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA) {
                 consume();
-                parseNext(new SubTypeDeclarationConcSyn(getTokenList(), getCounter()));
-                parseNext(new OptionalTypeDeclarationConcSyn(getTokenList(), getCounter()));
+
+                subTypeDeclarationConcSyn2 = new SubTypeDeclarationConcSyn(getTokenList(), getCounter());
+                parseNext(subTypeDeclarationConcSyn2);
+
+                optionalTypeDeclarationConcSyn = new OptionalTypeDeclarationConcSyn(getTokenList(), getCounter())
+                parseNext(optionalTypeDeclarationConcSyn);
                 if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
                     consume();
                 }else{
