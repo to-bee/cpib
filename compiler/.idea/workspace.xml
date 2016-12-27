@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5651070e-9a24-4729-a323-810fac4d0144" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/DeclarationAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/DeclarationAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/DeclarationsAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/DeclarationsAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/DeclarationConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/DeclarationConcSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/DeclarationsConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/DeclarationsConcSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/ExpressionConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/ExpressionConcSyn.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,7 +81,6 @@
         <option value="$PROJECT_DIR$/src/main/java/conSyn/TypedIdentConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/BlockCmdConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalCmdsConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/ExpressionConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/ExpressionListConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/FactorConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/FunctionDeclarationConcSyn.java" />
@@ -107,6 +104,8 @@
         <option value="$PROJECT_DIR$/src/main/java/absSyn/DeclarationAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/DeclarationsConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/DeclarationsAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/ExpressionConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java" />
       </list>
     </option>
   </component>
@@ -910,7 +909,7 @@
       <updated>1482834396917</updated>
       <workItem from="1482834399839" duration="43000" />
       <workItem from="1482834459918" duration="612000" />
-      <workItem from="1482835325549" duration="9610000" />
+      <workItem from="1482835325549" duration="9766000" />
     </task>
     <task id="LOCAL-00001" summary="asdf">
       <created>1482834806195</created>
@@ -947,7 +946,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482849023358</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updated abs">
+      <created>1482849493339</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1482849493339</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -965,7 +971,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10265000" />
+    <option name="totallyTimeSpent" value="10421000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="3026" height="1946" extended-state="6" />
@@ -1065,14 +1071,6 @@
             <marker date="1482847772181" expanded="true" signature="633:1223" ph="{...}" />
             <marker date="1482847772181" expanded="true" signature="1284:1966" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1383,14 +1381,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/ExpressionConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ComplRealAbsSyn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
@@ -1464,6 +1454,25 @@
             <element signature="imports" expanded="true" />
             <element signature="e#552#553#0" expanded="true" />
             <element signature="e#587#588#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/ExpressionConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9">
+          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+          <folding>
+            <element signature="e#467#468#0" expanded="true" />
+            <element signature="e#502#503#0" expanded="true" />
           </folding>
         </state>
       </provider>
