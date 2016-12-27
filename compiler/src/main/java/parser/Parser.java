@@ -1,5 +1,6 @@
 package parser;
 
+import absSyn.ProgramAbsSyn;
 import absSyn.ProgramParameterListAbsSyn;
 import conSyn.AbstractConcSyn;
 import conSyn.IConcSyn;
@@ -28,7 +29,7 @@ public class Parser extends AbstractConcSyn implements IParser, IConcSyn {
     }
 
     @Override
-    public IAbsSyn toAbsSyn() throws ContextError {
+    public ProgramAbsSyn toAbsSyn() throws ContextError {
         return this.programConSyn.toAbsSyn();
     }
 }

@@ -11,14 +11,6 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
-    private OptionalIdentConcSyn optionalIdentConcSyn;
-    private MonadictOperatorConcSyn monadictOperatorConcSyn;
-    private FactorConcSyn factorConcSyn;
-    private ExpressionConcSyn expressionConcSyn;
-    private RepeatingOptionalExpressionsConcSyn repeatingOptionalExpressionsConcSyn;
-    private ComplImagConcSyn complImagConcSyn;
-    private ComplRealConcSyn complRealConcSyn;
-    private IToken token;
     private IConcSyn subType;
 
     public FactorConcSyn(ITokenList tokenList, int i) {
@@ -46,37 +38,17 @@ public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
             parseNext(optionalIdentConcSyn);
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT) {
-            // TODO: subType = new FactorMoniadicConcSyn();
-            monadictOperatorConcSyn = new MonadictOperatorConcSyn(getTokenList(), getCounter());
-            parseNext(monadictOperatorConcSyn);
-
-            factorConcSyn = new FactorConcSyn(getTokenList(), getCounter());
-            parseNext(factorConcSyn);
+            subType = new FactorMoniadicConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
-            // TODO: subType = new FactorExpressionConcSyn();
-            consume();
-
-            expressionConcSyn = new ExpressionConcSyn(getTokenList(), getCounter());
-            parseNext(expressionConcSyn);
-
-            repeatingOptionalExpressionsConcSyn = new RepeatingOptionalExpressionsConcSyn(getTokenList(), getCounter())
-            parseNext(repeatingOptionalExpressionsConcSyn);
-
-            if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
-                consume();
-            } else {
-                throwGrammarError();
-            }
+            subType = new FactorExpressionConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IMAG) {
-            // TODO: subType = new FactorImagConcSyn();
-            complImagConcSyn = new ComplImagConcSyn(getTokenList(), getCounter());
-            parseNext(complImagConcSyn);
+            subType = new ComplImagConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.REAL) {
-            // TODO: subType = new FactorRealConcSyn();
-            complRealConcSyn = new ComplRealConcSyn(getTokenList(), getCounter());
-            parseNext(complRealConcSyn);
+            subType = new ComplRealConcSyn(getTokenList(), getCounter());
         } else {
             throwGrammarError();
         }
+
+        this.parseNext(subType);
     }
 }
