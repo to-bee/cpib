@@ -18,8 +18,7 @@ public class OptionalFlowModeConcSyn extends AbstractConcSyn implements IConcSyn
 
     @Override
     public OptionalFlowModeAbsSyn toAbsSyn() throws ContextError {
-        //besitzt keine Nonterminals.
-        return null;
+        return new OptionalFlowModeAbsSyn();
     }
 
 

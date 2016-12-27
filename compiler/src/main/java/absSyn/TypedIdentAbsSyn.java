@@ -2,20 +2,23 @@ package absSyn;
 import conSyn.IConcSyn;
 import scanner.datatypes.Terminal;
 import scanner.token.IToken;
+import scanner.token.Ident;
+
 import java.util.List;
 /**
  * Created by ylaub on 26.12.2016.
  */
 public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> TypeDeclarationConcSyn;
+    private final TypeDeclarationAbsSyn typeDeclarationAbsSyn;
+    private final Ident ident;
 
-    public TypedIdentAbsSyn(IToken t, List<IAbsSyn> TypeDeclarationConcSyn) {
-        super(t);
-        this.TypeDeclarationConcSyn = TypeDeclarationConcSyn;
+    public TypedIdentAbsSyn(Ident ident, TypeDeclarationAbsSyn typeDeclarationAbsSyn) {
+        this.ident = ident;
+        this.typeDeclarationAbsSyn = typeDeclarationAbsSyn;
     }
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        this.ident.check();
     }
 }

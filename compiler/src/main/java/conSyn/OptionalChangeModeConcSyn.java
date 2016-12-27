@@ -18,15 +18,14 @@ public class OptionalChangeModeConcSyn extends AbstractConcSyn implements IConcS
 
     @Override
     public OptionalChangeModeAbsSyn toAbsSyn() throws ContextError {
-        //besitzt keine Nonterminals.
-        return null;
+        return new OptionalChangeModeAbsSyn();
     }
 
 
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
-            // TODO: save ident
+
         } else if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
             consume();
         } else {

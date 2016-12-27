@@ -10,6 +10,6 @@ public class OptionalChangeModeAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        //nothing to check
     }
 }

@@ -85,6 +85,7 @@ public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
             } else {
                 throwGrammarError();
             }
+            //TODO: cmdwhile aufrufen: concrete syntax
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.CALL) {
             consume();
             if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
