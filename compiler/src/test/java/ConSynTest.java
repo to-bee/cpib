@@ -64,22 +64,27 @@ public class ConSynTest {
         parseTree = checkProgram(complexMultiplyProgram);
     }
 
-    public void testTuple() {
-//        String parseTree = "program TupleTest()\n" +
-//                //TODO: TupleTest here
-//                "global\n" +
-//                "fun bla(mytuple1:(int32,bool,int32)) returns s:Int32\n" +
-//                "local\n" +
-//                "const mytuple1:(int32,bool,int32)\n" +
-//                "do\n" +
-//                "myTuple1 init := (1,True,23412);\n" +
-//                "result := myTuple1[0]\n" +
-//                "endfun\n" +
-//                "do\n" +
-//                "call bla()\n" +
-//                "endprogram";
-//        parseTree = checkProgram(parseTree);
+    public void tupleAdvanced() {
+        String program = "program AdvancedTuple()\n" +
+                "global\n" +
+                  "fun test(testdata:(int32,int32)) returns testrun001:(bool,(int32,int32)))\n" +
+                  "local\n" +
+                    "const testrun:(bool,(int32,int32));\n" +
+                    "var a:int32;\n" +
+                    "var b:int32\n" +
+                  "do\n" +
+                    "a := mytuple1[0];\n" +
+                    "b := mytuple1[1];\n" +
+                    "testrun001 := (b >= 5,(a,b))\n" +
+                  "endfun\n" +
+                "do\n" +
+                  "call test((1200,6))\n" +
+                "endprogram";
+        IConcSyn parseTree2 = checkProgram(program);
+        parseTree2.toString();
+    }
 
+    public void testTuple() {
         String program = "program TupleTest()\n" +
                 "global\n" +
                 "fun add(mytuple1:(int32,int32)) returns s:Int32\n" +
@@ -92,8 +97,10 @@ public class ConSynTest {
                 "do\n" +
                 "call add()\n" +
                 "endprogram";
-        IConcSyn parseTree = checkProgram(program);
+        IConcSyn parseTree2 = checkProgram(program);
+        parseTree2.toString();
     }
+
 
     private IConcSyn checkProgram(String addProgram) {
         ITokenList tokenList = null;

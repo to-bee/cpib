@@ -1,7 +1,7 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
 import absSyn.CmdAbsSyn;
+import absSyn.IAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
@@ -21,6 +21,7 @@ public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
     @Override
     public IAbsSyn toAbsSyn() throws ContextError {
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
+        //TODO check wenn command = while --> dann cmdwhile abssyn
         List<IAbsSyn> ExpressionConcSyn = super.getListByType(ExpressionConcSyn.class);
         List<IAbsSyn> BlockCmdConcSyn = super.getListByType(BlockCmdConcSyn.class);
         List<IAbsSyn> ExpressionListConcSyn = super.getListByType(ExpressionListConcSyn.class);

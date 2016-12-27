@@ -1,14 +1,14 @@
 program AdvancedTuple()
 global
-  fun test(mytuple1:(int32,int32)) returns mytuple2:(bool,(int32,int32)))
+  fun test(testdata:(int32,int32)) returns testrun001:(bool,(int32,int32)))
   local
-    const mytuple2:(bool,(int32,int32));
+    const testrun:(bool,(int32,int32));
     var a:int32;
     var b:int32
   do
     a := mytuple1[0];
     b := mytuple1[1];
-    mytuple2 := (b >= 5,(a,b))
+    testrun001 := (b >= 5,(a,b))
   endfun
 do
   call test((1200,6))
