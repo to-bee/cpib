@@ -1,17 +1,11 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.RepRelOprTerm2AbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.RepRelOprTerm2AbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
@@ -51,7 +45,7 @@ public class RepRelOprTerm2ConcSyn extends AbstractConcSyn implements IConcSyn {
             term2ConcSyn = new Term2ConcSyn(getTokenList(), getCounter());
             parseNext(term2ConcSyn);
 
-            repRelOprTerm2ConcSyn = new RepRelOprTerm2ConcSyn(getTokenList(), getCounter())
+            repRelOprTerm2ConcSyn = new RepRelOprTerm2ConcSyn(getTokenList(), getCounter());
             parseNext(repRelOprTerm2ConcSyn);
         } else {
             throwGrammarError();

@@ -1,29 +1,25 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
+import absSyn.Term3AbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.Term3AbsSyn;
-import scanner.token.IToken;
 
 /**
  * Created by tobi on 17.12.16.
  */
 public class Term3ConcSyn extends AbstractConcSyn implements IConcSyn {
-    private FactorConcSyn FactorConcSyn;
-    private RepMultOprFactorConcSyn RepMultOprFactorConcSyn;
+    private FactorConcSyn factorConcSyn;
+    private RepMultOprFactorConcSyn repMultOprFactorConcSyn;
 
     public Term3ConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public Term3AbsSyn toAbsSyn() throws ContextError {
-        return new Term3AbsSyn(token, FactorConcSyn.toAbsSyn(), RepMultOprFactorConcSyn.toAbsSyn());
+        return new Term3AbsSyn(factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn());
     }
 
 
@@ -38,11 +34,11 @@ public class Term3ConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
-            FactorConcSyn = new FactorConcSyn(getTokenList(), getCounter());
-            parseNext(FactorConcSyn);
+            factorConcSyn = new FactorConcSyn(getTokenList(), getCounter());
+            parseNext(factorConcSyn);
 
-            RepMultOprFactorConcSyn = new RepMultOprFactorConcSyn(getTokenList(), getCounter());
-            parseNext(RepMultOprFactorConcSyn);
+            repMultOprFactorConcSyn = new RepMultOprFactorConcSyn(getTokenList(), getCounter());
+            parseNext(repMultOprFactorConcSyn);
         } else {
             throwGrammarError();
         }

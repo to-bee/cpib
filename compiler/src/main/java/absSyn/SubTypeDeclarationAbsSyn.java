@@ -1,24 +1,24 @@
 package absSyn;
-import conSyn.IConcSyn;
-import scanner.datatypes.Terminal;
-import scanner.token.IToken;
-import java.util.List;
+
 /**
  * Created by ylaub on 26.12.2016.
  */
 public class SubTypeDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> SubTypeDeclarationConcSyn;
-    private final List<IAbsSyn> OptionalTypeDeclarationConcSyn;
+    private final SubTypeDeclarationAbsSyn subTypeDeclarationAbsSyn1;
+    private final SubTypeDeclarationAbsSyn subTypeDeclarationAbsSyn2;
+    private final OptionalTypeDeclarationAbsSyn optionalTypeDeclarationAbsSyn;
 
-    public SubTypeDeclarationAbsSyn(IToken t, List<IAbsSyn> SubTypeDeclarationConcSyn, List<IAbsSyn>  OptionalTypeDeclarationConcSyn) {
-        super(t);
-        this.SubTypeDeclarationConcSyn = SubTypeDeclarationConcSyn;
-        this.OptionalTypeDeclarationConcSyn = OptionalTypeDeclarationConcSyn;
+    public SubTypeDeclarationAbsSyn(SubTypeDeclarationAbsSyn subTypeDeclarationAbsSyn1, SubTypeDeclarationAbsSyn subTypeDeclarationAbsSyn2, OptionalTypeDeclarationAbsSyn optionalTypeDeclarationAbsSyn) {
+        this.subTypeDeclarationAbsSyn1 = subTypeDeclarationAbsSyn1;
+        this.subTypeDeclarationAbsSyn2 = subTypeDeclarationAbsSyn2;
+        this.optionalTypeDeclarationAbsSyn = optionalTypeDeclarationAbsSyn;
     }
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        this.subTypeDeclarationAbsSyn1.check();
+        this.subTypeDeclarationAbsSyn2.check();
+        this.optionalTypeDeclarationAbsSyn.check();
     }
 }
 

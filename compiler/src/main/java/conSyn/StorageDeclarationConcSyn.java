@@ -1,29 +1,24 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.StorageDeclarationAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
-import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.StorageDeclarationAbsSyn;
 import scanner.token.IToken;
-
-import java.util.List;
+import scanner.tokenList.ITokenList;
 /**
  * Created by tobi on 17.12.16.
  */
 public class StorageDeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
     private TypedIdentConcSyn typedIdentConcSyn;
     private OptionalChangeModeConcSyn optionalChangeModeConcSyn;
+    private IToken token;
 
     public StorageDeclarationConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public StorageDeclarationAbsSyn toAbsSyn()throws ContextError {
         return new StorageDeclarationAbsSyn(typedIdentConcSyn.toAbsSyn(), optionalChangeModeConcSyn.toAbsSyn());
@@ -37,7 +32,7 @@ public class StorageDeclarationConcSyn extends AbstractConcSyn implements IConcS
             optionalChangeModeConcSyn = new OptionalChangeModeConcSyn(getTokenList(), getCounter());
             parseNext(optionalChangeModeConcSyn);
 
-            typedIdentConcSyn = new TypedIdentConcSyn(getTokenList(), getCounter())
+            typedIdentConcSyn = new TypedIdentConcSyn(getTokenList(), getCounter());
             parseNext(typedIdentConcSyn);
         } else {
             throwGrammarError();

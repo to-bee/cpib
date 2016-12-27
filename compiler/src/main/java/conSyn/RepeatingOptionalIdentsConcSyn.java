@@ -1,22 +1,17 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.RepeatingOptionalIdentsAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.RepeatingOptionalIdentsAbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements IConcSyn {
     private Ident ident;
+    private IdentsConcSyn identsConcSyn;
 
     public RepeatingOptionalIdentsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -24,10 +19,7 @@ public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements I
 
     @Override
     public RepeatingOptionalIdentsAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> IdentsConcSyn = super.getListByType(IdentsConcSyn.class);
-
-        return new RepeatingOptionalIdentsAbsSyn(token, IdentsConcSyn);
+        return new RepeatingOptionalIdentsAbsSyn(ident, identsConcSyn.toAbsSyn());
     }
 
 
@@ -46,7 +38,9 @@ public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements I
             if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
                 this.ident = (Ident) this.getTokenList().getCurrent();
                 consume();
-                parseNext(new IdentsConcSyn(getTokenList(), getCounter()));
+
+                identsConcSyn = new IdentsConcSyn(getTokenList(), getCounter());
+                parseNext(identsConcSyn);
             } else {
                 throwGrammarError();
             }

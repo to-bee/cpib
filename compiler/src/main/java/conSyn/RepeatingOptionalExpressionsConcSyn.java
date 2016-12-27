@@ -1,31 +1,24 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.RepeatingOptionalExpressionsAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.RepeatingOptionalExpressionsAbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalExpressionsConcSyn extends AbstractConcSyn implements IConcSyn {
+    private ExpressionConcSyn expressionConcSyn;
+    private RepeatingOptionalExpressionsConcSyn repeatingOptionalExpressionsConcSyn;
+
     public RepeatingOptionalExpressionsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
     @Override
     public RepeatingOptionalExpressionsAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> ExpressionConcSyn = super.getListByType(ExpressionConcSyn.class);
-        List<IAbsSyn> RepeatingOptionalExpressionsConcSyn = super.getListByType(RepeatingOptionalExpressionsConcSyn.class);
-
-        return new RepeatingOptionalExpressionsAbsSyn(token, ExpressionConcSyn, RepeatingOptionalExpressionsConcSyn);
+        return new RepeatingOptionalExpressionsAbsSyn(expressionConcSyn.toAbsSyn(), repeatingOptionalExpressionsConcSyn.toAbsSyn());
     }
 
 
@@ -35,8 +28,12 @@ public class RepeatingOptionalExpressionsConcSyn extends AbstractConcSyn impleme
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA) {
             consume();
-            parseNext(new ExpressionConcSyn(getTokenList(), getCounter()));
-            parseNext(new RepeatingOptionalExpressionsConcSyn(getTokenList(), getCounter()));
+
+            expressionConcSyn = new ExpressionConcSyn(getTokenList(), getCounter());
+            parseNext(expressionConcSyn);
+
+            repeatingOptionalExpressionsConcSyn = new RepeatingOptionalExpressionsConcSyn(getTokenList(), getCounter());
+            parseNext(repeatingOptionalExpressionsConcSyn);
         } else {
             throwGrammarError();
         }

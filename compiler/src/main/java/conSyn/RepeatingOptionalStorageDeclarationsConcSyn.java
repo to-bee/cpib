@@ -1,31 +1,24 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.RepeatingOptionalStorageDeclarationsAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.RepeatingOptionalStorageDeclarationsAbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalStorageDeclarationsConcSyn extends AbstractConcSyn implements IConcSyn {
+    private StorageDeclarationConcSyn storageDeclarationConcSyn;
+    private RepeatingOptionalStorageDeclarationsConcSyn repeatingOptionalStorageDeclarationsConcSyn;
+
     public RepeatingOptionalStorageDeclarationsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
     @Override
     public RepeatingOptionalStorageDeclarationsAbsSyn toAbsSyn()throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> StorageDeclarationConcSyn = super.getListByType(StorageDeclarationConcSyn.class);
-        List<IAbsSyn> RepeatingOptionalStorageDeclarationsConcSyn = super.getListByType(RepeatingOptionalStorageDeclarationsConcSyn.class);
-
-        return new RepeatingOptionalStorageDeclarationsAbsSyn(token, StorageDeclarationConcSyn, RepeatingOptionalStorageDeclarationsConcSyn);
+        return new RepeatingOptionalStorageDeclarationsAbsSyn(storageDeclarationConcSyn.toAbsSyn(), repeatingOptionalStorageDeclarationsConcSyn.toAbsSyn());
     }
 
 
@@ -35,8 +28,12 @@ public class RepeatingOptionalStorageDeclarationsConcSyn extends AbstractConcSyn
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON) {
             consume();
-            parseNext(new StorageDeclarationConcSyn(getTokenList(), getCounter()));
-            parseNext(new RepeatingOptionalStorageDeclarationsConcSyn(getTokenList(), getCounter()));
+
+            storageDeclarationConcSyn = new StorageDeclarationConcSyn(getTokenList(), getCounter());
+            parseNext(storageDeclarationConcSyn);
+
+            repeatingOptionalStorageDeclarationsConcSyn = new RepeatingOptionalStorageDeclarationsConcSyn(getTokenList(), getCounter());
+            parseNext(repeatingOptionalStorageDeclarationsConcSyn);
         } else {
             throwGrammarError();
         }

@@ -1,18 +1,12 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.TypeDeclarationAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.TypeDeclarationAbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
@@ -28,7 +22,11 @@ public class TypeDeclarationConcSyn extends AbstractConcSyn implements IConcSyn 
 
     @Override
     public TypeDeclarationAbsSyn toAbsSyn()throws ContextError {
-        return new TypeDeclarationAbsSyn(ident, subTypeDeclarationConcSyn1.toAbsSyn(), subTypeDeclarationConcSyn2.toAbsSyn(), optionalTypeDeclarationConcSyn.toAbsSyn());
+        return new TypeDeclarationAbsSyn(
+                ident,
+                subTypeDeclarationConcSyn1.toAbsSyn(),
+                subTypeDeclarationConcSyn2.toAbsSyn(),
+                optionalTypeDeclarationConcSyn.toAbsSyn());
     }
 
 
@@ -49,7 +47,7 @@ public class TypeDeclarationConcSyn extends AbstractConcSyn implements IConcSyn 
                 subTypeDeclarationConcSyn2 = new SubTypeDeclarationConcSyn(getTokenList(), getCounter());
                 parseNext(subTypeDeclarationConcSyn2);
 
-                optionalTypeDeclarationConcSyn = new OptionalTypeDeclarationConcSyn(getTokenList(), getCounter())
+                optionalTypeDeclarationConcSyn = new OptionalTypeDeclarationConcSyn(getTokenList(), getCounter());
                 parseNext(optionalTypeDeclarationConcSyn);
                 if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
                     consume();

@@ -1,33 +1,25 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.RepMultOprFactorAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.RepMultOprFactorAbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
 public class RepMultOprFactorConcSyn extends AbstractConcSyn implements IConcSyn {
+    private FactorConcSyn factorConcSyn;
+    private RepMultOprFactorConcSyn repMultOprFactorConcSyn;
+
     public RepMultOprFactorConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public RepMultOprFactorAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> FactorConcSyn = super.getListByType(FactorConcSyn.class);
-        List<IAbsSyn> RepMultOprFactorConcSyn = super.getListByType(RepMultOprFactorConcSyn.class);
-
-        return new RepMultOprFactorAbsSyn(token, FactorConcSyn, RepMultOprFactorConcSyn);
+        return new RepMultOprFactorAbsSyn(factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn());
     }
 
 
@@ -52,8 +44,11 @@ public class RepMultOprFactorConcSyn extends AbstractConcSyn implements IConcSyn
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR) {
             consume();
-            parseNext(new FactorConcSyn(getTokenList(), getCounter()));
-            parseNext(new RepMultOprFactorConcSyn(getTokenList(), getCounter()));
+            factorConcSyn = new FactorConcSyn(getTokenList(), getCounter());
+            parseNext(factorConcSyn);
+
+            repMultOprFactorConcSyn = new RepMultOprFactorConcSyn(getTokenList(), getCounter());
+            parseNext(repMultOprFactorConcSyn);
         } else {
             throwGrammarError();
         }

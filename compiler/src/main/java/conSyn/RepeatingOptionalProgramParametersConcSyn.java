@@ -1,30 +1,26 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
 import absSyn.RepeatingOptionalProgramParametersAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalProgramParametersConcSyn extends AbstractConcSyn implements IConcSyn {
+    private OptionalFlowModeConcSyn optionalFlowModeConcSyn;
+    private OptionalChangeModeConcSyn optionalChangeModeConcSyn;
+    private TypedIdentConcSyn typedIdentConcSyn;
+    private RepeatingOptionalParametersConcSyn repeatingOptionalParametersConcSyn;
+
     public RepeatingOptionalProgramParametersConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
     @Override
     public RepeatingOptionalProgramParametersAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> OptionalFlowModeConcSyn = super.getListByType(OptionalFlowModeConcSyn.class);
-        List<IAbsSyn> OptionalChangeModeConcSyn = super.getListByType(OptionalChangeModeConcSyn.class);
-        List<IAbsSyn> TypedIdentConcSyn = super.getListByType(TypedIdentConcSyn.class);
-        List<IAbsSyn> RepeatingOptionalParametersConcSyn = super.getListByType(RepeatingOptionalParametersConcSyn.class);
-
-        return new RepeatingOptionalProgramParametersAbsSyn(token, OptionalFlowModeConcSyn, OptionalChangeModeConcSyn, TypedIdentConcSyn, RepeatingOptionalParametersConcSyn);
+        return new RepeatingOptionalProgramParametersAbsSyn(optionalFlowModeConcSyn.toAbsSyn(), optionalChangeModeConcSyn.toAbsSyn(), typedIdentConcSyn.toAbsSyn(), repeatingOptionalParametersConcSyn.toAbsSyn());
     }
 
 
@@ -34,10 +30,18 @@ public class RepeatingOptionalProgramParametersConcSyn extends AbstractConcSyn i
             consume();
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA) {
             consume();
-            parseNext(new OptionalFlowModeConcSyn(getTokenList(), getCounter()));
-            parseNext(new OptionalChangeModeConcSyn(getTokenList(), getCounter()));
-            parseNext(new TypedIdentConcSyn(getTokenList(), getCounter()));
-            parseNext(new RepeatingOptionalParametersConcSyn(getTokenList(), getCounter()));
+
+            optionalFlowModeConcSyn = new OptionalFlowModeConcSyn(getTokenList(), getCounter());
+            parseNext(optionalFlowModeConcSyn);
+
+            optionalChangeModeConcSyn = new OptionalChangeModeConcSyn(getTokenList(), getCounter());
+            parseNext(optionalChangeModeConcSyn);
+
+            typedIdentConcSyn = new TypedIdentConcSyn(getTokenList(), getCounter());
+            parseNext(typedIdentConcSyn);
+
+            repeatingOptionalParametersConcSyn = new RepeatingOptionalParametersConcSyn(getTokenList(), getCounter());
+            parseNext(repeatingOptionalParametersConcSyn);
         } else {
             throwGrammarError();
         }

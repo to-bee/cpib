@@ -1,27 +1,26 @@
 package absSyn;
-import conSyn.IConcSyn;
-import scanner.datatypes.Terminal;
-import scanner.token.IToken;
-import java.util.List;
+
 /**
  * Created by ylaub on 26.12.2016.
  */
-public class RepeatingOptionalProgramParametersAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> OptionalFlowModeConcSyn;
-    private final List<IAbsSyn> OptionalChangeModeConcSyn;
-    private final List<IAbsSyn> TypedIdentConcSyn;
-    private final List<IAbsSyn> RepeatingOptionalParametersConcSyn;
+public class RepeatingOptionalProgramParametersAbsSyn extends AbstractAbsSyn implements IAbsSyn {
+    private final OptionalFlowModeAbsSyn optionalFlowModeAbsSyn;
+    private final OptionalChangeModeAbsSyn optionalChangeModeAbsSyn;
+    private final TypedIdentAbsSyn typedIdentAbsSyn;
+    private final RepeatingOptionalParametersAbsSyn repeatingOptionalParametersAbsSyn;
 
-    public RepeatingOptionalProgramParametersAbsSyn(IToken t, List<IAbsSyn> OptionalFlowModeConcSyn, List<IAbsSyn>  OptionalChangeModeConcSyn, List<IAbsSyn>  TypedIdentConcSyn, List<IAbsSyn>  RepeatingOptionalParametersConcSyn) {
-        super(t);
-        this.OptionalFlowModeConcSyn = OptionalFlowModeConcSyn;
-        this.OptionalChangeModeConcSyn = OptionalChangeModeConcSyn;
-        this.TypedIdentConcSyn = TypedIdentConcSyn;
-        this.RepeatingOptionalParametersConcSyn = RepeatingOptionalParametersConcSyn;
+    public RepeatingOptionalProgramParametersAbsSyn(OptionalFlowModeAbsSyn optionalFlowModeAbsSyn, OptionalChangeModeAbsSyn optionalChangeModeAbsSyn, TypedIdentAbsSyn typedIdentAbsSyn, RepeatingOptionalParametersAbsSyn repeatingOptionalParametersAbsSyn) {
+        this.optionalFlowModeAbsSyn = optionalFlowModeAbsSyn;
+        this.optionalChangeModeAbsSyn = optionalChangeModeAbsSyn;
+        this.typedIdentAbsSyn = typedIdentAbsSyn;
+        this.repeatingOptionalParametersAbsSyn = repeatingOptionalParametersAbsSyn;
     }
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        this.optionalFlowModeAbsSyn.check();
+        this.optionalChangeModeAbsSyn.check();
+        this.typedIdentAbsSyn.check();
+        this.repeatingOptionalParametersAbsSyn.check();
     }
 }

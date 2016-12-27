@@ -1,24 +1,22 @@
 package absSyn;
-import conSyn.IConcSyn;
-import scanner.datatypes.Terminal;
-import scanner.token.IToken;
-import java.util.List;
+
 /**
  * Created by ylaub on 26.12.2016.
  */
 public class RepeatingOptionalDeclarationsAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> DeclarationConcSyn;
-    private final List<IAbsSyn> RepeatingOptionalDeclarationsConcSyn;
 
-    public RepeatingOptionalDeclarationsAbsSyn(IToken t, List<IAbsSyn> DeclarationConcSyn, List<IAbsSyn> RepeatingOptionalDeclarationsConcSyn) {
-        super(t);
-        this.DeclarationConcSyn = DeclarationConcSyn;
-        this.RepeatingOptionalDeclarationsConcSyn = RepeatingOptionalDeclarationsConcSyn;
+    private final DeclarationAbsSyn declarationAbsSyn;
+    private final RepeatingOptionalDeclarationsAbsSyn repeatingOptionalDeclarationsAbsSyn;
+
+    public RepeatingOptionalDeclarationsAbsSyn(DeclarationAbsSyn declarationAbsSyn, RepeatingOptionalDeclarationsAbsSyn repeatingOptionalDeclarationsAbsSyn) {
+        this.declarationAbsSyn = declarationAbsSyn;
+        this.repeatingOptionalDeclarationsAbsSyn = repeatingOptionalDeclarationsAbsSyn;
     }
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        this.declarationAbsSyn.check();
+        this.repeatingOptionalDeclarationsAbsSyn.check();
     }
 }
 
