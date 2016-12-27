@@ -7,15 +7,15 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class OptionalGlobalInitsAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> IdentsConcSyn;
 
-    public OptionalGlobalInitsAbsSyn(IToken t, List<IAbsSyn> IdentsConcSyn) {
-        super(t);
-        this.IdentsConcSyn = IdentsConcSyn;
+    private IdentsAbsSyn identsAbsSyn;
+
+    public OptionalGlobalInitsAbsSyn(IdentsAbsSyn identsAbsSyn) {
+        this.identsAbsSyn = identsAbsSyn;
     }
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        identsAbsSyn.check();
     }
 }

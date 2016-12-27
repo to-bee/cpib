@@ -1,16 +1,10 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.OptionalGlobalInitsAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.OptionalGlobalInitsAbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
@@ -21,7 +15,6 @@ public class OptionalGlobalInitsConcSyn extends AbstractConcSyn implements IConc
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public OptionalGlobalInitsAbsSyn toAbsSyn() throws ContextError {
         return new OptionalGlobalInitsAbsSyn(identsConcSyn.toAbsSyn());

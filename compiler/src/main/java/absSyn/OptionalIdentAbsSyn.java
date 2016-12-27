@@ -1,21 +1,15 @@
 package absSyn;
-import conSyn.IConcSyn;
-import scanner.datatypes.Terminal;
-import scanner.token.IToken;
-import java.util.List;
 /**
  * Created by ylaub on 26.12.2016.
  */
 public class OptionalIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> ExpressionListConcSyn;
+    private ExpressionListAbsSyn expressionListAbsSyn;
 
-    public OptionalIdentAbsSyn(IToken t, List<IAbsSyn> ExpressionListConcSyn) {
-        super(t);
-        this.ExpressionListConcSyn = ExpressionListConcSyn;
+    public OptionalIdentAbsSyn(ExpressionListAbsSyn expressionListAbsSyn) {
+        this.expressionListAbsSyn = expressionListAbsSyn;
     }
-
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        expressionListAbsSyn.check();
     }
 }

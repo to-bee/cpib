@@ -1,17 +1,11 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.OptionalParametersAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.OptionalParametersAbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
@@ -38,10 +32,10 @@ public class OptionalParametersConcSyn extends AbstractConcSyn implements IConcS
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.MECHMODE
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
 
-            parameterConcSyn = new ParameterConcSyn(getTokenList(), getCounter())
+            parameterConcSyn = new ParameterConcSyn(getTokenList(), getCounter());
             parseNext(parameterConcSyn);
 
-            repeatingOptionalParametersConcSyn = new RepeatingOptionalParametersConcSyn(getTokenList(), getCounter())
+            repeatingOptionalParametersConcSyn = new RepeatingOptionalParametersConcSyn(getTokenList(), getCounter());
             parseNext(repeatingOptionalParametersConcSyn);
         } else {
             throwGrammarError();

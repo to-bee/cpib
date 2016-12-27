@@ -1,12 +1,11 @@
 package conSyn;
 
 import absSyn.OptionalMechModeAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
 
 /**
  * Created by tobi on 17.12.16.

@@ -7,17 +7,17 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class OptionalExpressionsAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> ExpressionConcSyn;
-    private final List<IAbsSyn> RepeatingOptionalExpressionsConcSyn;
+    private final ExpressionAbsSyn expressionAbsSyn;
+    private final RepeatingOptionalExpressionsAbsSyn repeatingOptionalExpressionsAbsSyn;
 
-    public OptionalExpressionsAbsSyn(IToken t, List<IAbsSyn> ExpressionConcSyn, List<IAbsSyn> RepeatingOptionalExpressionsConcSyn) {
-        super(t);
-        this.ExpressionConcSyn = ExpressionConcSyn;
-        this.RepeatingOptionalExpressionsConcSyn = RepeatingOptionalExpressionsConcSyn;
+    public OptionalExpressionsAbsSyn(ExpressionAbsSyn expressionAbsSyn, RepeatingOptionalExpressionsAbsSyn repeatingOptionalExpressionsAbsSyn) {
+        this.expressionAbsSyn = expressionAbsSyn;
+        this.repeatingOptionalExpressionsAbsSyn = repeatingOptionalExpressionsAbsSyn;
     }
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        expressionAbsSyn.check();
+        repeatingOptionalExpressionsAbsSyn.check();
     }
 }
