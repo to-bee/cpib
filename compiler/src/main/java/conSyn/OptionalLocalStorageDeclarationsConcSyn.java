@@ -15,6 +15,9 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class OptionalLocalStorageDeclarationsConcSyn extends AbstractConcSyn implements IConcSyn {
+    private StorageDeclarationConcSyn storageDeclarationConcSyn;
+    private RepeatingOptionalStorageDeclarationsConcSyn repeatingOptionalStorageDeclarationsConcSyn;
+
     public OptionalLocalStorageDeclarationsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
@@ -22,11 +25,7 @@ public class OptionalLocalStorageDeclarationsConcSyn extends AbstractConcSyn imp
     private IToken token;
     @Override
     public OptionalLocalStorageDeclarationsAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> StorageDeclarationConcSyn = super.getListByType(StorageDeclarationConcSyn.class);
-        List<IAbsSyn> RepeatingOptionalStorageDeclarationsConcSyn = super.getListByType(RepeatingOptionalStorageDeclarationsConcSyn.class);
-
-        return new OptionalLocalStorageDeclarationsAbsSyn(token, StorageDeclarationConcSyn, RepeatingOptionalStorageDeclarationsConcSyn);
+        return new OptionalLocalStorageDeclarationsAbsSyn(storageDeclarationConcSyn.toAbsSyn(), repeatingOptionalStorageDeclarationsConcSyn.toAbsSyn());
     }
 
 
@@ -36,8 +35,12 @@ public class OptionalLocalStorageDeclarationsConcSyn extends AbstractConcSyn imp
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LOCAL) {
             consume();
-            parseNext(new StorageDeclarationConcSyn(getTokenList(), getCounter()));
-            parseNext(new RepeatingOptionalStorageDeclarationsConcSyn(getTokenList(), getCounter()));
+
+            storageDeclarationConcSyn = new StorageDeclarationConcSyn(getTokenList(), getCounter());
+            parseNext(storageDeclarationConcSyn);
+
+            repeatingOptionalStorageDeclarationsConcSyn = new RepeatingOptionalStorageDeclarationsConcSyn(getTokenList(), getCounter());
+            parseNext(repeatingOptionalStorageDeclarationsConcSyn);
         }
     }
 }

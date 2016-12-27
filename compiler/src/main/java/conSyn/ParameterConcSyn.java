@@ -16,18 +16,17 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class ParameterConcSyn extends AbstractConcSyn implements IConcSyn {
+    private StorageDeclarationConcSyn storageDeclarationConcSyn;
+    private OptionalFlowModeConcSyn optionalFlowModeConcSyn;
+    private OptionalMechModeConcSyn optionalMechModeConcSyn;
+
     public ParameterConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
     @Override
     public ParameterAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> OptionalFlowModeConcSyn = super.getListByType(OptionalFlowModeConcSyn.class);
-        List<IAbsSyn> OptionalMechModeConcSyn = super.getListByType(OptionalMechModeConcSyn.class);
-        List<IAbsSyn> StorageDeclarationConcSyn = super.getListByType(StorageDeclarationConcSyn.class);
-
-        return new ParameterAbsSyn(token, OptionalFlowModeConcSyn, OptionalMechModeConcSyn, StorageDeclarationConcSyn);
+        return new ParameterAbsSyn(optionalFlowModeConcSyn.toAbsSyn(), optionalMechModeConcSyn.toAbsSyn(), storageDeclarationConcSyn.toAbsSyn());
     }
 
 
@@ -37,9 +36,15 @@ public class ParameterConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.MECHMODE
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
-            parseNext(new OptionalFlowModeConcSyn(getTokenList(), getCounter()));;
-            parseNext(new OptionalMechModeConcSyn(getTokenList(), getCounter()));;
-            parseNext(new StorageDeclarationConcSyn(getTokenList(), getCounter()));
+
+            optionalFlowModeConcSyn = new OptionalFlowModeConcSyn(getTokenList(), getCounter());
+            parseNext(optionalFlowModeConcSyn);
+
+            optionalMechModeConcSyn = new OptionalMechModeConcSyn(getTokenList(), getCounter());
+            parseNext(optionalMechModeConcSyn);
+
+            storageDeclarationConcSyn = new StorageDeclarationConcSyn(getTokenList(), getCounter());
+            parseNext(storageDeclarationConcSyn);
         } else {
             throwGrammarError();
         }

@@ -1,5 +1,6 @@
 package conSyn;
 
+import absSyn.OptionalMechModeAbsSyn;
 import absSyn.ProgramParameterListAbsSyn;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
@@ -17,8 +18,7 @@ public class OptionalMechModeConcSyn extends AbstractConcSyn implements IConcSyn
 
     @Override
     public OptionalMechModeAbsSyn toAbsSyn() throws ContextError {
-        //besitzt keine Nonterminals.
-        return null;
+        return new OptionalMechModeAbsSyn();
     }
 
 
