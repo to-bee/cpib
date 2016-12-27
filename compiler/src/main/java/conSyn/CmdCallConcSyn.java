@@ -1,6 +1,6 @@
 package conSyn;
 
-import absSyn.CmdAbsSyn;
+import absSyn.CmdCallAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
@@ -10,13 +10,16 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class CmdCallConcSyn extends AbstractConcSyn implements IConcSyn {
+    private ExpressionListConcSyn expressionListConcSyn;
+    private OptionalGlobalInitsConcSyn optionalGlobalInitsConcSyn;
+
     public CmdCallConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
     @Override
     public CmdCallAbsSyn toAbsSyn() throws ContextError {
-        return null;
+        return new CmdCallAbsSyn(expressionListConcSyn.toAbsSyn(), optionalGlobalInitsConcSyn.toAbsSyn());
     }
 
     @Override
@@ -24,8 +27,10 @@ public class CmdCallConcSyn extends AbstractConcSyn implements IConcSyn {
         consume();
         if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
             consume();
-            parseNext(new ExpressionListConcSyn(getTokenList(), getCounter()));
-            parseNext(new OptionalGlobalInitsConcSyn(getTokenList(), getCounter()));
+            expressionListConcSyn= new ExpressionListConcSyn(getTokenList(), getCounter());
+            parseNext(expressionListConcSyn);
+            optionalGlobalInitsConcSyn= new OptionalGlobalInitsConcSyn(getTokenList(), getCounter());
+            parseNext(optionalGlobalInitsConcSyn);
         } else {
             throwGrammarError();
         }

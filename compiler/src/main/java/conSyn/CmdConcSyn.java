@@ -14,9 +14,7 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
-    private ExpressionConcSyn expressionConcSyn1;
-    private ExpressionConcSyn expressionConcSyn2;
-    private IToken token;
+    private IConcSyn subType;
 
     public CmdConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -24,21 +22,19 @@ public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public CmdAbsSyn toAbsSyn() throws ContextError {
-        return new CmdAbsSyn(token, ExpressionConcSyn, BlockCmdConcSyn, ExpressionListConcSyn, OptionalGlobalInitsConcSyn);
+        return new CmdAbsSyn(subType.toAbsSyn());
     }
 
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.SKIP) {
-            parseNext(new CmdSkipConcSyn(getTokenList(), getCounter()));
-
+            subType = new CmdSkipConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IF) {
-            parseNext(new CmdIfConcSyn(getTokenList(), getCounter()));
-
+            subType = new CmdIfConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.WHILE) {
-            parseNext(new CmdWhileConcSyn(getTokenList(), getCounter()));
+            subType = new CmdWhileConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.CALL) {
-            parseNext(new CmdCallConcSyn(getTokenList(), getCounter()));
+            subType = new CmdCallConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IMAGINARY_PART
                 || getTokenList().getCurrent().getTerminal() == Terminal.REAL
                 || getTokenList().getCurrent().getTerminal() == Terminal.IMAG
@@ -48,21 +44,17 @@ public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
-
-            expressionConcSyn1 = new ExpressionConcSyn(getTokenList(), getCounter());
-            parseNext(expressionConcSyn1);
-            if (getTokenList().getCurrent().getTerminal() == Terminal.BECOMES) {
-                consume();
-                expressionConcSyn2 = new ExpressionConcSyn(getTokenList(), getCounter());
-                parseNext(expressionConcSyn2);
-            } else {
-                throwGrammarError();
-            }
+            subType = new CmdAssignConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.DEBUGIN
                 || getTokenList().getCurrent().getTerminal() == Terminal.DEBUGOUT) {
             consume();
-            parseNext(new ExpressionConcSyn(getTokenList(), getCounter()));
+            subType = new ExpressionConcSyn(getTokenList(), getCounter());
         } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
+        }else {
             throwGrammarError();
         }
     }

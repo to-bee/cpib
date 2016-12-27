@@ -1,6 +1,7 @@
 package conSyn;
 
 import absSyn.CmdAbsSyn;
+import absSyn.CmdSkipAbsSyn;
 import absSyn.IAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
@@ -20,7 +21,7 @@ public class CmdSkipConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public CmdSkipAbsSyn toAbsSyn() throws ContextError {
-        return null;
+        return new CmdSkipAbsSyn();
     }
 
     @Override

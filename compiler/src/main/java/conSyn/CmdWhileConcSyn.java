@@ -1,6 +1,6 @@
 package conSyn;
 
-import absSyn.CmdAbsSyn;
+import absSyn.CmdWhileAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
@@ -10,22 +10,27 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class CmdWhileConcSyn extends AbstractConcSyn implements IConcSyn {
+    private ExpressionConcSyn exprWhile;
+    private BlockCmdConcSyn cmdWhile;
+
     public CmdWhileConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
     @Override
     public CmdWhileAbsSyn toAbsSyn() throws ContextError {
-        return null;
+        return new CmdWhileAbsSyn(exprWhile.toAbsSyn(), cmdWhile.toAbsSyn());
     }
 
     @Override
     public void parse() throws GrammarError {
         consume();
-        parseNext(new ExpressionConcSyn(getTokenList(), getCounter()));
+        exprWhile = new ExpressionConcSyn(getTokenList(), getCounter());
+        parseNext(exprWhile);
         if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
             consume();
-            parseNext(new BlockCmdConcSyn(getTokenList(), getCounter()));
+            cmdWhile = new BlockCmdConcSyn(getTokenList(), getCounter());
+            parseNext(cmdWhile);
             if (getTokenList().getCurrent().getTerminal() == Terminal.ENDWHILE) {
                 consume();
             } else {
@@ -34,6 +39,5 @@ public class CmdWhileConcSyn extends AbstractConcSyn implements IConcSyn {
         } else {
             throwGrammarError();
         }
-        //TODO: cmdwhile aufrufen: concrete syntax
     }
 }
