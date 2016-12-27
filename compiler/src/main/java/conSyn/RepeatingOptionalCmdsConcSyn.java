@@ -22,7 +22,7 @@ public class RepeatingOptionalCmdsConcSyn extends AbstractConcSyn implements ICo
     private IToken token;
 
     @Override
-    public IAbsSyn toAbsSyn() throws ContextError {
+    public RepeatingOptionalCmdsAbsSyn toAbsSyn() throws ContextError {
         IAbsSyn CmdConcSyn = super.getOneByType(CmdConcSyn.class);
         List<IAbsSyn> RepeatingOptionalCmdsConcSyn = super.getListByType(RepeatingOptionalCmdsConcSyn.class);
 

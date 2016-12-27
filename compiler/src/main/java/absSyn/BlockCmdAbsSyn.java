@@ -9,17 +9,17 @@ import java.util.List;
  * Created by ylaub on 20.12.2016.
  */
 public class BlockCmdAbsSyn extends AbstractAbsSyn implements IAbsSyn {
-    private final absSyn.commands.Cmd Cmd;
-    private final List<IAbsSyn> RepeatingOptionalCmds;
+    private final CmdAbsSyn cmdAbsSyn;
+    private final RepeatingOptionalCmdsAbsSyn repeatingOptionalCmdsAbsSyn;
 
-    public BlockCmdAbsSyn(absSyn.commands.Cmd Cmd, List<IAbsSyn> RepeatingOptionalCmds) {
-        super(t);
-        this.Cmd = Cmd;
-        this.RepeatingOptionalCmds = RepeatingOptionalCmds;
+    public BlockCmdAbsSyn(CmdAbsSyn cmdAbsSyn, RepeatingOptionalCmdsAbsSyn repeatingOptionalCmdsAbsSyn) {
+        this.cmdAbsSyn = cmdAbsSyn;
+        this.repeatingOptionalCmdsAbsSyn = repeatingOptionalCmdsAbsSyn;
     }
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        cmdAbsSyn.check();
+        repeatingOptionalCmdsAbsSyn.check();
     }
 }

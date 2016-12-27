@@ -16,22 +16,16 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class BlockCmdConcSyn extends AbstractConcSyn implements IConcSyn {
-    private IToken token;
+    private CmdConcSyn cmdConcSyn;
+    private RepeatingOptionalCmdsConcSyn repeatingOptionalCmdsConcSyn;
+
     public BlockCmdConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    /**
-     * Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-     * @return
-     * @throws ContextError
-     */
     @Override
     public BlockCmdAbsSyn toAbsSyn() throws ContextError {
-        Cmd Cmd = new Cmd(super.getOneByType(CmdConcSyn.class));
-        List<IAbsSyn> RepeatingOptionalCmds = super.getListByType(RepeatingOptionalCmdsConcSyn.class);
-
-        return new BlockCmdAbsSyn(token, Cmd, RepeatingOptionalCmds);
+        return new BlockCmdAbsSyn(cmdConcSyn.toAbsSyn(), repeatingOptionalCmdsConcSyn.toAbsSyn());
     }
 
     @Override
@@ -51,8 +45,10 @@ public class BlockCmdConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL
                 || getTokenList().getCurrent().getTerminal() == Terminal.SKIP) {
-            this.parseNext(new CmdConcSyn(getTokenList(), getCounter()));
-            this.parseNext(new RepeatingOptionalCmdsConcSyn(getTokenList(), getCounter()));
+            cmdConcSyn = new CmdConcSyn(getTokenList(), getCounter());
+            this.parseNext(cmdConcSyn);
+            repeatingOptionalCmdsConcSyn = new RepeatingOptionalCmdsConcSyn(getTokenList(), getCounter());
+            this.parseNext(repeatingOptionalCmdsConcSyn);
         } else {
             throwGrammarError();
         }
