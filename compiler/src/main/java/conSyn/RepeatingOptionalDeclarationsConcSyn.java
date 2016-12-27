@@ -21,7 +21,10 @@ public class RepeatingOptionalDeclarationsConcSyn extends AbstractConcSyn implem
         return new RepeatingOptionalDeclarationsAbsSyn(declarationConcSyn.toAbsSyn(), repeatingOptionalDeclarationsConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {

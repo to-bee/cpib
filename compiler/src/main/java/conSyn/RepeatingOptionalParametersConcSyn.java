@@ -23,7 +23,10 @@ public class RepeatingOptionalParametersConcSyn extends AbstractConcSyn implemen
         return new RepeatingOptionalParametersAbsSyn(parameterConcSyn.toAbsSyn(), repeatingOptionalParametersConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {

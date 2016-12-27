@@ -22,24 +22,20 @@ public class OptionalProgramParamConcSyn extends AbstractConcSyn implements ICon
 
     @Override
     public OptionalProgramParamAbsSyn toAbsSyn() throws ContextError {
-        // TODO: maybe split up
-        if (optionalFlowModeConcSyn != null) {
-            return new OptionalProgramParamAbsSyn(optionalFlowModeConcSyn.toAbsSyn(), optionalChangeModeConcSyn.toAbsSyn(), typedIdentConcSyn.toAbsSyn(), repeatingOptionalProgramParametersConcSyn.toAbsSyn());
-        } else {
-            return null;
-        }
+        return new OptionalProgramParamAbsSyn(optionalFlowModeConcSyn.toAbsSyn(), optionalChangeModeConcSyn.toAbsSyn(), typedIdentConcSyn.toAbsSyn(), repeatingOptionalProgramParametersConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
             consume();
-
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
-            // TODO: maybe split up
             optionalFlowModeConcSyn = new OptionalFlowModeConcSyn(getTokenList(), getCounter());
             parseNext(optionalFlowModeConcSyn);
 

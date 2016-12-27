@@ -21,7 +21,10 @@ public class OptionalIdentConcSyn extends AbstractConcSyn implements IConcSyn {
         return new OptionalIdentAbsSyn(expressionListConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN

@@ -22,7 +22,10 @@ public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements I
         return new RepeatingOptionalIdentsAbsSyn(ident, identsConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.ENDPROC

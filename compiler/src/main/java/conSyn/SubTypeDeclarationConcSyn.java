@@ -28,7 +28,10 @@ public class SubTypeDeclarationConcSyn extends AbstractConcSyn implements IConcS
                 subTypeDeclarationConcSyn2.toAbsSyn(),
                 optionalTypeDeclarationConcSyn.toAbsSyn());
     }
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.TYPE) {

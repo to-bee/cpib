@@ -27,7 +27,10 @@ public class RepeatingOptionalCmdsConcSyn extends AbstractConcSyn implements ICo
         return new RepeatingOptionalCmdsAbsSyn(cmdConcSyn.toAbsSyn(), repeatingOptionalCmdsConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.ENDPROC

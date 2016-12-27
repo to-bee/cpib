@@ -19,7 +19,10 @@ public class OptionalTypeDeclarationConcSyn extends AbstractConcSyn implements I
     public OptionalTypeDeclarationAbsSyn toAbsSyn()throws ContextError {
         return new OptionalTypeDeclarationAbsSyn(subTypeDeclarationConcSyn.toAbsSyn());
     }
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {

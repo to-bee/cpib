@@ -28,7 +28,10 @@ public class RepBoolOprTerm1ConcSyn extends AbstractConcSyn implements IConcSyn 
         return new RepBoolOprTerm1AbsSyn(term1ConcSyn.toAbsSyn(), repBoolOprTerm1ConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN

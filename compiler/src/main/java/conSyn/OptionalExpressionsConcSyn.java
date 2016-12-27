@@ -21,11 +21,13 @@ public class OptionalExpressionsConcSyn extends AbstractConcSyn implements IConc
         return new OptionalExpressionsAbsSyn(expressionConcSyn.toAbsSyn(), repeatingOptionalExpressionsConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO: split up 28.12.2016
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
-
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IMAGINARY_PART
                 || getTokenList().getCurrent().getTerminal() == Terminal.REAL
                 || getTokenList().getCurrent().getTerminal() == Terminal.IMAG

@@ -22,7 +22,10 @@ public class RepMultOprFactorConcSyn extends AbstractConcSyn implements IConcSyn
         return new RepMultOprFactorAbsSyn(factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN

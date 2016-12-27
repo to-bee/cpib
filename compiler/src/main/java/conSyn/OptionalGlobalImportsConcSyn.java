@@ -21,7 +21,10 @@ public class OptionalGlobalImportsConcSyn extends AbstractConcSyn implements ICo
         return new OptionalGlobalImportsAbsSyn(globalImportConcSyn.toAbsSyn(), repeatingOptionalGlobalImportsConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO: split up 28.12.2016
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.DO

@@ -21,7 +21,10 @@ public class RepeatingOptionalStorageDeclarationsConcSyn extends AbstractConcSyn
         return new RepeatingOptionalStorageDeclarationsAbsSyn(storageDeclarationConcSyn.toAbsSyn(), repeatingOptionalStorageDeclarationsConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {

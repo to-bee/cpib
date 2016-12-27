@@ -22,7 +22,10 @@ public class RepAddOprTerm3ConcSyn extends AbstractConcSyn implements IConcSyn {
         return new RepAddOprTerm3AbsSyn(term3ConcSyn.toAbsSyn(), repAddOprTerm3ConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR) {

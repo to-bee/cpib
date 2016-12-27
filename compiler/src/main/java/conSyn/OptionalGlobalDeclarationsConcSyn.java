@@ -20,7 +20,10 @@ public class OptionalGlobalDeclarationsConcSyn extends AbstractConcSyn implement
         return new OptionalGlobalDeclarationsAbsSyn(declarationsConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO: split up 28.12.2016
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {

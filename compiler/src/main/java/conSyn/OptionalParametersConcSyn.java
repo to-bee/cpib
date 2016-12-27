@@ -22,7 +22,10 @@ public class OptionalParametersConcSyn extends AbstractConcSyn implements IConcS
         return new OptionalParametersAbsSyn(parameterConcSyn.toAbsSyn(), repeatingOptionalParametersConcSyn.toAbsSyn());
     }
 
-
+    /**
+     * TODO
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
