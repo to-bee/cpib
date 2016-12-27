@@ -15,7 +15,7 @@ public class MonadictOperatorConcSyn extends AbstractConcSyn implements IConcSyn
     }
 
     @Override
-    public IAbsSyn toAbsSyn() throws ContextError {
+    public MonadictOperatorAbsSyn toAbsSyn() throws ContextError {
     //besitzt keine Nonterminals.
     return null;
     }
