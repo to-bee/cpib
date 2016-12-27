@@ -1,14 +1,11 @@
 package conSyn;
 
 import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.RepeatingOptionalProgramParametersAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.RepeatingOptionalProgramParametersAbsSyn;
-import scanner.token.IToken;
 
 import java.util.List;
 /**
@@ -37,7 +34,7 @@ public class RepeatingOptionalProgramParametersConcSyn extends AbstractConcSyn i
             consume();
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA) {
             consume();
-            parseNext(new OptionalFlowModeConcSyn(getTokenList(), getCounter()));;
+            parseNext(new OptionalFlowModeConcSyn(getTokenList(), getCounter()));
             parseNext(new OptionalChangeModeConcSyn(getTokenList(), getCounter()));
             parseNext(new TypedIdentConcSyn(getTokenList(), getCounter()));
             parseNext(new RepeatingOptionalParametersConcSyn(getTokenList(), getCounter()));
