@@ -1,32 +1,24 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.ExpressionAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.ExpressionAbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
 public class ExpressionConcSyn extends AbstractConcSyn implements IConcSyn {
+    private Term1ConcSyn term1ConcSyn;
+    private RepBoolOprTerm1ConcSyn repBoolOprTerm1ConcSyn;
+
     public ExpressionConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public ExpressionAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> Term1ConcSyn = super.getListByType(Term1ConcSyn.class);
-        List<IAbsSyn> RepBoolOprTerm1ConcSyn = super.getListByType(RepBoolOprTerm1ConcSyn.class);
-
-        return new ExpressionAbsSyn(token, Term1ConcSyn, RepBoolOprTerm1ConcSyn);
+        return new ExpressionAbsSyn(term1ConcSyn.toAbsSyn(),repBoolOprTerm1ConcSyn.toAbsSyn());
     }
 
 
@@ -41,8 +33,10 @@ public class ExpressionConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
-            parseNext(new Term1ConcSyn(getTokenList(), getCounter()));
-            parseNext(new RepBoolOprTerm1ConcSyn(getTokenList(), getCounter()));
+            term1ConcSyn = new Term1ConcSyn(getTokenList(), getCounter());
+            parseNext(term1ConcSyn);
+            repBoolOprTerm1ConcSyn = new RepBoolOprTerm1ConcSyn(getTokenList(), getCounter());
+            parseNext(repBoolOprTerm1ConcSyn);
         } else {
             throwGrammarError();
         }

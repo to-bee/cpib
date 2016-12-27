@@ -1,33 +1,27 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.DeclarationAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-import absSyn.DeclarationAbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
 public class DeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
+    private StorageDeclarationConcSyn storageDeclarationConcSyn;
+    private FunctionDeclarationConcSyn functionDeclarationConcSyn;
+    private ProcedureDeclarationConcSyn procedureDeclarationConcSyn;
+
     public DeclarationConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public DeclarationAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> StorageDeclarationConcSyn = super.getListByType(StorageDeclarationConcSyn.class);
-        List<IAbsSyn> FunctionDeclarationConcSyn = super.getListByType(FunctionDeclarationConcSyn.class);
-        List<IAbsSyn> ProcedureDeclarationConcSyn = super.getListByType(ProcedureDeclarationConcSyn.class);
 
-        return new DeclarationAbsSyn(token, StorageDeclarationConcSyn, FunctionDeclarationConcSyn, ProcedureDeclarationConcSyn);
+        return new DeclarationAbsSyn(storageDeclarationConcSyn.toAbsSyn(),functionDeclarationConcSyn.toAbsSyn(),procedureDeclarationConcSyn.toAbsSyn());
     }
 
 
@@ -35,11 +29,14 @@ public class DeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
-            parseNext(new StorageDeclarationConcSyn(getTokenList(), getCounter()));
+            storageDeclarationConcSyn = new StorageDeclarationConcSyn(getTokenList(), getCounter());
+            parseNext(storageDeclarationConcSyn);
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.FUN) {
-            parseNext(new FunctionDeclarationConcSyn(getTokenList(), getCounter()));
+            functionDeclarationConcSyn = new FunctionDeclarationConcSyn(getTokenList(), getCounter());
+            parseNext(functionDeclarationConcSyn);
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.PROC) {
-            parseNext(new ProcedureDeclarationConcSyn(getTokenList(), getCounter()));
+            procedureDeclarationConcSyn = new ProcedureDeclarationConcSyn(getTokenList(), getCounter());
+            parseNext(procedureDeclarationConcSyn);
         } else {
             throwGrammarError();
         }

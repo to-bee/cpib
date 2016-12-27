@@ -1,10 +1,5 @@
 package absSyn;
 
-import absSyn.commands.Cmd;
-import scanner.token.IToken;
-
-import java.util.List;
-
 /**
  * Created by ylaub on 20.12.2016.
  */
