@@ -1,20 +1,17 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.FunctionDeclarationAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.FunctionDeclarationAbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
 public class FunctionDeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
+    private Ident ident;
+    private ParameterListConcSyn parameterListConcSyn;
     private BlockCmdConcSyn blockCmdConcSyn;
     private StorageDeclarationConcSyn storageDeclarationConcSyn;
     private OptionalGlobalImportsConcSyn optionalGlobalImportsConcSyn;
@@ -24,10 +21,11 @@ public class FunctionDeclarationConcSyn extends AbstractConcSyn implements IConc
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public FunctionDeclarationAbsSyn toAbsSyn() throws ContextError {
         return new FunctionDeclarationAbsSyn(
+                ident,
+                parameterListConcSyn.toAbsSyn(),
                 storageDeclarationConcSyn.toAbsSyn(),
                 optionalGlobalImportsConcSyn.toAbsSyn(),
                 optionalLocalStorageDeclarationsConcSyn.toAbsSyn(),
@@ -40,8 +38,10 @@ public class FunctionDeclarationConcSyn extends AbstractConcSyn implements IConc
         if (getTokenList().getCurrent().getTerminal() == Terminal.FUN) {
             consume();
             if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+                ident = (Ident) this.getTokenList().getCurrent();
                 consume();
-                parseNext(new ParameterListConcSyn(getTokenList(), getCounter()));
+                parameterListConcSyn = new ParameterListConcSyn(getTokenList(), getCounter());
+                parseNext(parameterListConcSyn);
                 if (getTokenList().getCurrent().getTerminal() == Terminal.RETURNS) {
                     consume();
 
@@ -51,7 +51,7 @@ public class FunctionDeclarationConcSyn extends AbstractConcSyn implements IConc
                     optionalGlobalImportsConcSyn = new OptionalGlobalImportsConcSyn(getTokenList(), getCounter());
                     parseNext(optionalGlobalImportsConcSyn);
 
-                    optionalLocalStorageDeclarationsConcSyn = new OptionalLocalStorageDeclarationsConcSyn(getTokenList(), getCounter())
+                    optionalLocalStorageDeclarationsConcSyn = new OptionalLocalStorageDeclarationsConcSyn(getTokenList(), getCounter());
                     parseNext(optionalLocalStorageDeclarationsConcSyn);
 
                     if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
