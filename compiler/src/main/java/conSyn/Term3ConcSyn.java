@@ -22,7 +22,6 @@ public class Term3ConcSyn extends AbstractConcSyn implements IConcSyn {
         return new Term3AbsSyn(factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn());
     }
 
-
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IMAGINARY_PART

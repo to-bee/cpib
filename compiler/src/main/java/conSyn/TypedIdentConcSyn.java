@@ -1,17 +1,12 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.TypedIdentAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
 
-import absSyn.TypedIdentAbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
@@ -24,7 +19,7 @@ public class TypedIdentConcSyn extends AbstractConcSyn implements IConcSyn {
     }
 
     @Override
-    public TypedIdentAbsSyn toAbsSyn()throws ContextError {
+    public TypedIdentAbsSyn toAbsSyn() throws ContextError {
         return new TypedIdentAbsSyn(ident, typeDeclarationConcSyn.toAbsSyn());
     }
 
@@ -38,6 +33,9 @@ public class TypedIdentConcSyn extends AbstractConcSyn implements IConcSyn {
                 consume();
                 typeDeclarationConcSyn = new TypeDeclarationConcSyn(getTokenList(), getCounter());
                 parseNext(typeDeclarationConcSyn);
+            } else {
+                //TODO: added 27.12.2016, by Yves
+                throwGrammarError();
             }
         } else {
             throwGrammarError();

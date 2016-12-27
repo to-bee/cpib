@@ -7,6 +7,7 @@ import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
+
 /**
  * Created by tobi on 17.12.16.
  */
@@ -21,7 +22,7 @@ public class TypeDeclarationConcSyn extends AbstractConcSyn implements IConcSyn 
     }
 
     @Override
-    public TypeDeclarationAbsSyn toAbsSyn()throws ContextError {
+    public TypeDeclarationAbsSyn toAbsSyn() throws ContextError {
         return new TypeDeclarationAbsSyn(
                 ident,
                 subTypeDeclarationConcSyn1.toAbsSyn(),
@@ -36,8 +37,7 @@ public class TypeDeclarationConcSyn extends AbstractConcSyn implements IConcSyn 
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
             this.ident = (Ident) this.getTokenList().getCurrent();
             consume();
-        }
-        else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
+        } else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
             consume();
             subTypeDeclarationConcSyn1 = new SubTypeDeclarationConcSyn(getTokenList(), getCounter());
             parseNext(subTypeDeclarationConcSyn1);
@@ -51,10 +51,10 @@ public class TypeDeclarationConcSyn extends AbstractConcSyn implements IConcSyn 
                 parseNext(optionalTypeDeclarationConcSyn);
                 if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
                     consume();
-                }else{
+                } else {
                     throwGrammarError();
                 }
-            } else{
+            } else {
                 throwGrammarError();
             }
         } else {

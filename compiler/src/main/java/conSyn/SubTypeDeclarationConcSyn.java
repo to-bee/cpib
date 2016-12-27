@@ -15,18 +15,24 @@ public class SubTypeDeclarationConcSyn extends AbstractConcSyn implements IConcS
     private SubTypeDeclarationConcSyn subTypeDeclarationConcSyn1;
     private SubTypeDeclarationConcSyn subTypeDeclarationConcSyn2;
     private OptionalTypeDeclarationConcSyn optionalTypeDeclarationConcSyn;
+    private Terminal type;
 
     public SubTypeDeclarationConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
     @Override
     public SubTypeDeclarationAbsSyn toAbsSyn() throws ContextError {
-        return new SubTypeDeclarationAbsSyn(subTypeDeclarationConcSyn1.toAbsSyn(), subTypeDeclarationConcSyn2.toAbsSyn(), optionalTypeDeclarationConcSyn.toAbsSyn());
+        return new SubTypeDeclarationAbsSyn(
+                type,
+                subTypeDeclarationConcSyn1.toAbsSyn(),
+                subTypeDeclarationConcSyn2.toAbsSyn(),
+                optionalTypeDeclarationConcSyn.toAbsSyn());
     }
 
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.TYPE) {
+            type = getTokenList().getCurrent().getTerminal();
             consume();
         }
         else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
