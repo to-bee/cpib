@@ -1,17 +1,11 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.RepAddOprTerm3AbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.RepAddOprTerm3AbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */

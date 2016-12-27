@@ -1,24 +1,20 @@
 package absSyn;
-import conSyn.IConcSyn;
-import scanner.datatypes.Terminal;
-import scanner.token.IToken;
-import java.util.List;
 /**
  * Created by ylaub on 26.12.2016.
  */
 public class RepAddOprTerm3AbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> Term3ConcSyn;
-    private final List<IAbsSyn> RepAddOprTerm3ConcSyn;
+    private final Term3AbsSyn term3AbsSyn;
+    private final RepAddOprTerm3AbsSyn repAddOprTerm3AbsSyn;
 
-    public RepAddOprTerm3AbsSyn(IToken t, List<IAbsSyn> Term3ConcSyn, List<IAbsSyn> RepAddOprTerm3ConcSyn) {
-        super(t);
-        this.Term3ConcSyn = Term3ConcSyn;
-        this.RepAddOprTerm3ConcSyn = RepAddOprTerm3ConcSyn;
+    public RepAddOprTerm3AbsSyn(Term3AbsSyn term3AbsSyn, RepAddOprTerm3AbsSyn repAddOprTerm3AbsSyn) {
+        this.term3AbsSyn = term3AbsSyn;
+        this.repAddOprTerm3AbsSyn = repAddOprTerm3AbsSyn;
     }
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        term3AbsSyn.check();
+        repAddOprTerm3AbsSyn.check();
     }
 }
 
