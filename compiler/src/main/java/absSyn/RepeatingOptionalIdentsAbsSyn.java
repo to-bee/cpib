@@ -1,5 +1,6 @@
 package absSyn;
 
+import scanner.errors.ContextError;
 import scanner.token.Ident;
 
 /**
@@ -16,7 +17,7 @@ public class RepeatingOptionalIdentsAbsSyn extends AbstractAbsSyn implements IAb
     }
 
     @Override
-    public void check() {
+    public void check() throws ContextError {
         this.ident.check();
         this.identsAbsSyn.check();
     }

@@ -35,7 +35,9 @@ public class TypeDeclarationConcSyn extends AbstractConcSyn implements IConcSyn 
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.TYPE
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
-            this.ident = (Ident) this.getTokenList().getCurrent();
+            if(getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+                this.ident = (Ident) this.getTokenList().getCurrent();
+            }
             consume();
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
             consume();

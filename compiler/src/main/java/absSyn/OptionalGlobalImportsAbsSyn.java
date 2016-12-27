@@ -1,4 +1,7 @@
 package absSyn;
+
+import scanner.errors.ContextError;
+
 /**
  * Created by ylaub on 26.12.2016.
  */
@@ -12,7 +15,7 @@ public class OptionalGlobalImportsAbsSyn extends AbstractAbsSyn implements IAbsS
     }
 
     @Override
-    public void check() {
+    public void check() throws ContextError {
         globalImportAbsSyn.check();
         repeatingOptionalGlobalImportsAbsSyn.check();
     }

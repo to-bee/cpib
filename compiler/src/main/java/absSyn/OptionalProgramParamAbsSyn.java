@@ -1,6 +1,7 @@
 package absSyn;
 import conSyn.IConcSyn;
 import scanner.datatypes.Terminal;
+import scanner.errors.ContextError;
 import scanner.token.IToken;
 import java.util.List;
 /**
@@ -22,7 +23,7 @@ public class OptionalProgramParamAbsSyn extends AbstractAbsSyn implements IAbsSy
     }
 
     @Override
-    public void check() {
+    public void check() throws ContextError {
         this.optionalFlowModeAbsSyn.check();
         this.optionalChangeModeAbsSyn.check();
         this.typedIdentAbsSyn.check();

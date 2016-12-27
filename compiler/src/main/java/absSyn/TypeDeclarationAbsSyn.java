@@ -1,5 +1,6 @@
 package absSyn;
 
+import scanner.errors.ContextError;
 import scanner.token.Ident;
 
 /**
@@ -19,8 +20,10 @@ public class TypeDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     }
 
     @Override
-    public void check() {
-        this.ident.check();
+    public void check() throws ContextError {
+        if(this.ident != null) {
+            this.ident.check();
+        }
         this.subTypeDeclarationAbsSyn1.check();
         this.subTypeDeclarationAbsSyn2.check();
         this.optionalTypeDeclarationAbsSyn.check();

@@ -2,6 +2,7 @@ package absSyn;
 import conSyn.IConcSyn;
 import conSyn.ParameterListConcSyn;
 import scanner.datatypes.Terminal;
+import scanner.errors.ContextError;
 import scanner.token.IToken;
 import scanner.token.Ident;
 
@@ -30,7 +31,7 @@ public class FunctionDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn
     }
 
     @Override
-    public void check() {
+    public void check() throws ContextError {
         ident.check();
         parameterListAbsSyn.check();
         storageDeclarationAbsSyn.check();

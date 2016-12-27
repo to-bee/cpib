@@ -1,4 +1,7 @@
 package absSyn;
+
+import scanner.errors.ContextError;
+
 /**
  * Created by ylaub on 26.12.2016.
  */
@@ -9,7 +12,7 @@ public class OptionalIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.expressionListAbsSyn = expressionListAbsSyn;
     }
     @Override
-    public void check() {
+    public void check() throws ContextError {
         expressionListAbsSyn.check();
     }
 }

@@ -1,6 +1,7 @@
 package absSyn;
 import conSyn.IConcSyn;
 import scanner.datatypes.Terminal;
+import scanner.errors.ContextError;
 import scanner.token.IToken;
 import scanner.token.Ident;
 
@@ -18,7 +19,7 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     }
 
     @Override
-    public void check() {
+    public void check() throws ContextError {
         this.ident.check();
     }
 }

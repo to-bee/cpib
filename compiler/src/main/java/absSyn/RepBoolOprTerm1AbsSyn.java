@@ -1,6 +1,7 @@
 package absSyn;
 import conSyn.IConcSyn;
 import scanner.datatypes.Terminal;
+import scanner.errors.ContextError;
 import scanner.token.IToken;
 import java.util.List;
 /**
@@ -17,7 +18,7 @@ public class RepBoolOprTerm1AbsSyn extends AbstractAbsSyn implements IAbsSyn{
     }
 
     @Override
-    public void check() {
+    public void check() throws ContextError {
         this.term1AbsSyn.check();
         this.repBoolOprTerm1AbsSyn.check();
     }

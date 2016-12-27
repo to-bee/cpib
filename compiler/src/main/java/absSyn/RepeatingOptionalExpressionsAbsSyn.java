@@ -1,5 +1,7 @@
 package absSyn;
 
+import scanner.errors.ContextError;
+
 /**
  * Created by ylaub on 26.12.2016.
  */
@@ -15,7 +17,7 @@ public class RepeatingOptionalExpressionsAbsSyn extends AbstractAbsSyn implement
     }
 
     @Override
-    public void check() {
+    public void check() throws ContextError {
         this.expressionAbsSyn.check();
         this.repeatingOptionalExpressionsAbsSyn.check();
     }

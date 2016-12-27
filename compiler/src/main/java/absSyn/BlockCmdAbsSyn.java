@@ -1,5 +1,7 @@
 package absSyn;
 
+import scanner.errors.ContextError;
+
 /**
  * Created by ylaub on 20.12.2016.
  */
@@ -13,7 +15,7 @@ public class BlockCmdAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     }
 
     @Override
-    public void check() {
+    public void check() throws ContextError {
         cmdAbsSyn.check();
         repeatingOptionalCmdsAbsSyn.check();
     }

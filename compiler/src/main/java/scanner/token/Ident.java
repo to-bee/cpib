@@ -21,7 +21,7 @@ public class Ident extends BaseToken {
     	return ident;
     }
 
-    public void check() {
+    public void check() throws ContextError {
 //        throw new ContextError();
     }
 

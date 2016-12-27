@@ -1,4 +1,7 @@
 package absSyn;
+
+import scanner.errors.ContextError;
+
 /**
  * Created by ylaub on 26.12.2016.
  */
@@ -10,7 +13,7 @@ public class ProgramParameterListAbsSyn extends AbstractAbsSyn implements IAbsSy
     }
 
     @Override
-    public void check() {
+    public void check() throws ContextError {
         optionalProgramParamConcSyn.check();
     }
 }

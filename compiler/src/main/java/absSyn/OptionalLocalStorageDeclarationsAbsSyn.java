@@ -1,4 +1,7 @@
 package absSyn;
+
+import scanner.errors.ContextError;
+
 /**
  * Created by ylaub on 26.12.2016.
  */
@@ -14,7 +17,7 @@ public class OptionalLocalStorageDeclarationsAbsSyn extends AbstractAbsSyn imple
     }
 
     @Override
-    public void check() {
+    public void check() throws ContextError {
         storageDeclarationAbsSyn.check();
         repeatingOptionalStorageDeclarationsAbsSyn.check();
     }

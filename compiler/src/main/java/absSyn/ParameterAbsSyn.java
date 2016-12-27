@@ -1,6 +1,7 @@
 package absSyn;
 import conSyn.IConcSyn;
 import scanner.datatypes.Terminal;
+import scanner.errors.ContextError;
 import scanner.token.IToken;
 import java.util.List;
 /**
@@ -20,7 +21,9 @@ public class ParameterAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     }
 
     @Override
-    public void check() {
-        //TODO: Implement Scope Check and Type Check
+    public void check() throws ContextError {
+        this.optionalFlowModeAbsSyn.check();
+        this.optionalMechModeAbsSyn.check();
+        this.storageDeclarationAbsSyn.check();
     }
 }

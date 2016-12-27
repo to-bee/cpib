@@ -1,5 +1,7 @@
 package absSyn;
 
+import scanner.errors.ContextError;
+
 /**
  * Created by ylaub on 26.12.2016.
  */
@@ -13,7 +15,7 @@ public class Term1AbsSyn extends AbstractAbsSyn implements IAbsSyn{
     }
 
     @Override
-    public void check() {
+    public void check() throws ContextError {
         this.term2AbsSyn.check();
         this.repRelOprTerm2AbsSyn.check();
     }

@@ -1,6 +1,7 @@
 package absSyn;
 
 import scanner.datatypes.Terminal;
+import scanner.errors.ContextError;
 
 /**
  * Created by ylaub on 26.12.2016.
@@ -19,8 +20,8 @@ public class SubTypeDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     }
 
     @Override
-    public void check() {
-        //TODO: type checken
+    public void check() throws ContextError {
+        //TODO: check type
         this.subTypeDeclarationAbsSyn1.check();
         this.subTypeDeclarationAbsSyn2.check();
         this.optionalTypeDeclarationAbsSyn.check();

@@ -1,5 +1,6 @@
 package absSyn;
 
+import scanner.errors.ContextError;
 import scanner.token.IToken;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public class OptionalFlowModeAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     }
 
     @Override
-    public void check() {
+    public void check() throws ContextError {
         //nothing to check
     }
 }
