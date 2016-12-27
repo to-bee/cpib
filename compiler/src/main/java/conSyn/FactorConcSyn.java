@@ -15,7 +15,6 @@ public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
     private Ident ident;
 
-
     public FactorConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
