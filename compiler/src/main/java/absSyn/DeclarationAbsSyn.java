@@ -12,21 +12,17 @@ import java.util.List;
  */
 public class DeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
-    private final FunctionDeclarationAbsSyn functionDeclarationAbsSyn;
-    private final StorageDeclarationAbsSyn storageDeclarationAbsSyn;
-    private final ProcedureDeclarationAbsSyn procedureDeclarationAbsSyn;
 
-    public DeclarationAbsSyn(StorageDeclarationAbsSyn storageDeclarationAbsSyn, FunctionDeclarationAbsSyn functionDeclarationAbsSyn, ProcedureDeclarationAbsSyn procedureDeclarationAbsSyn) {
-        this.storageDeclarationAbsSyn = storageDeclarationAbsSyn;
-        this.functionDeclarationAbsSyn = functionDeclarationAbsSyn;
-        this.procedureDeclarationAbsSyn = procedureDeclarationAbsSyn;
+    private IAbsSyn subType;
+
+    public DeclarationAbsSyn(IAbsSyn subType) {
+
+        this.subType = subType;
     }
 
     @Override
     public void check() throws ContextError {
-        storageDeclarationAbsSyn.check();
-        functionDeclarationAbsSyn.check();
-        procedureDeclarationAbsSyn.check();
+        subType.check();
     }
 }
 

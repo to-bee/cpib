@@ -1,18 +1,18 @@
 package conSyn;
 
 import absSyn.DeclarationAbsSyn;
+import absSyn.IAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
+
 /**
  * Created by tobi on 17.12.16.
  */
 public class DeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
-    private StorageDeclarationConcSyn storageDeclarationConcSyn;
-    private FunctionDeclarationConcSyn functionDeclarationConcSyn;
-    private ProcedureDeclarationConcSyn procedureDeclarationConcSyn;
+    private IConcSyn subtype;
 
     public DeclarationConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -20,8 +20,7 @@ public class DeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public DeclarationAbsSyn toAbsSyn() throws ContextError {
-
-        return new DeclarationAbsSyn(storageDeclarationConcSyn.toAbsSyn(),functionDeclarationConcSyn.toAbsSyn(),procedureDeclarationConcSyn.toAbsSyn());
+        return new DeclarationAbsSyn(subtype.toAbsSyn());
     }
 
 
@@ -29,16 +28,14 @@ public class DeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
-            storageDeclarationConcSyn = new StorageDeclarationConcSyn(getTokenList(), getCounter());
-            parseNext(storageDeclarationConcSyn);
+            subtype = new StorageDeclarationConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.FUN) {
-            functionDeclarationConcSyn = new FunctionDeclarationConcSyn(getTokenList(), getCounter());
-            parseNext(functionDeclarationConcSyn);
+            subtype = new FunctionDeclarationConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.PROC) {
-            procedureDeclarationConcSyn = new ProcedureDeclarationConcSyn(getTokenList(), getCounter());
-            parseNext(procedureDeclarationConcSyn);
+            subtype = new ProcedureDeclarationConcSyn(getTokenList(), getCounter());
         } else {
             throwGrammarError();
         }
+        parseNext(subtype);
     }
 }
