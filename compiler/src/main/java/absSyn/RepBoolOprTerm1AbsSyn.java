@@ -7,18 +7,19 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class RepBoolOprTerm1AbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> Term1ConcSyn;
-    private final List<IAbsSyn> RepBoolOprTerm1ConcSyn;
+    private final Term1AbsSyn term1AbsSyn;
+    private final RepBoolOprTerm1AbsSyn repBoolOprTerm1AbsSyn;
 
-    public RepBoolOprTerm1AbsSyn(IToken t, List<IAbsSyn> Term1ConcSyn, List<IAbsSyn> RepBoolOprTerm1ConcSyn) {
-        super(t);
-        this.Term1ConcSyn = Term1ConcSyn;
-        this.RepBoolOprTerm1ConcSyn = RepBoolOprTerm1ConcSyn;
+    public RepBoolOprTerm1AbsSyn(Term1AbsSyn term1AbsSyn, RepBoolOprTerm1AbsSyn repBoolOprTerm1AbsSyn) {
+
+        this.term1AbsSyn = term1AbsSyn;
+        this.repBoolOprTerm1AbsSyn = repBoolOprTerm1AbsSyn;
     }
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        this.term1AbsSyn.check();
+        this.repBoolOprTerm1AbsSyn.check();
     }
 }
 

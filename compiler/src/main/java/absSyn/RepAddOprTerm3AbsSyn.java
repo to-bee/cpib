@@ -1,4 +1,8 @@
 package absSyn;
+import conSyn.IConcSyn;
+import scanner.datatypes.Terminal;
+import scanner.token.IToken;
+import java.util.List;
 /**
  * Created by ylaub on 26.12.2016.
  */
@@ -7,14 +11,15 @@ public class RepAddOprTerm3AbsSyn extends AbstractAbsSyn implements IAbsSyn{
     private final RepAddOprTerm3AbsSyn repAddOprTerm3AbsSyn;
 
     public RepAddOprTerm3AbsSyn(Term3AbsSyn term3AbsSyn, RepAddOprTerm3AbsSyn repAddOprTerm3AbsSyn) {
+
         this.term3AbsSyn = term3AbsSyn;
         this.repAddOprTerm3AbsSyn = repAddOprTerm3AbsSyn;
     }
 
     @Override
     public void check() {
-        term3AbsSyn.check();
-        repAddOprTerm3AbsSyn.check();
+        this.term3AbsSyn.check();
+        this.repAddOprTerm3AbsSyn.check();
     }
 }
 
