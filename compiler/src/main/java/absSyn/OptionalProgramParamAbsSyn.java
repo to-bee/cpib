@@ -1,13 +1,16 @@
 package absSyn;
+
 import conSyn.IConcSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
+
 import java.util.List;
+
 /**
  * Created by ylaub on 26.12.2016.
  */
-public class OptionalProgramParamAbsSyn extends AbstractAbsSyn implements IAbsSyn{
+public class OptionalProgramParamAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
 
     private final OptionalFlowModeAbsSyn optionalFlowModeAbsSyn;
@@ -24,9 +27,11 @@ public class OptionalProgramParamAbsSyn extends AbstractAbsSyn implements IAbsSy
 
     @Override
     public void check() throws ContextError {
-        this.optionalFlowModeAbsSyn.check();
-        this.optionalChangeModeAbsSyn.check();
-        this.typedIdentAbsSyn.check();
-        this.repeatingOptionalProgramParametersAbsSyn.check();
+        if (optionalFlowModeAbsSyn != null) {
+            this.optionalFlowModeAbsSyn.check();
+            optionalChangeModeAbsSyn.check();
+            typedIdentAbsSyn.check();
+            repeatingOptionalProgramParametersAbsSyn.check();
+        }
     }
 }
