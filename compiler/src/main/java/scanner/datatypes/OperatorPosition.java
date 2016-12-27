@@ -5,5 +5,5 @@ package scanner.datatypes;
  * More informations about operator positions: https://en.wikipedia.org/wiki/Infix_notation
  */
 public enum OperatorPosition {
-    PREFIX, INFIX, POSTFIX, UNDEFINED;
+    PREFIX, INFIX, POSTFIX, UNDEFINED
 }
