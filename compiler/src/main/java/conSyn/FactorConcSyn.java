@@ -43,10 +43,8 @@ public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
             consume();
             parseNext(new OptionalIdentConcSyn(getTokenList(), getCounter()));
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR || getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR) {
-            parseNext(new MonadictOperatorConcSyn(getTokenList(), getCounter()));
-            parseNext(new FactorConcSyn(getTokenList(), getCounter()));
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.NOT) {
+        } else if (getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.NOT) {
             parseNext(new MonadictOperatorConcSyn(getTokenList(), getCounter()));
             parseNext(new FactorConcSyn(getTokenList(), getCounter()));
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
