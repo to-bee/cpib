@@ -15,16 +15,15 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class ParameterListConcSyn extends AbstractConcSyn implements IConcSyn {
+    private OptionalParametersConcSyn optionalParametersConcSyn;
+
     public ParameterListConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
     @Override
     public ParameterListAbsSyn toAbsSyn()throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> OptionalParametersConcSyn = super.getListByType(OptionalParametersConcSyn.class);
-
-        return new ParameterListAbsSyn(token, OptionalParametersConcSyn);
+        return new ParameterListAbsSyn(optionalParametersConcSyn.toAbsSyn());
     }
 
 
@@ -32,7 +31,10 @@ public class ParameterListConcSyn extends AbstractConcSyn implements IConcSyn {
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
             consume();
-            parseNext(new OptionalParametersConcSyn(getTokenList(), getCounter()));;
+
+            optionalParametersConcSyn = new OptionalParametersConcSyn(getTokenList(), getCounter());
+            parseNext(optionalParametersConcSyn);
+
             if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
                 consume();
             } else {

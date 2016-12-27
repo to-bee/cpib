@@ -15,19 +15,16 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class OptionalGlobalImportsConcSyn extends AbstractConcSyn implements IConcSyn {
+    private GlobalImportConcSyn globalImportConcSyn;
+    private RepeatingOptionalGlobalImportsConcSyn repeatingOptionalGlobalImportsConcSyn;
+
     public OptionalGlobalImportsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public IAbsSyn toAbsSyn()throws ContextError {
-        //TODO: implement
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> GlobalImportConcSyn = super.getListByType(GlobalImportConcSyn.class);
-        List<IAbsSyn> RepeatingOptionalGlobalImportsConcSyn = super.getListByType(RepeatingOptionalGlobalImportsConcSyn.class);
-
-        return new OptionalGlobalImportsAbsSyn(token, GlobalImportConcSyn, RepeatingOptionalGlobalImportsConcSyn);
+        return new OptionalGlobalImportsAbsSyn(globalImportConcSyn.toAbsSyn(), repeatingOptionalGlobalImportsConcSyn.toAbsSyn());
     }
 
 
@@ -38,8 +35,12 @@ public class OptionalGlobalImportsConcSyn extends AbstractConcSyn implements ICo
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.GLOBAL) {
             consume();
-            parseNext(new GlobalImportConcSyn(getTokenList(), getCounter()));
-            parseNext(new RepeatingOptionalGlobalImportsConcSyn(getTokenList(), getCounter()));
+
+            globalImportConcSyn = new GlobalImportConcSyn(getTokenList(), getCounter());
+            parseNext(globalImportConcSyn);
+
+            repeatingOptionalGlobalImportsConcSyn = new RepeatingOptionalGlobalImportsConcSyn(getTokenList(), getCounter());
+            parseNext(repeatingOptionalGlobalImportsConcSyn);
         } else {
             throwGrammarError();
         }

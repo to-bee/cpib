@@ -16,17 +16,15 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class OptionalIdentConcSyn extends AbstractConcSyn implements IConcSyn {
+    private ExpressionListConcSyn expressionListConcSyn;
+
     public OptionalIdentConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public OptionalIdentAbsSyn toAbsSyn()throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> ExpressionListConcSyn = super.getListByType(ExpressionListConcSyn.class);
-
-        return new OptionalIdentAbsSyn(token, ExpressionListConcSyn);
+        return new OptionalIdentAbsSyn(expressionListConcSyn.toAbsSyn());
     }
 
 
@@ -53,7 +51,8 @@ public class OptionalIdentConcSyn extends AbstractConcSyn implements IConcSyn {
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.INIT) {
             consume();
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
-            parseNext(new ExpressionListConcSyn(getTokenList(), getCounter()));
+            expressionListConcSyn = new ExpressionListConcSyn(getTokenList(), getCounter());
+            parseNext(expressionListConcSyn);
 
         } else {
             throwGrammarError();

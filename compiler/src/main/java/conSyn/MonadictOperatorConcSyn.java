@@ -1,10 +1,10 @@
 package conSyn;
 
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.MonadictOperatorAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
 
 /**
  * Created by tobi on 17.12.16.
@@ -16,8 +16,7 @@ public class MonadictOperatorConcSyn extends AbstractConcSyn implements IConcSyn
 
     @Override
     public MonadictOperatorAbsSyn toAbsSyn() throws ContextError {
-    //besitzt keine Nonterminals.
-    return null;
+        return new MonadictOperatorAbsSyn();
     }
 
 

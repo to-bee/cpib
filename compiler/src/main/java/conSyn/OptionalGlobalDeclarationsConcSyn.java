@@ -15,15 +15,15 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class OptionalGlobalDeclarationsConcSyn extends AbstractConcSyn implements IConcSyn {
+    private DeclarationsConcSyn declarationsConcSyn;
+
     public OptionalGlobalDeclarationsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public OptionalGlobalDeclarationsAbsSyn toAbsSyn()throws ContextError {
-        List<IAbsSyn> DeclarationsConcSyn = super.getListByType(DeclarationsConcSyn.class);
-        return new OptionalGlobalDeclarationsAbsSyn(token, DeclarationsConcSyn);
+        return new OptionalGlobalDeclarationsAbsSyn(declarationsConcSyn.toAbsSyn());
     }
 
 
@@ -33,7 +33,9 @@ public class OptionalGlobalDeclarationsConcSyn extends AbstractConcSyn implement
             consume();
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.GLOBAL) {
             consume();
-            parseNext(new DeclarationsConcSyn(getTokenList(), getCounter()));
+
+            declarationsConcSyn = new DeclarationsConcSyn(getTokenList(), getCounter());
+            parseNext(declarationsConcSyn);
         } else {
             throwGrammarError();
         }

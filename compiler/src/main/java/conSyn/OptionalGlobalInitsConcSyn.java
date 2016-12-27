@@ -15,6 +15,8 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class OptionalGlobalInitsConcSyn extends AbstractConcSyn implements IConcSyn {
+    private IdentsConcSyn identsConcSyn;
+
     public OptionalGlobalInitsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
@@ -22,10 +24,7 @@ public class OptionalGlobalInitsConcSyn extends AbstractConcSyn implements IConc
     private IToken token;
     @Override
     public OptionalGlobalInitsAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> IdentsConcSyn = super.getListByType(IdentsConcSyn.class);
-
-        return new OptionalGlobalInitsAbsSyn(token, IdentsConcSyn);
+        return new OptionalGlobalInitsAbsSyn(identsConcSyn.toAbsSyn());
     }
 
 
@@ -41,7 +40,9 @@ public class OptionalGlobalInitsConcSyn extends AbstractConcSyn implements IConc
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.INIT) {
             consume();
-            parseNext(new IdentsConcSyn(getTokenList(), getCounter()));
+
+            identsConcSyn = new IdentsConcSyn(getTokenList(), getCounter());
+            parseNext(identsConcSyn);
         } else {
             throwGrammarError();
         }

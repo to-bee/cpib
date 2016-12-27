@@ -16,17 +16,16 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class OptionalParametersConcSyn extends AbstractConcSyn implements IConcSyn {
+    private ParameterConcSyn parameterConcSyn;
+    private RepeatingOptionalParametersConcSyn repeatingOptionalParametersConcSyn;
+
     public OptionalParametersConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
     @Override
     public OptionalParametersAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> ParameterConcSyn = super.getListByType(ParameterConcSyn.class);
-        List<IAbsSyn> RepeatingOptionalParametersConcSyn = super.getListByType(RepeatingOptionalParametersConcSyn.class);
-
-        return new OptionalParametersAbsSyn(token, ParameterConcSyn, RepeatingOptionalParametersConcSyn);
+        return new OptionalParametersAbsSyn(parameterConcSyn.toAbsSyn(), repeatingOptionalParametersConcSyn.toAbsSyn());
     }
 
 
@@ -38,8 +37,12 @@ public class OptionalParametersConcSyn extends AbstractConcSyn implements IConcS
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.MECHMODE
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
-            parseNext(new ParameterConcSyn(getTokenList(), getCounter()));
-            parseNext(new RepeatingOptionalParametersConcSyn(getTokenList(), getCounter()));
+
+            parameterConcSyn = new ParameterConcSyn(getTokenList(), getCounter())
+            parseNext(parameterConcSyn);
+
+            repeatingOptionalParametersConcSyn = new RepeatingOptionalParametersConcSyn(getTokenList(), getCounter())
+            parseNext(repeatingOptionalParametersConcSyn);
         } else {
             throwGrammarError();
         }

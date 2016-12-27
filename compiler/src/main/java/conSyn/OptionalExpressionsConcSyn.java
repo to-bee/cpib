@@ -15,18 +15,16 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class OptionalExpressionsConcSyn extends AbstractConcSyn implements IConcSyn {
+    private RepeatingOptionalExpressionsConcSyn repeatingOptionalExpressionsConcSyn;
+    private ExpressionConcSyn expressionConcSyn;
+
     public OptionalExpressionsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public OptionalExpressionsAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> ExpressionConcSyn = super.getListByType(ExpressionConcSyn.class);
-        List<IAbsSyn> RepeatingOptionalExpressionsConcSyn = super.getListByType(RepeatingOptionalExpressionsConcSyn.class);
-
-        return new OptionalExpressionsAbsSyn(token, ExpressionConcSyn, RepeatingOptionalExpressionsConcSyn);
+        return new OptionalExpressionsAbsSyn(expressionConcSyn.toAbsSyn(), repeatingOptionalExpressionsConcSyn.toAbsSyn());
     }
 
 
@@ -43,8 +41,12 @@ public class OptionalExpressionsConcSyn extends AbstractConcSyn implements IConc
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
-            parseNext(new ExpressionConcSyn(getTokenList(), getCounter()));
-            parseNext(new RepeatingOptionalExpressionsConcSyn(getTokenList(), getCounter()));
+
+            expressionConcSyn = new ExpressionConcSyn(getTokenList(), getCounter());
+            parseNext(expressionConcSyn);
+
+            repeatingOptionalExpressionsConcSyn = new RepeatingOptionalExpressionsConcSyn(getTokenList(), getCounter());
+            parseNext(repeatingOptionalExpressionsConcSyn);
         } else {
             throwGrammarError();
         }

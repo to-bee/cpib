@@ -15,16 +15,15 @@ import java.util.List;
  * Created by ylaub on 19.12.2016.
  */
 public class OptionalTypeDeclarationConcSyn extends AbstractConcSyn implements IConcSyn{
+    private SubTypeDeclarationConcSyn subTypeDeclarationConcSyn;
+
     public OptionalTypeDeclarationConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
     @Override
     public OptionalTypeDeclarationAbsSyn toAbsSyn()throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> SubTypeDeclarationConcSyn = super.getListByType(SubTypeDeclarationConcSyn.class);
-
-        return new OptionalTypeDeclarationAbsSyn(token, SubTypeDeclarationConcSyn);
+        return new OptionalTypeDeclarationAbsSyn(subTypeDeclarationConcSyn.toAbsSyn());
     }
 
     @Override
@@ -34,7 +33,9 @@ public class OptionalTypeDeclarationConcSyn extends AbstractConcSyn implements I
         }
         else if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA){
             consume();
-            parseNext(new SubTypeDeclarationConcSyn(getTokenList(), getCounter()));
+
+            subTypeDeclarationConcSyn = new SubTypeDeclarationConcSyn(getTokenList(), getCounter())
+            parseNext(subTypeDeclarationConcSyn);
         }else{
             throwGrammarError();
         }
