@@ -16,7 +16,7 @@ public class OptionalMechModeConcSyn extends AbstractConcSyn implements IConcSyn
     }
 
     @Override
-    public IAbsSyn toAbsSyn() throws ContextError {
+    public OptionalMechModeAbsSyn toAbsSyn() throws ContextError {
         //besitzt keine Nonterminals.
         return null;
     }
