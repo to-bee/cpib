@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebaf0080-dc7f-4926-9415-dc7a5827aa42" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scanner/token/Ident.java" afterPath="$PROJECT_DIR$/src/main/java/scanner/token/Ident.java" />
     </list>
     <ignored path="compiler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,29 +74,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OptionalProgramParamConcSyn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParamConcSyn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="51" column="49" lean-forward="false" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
-              <folding>
-                <element signature="e#857#858#0" expanded="true" />
-                <element signature="e#892#893#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RepeatingOptionalProgramParametersConcSyn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalProgramParametersConcSyn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="OptionalChangeModeConcSyn.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalChangeModeConcSyn.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -130,7 +107,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ident.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Ident.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/scanner/token/Ident.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -140,6 +117,26 @@
                 <element signature="e#502#503#0" expanded="true" />
                 <element signature="e#590#591#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -265,7 +262,6 @@
         <option value="$PROJECT_DIR$/src/main/java/absSyn/IAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/test/java/AbsSynTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/Program.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/Cmd.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/commands/Cmd.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalCmdsConcSyn.java" />
@@ -292,6 +288,7 @@
         <option value="$PROJECT_DIR$/src/main/java/absSyn/ProgramParameterListAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParamConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/scanner/token/Ident.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -1594,7 +1591,7 @@
       <workItem from="1482152704612" duration="2590000" />
       <workItem from="1482253917787" duration="4519000" />
       <workItem from="1482305597259" duration="93000" />
-      <workItem from="1482833821181" duration="9000000" />
+      <workItem from="1482833821181" duration="9066000" />
     </task>
     <task id="LOCAL-00001" summary="maven compiler plugin">
       <created>1475525604353</created>
@@ -1855,7 +1852,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482845412796</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="check ident">
+      <created>1482846177838</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1482846177838</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1891,7 +1895,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166282000" />
+    <option name="totallyTimeSpent" value="166348000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1866" height="1177" extended-state="6" />
@@ -1964,7 +1968,8 @@
     <MESSAGE value="renamed concrete classes" />
     <MESSAGE value="gitignore" />
     <MESSAGE value="abs syn (not building)" />
-    <option name="LAST_COMMIT_MESSAGE" value="abs syn (not building)" />
+    <MESSAGE value="check ident" />
+    <option name="LAST_COMMIT_MESSAGE" value="check ident" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2024,13 +2029,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Term1ConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalExpressionsConcSyn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -2139,14 +2137,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2418,6 +2408,22 @@
             <element signature="e#502#503#0" expanded="true" />
             <element signature="e#590#591#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>

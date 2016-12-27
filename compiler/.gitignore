@@ -1,4 +1,4 @@
 /target/
-.idea/
+/.idea/
 src/compiler.iml
 src/main/main.iml
