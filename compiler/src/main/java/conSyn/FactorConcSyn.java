@@ -5,6 +5,7 @@ import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.IToken;
+import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
 
 /**
@@ -12,6 +13,7 @@ import scanner.tokenList.ITokenList;
  */
 public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
+    private Ident ident;
 
     public FactorConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -25,17 +27,11 @@ public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IMAGINARY_PART) {
-//            TODO: subType = new FactorImaginaryPartConcSyn();
-            consume();
+            subType = new FactorImaginaryPartConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
-            // TODO: this.getTokenList().getCurrent().check();
-            // TODO: subType = new FactorLiteralConcSyn();
-            consume();
+            subType = new FactorLiteralConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
-            // TODO: subType = new FactorIdentConcSyn();
-            consume();
-            optionalIdentConcSyn = new OptionalIdentConcSyn(getTokenList(), getCounter());
-            parseNext(optionalIdentConcSyn);
+            subType = new FactorIdentConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT) {
             subType = new FactorMoniadicConcSyn(getTokenList(), getCounter());
