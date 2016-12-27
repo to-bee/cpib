@@ -1,6 +1,7 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
+import absSyn.OptionalFlowModeAbsSyn;
+import absSyn.ProgramParameterListAbsSyn;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
@@ -16,7 +17,7 @@ public class OptionalFlowModeConcSyn extends AbstractConcSyn implements IConcSyn
     }
 
     @Override
-    public IAbsSyn toAbsSyn() throws ContextError {
+    public OptionalFlowModeAbsSyn toAbsSyn() throws ContextError {
         //besitzt keine Nonterminals.
         return null;
     }

@@ -1,13 +1,12 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
+import absSyn.OptionalChangeModeAbsSyn;
+import absSyn.ProgramParameterListAbsSyn;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
 import scanner.datatypes.Terminal;
-
-import scanner.token.IToken;
 
 /**
  * Created by tobi on 17.12.16.
@@ -18,7 +17,7 @@ public class OptionalChangeModeConcSyn extends AbstractConcSyn implements IConcS
     }
 
     @Override
-    public IAbsSyn toAbsSyn() throws ContextError {
+    public OptionalChangeModeAbsSyn toAbsSyn() throws ContextError {
         //besitzt keine Nonterminals.
         return null;
     }
@@ -27,7 +26,7 @@ public class OptionalChangeModeConcSyn extends AbstractConcSyn implements IConcS
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
-
+            // TODO: save ident
         } else if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
             consume();
         } else {

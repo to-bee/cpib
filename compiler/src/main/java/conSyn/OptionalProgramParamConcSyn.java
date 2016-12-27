@@ -1,34 +1,34 @@
 package conSyn;
 
 import absSyn.IAbsSyn;
+import absSyn.ProgramParameterListAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
 
 import absSyn.OptionalProgramParamAbsSyn;
 import scanner.token.IToken;
-import scanner.tokenList.ITokenList;
+
 import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
 public class OptionalProgramParamConcSyn extends AbstractConcSyn implements IConcSyn {
+    private RepeatingOptionalProgramParametersConcSyn repeatingOptionalProgramParametersConcSyn;
+    private OptionalFlowModeConcSyn optionalFlowModeConcSyn;
+    private OptionalChangeModeConcSyn optionalChangeModeConcSyn;
+    private TypedIdentConcSyn typedIdentConcSyn;
+
     public OptionalProgramParamConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
-    public IAbsSyn toAbsSyn()throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> OptionalFlowModeConcSyn = super.getListByType(OptionalFlowModeConcSyn.class);
-        List<IAbsSyn> OptionalChangeModeConcSyn = super.getListByType(OptionalChangeModeConcSyn.class);
-        List<IAbsSyn> TypedIdentConcSyn = super.getListByType(TypedIdentConcSyn.class);
-        List<IAbsSyn> RepeatingOptionalProgramParametersConcSyn = super.getListByType(RepeatingOptionalProgramParametersConcSyn.class);
-
-        return new OptionalProgramParamAbsSyn(token, OptionalFlowModeConcSyn, OptionalChangeModeConcSyn, TypedIdentConcSyn, RepeatingOptionalProgramParametersConcSyn);
+    public OptionalProgramParamAbsSyn toAbsSyn()throws ContextError {
+        return new OptionalProgramParamAbsSyn(optionalFlowModeConcSyn.toAbsSyn(), optionalChangeModeConcSyn.toAbsSyn(), typedIdentConcSyn.toAbsSyn(), repeatingOptionalProgramParametersConcSyn.toAbsSyn());
     }
 
 
@@ -39,10 +39,17 @@ public class OptionalProgramParamConcSyn extends AbstractConcSyn implements ICon
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
-            parseNext(new OptionalFlowModeConcSyn(getTokenList(), getCounter()));
-            parseNext(new OptionalChangeModeConcSyn(getTokenList(), getCounter()));
-            parseNext(new TypedIdentConcSyn(getTokenList(), getCounter()));
-            parseNext(new RepeatingOptionalProgramParametersConcSyn(getTokenList(), getCounter()));
+            optionalFlowModeConcSyn = new OptionalFlowModeConcSyn(getTokenList(), getCounter());
+            parseNext(optionalFlowModeConcSyn);
+
+            optionalChangeModeConcSyn = new OptionalChangeModeConcSyn(getTokenList(), getCounter());
+            parseNext(optionalChangeModeConcSyn);
+
+            typedIdentConcSyn = new TypedIdentConcSyn(getTokenList(), getCounter());
+            parseNext(typedIdentConcSyn);
+
+            repeatingOptionalProgramParametersConcSyn = new RepeatingOptionalProgramParametersConcSyn(getTokenList(), getCounter());
+            parseNext(repeatingOptionalProgramParametersConcSyn);
         } else {
             throwGrammarError();
         }

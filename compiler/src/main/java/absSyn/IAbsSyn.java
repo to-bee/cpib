@@ -1,7 +1,9 @@
 package absSyn;
 
+import scanner.errors.ContextError;
+
 public interface IAbsSyn {
-    void check();
+    void check() throws ContextError;
 }
 
 //    /** Check the Context and Types of the Node. */

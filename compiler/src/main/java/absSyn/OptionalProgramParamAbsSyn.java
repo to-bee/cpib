@@ -7,21 +7,25 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class OptionalProgramParamAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> OptionalFlowModeConcSyn;
-    private final List<IAbsSyn> OptionalChangeModeConcSyn;
-    private final List<IAbsSyn> TypedIdentConcSyn;
-    private final List<IAbsSyn> RepeatingOptionalProgramParametersConcSyn;
 
-    public OptionalProgramParamAbsSyn(IToken t, List<IAbsSyn> OptionalFlowModeConcSyn, List<IAbsSyn> OptionalChangeModeConcSyn, List<IAbsSyn> TypedIdentConcSyn, List<IAbsSyn> RepeatingOptionalProgramParametersConcSyn) {
-        super(t);
-        this.OptionalFlowModeConcSyn = OptionalFlowModeConcSyn;
-        this.OptionalChangeModeConcSyn = OptionalChangeModeConcSyn;
-        this.TypedIdentConcSyn = TypedIdentConcSyn;
-        this.RepeatingOptionalProgramParametersConcSyn = RepeatingOptionalProgramParametersConcSyn;
+
+    private final OptionalFlowModeAbsSyn optionalFlowModeAbsSyn;
+    private final OptionalChangeModeAbsSyn optionalChangeModeAbsSyn;
+    private final TypedIdentAbsSyn typedIdentAbsSyn;
+    private final RepeatingOptionalProgramParametersAbsSyn repeatingOptionalProgramParametersAbsSyn;
+
+    public OptionalProgramParamAbsSyn(OptionalFlowModeAbsSyn optionalFlowModeAbsSyn, OptionalChangeModeAbsSyn optionalChangeModeAbsSyn, TypedIdentAbsSyn typedIdentAbsSyn, RepeatingOptionalProgramParametersAbsSyn repeatingOptionalProgramParametersAbsSyn) {
+        this.optionalFlowModeAbsSyn = optionalFlowModeAbsSyn;
+        this.optionalChangeModeAbsSyn = optionalChangeModeAbsSyn;
+        this.typedIdentAbsSyn = typedIdentAbsSyn;
+        this.repeatingOptionalProgramParametersAbsSyn = repeatingOptionalProgramParametersAbsSyn;
     }
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        this.optionalFlowModeAbsSyn.check();
+        this.optionalChangeModeAbsSyn.check();
+        this.typedIdentAbsSyn.check();
+        this.repeatingOptionalProgramParametersAbsSyn.check();
     }
 }

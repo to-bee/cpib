@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d301c309-f902-4f24-ab8c-278fb47ccc13" name="Default" comment="" />
+    <list default="true" id="d301c309-f902-4f24-ab8c-278fb47ccc13" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../compiler/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/compiler.iml" afterPath="$PROJECT_DIR$/../compiler/compiler.iml" />
+    </list>
     <ignored path="MWCompiler.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -26,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/src/ch/fhnw/cpib/iml/parser/abssyntaxtree/ArrExpr.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+              <caret line="29" column="25" lean-forward="false" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -36,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/src/ch/fhnw/cpib/iml/parser/abssyntaxtree/IAbsSyn.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+              <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -87,6 +91,9 @@
         <option name="mavenHome" value="Bundled (Maven 3)" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -992,6 +999,111 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/Util.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/app/vars.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/app/app.module.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/app/app.component.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/app/app.component.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/app/app.module.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/app/main.prod.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/util/Util.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/Organization.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/AbstractComponent.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/Offer.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/Sport.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/Place.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/AbstractPerson.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/Order.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/Message.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/SimpleCoordinate.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/Language.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/Person.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/Rating.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/Currency.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/model/Gender.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pipes/search-offer.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pipes/sort-offer.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/providers/rest-service.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/providers/connectivity-service.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/providers/location-service.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/providers/geofence-service.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/chat/chat.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/chat/chat.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/browse/browse.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/browse/browse.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/offers/offers-page.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/offers/offers-page.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/profile/profile.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/profile/profile.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/browse-map/browse-map.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/browse-map/browse-map.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/edit-offer/edit-offer.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/edit-offer/edit-offer.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/browse-list/browse-list.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/browse-list/browse-list.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/rule-engine/rule-engine.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/rule-engine/rule-engine.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/offer-detail/offer-detail.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/offer-detail/offer-detail.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/browse-list/sort/RatingSort.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/browse-list/sort/PriceSort.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/browse-list/sort/LocationSort.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/pages/browse-list/sort/IOfferSort.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/app/app-root.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/fab/fab.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/nav/nav.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/nav/overlay-portal.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/card/card.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/grid/grid.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/icon/icon.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/item/item-reorder.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/item/item.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/item/item-sliding.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/list/list.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/menu/menu-toggle.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/menu/menu-close.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/menu/menu.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/note/note.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/tabs/tab-button.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/tabs/tab-highlight.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/tabs/tab.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/tabs/tabs.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/alert/alert-component.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/badge/badge.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/input/input.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/input/native-input.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/label/label.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/modal/modal-component.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/toast/toast-component.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/avatar/avatar.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/button/button.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/navbar/navbar.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/option/option.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/picker/picker-component.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/select/select.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/content/content.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/loading/loading-component.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/popover/popover-component.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/spinner/spinner.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/toolbar/toolbar-item.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/toolbar/toolbar-title.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/toolbar/toolbar.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/backdrop/backdrop.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/datetime/datetime.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/searchbar/searchbar.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/ionic-angular/components/action-sheet/action-sheet-component.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/@angular/forms/src/directives/ng_model.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/@angular/forms/src/directives/default_value_accessor.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/@angular/forms/src/directives/ng_control_status.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/@angular/common/src/directives/ng_class.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/@angular/common/src/directives/ng_for.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/@angular/common/src/directives/ng_style.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/@angular/common/src/directives/ng_if.ngfactory.js" />
+        <option value="$PROJECT_DIR$/../../ip5-frontend/app/.tmp/node_modules/@angular/common/src/directives/ng_switch.ngfactory.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1399,7 +1511,7 @@
     <entry file="file://$PROJECT_DIR$/src/ch/fhnw/cpib/iml/parser/abssyntaxtree/ArrExpr.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+          <caret line="29" column="25" lean-forward="false" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1407,7 +1519,7 @@
     <entry file="file://$PROJECT_DIR$/src/ch/fhnw/cpib/iml/parser/abssyntaxtree/IAbsSyn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding />
         </state>
       </provider>

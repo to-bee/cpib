@@ -1,30 +1,37 @@
 package absSyn;
 
-import conSyn.IConcSyn;
-import scanner.datatypes.Terminal;
-import scanner.token.IToken;
-import java.util.List;
+import conSyn.BlockCmdConcSyn;
+import conSyn.OptionalGlobalDeclarationsConcSyn;
+import conSyn.ProgramParameterListConcSyn;
+import scanner.errors.ContextError;
+import scanner.token.Ident;
 
 /**
  * Created by tobi on 17.12.16.
  */
 public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
-    private final List<IAbsSyn> optionalGlobalDeclarationList;
-    private final List<IAbsSyn> programParameterList;
-    private final List<IAbsSyn> BlockCmdConcSyn;
+    /**
+     * Programs identifier
+     */
+    private Ident ident;
+    private final OptionalGlobalDeclarationsAbsSyn optionalGlobalDeclarationList;
+    private final ProgramParameterListAbsSyn programParameterList;
+    private final BlockCmdAbsSyn blockCmdConcSyn;
 
-    public ProgramAbsSyn(IToken t, List<IAbsSyn> optionalGlobalDeclarationList, List<IAbsSyn> programParameterList, List<IAbsSyn> BlockCmdConcSyn) {
-            super(t);
-            this.optionalGlobalDeclarationList = optionalGlobalDeclarationList;
-            this.programParameterList = programParameterList;
-            this.BlockCmdConcSyn = BlockCmdConcSyn;
+    public ProgramAbsSyn(Ident ident, ProgramParameterListAbsSyn programParameterListConcSyn, OptionalGlobalDeclarationsAbsSyn optionalGlobalDeclarationsConcSyn, BlockCmdAbsSyn blockCmdConcSyn) {
+        this.ident = ident;
+        this.optionalGlobalDeclarationList = optionalGlobalDeclarationsConcSyn;
+        this.programParameterList = programParameterListConcSyn;
+        this.blockCmdConcSyn = blockCmdConcSyn;
     }
 
     @Override
-    public void check() {
-        //TODO: Implement Scope Check and Type Check
-//        this.optionalGlobalDeclarationList.foreach.check();
-//        this.programParameterList.foreach.check();
-//        this.blockCmd.check();
+    public void check() throws ContextError {
+        if(this.ident.getValue().length() > 256) {
+            throw new ContextError("Ident too long");
+        }
+        optionalGlobalDeclarationList.check();
+        programParameterList.check();
+        blockCmdConcSyn.check();
     }
 }

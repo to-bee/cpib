@@ -1,12 +1,10 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
+import absSyn.ProgramParameterListAbsSyn;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
 import scanner.datatypes.Terminal;
-
-import scanner.token.IToken;
 
 /**
  * Created by tobi on 17.12.16.

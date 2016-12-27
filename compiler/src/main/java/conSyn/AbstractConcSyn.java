@@ -1,6 +1,7 @@
 package conSyn;
 
 import absSyn.IAbsSyn;
+import absSyn.ProgramParameterListAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
@@ -77,26 +78,26 @@ public abstract class AbstractConcSyn implements IConcSyn {
 
     public abstract IAbsSyn toAbsSyn() throws ContextError;
 
-    protected List<IAbsSyn> getListByType(Class type) {
-        List<IAbsSyn> list = null;
-        try {
-            list = this.getChilds().stream().filter(c -> c.getClass() == type).map(c -> {
-                try {
-                    return c.toAbsSyn();
-                } catch (ContextError contextError) {
-                    contextError.printStackTrace();
-                    return null;
-                }
-            }).collect(Collectors.toList());
-        } catch (NoSuchElementException e) {
-        }
-
-        return list;
-    }
-
-    protected IAbsSyn getOneByType(Class type) throws ContextError {
-        return this.getChilds().stream().filter(c -> c.getClass() == type).findFirst().get().toAbsSyn();
-    }
+//    protected List<IAbsSyn> getListByType(Class type) {
+//        List<IAbsSyn> list = null;
+//        try {
+//            list = this.getChilds().stream().filter(c -> c.getClass() == type).map(c -> {
+//                try {
+//                    return c.toAbsSyn();
+//                } catch (ContextError contextError) {
+//                    contextError.printStackTrace();
+//                    return null;
+//                }
+//            }).collect(Collectors.toList());
+//        } catch (NoSuchElementException e) {
+//        }
+//
+//        return list;
+//    }
+//
+//    protected IAbsSyn getOneByType(Class type) throws ContextError {
+//        return this.getChilds().stream().filter(c -> c.getClass() == type).findFirst().get().toAbsSyn();
+//    }
 
     public List<IConcSyn> getChilds() {
         return childs;

@@ -7,10 +7,10 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class RepeatingOptionalCmdsAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> CmdConcSyn;
+    private final IAbsSyn CmdConcSyn;
     private final List<IAbsSyn> RepeatingOptionalCmdsConcSyn;
 
-    public RepeatingOptionalCmdsAbsSyn(IToken t, List<IAbsSyn> CmdConcSyn, List<IAbsSyn> RepeatingOptionalCmdsConcSyn) {
+    public RepeatingOptionalCmdsAbsSyn(IToken t, IAbsSyn CmdConcSyn, List<IAbsSyn> RepeatingOptionalCmdsConcSyn) {
         super(t);
         this.CmdConcSyn = CmdConcSyn;
         this.RepeatingOptionalCmdsConcSyn = RepeatingOptionalCmdsConcSyn;

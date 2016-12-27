@@ -1,6 +1,6 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
+import absSyn.ProgramParameterListAbsSyn;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;

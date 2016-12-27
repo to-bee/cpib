@@ -20,12 +20,8 @@ public class Ident extends BaseToken {
     	return ident;
     }
 
-    public String getIdent() {
-        return ident;
-    }
-
     @Override
     public String toString() {
-        return String.format("%s, \"%s\"", getTerminal().toString(), getIdent());
+        return String.format("%s, \"%s\"", getTerminal().toString(), getValue());
     }
 }

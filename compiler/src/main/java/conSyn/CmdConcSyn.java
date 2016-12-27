@@ -2,6 +2,7 @@ package conSyn;
 
 import absSyn.CmdAbsSyn;
 import absSyn.IAbsSyn;
+import absSyn.ProgramParameterListAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;

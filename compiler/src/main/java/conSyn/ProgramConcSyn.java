@@ -2,10 +2,11 @@ package conSyn;
 
 import absSyn.IAbsSyn;
 import absSyn.ProgramAbsSyn;
+import absSyn.ProgramParameterListAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
-import scanner.token.IToken;
+import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
 import java.util.List;
 
@@ -13,36 +14,38 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class ProgramConcSyn extends AbstractConcSyn {
-    private IToken token;
+    private Ident ident;
+    private ProgramParameterListConcSyn programParameterListConcSyn;
+    private OptionalGlobalDeclarationsConcSyn optionalGlobalDeclarationsConcSyn;
+    private BlockCmdConcSyn blockCmdConcSyn;
 
     public ProgramConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
     @Override
-    public IAbsSyn toAbsSyn() throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> ProgramParameterListConcSyn = super.getListByType(ProgramParameterListConcSyn.class);
-        List<IAbsSyn> OptionalGlobalDeclarationsConcSyn = super.getListByType(OptionalGlobalDeclarationsConcSyn.class);
-        List<IAbsSyn> BlockCmdConcSyn = super.getListByType(BlockCmdConcSyn.class);
-
-        return new ProgramAbsSyn(token, ProgramParameterListConcSyn,OptionalGlobalDeclarationsConcSyn,BlockCmdConcSyn);
+    public ProgramAbsSyn toAbsSyn() throws ContextError {
+        return new ProgramAbsSyn(ident, programParameterListConcSyn.toAbsSyn(), optionalGlobalDeclarationsConcSyn.toAbsSyn(), blockCmdConcSyn.toAbsSyn());
     }
 
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.PROGRAM) {
-            this.token = getTokenList().getCurrent();
             consume();
             if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+                ident = (Ident) this.getTokenList().getCurrent();
                 consume();
 
-                parseNext(new ProgramParameterListConcSyn(getTokenList(), getCounter()));
-                parseNext(new OptionalGlobalDeclarationsConcSyn(getTokenList(), getCounter()));
+                programParameterListConcSyn = new ProgramParameterListConcSyn(getTokenList(), getCounter());
+                parseNext(programParameterListConcSyn);
+
+                optionalGlobalDeclarationsConcSyn = new OptionalGlobalDeclarationsConcSyn(getTokenList(), getCounter());
+                parseNext(optionalGlobalDeclarationsConcSyn);
 
                 if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
                     consume();
-                    parseNext(new BlockCmdConcSyn(getTokenList(), getCounter()));
+                    blockCmdConcSyn = new BlockCmdConcSyn(getTokenList(), getCounter());
+                    parseNext(blockCmdConcSyn);
                     if (getTokenList().getCurrent().getTerminal() == Terminal.ENDPROGRAM) {
                         consume();
                     } else {
