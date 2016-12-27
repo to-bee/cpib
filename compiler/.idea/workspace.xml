@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5651070e-9a24-4729-a323-810fac4d0144" name="Default" comment="">
+    <list default="true" id="5651070e-9a24-4729-a323-810fac4d0144" name="Default" comment="abs syn">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -113,8 +113,8 @@
       <file leaf-file-name="FunctionDeclarationConcSyn.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/FunctionDeclarationConcSyn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="270">
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1038,7 +1038,7 @@
       <workItem from="1482834399839" duration="43000" />
       <workItem from="1482834459918" duration="612000" />
       <workItem from="1482835325549" duration="6719000" />
-      <workItem from="1482847469872" duration="2265000" />
+      <workItem from="1482847469872" duration="2312000" />
     </task>
     <task id="LOCAL-00001" summary="asdf">
       <created>1482834806195</created>
@@ -1075,7 +1075,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482849721953</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="abs syn">
+      <created>1482849746064</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1482849746064</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1093,7 +1100,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9639000" />
+    <option name="totallyTimeSpent" value="9686000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1867" height="1177" extended-state="6" />
@@ -1613,8 +1620,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/FunctionDeclarationConcSyn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="270">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
