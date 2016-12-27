@@ -23,7 +23,7 @@ public class Term2ConcSyn extends AbstractConcSyn implements IConcSyn {
     }
 
     @Override
-    public IAbsSyn toAbsSyn() throws ContextError {
+    public Term2AbsSyn toAbsSyn() throws ContextError {
         return new Term2AbsSyn(term3ConcSyn.toAbsSyn(), repAddOprTerm3ConcSyn.toAbsSyn());
     }
 

@@ -19,9 +19,8 @@ public class RepeatingOptionalStorageDeclarationsConcSyn extends AbstractConcSyn
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
-    public IAbsSyn toAbsSyn()throws ContextError {
+    public RepeatingOptionalStorageDeclarationsAbsSyn toAbsSyn()throws ContextError {
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
         List<IAbsSyn> StorageDeclarationConcSyn = super.getListByType(StorageDeclarationConcSyn.class);
         List<IAbsSyn> RepeatingOptionalStorageDeclarationsConcSyn = super.getListByType(RepeatingOptionalStorageDeclarationsConcSyn.class);

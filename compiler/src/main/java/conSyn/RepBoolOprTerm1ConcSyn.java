@@ -20,9 +20,8 @@ public class RepBoolOprTerm1ConcSyn extends AbstractConcSyn implements IConcSyn 
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
-    public IAbsSyn toAbsSyn() throws ContextError {
+    public RepBoolOprTerm1AbsSyn toAbsSyn() throws ContextError {
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
         List<IAbsSyn> Term1ConcSyn = super.getListByType(Term1ConcSyn.class);
         List<IAbsSyn> RepBoolOprTerm1ConcSyn = super.getListByType(RepBoolOprTerm1ConcSyn.class);

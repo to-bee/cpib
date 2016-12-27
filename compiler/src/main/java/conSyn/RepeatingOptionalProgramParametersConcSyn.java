@@ -19,7 +19,6 @@ public class RepeatingOptionalProgramParametersConcSyn extends AbstractConcSyn i
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public RepeatingOptionalProgramParametersAbsSyn toAbsSyn() throws ContextError {
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.

@@ -19,9 +19,8 @@ public class ParameterListConcSyn extends AbstractConcSyn implements IConcSyn {
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
-    public IAbsSyn toAbsSyn()throws ContextError {
+    public ParameterListAbsSyn toAbsSyn()throws ContextError {
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
         List<IAbsSyn> OptionalParametersConcSyn = super.getListByType(OptionalParametersConcSyn.class);
 

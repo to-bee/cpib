@@ -22,7 +22,7 @@ public class Term3ConcSyn extends AbstractConcSyn implements IConcSyn {
 
     private IToken token;
     @Override
-    public IAbsSyn toAbsSyn() throws ContextError {
+    public Term3AbsSyn toAbsSyn() throws ContextError {
         return new Term3AbsSyn(token, FactorConcSyn.toAbsSyn(), RepMultOprFactorConcSyn.toAbsSyn());
     }
 

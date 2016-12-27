@@ -22,7 +22,7 @@ public class RepRelOprTerm2ConcSyn extends AbstractConcSyn implements IConcSyn {
 
     private IToken token;
     @Override
-    public IAbsSyn toAbsSyn() throws ContextError {
+    public RepRelOprTerm2AbsSyn toAbsSyn() throws ContextError {
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
         List<IAbsSyn> Term2ConcSyn = super.getListByType(Term2ConcSyn.class);
         List<IAbsSyn> RepRelOprTerm2ConcSyn = super.getListByType(RepRelOprTerm2ConcSyn.class);

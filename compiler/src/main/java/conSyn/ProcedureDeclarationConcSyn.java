@@ -19,9 +19,8 @@ public class ProcedureDeclarationConcSyn extends AbstractConcSyn implements ICon
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
-    public IAbsSyn toAbsSyn() throws ContextError {
+    public ProcedureDeclarationAbsSyn toAbsSyn() throws ContextError {
         //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
         List<IAbsSyn> ParameterListConcSyn = super.getListByType(ParameterListConcSyn.class);
         List<IAbsSyn> OptionalGlobalImportsConcSyn = super.getListByType(OptionalGlobalImportsConcSyn.class);
