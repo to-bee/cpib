@@ -10,20 +10,22 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class DeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final List<IAbsSyn> StorageDeclarationConcSyn;
-    private final List<IAbsSyn> FunctionDeclarationConcSyn;
-    private final List<IAbsSyn> ProcedureDeclarationConcSyn;
 
-    public DeclarationAbsSyn(IToken t, List<IAbsSyn> StorageDeclarationConcSyn, List<IAbsSyn> FunctionDeclarationConcSyn, List<IAbsSyn> ProcedureDeclarationConcSyn) {
-        super(t);
-        this.StorageDeclarationConcSyn = StorageDeclarationConcSyn;
-        this.FunctionDeclarationConcSyn = FunctionDeclarationConcSyn;
-        this.ProcedureDeclarationConcSyn = ProcedureDeclarationConcSyn;
+    private final FunctionDeclarationAbsSyn functionDeclarationAbsSyn;
+    private final StorageDeclarationAbsSyn storageDeclarationAbsSyn;
+    private final ProcedureDeclarationAbsSyn procedureDeclarationAbsSyn;
+
+    public DeclarationAbsSyn(StorageDeclarationAbsSyn storageDeclarationAbsSyn, FunctionDeclarationAbsSyn functionDeclarationAbsSyn, ProcedureDeclarationAbsSyn procedureDeclarationAbsSyn) {
+        this.storageDeclarationAbsSyn = storageDeclarationAbsSyn;
+        this.functionDeclarationAbsSyn = functionDeclarationAbsSyn;
+        this.procedureDeclarationAbsSyn = procedureDeclarationAbsSyn;
     }
 
     @Override
     public void check() {
-        //TODO: Implement Scope Check and Type Check
+        storageDeclarationAbsSyn.check();
+        functionDeclarationAbsSyn.check();
+        procedureDeclarationAbsSyn.check();
     }
 }
 
