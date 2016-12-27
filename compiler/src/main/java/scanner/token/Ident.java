@@ -1,6 +1,7 @@
 package scanner.token;
 
 import scanner.datatypes.Terminal;
+import scanner.errors.ContextError;
 
 /**
  * 
@@ -18,6 +19,10 @@ public class Ident extends BaseToken {
     
     public String getValue() {
     	return ident;
+    }
+
+    public void check() {
+//        throw new ContextError();
     }
 
     @Override
