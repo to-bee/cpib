@@ -13,3 +13,9 @@ hs_err_pid*
 
 # Directories
 /MWCompiler-example-infboard/
+
+compiler/target/
+compiler/.idea/
+compiler/src/compiler.iml
+compiler/src/main/main.iml
+
