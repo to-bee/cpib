@@ -15,18 +15,16 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class Term1ConcSyn extends AbstractConcSyn implements IConcSyn {
+    private Term2ConcSyn term2ConcSyn;
+    private RepRelOprTerm2ConcSyn repRelOprTerm2ConcSyn;
+
     public Term1ConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public Term1AbsSyn toAbsSyn()throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> Term2ConcSyn = super.getListByType(Term2ConcSyn.class);
-        List<IAbsSyn> RepRelOprTerm2ConcSyn = super.getListByType(RepRelOprTerm2ConcSyn.class);
-
-        return new Term1AbsSyn(token, Term2ConcSyn, RepRelOprTerm2ConcSyn);
+        return new Term1AbsSyn(term2ConcSyn.toAbsSyn(), repRelOprTerm2ConcSyn.toAbsSyn());
     }
 
 
@@ -41,8 +39,12 @@ public class Term1ConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
-            parseNext(new Term2ConcSyn(getTokenList(), getCounter()));
-            parseNext(new RepRelOprTerm2ConcSyn(getTokenList(), getCounter()));
+
+            term2ConcSyn = new Term2ConcSyn(getTokenList(), getCounter())
+            parseNext(term2ConcSyn);
+
+            repRelOprTerm2ConcSyn = new RepRelOprTerm2ConcSyn(getTokenList(), getCounter())
+            parseNext(repRelOprTerm2ConcSyn);
         } else {
             throwGrammarError();
         }

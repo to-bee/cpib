@@ -16,6 +16,9 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class StorageDeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
+    private TypedIdentConcSyn typedIdentConcSyn;
+    private OptionalChangeModeConcSyn optionalChangeModeConcSyn;
+
     public StorageDeclarationConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
@@ -23,11 +26,7 @@ public class StorageDeclarationConcSyn extends AbstractConcSyn implements IConcS
     private IToken token;
     @Override
     public StorageDeclarationAbsSyn toAbsSyn()throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> OptionalChangeModeConcSyn = super.getListByType(OptionalChangeModeConcSyn.class);
-        List<IAbsSyn> TypedIdentConcSyn = super.getListByType(TypedIdentConcSyn.class);
-
-        return new StorageDeclarationAbsSyn(token, OptionalChangeModeConcSyn, TypedIdentConcSyn);
+        return new StorageDeclarationAbsSyn(typedIdentConcSyn.toAbsSyn(), optionalChangeModeConcSyn.toAbsSyn());
     }
 
 
@@ -35,8 +34,11 @@ public class StorageDeclarationConcSyn extends AbstractConcSyn implements IConcS
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
-            parseNext(new OptionalChangeModeConcSyn(getTokenList(), getCounter()));
-            parseNext(new TypedIdentConcSyn(getTokenList(), getCounter()));
+            optionalChangeModeConcSyn = new OptionalChangeModeConcSyn(getTokenList(), getCounter());
+            parseNext(optionalChangeModeConcSyn);
+
+            typedIdentConcSyn = new TypedIdentConcSyn(getTokenList(), getCounter())
+            parseNext(typedIdentConcSyn);
         } else {
             throwGrammarError();
         }

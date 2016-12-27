@@ -26,14 +26,9 @@ public class TypeDeclarationConcSyn extends AbstractConcSyn implements IConcSyn 
         super(tokenList, i);
     }
 
-    private IToken token;
     @Override
     public TypeDeclarationAbsSyn toAbsSyn()throws ContextError {
-        //Für jedes Nichtterminalsymbol (unten mit ParseNext deklariert) wird eine Liste mit den dazugehörigen Elementen dem Abstrakten Syntaxbaum übergeben.
-        List<IAbsSyn> SubTypeDeclarationConcSyn = super.getListByType(SubTypeDeclarationConcSyn.class);
-        List<IAbsSyn> OptionalTypeDeclarationConcSyn = super.getListByType(OptionalTypeDeclarationConcSyn.class);
-
-        return new TypeDeclarationAbsSyn(token, SubTypeDeclarationConcSyn, OptionalTypeDeclarationConcSyn);
+        return new TypeDeclarationAbsSyn(ident, subTypeDeclarationConcSyn1.toAbsSyn(), subTypeDeclarationConcSyn2.toAbsSyn(), optionalTypeDeclarationConcSyn.toAbsSyn());
     }
 
 

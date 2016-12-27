@@ -15,18 +15,16 @@ import java.util.List;
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalCmdsConcSyn extends AbstractConcSyn implements IConcSyn {
+    private RepeatingOptionalCmdsConcSyn repeatingOptionalCmdsConcSyn;
+    private CmdConcSyn cmdConcSyn;
+
     public RepeatingOptionalCmdsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
-    private IToken token;
-
     @Override
     public RepeatingOptionalCmdsAbsSyn toAbsSyn() throws ContextError {
-        IAbsSyn CmdConcSyn = super.getOneByType(CmdConcSyn.class);
-        List<IAbsSyn> RepeatingOptionalCmdsConcSyn = super.getListByType(RepeatingOptionalCmdsConcSyn.class);
-
-        return new RepeatingOptionalCmdsAbsSyn(token, CmdConcSyn, RepeatingOptionalCmdsConcSyn);
+        return new RepeatingOptionalCmdsAbsSyn(cmdConcSyn.toAbsSyn(), repeatingOptionalCmdsConcSyn.toAbsSyn());
     }
 
 
@@ -41,8 +39,12 @@ public class RepeatingOptionalCmdsConcSyn extends AbstractConcSyn implements ICo
 
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON) {
             consume();
-            parseNext(new CmdConcSyn(getTokenList(), getCounter()));
-            parseNext(new RepeatingOptionalCmdsConcSyn(getTokenList(), getCounter()));
+
+            cmdConcSyn = new CmdConcSyn(getTokenList(), getCounter());
+            parseNext(cmdConcSyn);
+
+            repeatingOptionalCmdsConcSyn = new RepeatingOptionalCmdsConcSyn(getTokenList(), getCounter());
+            parseNext(repeatingOptionalCmdsConcSyn);
         } else {
             throwGrammarError();
         }
