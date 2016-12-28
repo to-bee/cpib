@@ -26,6 +26,7 @@ public class ConSynTest {
 
     }
 
+    @Test
     public void testComplex() {
         IConcSyn parseTree;
         String complexAddProgram = "program ComplexTest()\n" +
@@ -64,6 +65,7 @@ public class ConSynTest {
         parseTree = checkProgram(complexMultiplyProgram);
     }
 
+    @Test
     public void tupleAdvanced() {
         String program = "program AdvancedTuple()\n" +
                 "global\n" +
@@ -84,6 +86,7 @@ public class ConSynTest {
         parseTree2.toString();
     }
 
+    @Test
     public void testTuple() {
         String program = "program TupleTest()\n" +
                 "global\n" +
