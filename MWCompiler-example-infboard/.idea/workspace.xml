@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d301c309-f902-4f24-ab8c-278fb47ccc13" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalParametersAbsSyn1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalParametersAbsSyn2.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalParametersConcSyn1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalParametersConcSyn2.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalTypeDeclarationAbsSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalTypeDeclarationConcSyn1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../compiler/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalParametersAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalParametersAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalLocalStorageDeclarationsConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalLocalStorageDeclarationsConcSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalParametersConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalParametersConcSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalTypeDeclarationAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalTypeDeclarationAbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalTypeDeclarationConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalTypeDeclarationConcSyn.java" />
     </list>
     <ignored path="MWCompiler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -778,7 +775,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="3026" height="1946" extended-state="7" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
