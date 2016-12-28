@@ -9,7 +9,7 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class OptionalGlobalDeclarationsConcSyn extends AbstractConcSyn implements IConcSyn {
-    private DeclarationsConcSyn declarationsConcSyn;
+    private IConcSyn subType;
 
     public OptionalGlobalDeclarationsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -17,22 +17,24 @@ public class OptionalGlobalDeclarationsConcSyn extends AbstractConcSyn implement
 
     @Override
     public OptionalGlobalDeclarationsAbsSyn toAbsSyn()throws ContextError {
-        return new OptionalGlobalDeclarationsAbsSyn(declarationsConcSyn.toAbsSyn());
+        return new OptionalGlobalDeclarationsAbsSyn(subType.toAbsSyn());
     }
 
     /**
-     * TODO: split up 28.12.2016
      * @throws GrammarError
      */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
-            consume();
+            subType = new EmptyConsumeConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.GLOBAL) {
-            consume();
-            declarationsConcSyn = new DeclarationsConcSyn(getTokenList(), getCounter());
-            parseNext(declarationsConcSyn);
+            subType = new OptionalGlobalDeclarationsConcSyn1(getTokenList(), getCounter());
         } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
+        }else {
             throwGrammarError();
         }
     }
