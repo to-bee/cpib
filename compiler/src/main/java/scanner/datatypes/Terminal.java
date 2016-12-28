@@ -7,8 +7,6 @@ import java.util.List;
 /**
  * Created by tobi on 27/09/16.
  * More informations about operators: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/opsummary.html
- * TODO: Extend this with func, proc, ..
- * TODO: Only terminals according to iml_v2
  */
 public enum Terminal {
     UNDEFINED("UNDEFINED", null),
@@ -125,7 +123,7 @@ public enum Terminal {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getValue());
-        if(getType() != null) {
+        if (getType() != null) {
             sb.append(String.format(" [%s]", type.getIdentifier()));
         }
         return sb.toString();

@@ -56,7 +56,7 @@ public abstract class AbstractConcSyn implements IConcSyn {
     }
 
     /**
-     * TODO: output position from scanner.Scanner
+     * output position from scanner.Scanner
      *
      * @throws GrammarError
      */

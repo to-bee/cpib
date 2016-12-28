@@ -7,77 +7,76 @@ import scanner.token.IToken;
 
 /**
  * Pretty pointless for now, since its just wrapping the linkedlist. Take out later if no need for this arises.
- * @author Roman
  *
+ * @author Roman
  */
 public class TokenList implements ITokenList {
-	
-	private LinkedList<IToken> tokenList = new LinkedList<>();
-	private int position;
 
-	public TokenList(LinkedList<IToken> tokenList) {
-		this.tokenList = tokenList;
-	}
+    private LinkedList<IToken> tokenList = new LinkedList<>();
+    private int position;
 
-	public TokenList() {
-	}
+    public TokenList(LinkedList<IToken> tokenList) {
+        this.tokenList = tokenList;
+    }
 
-	public void reset() {
-		//Not the fastest, maybe think of a better solution
-		tokenList.clear();
-	}
+    public TokenList() {
+    }
 
-	public void add(IToken token) {
-		tokenList.add(token);
-	}
+    public void reset() {
+        //Not the fastest, maybe think of a better solution
+        tokenList.clear();
+    }
 
-	private boolean isOutOfBounce() {
-		return this.position < 0 || this.position >= this.tokenList.size();
-	}
+    public void add(IToken token) {
+        tokenList.add(token);
+    }
 
-	/**
-	 * returns first Token in list or NoSuchElementException - if this list is empty
-	 * 	Also removeLast() possible whichever we will need. Will destroy the tokenlist eventually.
-	 */
-	public IToken nextToken() {
-		position++;
-		return getCurrent();
-	}
+    private boolean isOutOfBounce() {
+        return this.position < 0 || this.position >= this.tokenList.size();
+    }
 
-	@Override
-	public IToken getCurrent() {
-		return this.isOutOfBounce() ? null : this.tokenList.get(position);
-	}
+    /**
+     * returns first Token in list or NoSuchElementException - if this list is empty
+     * Also removeLast() possible whichever we will need. Will destroy the tokenlist eventually.
+     */
+    public IToken nextToken() {
+        position++;
+        return getCurrent();
+    }
 
-	public String toString(){
-		StringBuilder sb = new StringBuilder();
-		for(IToken token : tokenList) {
-			sb.append(String.format("%s", token.toString()));
-		}
+    @Override
+    public IToken getCurrent() {
+        return this.isOutOfBounce() ? null : this.tokenList.get(position);
+    }
 
-		return sb.toString();
-	}
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (IToken token : tokenList) {
+            sb.append(String.format("%s", token.toString()));
+        }
 
-	@Override
-	public Stream<IToken> stream() {
-		return this.tokenList.stream();
-	}
+        return sb.toString();
+    }
 
-	/**
-	 * TODO:
-	 * @return
-	 */
-	@Override
-	public TokenList clone() {
-		return new TokenList(tokenList);
-	}
+    @Override
+    public Stream<IToken> stream() {
+        return this.tokenList.stream();
+    }
 
-	public List<IToken> toList() {
-		return new ArrayList<IToken>(this.tokenList);
-	}
+    /**
+     * @return
+     */
+    @Override
+    public TokenList clone() {
+        return new TokenList(tokenList);
+    }
 
-	@Override
-	public int size() {
-		return this.tokenList.size();
-	}
+    public List<IToken> toList() {
+        return new ArrayList<IToken>(this.tokenList);
+    }
+
+    @Override
+    public int size() {
+        return this.tokenList.size();
+    }
 }
