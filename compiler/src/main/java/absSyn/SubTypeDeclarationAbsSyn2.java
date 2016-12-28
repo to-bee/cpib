@@ -14,7 +14,6 @@ public class SubTypeDeclarationAbsSyn2 extends AbstractAbsSyn implements IAbsSyn
     private final OptionalTypeDeclarationAbsSyn optionalTypeDeclarationAbsSyn;
 
     public SubTypeDeclarationAbsSyn2(SubTypeDeclarationAbsSyn subTypeDeclarationAbsSyn, SubTypeDeclarationAbsSyn subTypeDeclarationAbsSyn1, OptionalTypeDeclarationAbsSyn optionalTypeDeclarationAbsSyn) {
-
         this.subTypeDeclarationAbsSyn = subTypeDeclarationAbsSyn;
         this.subTypeDeclarationAbsSyn1 = subTypeDeclarationAbsSyn1;
         this.optionalTypeDeclarationAbsSyn = optionalTypeDeclarationAbsSyn;

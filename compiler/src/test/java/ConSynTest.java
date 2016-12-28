@@ -69,7 +69,7 @@ public class ConSynTest {
     public void tupleAdvanced() {
         String program = "program AdvancedTuple()\n" +
                 "global\n" +
-                  "fun test(testdata:(int32,int32)) returns testrun001:(bool,(int32,int32)))\n" +
+                  "fun test(testdata:(int32,int32)) returns testrun001:(bool,(int32,int32))\n" +
                   "local\n" +
                     "const testrun:(bool,(int32,int32));\n" +
                     "var a:int32;\n" +
