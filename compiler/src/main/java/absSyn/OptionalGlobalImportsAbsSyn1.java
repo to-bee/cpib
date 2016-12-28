@@ -7,6 +7,7 @@ import scanner.errors.ContextError;
  */
 public class OptionalGlobalImportsAbsSyn1 extends AbstractAbsSyn implements IAbsSyn {
 
+
     private final GlobalImportAbsSyn globalImportAbsSyn;
     private final RepeatingOptionalGlobalImportsAbsSyn repeatingOptionalGlobalImportsAbsSyn;
 
