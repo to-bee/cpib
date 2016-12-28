@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d301c309-f902-4f24-ab8c-278fb47ccc13" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/RepeatingOptionalStorageDeclarationsAbsSyn1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalStorageDeclarationsConcSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalIdentAbsSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalIdentConcSyn1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../compiler/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/RepeatingOptionalStorageDeclarationsAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/RepeatingOptionalStorageDeclarationsAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalStorageDeclarationsConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepeatingOptionalStorageDeclarationsConcSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/TypedIdentConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/TypedIdentConcSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalIdentAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalIdentAbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalIdentConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalIdentConcSyn.java" />
     </list>
     <ignored path="MWCompiler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -776,7 +775,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="3026" height="1946" extended-state="7" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

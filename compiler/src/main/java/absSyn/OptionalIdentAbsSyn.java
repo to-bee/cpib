@@ -5,14 +5,15 @@ import scanner.errors.ContextError;
 /**
  * Created by ylaub on 26.12.2016.
  */
-public class OptionalIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private ExpressionListAbsSyn expressionListAbsSyn;
+public class OptionalIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn {
+    private IAbsSyn subType;
 
-    public OptionalIdentAbsSyn(ExpressionListAbsSyn expressionListAbsSyn) {
-        this.expressionListAbsSyn = expressionListAbsSyn;
+    public OptionalIdentAbsSyn(IAbsSyn subType) {
+        this.subType = subType;
     }
+
     @Override
     public void check() throws ContextError {
-        expressionListAbsSyn.check();
+        subType.check();
     }
 }

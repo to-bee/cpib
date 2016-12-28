@@ -1,5 +1,6 @@
 package conSyn;
 
+import absSyn.CmdAbsSyn;
 import absSyn.OptionalIdentAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
@@ -10,7 +11,7 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class OptionalIdentConcSyn extends AbstractConcSyn implements IConcSyn {
-    private ExpressionListConcSyn expressionListConcSyn;
+    private IConcSyn subType;
 
     public OptionalIdentConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -18,7 +19,8 @@ public class OptionalIdentConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public OptionalIdentAbsSyn toAbsSyn()throws ContextError {
-        return new OptionalIdentAbsSyn(expressionListConcSyn.toAbsSyn());
+        return new OptionalIdentAbsSyn(subType.toAbsSyn());
+
     }
 
     /**
@@ -44,14 +46,17 @@ public class OptionalIdentConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR) {
-
+            subType = new EmptyConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.INIT) {
-            consume();
+            subType = new EmptyConsumeConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
-            expressionListConcSyn = new ExpressionListConcSyn(getTokenList(), getCounter());
-            parseNext(expressionListConcSyn);
-
+            subType = new OptionalIdentConcSyn1(getTokenList(), getCounter());
         } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
+        }else {
             throwGrammarError();
         }
     }
