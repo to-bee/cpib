@@ -22,8 +22,6 @@ public class RepMultOprFactorConcSyn1 extends AbstractConcSyn implements IConcSy
     }
 
     /**
-     * TODO
-     *
      * @throws GrammarError
      */
     @Override
