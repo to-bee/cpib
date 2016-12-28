@@ -6,12 +6,13 @@ import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
+
 /**
  * Created by tobi on 17.12.16.
  */
 public class RepMultOprFactorConcSyn extends AbstractConcSyn implements IConcSyn {
-    private FactorConcSyn factorConcSyn;
-    private RepMultOprFactorConcSyn repMultOprFactorConcSyn;
+
+    private IConcSyn subType;
 
     public RepMultOprFactorConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -19,11 +20,10 @@ public class RepMultOprFactorConcSyn extends AbstractConcSyn implements IConcSyn
 
     @Override
     public RepMultOprFactorAbsSyn toAbsSyn() throws ContextError {
-        return new RepMultOprFactorAbsSyn(factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn());
+        return new RepMultOprFactorAbsSyn(subType.toAbsSyn());
     }
 
     /**
-     * TODO
      * @throws GrammarError
      */
     @Override
@@ -44,14 +44,14 @@ public class RepMultOprFactorConcSyn extends AbstractConcSyn implements IConcSyn
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.RELOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR) {
-
+            subType = new EmptyConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR) {
-            consume();
-            factorConcSyn = new FactorConcSyn(getTokenList(), getCounter());
-            parseNext(factorConcSyn);
-
-            repMultOprFactorConcSyn = new RepMultOprFactorConcSyn(getTokenList(), getCounter());
-            parseNext(repMultOprFactorConcSyn);
+            subType = new RepMultOprFactorConcSyn1(getTokenList(), getCounter());
+        } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
         } else {
             throwGrammarError();
         }

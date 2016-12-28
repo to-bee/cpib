@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d301c309-f902-4f24-ab8c-278fb47ccc13" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalIdentAbsSyn1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalIdentConcSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/RepMultOprFactorAbsSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepMultOprFactorConcSyn1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../compiler/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalIdentAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalIdentAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalIdentConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/OptionalIdentConcSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/RepMultOprFactorAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/RepMultOprFactorAbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepMultOprFactorConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepMultOprFactorConcSyn.java" />
     </list>
     <ignored path="MWCompiler.iws" />
     <ignored path=".idea/workspace.xml" />

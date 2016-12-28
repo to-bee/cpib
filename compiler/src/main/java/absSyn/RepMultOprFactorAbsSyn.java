@@ -7,18 +7,16 @@ import scanner.errors.ContextError;
  */
 public class RepMultOprFactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
-    private final FactorAbsSyn factorAbsSyn;
-    private final RepMultOprFactorAbsSyn repMultOprFactorAbsSyn;
 
-    public RepMultOprFactorAbsSyn(FactorAbsSyn factorAbsSyn, RepMultOprFactorAbsSyn repMultOprFactorAbsSyn) {
+    private IAbsSyn subType;
 
-        this.factorAbsSyn = factorAbsSyn;
-        this.repMultOprFactorAbsSyn = repMultOprFactorAbsSyn;
+    public RepMultOprFactorAbsSyn(IAbsSyn subType) {
+
+        this.subType = subType;
     }
 
     @Override
     public void check() throws ContextError {
-        this.factorAbsSyn.check();
-        this.repMultOprFactorAbsSyn.check();
+        subType.check();
     }
 }
