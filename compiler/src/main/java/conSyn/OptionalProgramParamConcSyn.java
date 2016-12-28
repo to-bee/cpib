@@ -11,10 +11,7 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class OptionalProgramParamConcSyn extends AbstractConcSyn implements IConcSyn {
-    private RepeatingOptionalProgramParametersConcSyn repeatingOptionalProgramParametersConcSyn;
-    private OptionalFlowModeConcSyn optionalFlowModeConcSyn;
-    private OptionalChangeModeConcSyn optionalChangeModeConcSyn;
-    private TypedIdentConcSyn typedIdentConcSyn;
+    private IConcSyn subType;
 
     public OptionalProgramParamConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -22,31 +19,25 @@ public class OptionalProgramParamConcSyn extends AbstractConcSyn implements ICon
 
     @Override
     public OptionalProgramParamAbsSyn toAbsSyn() throws ContextError {
-        return new OptionalProgramParamAbsSyn(optionalFlowModeConcSyn.toAbsSyn(), optionalChangeModeConcSyn.toAbsSyn(), typedIdentConcSyn.toAbsSyn(), repeatingOptionalProgramParametersConcSyn.toAbsSyn());
+        return new OptionalProgramParamAbsSyn(subType.toAbsSyn());
     }
 
     /**
-     * TODO
      * @throws GrammarError
      */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
-            consume();
+            subType = new EmptyConsumeConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
-            optionalFlowModeConcSyn = new OptionalFlowModeConcSyn(getTokenList(), getCounter());
-            parseNext(optionalFlowModeConcSyn);
-
-            optionalChangeModeConcSyn = new OptionalChangeModeConcSyn(getTokenList(), getCounter());
-            parseNext(optionalChangeModeConcSyn);
-
-            typedIdentConcSyn = new TypedIdentConcSyn(getTokenList(), getCounter());
-            parseNext(typedIdentConcSyn);
-
-            repeatingOptionalProgramParametersConcSyn = new RepeatingOptionalProgramParametersConcSyn(getTokenList(), getCounter());
-            parseNext(repeatingOptionalProgramParametersConcSyn);
+            subType = new OptionalProgramParamConcSyn1(getTokenList(), getCounter());
+        } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
         } else {
             throwGrammarError();
         }
