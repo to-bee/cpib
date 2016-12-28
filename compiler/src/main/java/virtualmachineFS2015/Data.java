@@ -146,4 +146,35 @@ public class Data
     {
         return boolNew(intGet(a) <= intGet(b));
     }
+
+    static class ComplData implements IBaseData
+    {
+        private int I;
+        private int r;
+        ComplData(int I, int r) { this.I= I; this.r = r; }
+        int getReal() { return r; }
+        int getImag() { return I; }
+        public ComplData copy() { return complCopy(this); }
+    }
+
+    static ComplData complNew(int I, int r)
+    {
+        return new ComplData(I,r);
+    }
+
+    static int getImag(IBaseData a)
+    {
+        return ((ComplData)a).getImag();
+    }
+
+    static int getReal(IBaseData a)
+    {
+        return ((ComplData)a).getReal();
+    }
+
+    static ComplData complCopy(IBaseData a)
+    {
+        return complNew(getImag(a), getReal(a));
+    }
+
 }
