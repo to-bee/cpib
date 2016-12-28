@@ -177,4 +177,28 @@ public class Data
         return complNew(getImag(a), getReal(a));
     }
 
+    static ComplData complAdd(IBaseData a, IBaseData b)
+    {
+        return complNew(getImag(a) + getImag(b), getReal(a) + getReal(b));
+    }
+
+    static ComplData complSub(IBaseData a, IBaseData b)
+    {
+        return complNew(getImag(a) - getImag(b), getReal(a) - getReal(b));
+    }
+
+    static ComplData complMult(IBaseData a, IBaseData b)
+    {
+        return complNew(getReal(a)*getReal(b) - getImag(a)*getImag(b), getReal(a)*getImag(b) + getReal(b)*getImag(a));
+    }
+
+    static IntData complEQ(IBaseData a, IBaseData b)
+    {
+        return boolNew(getReal(a) == getReal(b) && getImag(a) == getImag(b));
+    }
+
+    static IntData complNE(IBaseData a, IBaseData b)
+    {
+        return boolNew(getReal(a) != getReal(b) || getImag(a) != getImag(b));
+    }
 }
