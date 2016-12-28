@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d301c309-f902-4f24-ab8c-278fb47ccc13" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/RepAddOprTerm3AbsSyn1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepAddOprTerm3ConcSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/RepRelOprTerm2AbsSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepRelOprTerm2ConcSyn1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../compiler/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/RepAddOprTerm3AbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/RepAddOprTerm3AbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepAddOprTerm3ConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepAddOprTerm3ConcSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/RepRelOprTerm2AbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/RepRelOprTerm2AbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepRelOprTerm2ConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/RepRelOprTerm2ConcSyn.java" />
     </list>
     <ignored path="MWCompiler.iws" />
     <ignored path=".idea/workspace.xml" />

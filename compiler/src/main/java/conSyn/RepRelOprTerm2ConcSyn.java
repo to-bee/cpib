@@ -6,12 +6,14 @@ import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
+
 /**
  * Created by tobi on 17.12.16.
  */
 public class RepRelOprTerm2ConcSyn extends AbstractConcSyn implements IConcSyn {
     private Term2ConcSyn term2ConcSyn;
     private RepRelOprTerm2ConcSyn repRelOprTerm2ConcSyn;
+    private IConcSyn subType;
 
     public RepRelOprTerm2ConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -19,11 +21,10 @@ public class RepRelOprTerm2ConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public RepRelOprTerm2AbsSyn toAbsSyn() throws ContextError {
-        return new RepRelOprTerm2AbsSyn(term2ConcSyn.toAbsSyn(), repRelOprTerm2ConcSyn.toAbsSyn());
+        return new RepRelOprTerm2AbsSyn(subType.toAbsSyn());
     }
 
     /**
-     * TODO
      * @throws GrammarError
      */
     @Override
@@ -41,15 +42,14 @@ public class RepRelOprTerm2ConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON
                 || getTokenList().getCurrent().getTerminal() == Terminal.BECOMES
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.BOOLOPR) {
-
+            subType = new EmptyConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.RELOPR) {
-            consume();
-
-            term2ConcSyn = new Term2ConcSyn(getTokenList(), getCounter());
-            parseNext(term2ConcSyn);
-
-            repRelOprTerm2ConcSyn = new RepRelOprTerm2ConcSyn(getTokenList(), getCounter());
-            parseNext(repRelOprTerm2ConcSyn);
+            subType = new RepRelOprTerm2ConcSyn1(getTokenList(), getCounter());
+        } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
         } else {
             throwGrammarError();
         }
