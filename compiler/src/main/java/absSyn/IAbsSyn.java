@@ -1,9 +1,12 @@
 package absSyn;
 
 import scanner.errors.ContextError;
+import virtualmachineFS2015.ICodeArray;
 
 public interface IAbsSyn {
     void check() throws ContextError;
+
+    int code(final int location) throws ICodeArray.CodeTooSmallError;
 }
 
 //    /** Check the Context and Types of the Node. */
