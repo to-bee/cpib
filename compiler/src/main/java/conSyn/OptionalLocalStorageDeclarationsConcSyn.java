@@ -31,7 +31,7 @@ public class OptionalLocalStorageDeclarationsConcSyn extends AbstractConcSyn imp
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LOCAL) {
             subType = new OptionalLocalStorageDeclarationsConcSyn1(getTokenList(), getCounter());
         } else {
-            //TODO maybe wrong, added exception 28.12.2016 by Yves
+            //maybe wrong, added exception 28.12.2016 by Yves
             throwGrammarError();
         }
         if (subType != null) {
