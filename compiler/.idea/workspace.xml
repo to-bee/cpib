@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5651070e-9a24-4729-a323-810fac4d0144" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalCmdsAbsSyn1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalCmdsConcSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalDeclarationsAbsSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarationsConcSyn1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MWCompiler-example-infboard/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../MWCompiler-example-infboard/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalCmdsAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalCmdsAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalCmdsConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalCmdsConcSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalDeclarationsAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalDeclarationsAbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarationsConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarationsConcSyn.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +26,8 @@
       <file leaf-file-name="CmdConcSyn.java" pinned="true" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdConcSyn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="58" selection-end-column="9" />
+            <state relative-caret-position="495">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -67,11 +67,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RepeatingOptionalDeclarationsConcSyn.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RepeatingOptionalDeclarationsConcSyn.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarationsConcSyn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OptionalExpressionsConcSyn.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressionsConcSyn.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="462">
               <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RepeatingOptionalDeclarationsAbsSyn.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalDeclarationsAbsSyn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="7" column="92" lean-forward="false" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="92" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RepeatingOptionalDeclarationsConcSyn1.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarationsConcSyn1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="20" column="69" lean-forward="false" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RepeatingOptionalDeclarationsAbsSyn1.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalDeclarationsAbsSyn1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="20" column="52" lean-forward="false" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -111,10 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParamConcSyn1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalProgramParamAbsSyn1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParamConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalProgramParamAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn1.java" />
@@ -162,6 +198,10 @@
         <option value="$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalCmdsAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalCmdsConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalCmdsAbsSyn1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarationsConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarationsConcSyn1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalDeclarationsAbsSyn1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalDeclarationsAbsSyn.java" />
       </list>
     </option>
   </component>
@@ -1036,7 +1076,7 @@
       <updated>1482858584594</updated>
       <workItem from="1482858586138" duration="293000" />
       <workItem from="1482859315893" duration="1415000" />
-      <workItem from="1482916901599" duration="10392000" />
+      <workItem from="1482916901599" duration="10627000" />
     </task>
     <task id="LOCAL-00004" summary="test">
       <created>1482858661917</created>
@@ -1150,13 +1190,17 @@
       <option name="project" value="LOCAL" />
       <updated>1482927089663</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="more">
+      <created>1482927348354</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1482927348354</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AbsSynTest - 2016.12.28 at 12h 34m 27s.xml">
-      <configuration name="AbsSynTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AbsSynTest - 2016.12.28 at 12h 35m 34s.xml">
       <configuration name="AbsSynTest" configurationId="JUnit" />
     </history-entry>
@@ -1184,9 +1228,12 @@
     <history-entry file="AbsSynTest - 2016.12.28 at 13h 15m 29s.xml">
       <configuration name="AbsSynTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AbsSynTest - 2016.12.28 at 13h 19m 22s.xml">
+      <configuration name="AbsSynTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17218000" />
+    <option name="totallyTimeSpent" value="17453000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1248,11 +1295,12 @@
     <MESSAGE value="OptionalGlobalImports Rewritten" />
     <MESSAGE value="rewrites" />
     <MESSAGE value="more rewrites" />
-    <option name="LAST_COMMIT_MESSAGE" value="more rewrites" />
+    <MESSAGE value="more" />
+    <option name="LAST_COMMIT_MESSAGE" value="more" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="30" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1261,45 +1309,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationIdentAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="52" lean-forward="false" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationTypeAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#285#286#0" expanded="true" />
-            <element signature="e#317#318#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationIdentConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="20" column="48" lean-forward="false" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationTypeConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="20" column="45" lean-forward="false" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalParametersAbsSyn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -1636,14 +1645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="58" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalCmdsAbsSyn1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1692,7 +1693,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalDeclarationsAbsSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="20" column="52" lean-forward="false" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarationsConcSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="20" column="69" lean-forward="false" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalDeclarationsAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="92" lean-forward="false" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarationsConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressionsConcSyn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />

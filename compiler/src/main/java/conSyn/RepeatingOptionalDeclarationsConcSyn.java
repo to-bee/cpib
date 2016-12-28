@@ -5,12 +5,12 @@ import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
+
 /**
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalDeclarationsConcSyn extends AbstractConcSyn implements IConcSyn {
-    private DeclarationConcSyn declarationConcSyn;
-    private RepeatingOptionalDeclarationsConcSyn repeatingOptionalDeclarationsConcSyn;
+    private IConcSyn subType;
 
     public RepeatingOptionalDeclarationsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -18,25 +18,23 @@ public class RepeatingOptionalDeclarationsConcSyn extends AbstractConcSyn implem
 
     @Override
     public RepeatingOptionalDeclarationsAbsSyn toAbsSyn() throws ContextError {
-        return new RepeatingOptionalDeclarationsAbsSyn(declarationConcSyn.toAbsSyn(), repeatingOptionalDeclarationsConcSyn.toAbsSyn());
+        return new RepeatingOptionalDeclarationsAbsSyn(subType.toAbsSyn());
     }
 
     /**
-     * TODO
      * @throws GrammarError
      */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
-
+            subType = new EmptyConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON) {
-            consume();
-
-            declarationConcSyn = new DeclarationConcSyn(getTokenList(), getCounter());
-            parseNext(declarationConcSyn);
-
-            repeatingOptionalDeclarationsConcSyn = new RepeatingOptionalDeclarationsConcSyn(getTokenList(), getCounter());
-            parseNext(repeatingOptionalDeclarationsConcSyn);
+            subType = new RepeatingOptionalDeclarationsConcSyn1(getTokenList(), getCounter());
+        } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
         } else {
             throwGrammarError();
         }
