@@ -5,12 +5,12 @@ import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
+
 /**
  * Created by tobi on 17.12.16.
  */
 public class OptionalExpressionsConcSyn extends AbstractConcSyn implements IConcSyn {
-    private RepeatingOptionalExpressionsConcSyn repeatingOptionalExpressionsConcSyn;
-    private ExpressionConcSyn expressionConcSyn;
+    private IConcSyn subType;
 
     public OptionalExpressionsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -18,16 +18,16 @@ public class OptionalExpressionsConcSyn extends AbstractConcSyn implements IConc
 
     @Override
     public OptionalExpressionsAbsSyn toAbsSyn() throws ContextError {
-        return new OptionalExpressionsAbsSyn(expressionConcSyn.toAbsSyn(), repeatingOptionalExpressionsConcSyn.toAbsSyn());
+        return new OptionalExpressionsAbsSyn(subType.toAbsSyn());
     }
 
     /**
-     * TODO: split up 28.12.2016
      * @throws GrammarError
      */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
+            subType = new EmptyConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IMAGINARY_PART
                 || getTokenList().getCurrent().getTerminal() == Terminal.REAL
                 || getTokenList().getCurrent().getTerminal() == Terminal.IMAG
@@ -37,12 +37,12 @@ public class OptionalExpressionsConcSyn extends AbstractConcSyn implements IConc
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
-
-            expressionConcSyn = new ExpressionConcSyn(getTokenList(), getCounter());
-            parseNext(expressionConcSyn);
-
-            repeatingOptionalExpressionsConcSyn = new RepeatingOptionalExpressionsConcSyn(getTokenList(), getCounter());
-            parseNext(repeatingOptionalExpressionsConcSyn);
+            subType = new OptionalExpressionsConcSyn1(getTokenList(), getCounter());
+        } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
         } else {
             throwGrammarError();
         }

@@ -1,24 +1,21 @@
 package absSyn;
-import conSyn.IConcSyn;
-import scanner.datatypes.Terminal;
+
 import scanner.errors.ContextError;
-import scanner.token.IToken;
-import java.util.List;
+
 /**
  * Created by ylaub on 26.12.2016.
  */
-public class OptionalExpressionsAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final ExpressionAbsSyn expressionAbsSyn;
-    private final RepeatingOptionalExpressionsAbsSyn repeatingOptionalExpressionsAbsSyn;
+public class OptionalExpressionsAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
-    public OptionalExpressionsAbsSyn(ExpressionAbsSyn expressionAbsSyn, RepeatingOptionalExpressionsAbsSyn repeatingOptionalExpressionsAbsSyn) {
-        this.expressionAbsSyn = expressionAbsSyn;
-        this.repeatingOptionalExpressionsAbsSyn = repeatingOptionalExpressionsAbsSyn;
+    private IAbsSyn subType;
+
+    public OptionalExpressionsAbsSyn(IAbsSyn subType) {
+
+        this.subType = subType;
     }
 
     @Override
     public void check() throws ContextError {
-        expressionAbsSyn.check();
-        repeatingOptionalExpressionsAbsSyn.check();
+        subType.check();
     }
 }
