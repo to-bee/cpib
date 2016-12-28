@@ -19,6 +19,7 @@ public class CmdIfAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
     @Override
     public void check() throws ContextError {
+
         exprIf.check();
         cmdThen.check();
         cmdElse.check();

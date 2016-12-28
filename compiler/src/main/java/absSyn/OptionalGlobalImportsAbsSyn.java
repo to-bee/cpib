@@ -5,18 +5,17 @@ import scanner.errors.ContextError;
 /**
  * Created by ylaub on 26.12.2016.
  */
-public class OptionalGlobalImportsAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final GlobalImportAbsSyn globalImportAbsSyn;
-    private final RepeatingOptionalGlobalImportsAbsSyn repeatingOptionalGlobalImportsAbsSyn;
+public class OptionalGlobalImportsAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
-    public OptionalGlobalImportsAbsSyn(GlobalImportAbsSyn globalImportAbsSyn, RepeatingOptionalGlobalImportsAbsSyn repeatingOptionalGlobalImportsAbsSyn) {
-        this.globalImportAbsSyn = globalImportAbsSyn;
-        this.repeatingOptionalGlobalImportsAbsSyn = repeatingOptionalGlobalImportsAbsSyn;
+    private IAbsSyn subType;
+
+    public OptionalGlobalImportsAbsSyn(IAbsSyn subType) {
+
+        this.subType = subType;
     }
 
     @Override
     public void check() throws ContextError {
-        globalImportAbsSyn.check();
-        repeatingOptionalGlobalImportsAbsSyn.check();
+        subType.check();
     }
 }

@@ -1,15 +1,9 @@
 package conSyn;
 
-import absSyn.CmdAbsSyn;
 import absSyn.CmdSkipAbsSyn;
-import absSyn.IAbsSyn;
-import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
-import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
-
-import java.util.List;
 
 /**
  * Created by tobi on 17.12.16.
