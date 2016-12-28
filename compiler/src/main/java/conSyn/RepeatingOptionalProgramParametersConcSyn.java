@@ -9,10 +9,7 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalProgramParametersConcSyn extends AbstractConcSyn implements IConcSyn {
-    private OptionalFlowModeConcSyn optionalFlowModeConcSyn;
-    private OptionalChangeModeConcSyn optionalChangeModeConcSyn;
-    private TypedIdentConcSyn typedIdentConcSyn;
-    private RepeatingOptionalParametersConcSyn repeatingOptionalParametersConcSyn;
+    private IConcSyn subType;
 
     public RepeatingOptionalProgramParametersConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -20,32 +17,24 @@ public class RepeatingOptionalProgramParametersConcSyn extends AbstractConcSyn i
 
     @Override
     public RepeatingOptionalProgramParametersAbsSyn toAbsSyn() throws ContextError {
-        return new RepeatingOptionalProgramParametersAbsSyn(optionalFlowModeConcSyn.toAbsSyn(), optionalChangeModeConcSyn.toAbsSyn(), typedIdentConcSyn.toAbsSyn(), repeatingOptionalParametersConcSyn.toAbsSyn());
+        return new RepeatingOptionalProgramParametersAbsSyn(subType.toAbsSyn());
     }
 
     /**
-     * TODO
      * @throws GrammarError
      */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
-            consume();
+            subType = new EmptyConsumeConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA) {
-            consume();
-
-            optionalFlowModeConcSyn = new OptionalFlowModeConcSyn(getTokenList(), getCounter());
-            parseNext(optionalFlowModeConcSyn);
-
-            optionalChangeModeConcSyn = new OptionalChangeModeConcSyn(getTokenList(), getCounter());
-            parseNext(optionalChangeModeConcSyn);
-
-            typedIdentConcSyn = new TypedIdentConcSyn(getTokenList(), getCounter());
-            parseNext(typedIdentConcSyn);
-
-            repeatingOptionalParametersConcSyn = new RepeatingOptionalParametersConcSyn(getTokenList(), getCounter());
-            parseNext(repeatingOptionalParametersConcSyn);
+            subType = new RepeatingOptionalProgramParametersConcSyn1(getTokenList(), getCounter());
         } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
+        }else {
             throwGrammarError();
         }
     }

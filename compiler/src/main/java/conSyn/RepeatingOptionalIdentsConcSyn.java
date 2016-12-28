@@ -6,12 +6,12 @@ import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
+
 /**
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements IConcSyn {
-    private Ident ident;
-    private IdentsConcSyn identsConcSyn;
+    private IConcSyn subType;
 
     public RepeatingOptionalIdentsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -19,11 +19,11 @@ public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements I
 
     @Override
     public RepeatingOptionalIdentsAbsSyn toAbsSyn() throws ContextError {
-        return new RepeatingOptionalIdentsAbsSyn(ident, identsConcSyn.toAbsSyn());
+        return new RepeatingOptionalIdentsAbsSyn(subType.toAbsSyn());
+
     }
 
     /**
-     * TODO
      * @throws GrammarError
      */
     @Override
@@ -35,18 +35,14 @@ public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements I
                 || getTokenList().getCurrent().getTerminal() == Terminal.ELSE
                 || getTokenList().getCurrent().getTerminal() == Terminal.ENDPROGRAM
                 || getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON) {
-            consume();
+            subType = new EmptyConsumeConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA) {
-            consume();
-            if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
-                this.ident = (Ident) this.getTokenList().getCurrent();
-                consume();
-
-                identsConcSyn = new IdentsConcSyn(getTokenList(), getCounter());
-                parseNext(identsConcSyn);
-            } else {
-                throwGrammarError();
-            }
+            subType = new RepeatingOptionalIdentsConcSyn1(getTokenList(), getCounter());
+        } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
         } else {
             throwGrammarError();
         }
