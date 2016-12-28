@@ -1,5 +1,6 @@
 package conSyn;
 
+import absSyn.CmdAbsSyn;
 import absSyn.RepAddOprTerm3AbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
@@ -10,8 +11,7 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class RepAddOprTerm3ConcSyn extends AbstractConcSyn implements IConcSyn {
-    private Term3ConcSyn term3ConcSyn;
-    private RepAddOprTerm3ConcSyn repAddOprTerm3ConcSyn;
+    private IConcSyn subType;
 
     public RepAddOprTerm3ConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -19,23 +19,16 @@ public class RepAddOprTerm3ConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public RepAddOprTerm3AbsSyn toAbsSyn() throws ContextError {
-        return new RepAddOprTerm3AbsSyn(term3ConcSyn.toAbsSyn(), repAddOprTerm3ConcSyn.toAbsSyn());
+        return new RepAddOprTerm3AbsSyn(subType.toAbsSyn());
     }
 
     /**
-     * TODO
      * @throws GrammarError
      */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR) {
-            consume();
-
-            term3ConcSyn = new Term3ConcSyn(getTokenList(), getCounter());
-            parseNext(term3ConcSyn);
-
-            repAddOprTerm3ConcSyn = new RepAddOprTerm3ConcSyn(getTokenList(), getCounter());
-            parseNext(repAddOprTerm3ConcSyn);
+            subType = new RepAddOprTerm3ConcSyn1(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN
                 || getTokenList().getCurrent().getTerminal() == Terminal.COMMA
                 || getTokenList().getCurrent().getTerminal() == Terminal.DO
@@ -50,8 +43,13 @@ public class RepAddOprTerm3ConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.BECOMES
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.BOOLOPR
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.RELOPR) {
-
+            subType = new EmptyConcSyn(getTokenList(), getCounter());
         } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
+        }else {
             throwGrammarError();
         }
     }
