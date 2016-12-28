@@ -24,7 +24,6 @@ public class OptionalIdentConcSyn extends AbstractConcSyn implements IConcSyn {
     }
 
     /**
-     * TODO
      * @throws GrammarError
      */
     @Override
