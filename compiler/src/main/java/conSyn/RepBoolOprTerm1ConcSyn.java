@@ -1,23 +1,16 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.RepBoolOprTerm1AbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
-
-import absSyn.RepBoolOprTerm1AbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
 public class RepBoolOprTerm1ConcSyn extends AbstractConcSyn implements IConcSyn {
-    private Term1ConcSyn term1ConcSyn;
-    private RepBoolOprTerm1ConcSyn repBoolOprTerm1ConcSyn;
+    private IConcSyn subType;
 
     public RepBoolOprTerm1ConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -25,11 +18,11 @@ public class RepBoolOprTerm1ConcSyn extends AbstractConcSyn implements IConcSyn 
 
     @Override
     public RepBoolOprTerm1AbsSyn toAbsSyn() throws ContextError {
-        return new RepBoolOprTerm1AbsSyn(term1ConcSyn.toAbsSyn(), repBoolOprTerm1ConcSyn.toAbsSyn());
+        return new RepBoolOprTerm1AbsSyn(subType.toAbsSyn());
+
     }
 
     /**
-     * TODO
      * @throws GrammarError
      */
     @Override
@@ -46,16 +39,15 @@ public class RepBoolOprTerm1ConcSyn extends AbstractConcSyn implements IConcSyn 
                 || getTokenList().getCurrent().getTerminal() == Terminal.ENDPROGRAM
                 || getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON
                 || getTokenList().getCurrent().getTerminal() == Terminal.BECOMES) {
-
+            subType = new EmptyConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.BOOLOPR) {
-            consume();
-
-            term1ConcSyn = new Term1ConcSyn(getTokenList(), getCounter());
-            parseNext(term1ConcSyn);
-
-            repBoolOprTerm1ConcSyn = new RepBoolOprTerm1ConcSyn(getTokenList(), getCounter());
-            parseNext(repBoolOprTerm1ConcSyn);
+            subType = new RepBoolOprTerm1ConcSyn1(getTokenList(), getCounter());
         } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
+        }else {
             throwGrammarError();
         }
     }

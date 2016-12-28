@@ -1,26 +1,23 @@
 package absSyn;
-import conSyn.IConcSyn;
-import scanner.datatypes.Terminal;
+
 import scanner.errors.ContextError;
-import scanner.token.IToken;
-import java.util.List;
+
 /**
  * Created by ylaub on 26.12.2016.
  */
-public class RepBoolOprTerm1AbsSyn extends AbstractAbsSyn implements IAbsSyn{
-    private final Term1AbsSyn term1AbsSyn;
-    private final RepBoolOprTerm1AbsSyn repBoolOprTerm1AbsSyn;
+public class RepBoolOprTerm1AbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
-    public RepBoolOprTerm1AbsSyn(Term1AbsSyn term1AbsSyn, RepBoolOprTerm1AbsSyn repBoolOprTerm1AbsSyn) {
 
-        this.term1AbsSyn = term1AbsSyn;
-        this.repBoolOprTerm1AbsSyn = repBoolOprTerm1AbsSyn;
+    private IAbsSyn subType;
+
+    public RepBoolOprTerm1AbsSyn(IAbsSyn subType) {
+
+        this.subType = subType;
     }
 
     @Override
     public void check() throws ContextError {
-        this.term1AbsSyn.check();
-        this.repBoolOprTerm1AbsSyn.check();
+        subType.check();
     }
 }
 
