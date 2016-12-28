@@ -5,20 +5,17 @@ import scanner.errors.ContextError;
 /**
  * Created by ylaub on 26.12.2016.
  */
-public class OptionalLocalStorageDeclarationsAbsSyn extends AbstractAbsSyn implements IAbsSyn{
+public class OptionalLocalStorageDeclarationsAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
-    private final StorageDeclarationAbsSyn storageDeclarationAbsSyn;
-    private final RepeatingOptionalStorageDeclarationsAbsSyn repeatingOptionalStorageDeclarationsAbsSyn;
+    private IAbsSyn subType;
 
-    public OptionalLocalStorageDeclarationsAbsSyn(StorageDeclarationAbsSyn storageDeclarationAbsSyn, RepeatingOptionalStorageDeclarationsAbsSyn repeatingOptionalStorageDeclarationsAbsSyn) {
+    public OptionalLocalStorageDeclarationsAbsSyn(IAbsSyn subType) {
 
-        this.storageDeclarationAbsSyn = storageDeclarationAbsSyn;
-        this.repeatingOptionalStorageDeclarationsAbsSyn = repeatingOptionalStorageDeclarationsAbsSyn;
+        this.subType = subType;
     }
 
     @Override
     public void check() throws ContextError {
-        storageDeclarationAbsSyn.check();
-        repeatingOptionalStorageDeclarationsAbsSyn.check();
+        subType.check();
     }
 }
