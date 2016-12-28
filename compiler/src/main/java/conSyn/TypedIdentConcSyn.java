@@ -34,8 +34,8 @@ public class TypedIdentConcSyn extends AbstractConcSyn implements IConcSyn {
                 typeDeclarationConcSyn = new TypeDeclarationConcSyn(getTokenList(), getCounter());
                 parseNext(typeDeclarationConcSyn);
             } else {
-                //TODO: added 27.12.2016, by Yves
-                //throwGrammarError();
+                //Maybe change: added exception 27.12.2016, by Yves
+                throwGrammarError();
             }
         } else {
             throwGrammarError();
