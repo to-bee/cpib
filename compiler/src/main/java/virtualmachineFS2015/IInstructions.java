@@ -222,6 +222,20 @@ public interface IInstructions {
         }
     }
 
+    class EqCompl implements IInstr {
+        public String toString() { return "EqCompl"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new EqComplExec();
+        }
+    }
+
+    class NeCompl implements IInstr {
+        public String toString() { return "NeCompl"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new NeComplExec();
+        }
+    }
+
     // jump instructions
 
     class UncondJump implements IInstr {

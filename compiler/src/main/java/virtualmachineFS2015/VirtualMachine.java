@@ -338,6 +338,24 @@ public class VirtualMachine implements IVirtualMachine {
         }
     }
 
+    public class EqComplExec extends EqCompl implements IExecInstr {
+        public void execute()
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.complEQ(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
+    public class NeComplExec extends NeCompl implements IExecInstr {
+        public void execute()
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.complNE(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
     // jump instructions
 
     public class UncondJumpExec extends UncondJump implements IExecInstr {
