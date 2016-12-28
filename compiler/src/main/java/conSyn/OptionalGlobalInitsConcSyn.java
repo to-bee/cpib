@@ -5,11 +5,12 @@ import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
+
 /**
  * Created by tobi on 17.12.16.
  */
 public class OptionalGlobalInitsConcSyn extends AbstractConcSyn implements IConcSyn {
-    private IdentsConcSyn identsConcSyn;
+    private IConcSyn subType;
 
     public OptionalGlobalInitsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -17,11 +18,10 @@ public class OptionalGlobalInitsConcSyn extends AbstractConcSyn implements IConc
 
     @Override
     public OptionalGlobalInitsAbsSyn toAbsSyn() throws ContextError {
-        return new OptionalGlobalInitsAbsSyn(identsConcSyn.toAbsSyn());
+        return new OptionalGlobalInitsAbsSyn(subType.toAbsSyn());
     }
 
     /**
-     * TODO
      * @throws GrammarError
      */
     @Override
@@ -33,12 +33,14 @@ public class OptionalGlobalInitsConcSyn extends AbstractConcSyn implements IConc
                 || getTokenList().getCurrent().getTerminal() == Terminal.ELSE
                 || getTokenList().getCurrent().getTerminal() == Terminal.ENDPROGRAM
                 || getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON) {
-
+            subType = new EmptyConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.INIT) {
-            consume();
-
-            identsConcSyn = new IdentsConcSyn(getTokenList(), getCounter());
-            parseNext(identsConcSyn);
+            subType = new OptionalGlobalInitsConcSyn1(getTokenList(), getCounter());
+        } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
         } else {
             throwGrammarError();
         }

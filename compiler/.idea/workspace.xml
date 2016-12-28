@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5651070e-9a24-4729-a323-810fac4d0144" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/absSyn/OptionalExpressionsAbsSyn1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressionsConcSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalInitsAbsSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInitsConcSyn1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MWCompiler-example-infboard/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../MWCompiler-example-infboard/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/OptionalExpressionsAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/OptionalExpressionsAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressionsConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressionsConcSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalInitsAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalInitsAbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInitsConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInitsConcSyn.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +26,8 @@
       <file leaf-file-name="CmdConcSyn.java" pinned="true" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdConcSyn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="957">
-              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="58" selection-end-column="9" />
+            <state relative-caret-position="264">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -70,8 +70,18 @@
       <file leaf-file-name="OptionalGlobalInitsConcSyn.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInitsConcSyn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="-33">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OptionalGlobalInitsConcSyn1.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInitsConcSyn1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -111,10 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationIdentConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationTypeAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationIdentAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalParametersConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalParametersAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalParametersConcSyn1.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalParametersAbsSyn1.java" />
@@ -162,6 +168,10 @@
         <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalExpressionsAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalExpressionsAbsSyn1.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressionsConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInitsConcSyn1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalInitsAbsSyn1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalInitsAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInitsConcSyn.java" />
       </list>
     </option>
   </component>
@@ -1036,7 +1046,7 @@
       <updated>1482858584594</updated>
       <workItem from="1482858586138" duration="293000" />
       <workItem from="1482859315893" duration="1415000" />
-      <workItem from="1482916901599" duration="10870000" />
+      <workItem from="1482916901599" duration="11126000" />
     </task>
     <task id="LOCAL-00004" summary="test">
       <created>1482858661917</created>
@@ -1164,13 +1174,17 @@
       <option name="project" value="LOCAL" />
       <updated>1482927580616</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="more">
+      <created>1482927824917</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1482927824917</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AbsSynTest - 2016.12.28 at 12h 44m 44s.xml">
-      <configuration name="AbsSynTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AbsSynTest - 2016.12.28 at 12h 49m 58s.xml">
       <configuration name="AbsSynTest" configurationId="JUnit" />
     </history-entry>
@@ -1198,9 +1212,12 @@
     <history-entry file="AbsSynTest - 2016.12.28 at 13h 23m 27s.xml">
       <configuration name="AbsSynTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AbsSynTest - 2016.12.28 at 13h 27m 52s.xml">
+      <configuration name="AbsSynTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17696000" />
+    <option name="totallyTimeSpent" value="17952000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1222,10 +1239,10 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25533175" sideWeight="0.307" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25533175" sideWeight="0.30866668" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17831753" sideWeight="0.48633334" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25533175" sideWeight="0.693" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25533175" sideWeight="0.69133335" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295562" sideWeight="0.4980822" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1267,7 +1284,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="32" />
+      <option name="time" value="33" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1276,30 +1293,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/AbstractConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/StorageDeclarationConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="801">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalStorageDeclarationsAbsSyn1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalStorageDeclarationsAbsSyn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1577,14 +1570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalImportsAbsSyn1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalCmdsConcSyn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
@@ -1649,14 +1634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="957">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="58" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressionsAbsSyn1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1697,10 +1674,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalImportsAbsSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalInitsAbsSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalInitsAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInitsConcSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInitsConcSyn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="-33">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
