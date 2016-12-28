@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5651070e-9a24-4729-a323-810fac4d0144" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationIdentAbsSyn.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationTypeAbsSyn.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationIdentConcSyn.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationTypeConcSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MWCompiler-example-infboard/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../MWCompiler-example-infboard/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/OptionalProgramParamAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/OptionalProgramParamAbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +26,81 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="234" />
+    <leaf>
+      <file leaf-file-name="CmdConcSyn.java" pinned="true" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdConcSyn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CmdAbsSyn.java" pinned="true" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/CmdAbsSyn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OptionalGlobalImportsConcSyn.java" pinned="true" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImportsConcSyn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="40" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OptionalGlobalImportsAbsSyn.java" pinned="true" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalImportsAbsSyn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OptionalGlobalImportsConcSyn1.java" pinned="true" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImportsConcSyn1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#512#513#0" expanded="true" />
+                <element signature="e#547#548#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OptionalGlobalImportsAbsSyn1.java" pinned="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalImportsAbsSyn1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="7" column="85" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="85" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -43,25 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/RepBoolOprTerm1AbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/RepAddOprTerm3AbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/ProcedureDeclarationConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/ProcedureDeclarationAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/ParameterListAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalTypeDeclarationAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalParametersAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/CmdIf.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/CmdSkip.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/CmdWhileConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/CmdSkipConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/CmdIfConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/CmdCallConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/CmdConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/FactorImagConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/FactorRealConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/FactorExpressionAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/FactorMoniadicConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/FactorMoniadicAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/FactorExpressionConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/parser/Parser.java" />
@@ -70,12 +133,10 @@
         <option value="$PROJECT_DIR$/src/main/java/absSyn/DeclarationAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressionsConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalDeclarationsConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImportsConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInitsConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalIdentConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalLocalStorageDeclarationsConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalParametersConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParamConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalTypeDeclarationConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/RepAddOprTerm3ConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/RepBoolOprTerm1ConcSyn.java" />
@@ -90,10 +151,31 @@
         <option value="$PROJECT_DIR$/src/main/java/conSyn/RepMultOprFactorConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/RepRelOprTerm2ConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/SubTypeDeclarationConcSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/ParameterAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/AbstractAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/CmdIfAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/EmptyAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/CmdConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImportsConcSyn1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalImportsAbsSyn1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalImportsAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ConSynTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/EmptyConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/EmptyConsumeAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/EmptyConsumeConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImportsConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParamConcSyn1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalProgramParamAbsSyn1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParamConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalProgramParamAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationTypeConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationIdentConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationTypeAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationIdentAbsSyn.java" />
       </list>
     </option>
   </component>
@@ -128,8 +210,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,12 +342,66 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="parser" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="conSyn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="absSyn" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,163 +416,9 @@
       <recent name="absSyn" />
       <recent name="conSyn" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/BlockCmdAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/ComplImagAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/ComplRealAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/DeclarationAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/DeclarationsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/ExpressionListAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/FunctionDeclarationAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/GlobalImportAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/IdentsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/OptionalChangeModeAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/OptionalExpressionsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/OptionalFlowModeAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalDeclarationsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalImportsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalInitsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/OptionalIdentAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/OptionalLocalStorageDeclarationsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/OptionalParametersAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/OptionalProgramParamAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/OptionalTypeDeclarationAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/ParameterAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/ParameterListAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/ProcedureDeclarationAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/ProgramParameterListAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/RepAddOprTerm3AbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/RepBoolOprTerm1AbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/RepMultOprFactorAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/RepRelOprTerm2AbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalCmdsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalDeclarationsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalExpressionsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalGlobalImportsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalIdentsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalParametersAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalProgramParametersAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalStorageDeclarationsAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/StorageDeclarationAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/SubTypeDeclarationAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/Term1AbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/Term2AbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/Term3AbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParamConcSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/scanner/token/Ident.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="conSyn" />
+    </key>
   </component>
   <component name="RunManager" selected="JUnit.AbsSynTest">
     <configuration default="false" name="AbsSynTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -450,6 +430,48 @@
       <option name="MAIN_CLASS_NAME" value="AbsSynTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ConSynTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="compiler" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ConSynTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ConSynTest.tupleAdvanced" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="compiler" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ConSynTest" />
+      <option name="METHOD_NAME" value="tupleAdvanced" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -862,12 +884,16 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <list size="1">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="JUnit.AbsSynTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ConSynTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ConSynTest.tupleAdvanced" />
     </list>
     <recent_temporary>
-      <list size="1">
+      <list size="3">
         <item index="0" class="java.lang.String" itemvalue="JUnit.AbsSynTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ConSynTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ConSynTest.tupleAdvanced" />
       </list>
     </recent_temporary>
   </component>
@@ -906,7 +932,8 @@
       <option name="presentableId" value="Default" />
       <updated>1482858584594</updated>
       <workItem from="1482858586138" duration="293000" />
-      <workItem from="1482859315893" duration="1404000" />
+      <workItem from="1482859315893" duration="1415000" />
+      <workItem from="1482916901599" duration="6645000" />
     </task>
     <task id="LOCAL-00004" summary="test">
       <created>1482858661917</created>
@@ -936,19 +963,64 @@
       <option name="project" value="LOCAL" />
       <updated>1482860453735</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="§">
+      <created>1482860734218</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1482860734218</updated>
+    </task>
+    <task id="LOCAL-00009" summary="OptionalGlobalImports Rewritten">
+      <created>1482920552252</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1482920552252</updated>
+    </task>
+    <task id="LOCAL-00010" summary="rewrites">
+      <created>1482921887310</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1482921887310</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AbsSynTest - 2016.12.27 at 18h 41m 31s.xml">
-      <configuration name="AbsSynTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AbsSynTest - 2016.12.27 at 18h 43m 39s.xml">
       <configuration name="AbsSynTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AbsSynTest - 2016.12.28 at 10h 22m 00s.xml">
+      <configuration name="AbsSynTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AbsSynTest - 2016.12.28 at 11h 21m 51s.xml">
+      <configuration name="AbsSynTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AbsSynTest - 2016.12.28 at 11h 25m 34s.xml">
+      <configuration name="AbsSynTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AbsSynTest - 2016.12.28 at 11h 44m 27s.xml">
+      <configuration name="AbsSynTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AbsSynTest - 2016.12.28 at 12h 12m 49s.xml">
+      <configuration name="AbsSynTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConSynTest - 2016.12.28 at 10h 22m 46s.xml">
+      <configuration name="ConSynTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConSynTest - 2016.12.28 at 11h 21m 45s.xml">
+      <configuration name="ConSynTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConSynTest_tupleAdvanced - 2016.12.28 at 10h 23m 48s.xml">
+      <configuration name="ConSynTest.tupleAdvanced" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConSynTest_tupleAdvanced - 2016.12.28 at 11h 21m 13s.xml">
+      <configuration name="ConSynTest.tupleAdvanced" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6815000" />
+    <option name="totallyTimeSpent" value="13471000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -961,7 +1033,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="3026" height="1946" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299763" sideWeight="0.49866667" order="7" side_tool="false" content_ui="tabs" />
@@ -970,23 +1042,23 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299763" sideWeight="0.29033333" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299763" sideWeight="0.29866666" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299763" sideWeight="0.70966667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17831753" sideWeight="0.489" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299763" sideWeight="0.70133334" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295562" sideWeight="0.4980822" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32566667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25066668" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299763" sideWeight="0.49866667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3998815" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3998815" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1007,11 +1079,13 @@
     <MESSAGE value="test" />
     <MESSAGE value="asfd" />
     <MESSAGE value="§" />
-    <option name="LAST_COMMIT_MESSAGE" value="§" />
+    <MESSAGE value="OptionalGlobalImports Rewritten" />
+    <MESSAGE value="rewrites" />
+    <option name="LAST_COMMIT_MESSAGE" value="rewrites" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1020,330 +1094,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/FactorExpressionConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="32" column="116" lean-forward="false" selection-start-line="32" selection-start-column="116" selection-end-line="32" selection-end-column="116" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/FactorIdentConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/FactorImaginaryPartConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/FactorLiteralConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/FactorMoniadicConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="21" column="100" lean-forward="false" selection-start-line="21" selection-start-column="100" selection-end-line="21" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/FunctionDeclarationConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-396">
-          <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/GlobalImportConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/IdentsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/MonadictOperatorConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalChangeModeConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressionsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalFlowModeConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="31" column="17" lean-forward="false" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalDeclarationsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImportsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalInitsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalIdentConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalLocalStorageDeclarationsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalMechModeConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="30" column="15" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalTypeDeclarationConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="24" column="7" lean-forward="false" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/ParameterListConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/ProcedureDeclarationConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-495">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/ProgramConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-363">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/ProgramParameterListConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepAddOprTerm3ConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepBoolOprTerm1ConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="33" column="7" lean-forward="false" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalCmdsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="32" column="7" lean-forward="false" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalDeclarationsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="31" column="14" lean-forward="false" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalExpressionsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="26" column="7" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalGlobalImportsAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalGlobalImportsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalIdentsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalParametersConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalStorageDeclarationsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="26" column="7" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepMultOprFactorConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepRelOprTerm2ConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/StorageDeclarationConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/SubTypeDeclarationConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="33" column="7" lean-forward="false" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Term1ConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Term2ConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/Term3ConcSyn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="35" column="7" lean-forward="false" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -1368,7 +1122,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1380,19 +1133,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/AbstractConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1947">
-          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ParameterAbsSyn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1400,14 +1144,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParamConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1420,10 +1156,381 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/AbsSynTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/AbstractConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1782">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ExpressionListAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/ExpressionListConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalExpressionsConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/ExpressionConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="33" column="78" lean-forward="true" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ScannerComplexTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-429">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdAssignConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="25" column="41" lean-forward="false" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/CmdIfAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdIfConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="20" column="19" lean-forward="false" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdSkipConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/EmptyAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdCallConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="21" column="32" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="32" />
+          <folding>
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/RepeatingOptionalGlobalImportsConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="33" column="80" lean-forward="false" selection-start-line="33" selection-start-column="80" selection-end-line="33" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/CmdSkipAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="68" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ConSynTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/ProgramParameterListConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/EmptyConsumeAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/EmptyConsumeConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalProgramParamAbsSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="26" column="57" lean-forward="false" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParamConcSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="22" column="53" lean-forward="false" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalProgramParamAbsSyn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="826">
-          <caret line="33" column="61" lean-forward="false" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
+        <state relative-caret-position="66">
+          <caret line="2" column="2" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalProgramParamConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/EmptyConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#322#323#0" expanded="true" />
+            <element signature="e#357#358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/SubTypeDeclarationConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="19" column="11" lean-forward="false" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+          <folding>
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#705#706#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalTypeDeclarationConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImportsConcSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalImportsAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/CmdAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalImportsConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="40" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationConcSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="23" column="33" lean-forward="true" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationIdentAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="52" lean-forward="false" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#320#321#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationTypeAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationIdentConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="20" column="48" lean-forward="false" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationTypeConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="20" column="45" lean-forward="false" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalImportsAbsSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="85" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="85" />
           <folding />
         </state>
       </provider>
