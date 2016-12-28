@@ -1,6 +1,7 @@
 package absSyn;
 
 import scanner.errors.ContextError;
+import virtualmachineFS2015.ICodeArray;
 
 /**
  * Created by ylaub on 26.12.2016.
@@ -21,5 +22,10 @@ public class FactorMoniadicAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     public void check() throws ContextError {
         this.monadictOperatorAbsSyn.check();
         this.factorAbsSyn.check();
+    }
+
+    @Override
+    public int code(int location) throws ICodeArray.CodeTooSmallError {
+        return 0;
     }
 }

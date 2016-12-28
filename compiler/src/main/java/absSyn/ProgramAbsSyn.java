@@ -5,6 +5,7 @@ import conSyn.OptionalGlobalDeclarationsConcSyn;
 import conSyn.ProgramParameterListConcSyn;
 import scanner.errors.ContextError;
 import scanner.token.Ident;
+import virtualmachineFS2015.ICodeArray;
 
 /**
  * Created by tobi on 17.12.16.
@@ -33,5 +34,10 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         optionalGlobalDeclarationList.check();
         programParameterList.check();
         blockCmdConcSyn.check();
+    }
+
+    @Override
+    public int code(int location) throws ICodeArray.CodeTooSmallError {
+        return 0;
     }
 }

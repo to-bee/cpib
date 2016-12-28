@@ -2,6 +2,7 @@ package absSyn;
 
 import scanner.errors.ContextError;
 import scanner.token.IToken;
+import virtualmachineFS2015.ICodeArray;
 
 import java.util.List;
 
@@ -16,5 +17,10 @@ public class OptionalFlowModeAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     @Override
     public void check() throws ContextError {
         //nothing to check
+    }
+
+    @Override
+    public int code(int location) throws ICodeArray.CodeTooSmallError {
+        return 0;
     }
 }

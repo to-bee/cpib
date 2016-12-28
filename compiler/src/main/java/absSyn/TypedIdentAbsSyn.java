@@ -4,6 +4,7 @@ import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
 import scanner.token.Ident;
+import virtualmachineFS2015.ICodeArray;
 
 import java.util.List;
 /**
@@ -21,5 +22,10 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     @Override
     public void check() throws ContextError {
         this.ident.check();
+    }
+
+    @Override
+    public int code(int location) throws ICodeArray.CodeTooSmallError {
+        return 0;
     }
 }
