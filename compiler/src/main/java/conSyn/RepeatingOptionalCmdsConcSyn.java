@@ -1,22 +1,16 @@
 package conSyn;
 
-import absSyn.IAbsSyn;
-import absSyn.ProgramParameterListAbsSyn;
+import absSyn.RepeatingOptionalCmdsAbsSyn;
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.tokenList.ITokenList;
-import scanner.datatypes.Terminal;
 
-import absSyn.RepeatingOptionalCmdsAbsSyn;
-import scanner.token.IToken;
-
-import java.util.List;
 /**
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalCmdsConcSyn extends AbstractConcSyn implements IConcSyn {
-    private RepeatingOptionalCmdsConcSyn repeatingOptionalCmdsConcSyn;
-    private CmdConcSyn cmdConcSyn;
+    private IConcSyn subType;
 
     public RepeatingOptionalCmdsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -24,11 +18,11 @@ public class RepeatingOptionalCmdsConcSyn extends AbstractConcSyn implements ICo
 
     @Override
     public RepeatingOptionalCmdsAbsSyn toAbsSyn() throws ContextError {
-        return new RepeatingOptionalCmdsAbsSyn(cmdConcSyn.toAbsSyn(), repeatingOptionalCmdsConcSyn.toAbsSyn());
+        return new RepeatingOptionalCmdsAbsSyn(subType.toAbsSyn());
+
     }
 
     /**
-     * TODO
      * @throws GrammarError
      */
     @Override
@@ -39,15 +33,14 @@ public class RepeatingOptionalCmdsConcSyn extends AbstractConcSyn implements ICo
                 || getTokenList().getCurrent().getTerminal() == Terminal.ENDIF
                 || getTokenList().getCurrent().getTerminal() == Terminal.ELSE
                 || getTokenList().getCurrent().getTerminal() == Terminal.ENDPROGRAM) {
-
+            subType = new EmptyConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON) {
-            consume();
-
-            cmdConcSyn = new CmdConcSyn(getTokenList(), getCounter());
-            parseNext(cmdConcSyn);
-
-            repeatingOptionalCmdsConcSyn = new RepeatingOptionalCmdsConcSyn(getTokenList(), getCounter());
-            parseNext(repeatingOptionalCmdsConcSyn);
+            subType = new RepeatingOptionalCmdsConcSyn1(getTokenList(), getCounter());
+        } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
         } else {
             throwGrammarError();
         }
