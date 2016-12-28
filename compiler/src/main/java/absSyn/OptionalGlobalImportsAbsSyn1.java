@@ -16,7 +16,6 @@ public class OptionalGlobalImportsAbsSyn1 extends AbstractAbsSyn implements IAbs
         this.repeatingOptionalGlobalImportsAbsSyn = repeatingOptionalGlobalImportsAbsSyn;
     }
 
-
     @Override
     public void check() throws ContextError {
         globalImportAbsSyn.check();
