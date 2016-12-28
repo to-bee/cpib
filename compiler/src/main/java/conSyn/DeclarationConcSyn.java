@@ -23,7 +23,9 @@ public class DeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
         return new DeclarationAbsSyn(subtype.toAbsSyn());
     }
 
-
+    /**
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT

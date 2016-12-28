@@ -21,7 +21,10 @@ public class OptionalChangeModeConcSyn extends AbstractConcSyn implements IConcS
         return new OptionalChangeModeAbsSyn();
     }
 
-
+    /** TODO rewrite (no ident consume)
+     *
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
