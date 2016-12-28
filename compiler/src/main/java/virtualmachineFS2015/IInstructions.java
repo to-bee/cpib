@@ -199,6 +199,29 @@ public interface IInstructions {
         }
     }
 
+    // complex numbers
+
+    class AddCompl implements IInstr {
+        public String toString() { return "AddCompl"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new AddComplExec();
+        }
+    }
+
+    class SubCompl implements IInstr {
+        public String toString() { return "SubCompl"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new SubComplExec();
+        }
+    }
+
+    class MultCompl implements IInstr {
+        public String toString() { return "MultCompl"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new MultComplExec();
+        }
+    }
+
     // jump instructions
 
     class UncondJump implements IInstr {

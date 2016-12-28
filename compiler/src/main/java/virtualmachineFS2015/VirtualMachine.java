@@ -309,6 +309,35 @@ public class VirtualMachine implements IVirtualMachine {
         }
     }
 
+
+    // dyadic expressions for complex Numbers
+    public class AddComplExec extends AddCompl implements IExecInstr {
+        public void execute()
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.complAdd(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
+    public class SubComplExec extends SubCompl implements IExecInstr {
+        public void execute()
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.complSub(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
+    public class MultComplExec extends MultCompl implements IExecInstr {
+        public void execute()
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.complMult(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
     // jump instructions
 
     public class UncondJumpExec extends UncondJump implements IExecInstr {
