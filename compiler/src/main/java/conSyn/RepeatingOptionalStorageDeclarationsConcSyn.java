@@ -9,8 +9,7 @@ import scanner.tokenList.ITokenList;
  * Created by tobi on 17.12.16.
  */
 public class RepeatingOptionalStorageDeclarationsConcSyn extends AbstractConcSyn implements IConcSyn {
-    private StorageDeclarationConcSyn storageDeclarationConcSyn;
-    private RepeatingOptionalStorageDeclarationsConcSyn repeatingOptionalStorageDeclarationsConcSyn;
+    private IConcSyn subType;
 
     public RepeatingOptionalStorageDeclarationsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -18,26 +17,24 @@ public class RepeatingOptionalStorageDeclarationsConcSyn extends AbstractConcSyn
 
     @Override
     public RepeatingOptionalStorageDeclarationsAbsSyn toAbsSyn()throws ContextError {
-        return new RepeatingOptionalStorageDeclarationsAbsSyn(storageDeclarationConcSyn.toAbsSyn(), repeatingOptionalStorageDeclarationsConcSyn.toAbsSyn());
+        return new RepeatingOptionalStorageDeclarationsAbsSyn(subType.toAbsSyn());
     }
 
     /**
-     * TODO
      * @throws GrammarError
      */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
-
+            subType = new EmptyConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON) {
-            consume();
-
-            storageDeclarationConcSyn = new StorageDeclarationConcSyn(getTokenList(), getCounter());
-            parseNext(storageDeclarationConcSyn);
-
-            repeatingOptionalStorageDeclarationsConcSyn = new RepeatingOptionalStorageDeclarationsConcSyn(getTokenList(), getCounter());
-            parseNext(repeatingOptionalStorageDeclarationsConcSyn);
+            subType = new RepeatingOptionalStorageDeclarationsConcSyn1(getTokenList(), getCounter());
         } else {
+            throwGrammarError();
+        }
+        if (subType != null) {
+            parseNext(subType);
+        }else {
             throwGrammarError();
         }
     }

@@ -35,7 +35,7 @@ public class TypedIdentConcSyn extends AbstractConcSyn implements IConcSyn {
                 parseNext(typeDeclarationConcSyn);
             } else {
                 //TODO: added 27.12.2016, by Yves
-                throwGrammarError();
+                //throwGrammarError();
             }
         } else {
             throwGrammarError();
