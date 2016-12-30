@@ -31,7 +31,7 @@ public class ConSynTest {
         IConcSyn parseTree;
         String complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
-                "fun add(bsp1:Compl) returns s:Int32\n" +
+                "fun add(arg1:Compl) returns s:Int32\n" +
                 "local\n" +
                 "var bsp1:Compl;\n" +
                 "var bsp2:Compl;\n" +
@@ -45,11 +45,11 @@ public class ConSynTest {
                 "call add()\n" +
                 "endprogram";
         parseTree = checkProgram(complexAddProgram);
-        parseTree.toString();
+        System.out.println(parseTree.toString());
 
         String complexMultiplyProgram = "program ComplexTest()\n" +
                 "global\n" +
-                "fun add(bsp1:Compl) returns s:Int32\n" +
+                "fun add(arg1:Compl) returns s:Int32\n" +
                 "local\n" +
                 "var bsp1:Compl;\n" +
                 "var bsp2:Compl;\n" +

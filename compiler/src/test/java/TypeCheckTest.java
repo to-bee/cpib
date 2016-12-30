@@ -1,7 +1,6 @@
 import absSyn.IAbsSyn;
 import conSyn.IConcSyn;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import parser.Parser;
 import scanner.Scanner;
@@ -12,7 +11,7 @@ import scanner.tokenList.ITokenList;
 /**
  * Created by tobi on 27/09/16.
  */
-public class AbsSynTest {
+public class TypeCheckTest {
     @Test
     public void testComplex() {
         IAbsSyn absSyn;
@@ -65,6 +64,7 @@ public class AbsSynTest {
 
         try {
             IAbsSyn absSyn = parseTree.toAbsSyn();
+            absSyn.check();
             return absSyn;
         } catch (ContextError contextError) {
             contextError.printStackTrace();

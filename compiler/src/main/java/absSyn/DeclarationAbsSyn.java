@@ -13,12 +13,9 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class DeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-
-
     private IAbsSyn subType;
 
     public DeclarationAbsSyn(IAbsSyn subType) {
-
         this.subType = subType;
     }
 
