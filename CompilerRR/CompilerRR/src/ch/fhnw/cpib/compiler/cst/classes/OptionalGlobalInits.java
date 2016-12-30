@@ -10,14 +10,16 @@ public class OptionalGlobalInits implements IConcSyn.IOptionalGlobalInits{
 
 	Token initToken;
 	IConcSyn.IIdents identsL;
+	
 	public OptionalGlobalInits(Token initToken, IIdents identsL) {
 		super();
 		this.initToken = initToken;
 		this.identsL = identsL;
 	}
+	
 	@Override
 	public List<Token> toAbs() {
-		List<Token> tokens = new LinkedList<Token>();
+		List<Token> tokens = new LinkedList<>();
 		tokens.add(initToken);
 		tokens.addAll(identsL.toAbs());
 		return tokens;

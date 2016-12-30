@@ -8,9 +8,9 @@ import java.util.List;
 
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
+import ch.fhnw.cpib.compiler.parser.ProgramParser;
 import ch.fhnw.cpib.compiler.scanner.Scanner;
 import ch.fhnw.cpib.compiler.scanner.Token;
-import ch.fhnw.cpib.parser.ProgramParser;
 
 public class Compiler {
 	

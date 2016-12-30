@@ -1,5 +1,6 @@
 package ch.fhnw.cpib.compiler.cst.classes;
 
+import ch.fhnw.cpib.compiler.ast.classes.StoreExpression;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.scanner.Token;
 
@@ -13,8 +14,8 @@ public class OptionalIdentInit implements IConcSyn.IOptionalIdent {
 	}
 
 	@Override
-	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IOptionalIdent toAbs() {
-		return new ch.fhnw.cpib.compiler.ast.classes.OptionalIdentInit(init);
+	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbsSyn(Token ident) {
+		return new StoreExpression(ident, true);
 	}
 	
 }

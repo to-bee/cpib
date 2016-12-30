@@ -14,7 +14,7 @@ public class Expression implements IConcSyn.IExpression{
 	
 	@Override
 	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs() {
-		return new ch.fhnw.cpib.compiler.ast.classes.Expression(term1.toAbs(), repBoolOpr.toAbs());
+		return this.repBoolOpr.toAbs(this.term1);
 	}
 	
 	

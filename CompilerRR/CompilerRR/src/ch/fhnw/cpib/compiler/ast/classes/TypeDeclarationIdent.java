@@ -12,6 +12,12 @@ public class TypeDeclarationIdent implements ITypeDeclaration{
 		this.ident = ident;
 	}
 
+	@Override
+	public void check() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	
 

@@ -17,8 +17,8 @@ public class FactorExpression implements IConcSyn.IFactor {
 	}
 	
 	@Override
-	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IFactor toAbs() {
-		return new ch.fhnw.cpib.compiler.ast.classes.FactorExpression(expr.toAbs());
+	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs() {
+		return expr.toAbs();
 	}
 	
 	

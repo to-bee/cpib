@@ -14,10 +14,12 @@ public class Term2 implements IConcSyn.ITerm2{
 		this.term3 = t3;
 		this.repAddOprT3 = repAddOprT3;
 	}
+	
 	@Override
-	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ITerm2 toAbs() {
-		return new  ch.fhnw.cpib.compiler.ast.classes.Term2(term3.toAbs(), repAddOprT3.toAbs());
+	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs() {
+		 return this.repAddOprT3.toAbs(this.term3.toAbs());
 	}
+
 	
 	
 }

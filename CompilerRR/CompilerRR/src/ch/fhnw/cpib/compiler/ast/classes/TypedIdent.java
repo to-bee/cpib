@@ -14,6 +14,12 @@ public class TypedIdent implements ITypedIdent{
 		this.ident = ident;
 		this.typeDeclaration = typeDeclaration;
 	}
+
+	@Override
+	public void check() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

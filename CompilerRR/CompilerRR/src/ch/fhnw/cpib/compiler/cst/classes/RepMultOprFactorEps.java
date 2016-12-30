@@ -13,8 +13,9 @@ public class RepMultOprFactorEps implements IConcSyn.IRepMULTOPRfactor {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	@Override
-	public List<IMULTOPRfactor> toAbs() {
-		return new LinkedList<IAbsSyn.IMULTOPRfactor>();
+	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs(IFactor factor) {
+		return factor.toAbs();
 	}
 }

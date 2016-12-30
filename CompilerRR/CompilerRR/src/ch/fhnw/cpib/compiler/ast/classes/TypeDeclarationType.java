@@ -11,6 +11,12 @@ public class TypeDeclarationType implements ITypeDeclaration{
 		super();
 		this.type = type;
 	}
+
+	@Override
+	public void check() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 	

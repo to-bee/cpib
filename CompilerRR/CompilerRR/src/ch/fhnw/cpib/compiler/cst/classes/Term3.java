@@ -14,9 +14,9 @@ public class Term3 implements IConcSyn.ITerm3{
 		this.repMulOprFactor = repMulOprFactor;
 	}
 	@Override
-	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ITerm3 toAbs() {
-		return new  ch.fhnw.cpib.compiler.ast.classes.Term3(factor.toAbs(), repMulOprFactor.toAbs());
+	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs() {
+		return this.repMulOprFactor.toAbs(this.factor);
 	}
-	
+
 	
 }

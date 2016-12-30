@@ -1,10 +1,5 @@
 package ch.fhnw.cpib.compiler.cst.classes;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn;
-import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IBOOLOPRterm1;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 
 public class RepBoolOprTerm1Eps implements IConcSyn.IRepBOOLOPRterm1 {
@@ -14,7 +9,8 @@ public class RepBoolOprTerm1Eps implements IConcSyn.IRepBOOLOPRterm1 {
 	}
 
 	@Override
-	public List<IBOOLOPRterm1> toAbs() {
-		return new LinkedList<IAbsSyn.IBOOLOPRterm1>();
+	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs(ITerm1 t1) {
+		// TODO Auto-generated method stub
+		return t1.toAbs();
 	}
 }

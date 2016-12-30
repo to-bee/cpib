@@ -23,5 +23,21 @@ public class Program implements IAbsSyn.IProgram{
 		this.declarationList = declarationList;
 		this.commandList = commandList;
 	}
+
+	@Override
+	public void check() {
+		for (IDeclaration iDeclaration : declarationList) {
+			iDeclaration.check();
+		}
+		for (ICommand iCommand : commandList) {
+			iCommand.check();
+		}
+	}
+
+	@Override
+	public void code(int i) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

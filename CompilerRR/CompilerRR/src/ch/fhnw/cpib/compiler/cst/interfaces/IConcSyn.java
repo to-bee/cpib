@@ -74,7 +74,7 @@ public interface IConcSyn {
 	}
 	
 	public interface IFactor extends IConcSyn {
-		IAbsSyn.IFactor toAbs();
+		ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs();
 	}
 	
 	public interface IGlobalImport extends IConcSyn {
@@ -86,7 +86,7 @@ public interface IConcSyn {
 	}
 
 	public interface IMonadicOperator extends IConcSyn {
-		IAbsSyn.IMonadicOperator toAbs();
+		Token toAbs();
 	}
 
 	public interface IOptionalCHANGEMODE extends IConcSyn {
@@ -110,7 +110,7 @@ public interface IConcSyn {
 	}
 
 	public interface IOptionalIdent extends IConcSyn {
-		IAbsSyn.IOptionalIdent toAbs();
+		ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbsSyn(Token ident);
 	}
 
 	
@@ -144,11 +144,11 @@ public interface IConcSyn {
 	}
 
 	public interface IRepADDOPRterm3 extends IConcSyn {
-		List<IAbsSyn.IADDOPRterm3> toAbs();
+		ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs(ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression dyadicExpr);
 	}
 
 	public interface IRepBOOLOPRterm1 extends IConcSyn {
-		List<IAbsSyn.IBOOLOPRterm1> toAbs();
+		ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs(ITerm1 t1);
 	}
 
 	public interface IRepeatingOptionalCase extends IConcSyn {
@@ -179,27 +179,24 @@ public interface IConcSyn {
 		List<IAbsSyn.IProgramParameter> toAbs();
 	}
 
-
 	public interface IRepMULTOPRfactor extends IConcSyn {
-		List<IAbsSyn.IMULTOPRfactor> toAbs();
+		ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs(IFactor factor);
 	}
 
 	public interface IRepRELOPRterm2 extends IConcSyn{
-		List<IAbsSyn.IRELOPRterm2> toAbs();
+		ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs(ITerm2 t2);
 	}
 
-
-
 	public interface ITerm1 extends IConcSyn {
-		IAbsSyn.ITerm1 toAbs();
+		ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs();
 	}
 
 	public interface ITerm2 extends IConcSyn {
-		IAbsSyn.ITerm2 toAbs();
+		ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs();
 	}
 
 	public interface ITerm3 extends IConcSyn {
-		IAbsSyn.ITerm3 toAbs();
+		ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs();
 	}
 
 	public interface ITypeDeclaration extends IConcSyn {

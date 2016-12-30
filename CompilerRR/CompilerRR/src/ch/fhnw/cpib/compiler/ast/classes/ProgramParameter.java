@@ -18,4 +18,10 @@ public class ProgramParameter implements IAbsSyn.IProgramParameter{
 		this.typeIdent = typeIdent;
 	}
 
+	@Override
+	public void check() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

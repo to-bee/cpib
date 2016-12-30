@@ -10,6 +10,12 @@ public class OptionalIdentInit implements IOptionalIdent{
 		super();
 		this.init = init;
 	}
+
+	@Override
+	public void check() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

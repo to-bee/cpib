@@ -8,15 +8,16 @@ public class FactorIdent implements IConcSyn.IFactor{
 
 	Token ident;
 	IConcSyn.IOptionalIdent optIdent;
+	
 	public FactorIdent(Token ident, IOptionalIdent optIdent) {
 		super();
 		this.ident = ident;
 		this.optIdent = optIdent;
 	}
-	
+
 	@Override
-	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IFactor toAbs() {
-		return new ch.fhnw.cpib.compiler.ast.classes.FactorIdent(ident, optIdent.toAbs());
+	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs() {
+		return this.optIdent.toAbsSyn(this.ident);
 	}
 	
 	

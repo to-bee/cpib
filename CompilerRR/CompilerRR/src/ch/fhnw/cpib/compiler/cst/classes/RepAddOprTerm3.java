@@ -3,9 +3,8 @@ package ch.fhnw.cpib.compiler.cst.classes;
 import java.util.LinkedList;
 import java.util.List;
 
-import ch.fhnw.cpib.compiler.ast.classes.AddOprTerm3;
+import ch.fhnw.cpib.compiler.ast.classes.DyadicExpression;
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn;
-import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IADDOPRterm3;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.scanner.Token;
 
@@ -22,11 +21,8 @@ public class RepAddOprTerm3 implements IConcSyn.IRepADDOPRterm3 {
 	}
 	
 	@Override
-	public List<IADDOPRterm3> toAbs() {
-		List<IADDOPRterm3> list = new LinkedList<IAbsSyn.IADDOPRterm3>();
-		list.add(new AddOprTerm3(addOpr, t3.toAbs()));
-		list.addAll(repAddOprT3.toAbs());
-		return list;
+	public ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression toAbs(ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression dyadicExpr) {
+		return repAddOprT3.toAbs(new DyadicExpression(this.addOpr, dyadicExpr, this.t3.toAbs()));
 	}
 	
 	

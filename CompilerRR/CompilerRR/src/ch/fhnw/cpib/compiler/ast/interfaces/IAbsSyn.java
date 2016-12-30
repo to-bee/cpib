@@ -1,10 +1,17 @@
 package ch.fhnw.cpib.compiler.ast.interfaces;
 
+import ch.fhnw.cpib.compiler.scanner.Token;
+import ch.fhnw.cpib.compiler.scanner.enums.operators.FlowMode;
+import ch.fhnw.cpib.compiler.scanner.enums.operators.MechMode;
+import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
+
 public interface IAbsSyn {
 	
 	String toString();
 	
 	public interface IProgram extends IAbsSyn {
+
+		void code(int i);
 
 	}
 	
@@ -13,6 +20,10 @@ public interface IAbsSyn {
 	}
 
 	public interface IDeclaration extends IAbsSyn {
+		
+		Token getToken();
+
+		Type getType();
 
 	}
 	
@@ -38,6 +49,8 @@ public interface IAbsSyn {
 	
 	public interface ICommand extends IAbsSyn {
 
+		Token getToken();
+
 	}
 	
 	public interface ICase extends IAbsSyn {
@@ -46,44 +59,38 @@ public interface IAbsSyn {
 	
 	public interface IGlobalImport extends IAbsSyn {
 
+		Token getToken();
+
 	}
 	
 	public interface IParameter extends IAbsSyn {
+
+		void setLocationInParamList(int location);
+
+		FlowMode getFlowMode();
+
+		MechMode getMechMode();
+
+		Token getToken();
+
+		Type getType();
 
 	}
 	
 
 	public interface IExpression extends IAbsSyn {
+		Token getToken();
+
+		ch.fhnw.cpib.compiler.scanner.enums.operators.Type getType();
 
 	}
 
-	public interface IBOOLOPRterm1 extends IAbsSyn {
+	public interface IRoutineCall {
+		Token getToken();
 
-	}
-	
-	
-	public interface IFactor extends IAbsSyn {
+		void setFunc(boolean b);
 
-	}
-	
-	public interface ITerm1 extends IAbsSyn {
-
-	}
-	
-	public interface IRELOPRterm2 extends IAbsSyn {
-
-	}
-
-	public interface ITerm2 extends IAbsSyn {
-
-	}
-
-	public interface IADDOPRterm3 extends IAbsSyn {
-
-	}
-	
-	public interface ITerm3 extends IAbsSyn {
-
+		void check();
 	}
 	
 	public interface IMULTOPRfactor extends IAbsSyn {
@@ -97,5 +104,7 @@ public interface IAbsSyn {
 	public interface IMonadicOperator extends IAbsSyn {
 
 	}
+
+	void check();
 
 }
