@@ -17,6 +17,3 @@ hs_err_pid*
 target/
 .idea/
 .idea/workspace.xml
-src/compiler.iml
-src/main/main.iml
-
