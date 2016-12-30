@@ -1,6 +1,7 @@
 package absSyn;
 
 import scanner.errors.ContextError;
+import virtualmachineFS2015.ICodeArray;
 
 /**
  * Created by ylaub on 26.12.2016.
@@ -19,5 +20,10 @@ public class CmdWhileAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     public void check() throws ContextError {
         exprWhile.check();
         cmdWhile.check();
+    }
+
+    @Override
+    public int code(int location) throws ICodeArray.CodeTooSmallError {
+        return 0;
     }
 }

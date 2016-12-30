@@ -20,7 +20,10 @@ public class OptionalMechModeConcSyn extends AbstractConcSyn implements IConcSyn
         return new OptionalMechModeAbsSyn();
     }
 
-
+    /**
+     * TODO rewrite
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT

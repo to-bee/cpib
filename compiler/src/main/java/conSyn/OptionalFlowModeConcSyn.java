@@ -21,7 +21,10 @@ public class OptionalFlowModeConcSyn extends AbstractConcSyn implements IConcSyn
         return new OptionalFlowModeAbsSyn();
     }
 
-
+    /**
+     * TODO Rewrite (no ident)
+     * @throws GrammarError
+     */
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT

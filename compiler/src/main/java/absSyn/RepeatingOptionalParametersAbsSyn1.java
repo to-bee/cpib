@@ -1,6 +1,7 @@
 package absSyn;
 
 import scanner.errors.ContextError;
+import virtualmachineFS2015.ICodeArray;
 
 /**
  * Created by ylaub on 28.12.2016.
@@ -18,5 +19,10 @@ public class RepeatingOptionalParametersAbsSyn1 extends AbstractAbsSyn implement
     public void check() throws ContextError {
         parameterAbsSyn.check();
         repeatingOptionalParametersAbsSyn1.check();
+    }
+
+    @Override
+    public int code(int location) throws ICodeArray.CodeTooSmallError {
+        return 0;
     }
 }

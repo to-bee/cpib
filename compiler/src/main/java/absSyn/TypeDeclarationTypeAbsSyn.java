@@ -2,6 +2,7 @@ package absSyn;
 
 import scanner.errors.ContextError;
 import scanner.token.IToken;
+import virtualmachineFS2015.ICodeArray;
 
 /**
  * Created by ylaub on 28.12.2016.
@@ -17,5 +18,10 @@ public class TypeDeclarationTypeAbsSyn extends AbstractAbsSyn implements IAbsSyn
     public void check() throws ContextError {
         //todo Type Check
 
+    }
+
+    @Override
+    public int code(int location) throws ICodeArray.CodeTooSmallError {
+        return 0;
     }
 }

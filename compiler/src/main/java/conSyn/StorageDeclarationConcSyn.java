@@ -31,7 +31,6 @@ public class StorageDeclarationConcSyn extends AbstractConcSyn implements IConcS
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
             optionalChangeModeConcSyn = new OptionalChangeModeConcSyn(getTokenList(), getCounter());
             parseNext(optionalChangeModeConcSyn);
-
             typedIdentConcSyn = new TypedIdentConcSyn(getTokenList(), getCounter());
             parseNext(typedIdentConcSyn);
         } else {

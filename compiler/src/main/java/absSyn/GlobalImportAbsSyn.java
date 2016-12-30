@@ -4,6 +4,7 @@ import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
 import scanner.token.Ident;
+import virtualmachineFS2015.ICodeArray;
 
 import java.util.List;
 /**
@@ -28,5 +29,10 @@ public class GlobalImportAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         ident.check();
         optionalFlowModeAbsSyn.check();
         optionalChangeModeAbsSyn.check();
+    }
+
+    @Override
+    public int code(int location) throws ICodeArray.CodeTooSmallError {
+        return 0;
     }
 }

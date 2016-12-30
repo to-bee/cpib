@@ -1,6 +1,7 @@
 package absSyn;
 
 import scanner.errors.ContextError;
+import virtualmachineFS2015.ICodeArray;
 
 /**
  * Created by ylaub on 28.12.2016.
@@ -20,5 +21,10 @@ public class OptionalLocalStorageDeclarationsAbsSyn1 extends AbstractAbsSyn impl
     public void check() throws ContextError {
         storageDeclarationAbsSyn.check();
         repeatingOptionalStorageDeclarationsAbsSyn.check();
+    }
+
+    @Override
+    public int code(int location) throws ICodeArray.CodeTooSmallError {
+        return 0;
     }
 }

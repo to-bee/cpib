@@ -18,4 +18,16 @@ public abstract class AbstractAbsSyn implements IAbsSyn {
 
     protected AbstractAbsSyn() {
     }
+
+    protected String getTabs(int tabsCount) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < tabsCount * 2; i++) {
+            sb.append("  ");
+        }
+        return sb.toString();
+    }
+
+    public String toString(int counter) {
+        return "";
+    }
 }
