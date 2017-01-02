@@ -7,6 +7,7 @@ import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.context.Variable;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
+import ch.fhnw.cpib.compiler.scanner.tokens.IdentToken;
 
 
 public class FunCallExpression implements IExpression{
@@ -24,7 +25,7 @@ public class FunCallExpression implements IExpression{
 	public void check() {
 		assert this.type == null;
 	    final Token ident = this.routineCall.getToken();
-
+	    
 	    final FunctionDeclaration function = CompilerE.COMPILER.getGlobalContext().getFunction(ident);
 	    if (function == null)
 	      throw new RuntimeException("Function does not exist.");

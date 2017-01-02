@@ -25,16 +25,20 @@ public enum CompilerE {
   
   private ICodeArray Carr 		  = null;
 
-  public Compilation compile(final IProgram program) throws CodeTooSmallError/*, HeapTooSmallError*/, ExecutionError {
+  public Compilation compile(final IProgram program) throws CodeTooSmallError, ExecutionError {
     this.global = new Context();
     this.context = this.global;
     this.Carr = new CodeArray(10000);
     this.vm = new VirtualMachine(Carr, 10000);
-    final Compilation c = new Compilation(this.vm);
     program.check();
     program.code(0);
-    return c;
+    return null;
   }
+  
+  public ICodeArray getCodeArray() {
+	  return Carr;
+  }
+ 
 
   /**
    * Global Context. Following the parent-path of any other context will lead to

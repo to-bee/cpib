@@ -20,7 +20,7 @@ public final class Context {
   private int                                 globalImportedVars = 0;
 
   private final Map<Token, Variable> variables      = new LinkedHashMap<>();
-  private final Map<Token, FunctionDeclaration>  functions      = new LinkedHashMap<>();
+  public final Map<Token, FunctionDeclaration>  functions      = new LinkedHashMap<>();
   private final Map<Token, ProcedureDeclaration> procedures     = new LinkedHashMap<>();
 
   private Variable                            returnVariable = null;

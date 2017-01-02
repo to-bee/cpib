@@ -7,6 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn;
+import ch.fhnw.cpib.compiler.context.Compilation;
+import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.parser.ProgramParser;
 import ch.fhnw.cpib.compiler.scanner.Scanner;
@@ -18,7 +20,7 @@ public class Compiler {
 	public static void main(String[] args) {
 		try {
 			
-			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/test.iml"));
+			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/RSAExampleGallier.iml"));
 //			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/IntDiv.iml"));
 //			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/code.iml"));
 			
@@ -33,6 +35,9 @@ public class Compiler {
 			IConcSyn.IProgram cst = p.parse();
 			
 			IAbsSyn.IProgram ast = cst.toAbs();
+			
+			Compilation comp = CompilerE.COMPILER.compile(ast);
+			
 			
 			
 		} catch (Exception e) {

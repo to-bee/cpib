@@ -30,8 +30,7 @@ public class RoutineCall implements IRoutineCall {
 
 	@Override
 	public Token getToken() {
-		// TODO Auto-generated method stub
-		return null;
+		return ident;
 	}
 
 	@Override

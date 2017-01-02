@@ -95,6 +95,9 @@ public interface IInstructions {
 		public IExecInstr toExecInstr(VirtualMachine vm) {
             return vm.new LoadImIntExec(value);
         }
+        public int getValue(){
+        	return value;
+        }
     }
 
     // load address relative to frame pointer (address -> stack)

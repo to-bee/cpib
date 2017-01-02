@@ -6,6 +6,7 @@ import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ICase;
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ICommand;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.tokens.LiteralToken;
+import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
 
 public class Case implements ICase {
 	Token literal;
@@ -31,6 +32,21 @@ public class Case implements ICase {
 			iCommand.check();
 		}
 		
+	}
+	
+	@Override
+	public Token getToken(){
+		return literal;
+	}
+
+	@Override
+	public int code(int i) throws CodeTooSmallError {
+		
+		int loc2 = i;
+		for (ICommand iCommand : commands) {
+			loc2 = iCommand.code(loc2);
+		}
+		return loc2;
 	}
 
 }

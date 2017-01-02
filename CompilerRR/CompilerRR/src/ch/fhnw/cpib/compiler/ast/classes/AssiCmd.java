@@ -27,6 +27,7 @@ public class AssiCmd implements ICommand {
 		StoreExpression storeExpr = (StoreExpression) expressionLeft;
 	    storeExpr.setWrite(true);
 	    
+	    System.out.println(CompilerE.COMPILER.getCurrentContext());
 	    ch.fhnw.cpib.compiler.context.Variable var1 = CompilerE.COMPILER.getCurrentContext().getVariable(storeExpr.getToken());
         if (var1 == null)
           throw new RuntimeException("Varibale does not exist." + token.toString());
@@ -46,8 +47,7 @@ public class AssiCmd implements ICommand {
 
 	@Override
 	public Token getToken() {
-		// TODO Auto-generated method stub
-		return null;
+		return expressionLeft.getToken();
 	}
 	
 }

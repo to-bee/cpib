@@ -6,13 +6,17 @@ import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IDeclaration;
 import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.context.Context;
 import ch.fhnw.cpib.compiler.scanner.Token;
+import ch.fhnw.cpib.compiler.scanner.enums.Operators;
+import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
+import ch.fhnw.cpib.compiler.scanner.enums.operators.ChangeMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
 
 //A var
 public class StorageDeclaration implements IDeclaration {
-
 	
+	//Const or VAR
 	Token changeMode;
+	//Ident and Ident/Type
 	IAbsSyn.ITypedIdent typeIdent;
 
 	public StorageDeclaration(Token changeMode, ITypedIdent typeIdent) {
@@ -27,26 +31,33 @@ public class StorageDeclaration implements IDeclaration {
 	    // When this call returns the variable is known to the context.
 	    // Some of the modes are set to default values and must be altered
 	    // afterwards.
-//TODO: Figure the whole Typedidetn shit out
-//	    final Context context = CompilerE.COMPILER.getCurrentContext();
-//
-//	    if(context.exists(this.ident))
-//	      throw new ContextException("Duplicate decleration.", this.ident);
-//
-//	    context.addVariable(this.ident,
-//	        Type.ofAttribute(this.type),
-//	        this.changeMode.getValue());
+		
+	    final Context context = CompilerE.COMPILER.getCurrentContext();
+
+	    if(context.exists(this.typeIdent.getToken()))
+	      throw new RuntimeException("Duplicate decleration.");
+
+	    ChangeMode newMode = null;
+	    if (changeMode.getTerminal() == Terminals.CHANGEMODE) {
+	    	if (changeMode.getOperator() == Operators.VAR || changeMode.getOperator() == Operators.CONST) {
+	    		newMode = (changeMode.getOperator() == Operators.VAR) ? ChangeMode.VAR : ChangeMode.CONST;
+	    	}
+		}
+	    if (newMode == null) {
+			throw new RuntimeException("Wrong Operator. Only Var/Const allowed");
+		}
+	    typeIdent.check();
+	    context.addVariable(this.typeIdent.getToken(), typeIdent.getType(), newMode);
 	}
 
 	@Override
 	public Token getToken() {
-		return changeMode;
+		return typeIdent.getToken();
 	}
 
 	@Override
 	public Type getType() {
-		// TODO Auto-generated method stub
-		return null;
+		return typeIdent.getType();
 	}
 
 }

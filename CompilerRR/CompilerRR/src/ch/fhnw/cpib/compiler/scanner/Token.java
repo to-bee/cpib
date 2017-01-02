@@ -29,6 +29,7 @@ public class Token {
 			return "(" + terminal.toString() + ", " +  operator.toString()  + ")";
 		}
 	}
+	
 
 }
 

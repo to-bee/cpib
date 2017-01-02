@@ -23,7 +23,7 @@ public class StoreExpression implements IExpression{
 	private FlowMode            flowMode;
 
 	private boolean             isWrite = false;
-	private Type type;
+	private Type type = null;
 	
 	public StoreExpression(Token ident, boolean isInit) {
 		super();

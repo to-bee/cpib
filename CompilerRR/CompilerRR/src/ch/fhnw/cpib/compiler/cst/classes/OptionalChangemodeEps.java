@@ -2,6 +2,8 @@ package ch.fhnw.cpib.compiler.cst.classes;
 
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.scanner.Token;
+import ch.fhnw.cpib.compiler.scanner.enums.Operators;
+import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
 public class OptionalChangemodeEps implements IConcSyn.IOptionalCHANGEMODE{
 
@@ -11,7 +13,8 @@ public class OptionalChangemodeEps implements IConcSyn.IOptionalCHANGEMODE{
 
 	@Override
 	public Token toAbs() {
-		return null;
+		//Default value for Changemode is VAR
+		return new Token(Terminals.CHANGEMODE, Operators.VAR);
 	}
 
 }
