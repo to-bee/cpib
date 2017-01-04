@@ -1,11 +1,6 @@
 package ch.fhnw.cpib.compiler.ast.classes;
 
 
-<<<<<<< HEAD
-
-=======
-import static ch.fhnw.cpib.iml.compiler.Compiler.COMPILER;
->>>>>>> 276848e9fe890ae6562b996ec355f5c554706baa
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IParameter;
 import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.context.Variable;
@@ -13,14 +8,11 @@ import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.FlowMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.MechMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
-<<<<<<< HEAD
 import ch.fhnw.cpib.compiler.vm.ICodeArray;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
-import ch.fhnw.cpib.compiler.vm.IInstructions.*;
-=======
-import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
-import ch.fhnw.cpib.iml.vm.IVirtualMachine;
->>>>>>> 276848e9fe890ae6562b996ec355f5c554706baa
+import ch.fhnw.cpib.compiler.vm.IInstructions.Deref;
+import ch.fhnw.cpib.compiler.vm.IInstructions.LoadAddrRel;
+import ch.fhnw.cpib.compiler.vm.IInstructions.Store;
 
 public class Parameter implements IParameter {
 	//IN,OUT,INOUT
@@ -122,7 +114,6 @@ public class Parameter implements IParameter {
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
-<<<<<<< HEAD
 		ICodeArray codeArr = CompilerE.COMPILER.getCodeArray();
 	    Variable var = CompilerE.COMPILER.getCurrentContext().getVariable(this.storageDeclaration.getToken());
 	    int loc = i;
@@ -135,20 +126,6 @@ public class Parameter implements IParameter {
 	    codeArr.put(loc++, new Deref());
 	    codeArr.put(loc++, new LoadAddrRel(var.getRelLocation()));
 	    codeArr.put(loc++, new Store());
-	    
-=======
-	    final Variable var = CompilerE.COMPILER.getCurrentContext().getVariable(
-	        this.storageDeclaration.getToken());
-	    int loc = location;
-	    vm.DebugInfo(loc++, this.getClass().getSimpleName(), this.getToken());
-
-	    loc = this.storeDecl.code(loc);
-
-	    vm.LoadRel(loc++, -var.getParamLocation());
-	    vm.Deref(loc++);
-	    vm.LoadRel(loc++, var.getRelLocation());
-	    vm.Store(loc++);
->>>>>>> 276848e9fe890ae6562b996ec355f5c554706baa
 
 	    return loc;
 	}

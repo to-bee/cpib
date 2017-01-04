@@ -2,28 +2,16 @@ package ch.fhnw.cpib.compiler.ast.classes;
 
 
 
-<<<<<<< HEAD
-=======
-import static ch.fhnw.cpib.iml.compiler.Compiler.COMPILER;
->>>>>>> 276848e9fe890ae6562b996ec355f5c554706baa
-
 import java.util.List;
 
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ICommand;
-import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression;
 import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.context.Context;
 import ch.fhnw.cpib.compiler.context.Variable;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
-<<<<<<< HEAD
 import ch.fhnw.cpib.compiler.vm.ICodeArray;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
-import ch.fhnw.cpib.compiler.vm.IInstructions.*;
-=======
-import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
-import ch.fhnw.cpib.iml.vm.IVirtualMachine;
->>>>>>> 276848e9fe890ae6562b996ec355f5c554706baa
 
 public class ProcCallCmd implements ICommand{
 	
@@ -72,7 +60,6 @@ public class ProcCallCmd implements ICommand{
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
-<<<<<<< HEAD
 		ICodeArray codeArr = CompilerE.COMPILER.getCodeArray();
 	    int loc = i;
 	    
@@ -81,10 +68,6 @@ public class ProcCallCmd implements ICommand{
 	    //TODO: Figure Tokenstuff out
 	    //loc = this.globalInitList.code(loc);
 	    
-=======
-	    int loc = i;
-	    loc = this.globalInitList.code(loc);
->>>>>>> 276848e9fe890ae6562b996ec355f5c554706baa
 	    loc = this.routineCall.code(loc);
 	    return loc;
 	}
