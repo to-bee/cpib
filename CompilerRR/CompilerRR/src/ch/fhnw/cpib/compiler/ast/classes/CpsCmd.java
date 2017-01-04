@@ -4,6 +4,7 @@ import java.util.List;
 
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ICommand;
 import ch.fhnw.cpib.compiler.scanner.Token;
+import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
 
 public class CpsCmd implements ICommand{
 	List<ICommand> commands;
@@ -26,5 +27,15 @@ public class CpsCmd implements ICommand{
 	public Token getToken() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int code(int i) throws CodeTooSmallError {
+		int loc = i;
+		
+		for (ICommand iCommand : commands) {
+			loc = iCommand.code(loc);
+		}
+		return loc;
 	}
 }

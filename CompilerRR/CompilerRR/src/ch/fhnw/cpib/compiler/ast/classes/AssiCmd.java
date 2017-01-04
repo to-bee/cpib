@@ -1,11 +1,17 @@
 package ch.fhnw.cpib.compiler.ast.classes;
 
+
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ICommand;
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression;
 import ch.fhnw.cpib.compiler.context.CompilerE;
+import ch.fhnw.cpib.compiler.context.Variable;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.ChangeMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
+import ch.fhnw.cpib.compiler.vm.ICodeArray;
+import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
+import ch.fhnw.cpib.compiler.vm.IInstructions.IInstr;
+import ch.fhnw.cpib.compiler.vm.IInstructions.*;
 
 public class AssiCmd implements ICommand {
 	IExpression expressionLeft;
@@ -48,6 +54,25 @@ public class AssiCmd implements ICommand {
 	@Override
 	public Token getToken() {
 		return expressionLeft.getToken();
+	}
+
+
+	@Override
+	public int code(int i) throws CodeTooSmallError {
+		ICodeArray codeArr = CompilerE.COMPILER.getCodeArray();
+	    Variable var = CompilerE.COMPILER.getCurrentContext().getVariable(((StoreExpression) this.expressionLeft).getToken());
+	    
+	    
+	    int loc = i;
+//	    vm.DebugInfo(loc++, this.getClass().getSimpleName() + ": " + var.getName()
+//	        + " := ?", this.getToken());
+	    
+
+	    //TODO: Maybe other way around
+	    loc = this.expressionRight.code(loc);
+	    loc = this.expressionLeft.code(loc);
+	    codeArr.put(loc++, new Store());
+	    return loc;
 	}
 	
 }

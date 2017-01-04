@@ -1,5 +1,6 @@
 package ch.fhnw.cpib.compiler.ast.classes;
 
+
 import java.util.List;
 
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression;
@@ -8,6 +9,8 @@ import ch.fhnw.cpib.compiler.context.Variable;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
 import ch.fhnw.cpib.compiler.scanner.tokens.IdentToken;
+import ch.fhnw.cpib.compiler.vm.ICodeArray;
+import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
 
 
 public class FunCallExpression implements IExpression{
@@ -58,6 +61,16 @@ public class FunCallExpression implements IExpression{
 	@Override
 	public Type getType() {
 		return type;
+	}
+
+
+
+	@Override
+	public int code(int i) throws CodeTooSmallError {
+	    int loc = i;
+	    //vm.DebugInfo(loc++, this.getClass().getSimpleName(), this.getToken());
+	    loc = this.routineCall.code(loc);
+	    return loc;
 	}
 
 }

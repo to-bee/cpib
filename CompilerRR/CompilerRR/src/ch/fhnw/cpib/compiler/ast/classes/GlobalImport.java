@@ -1,6 +1,7 @@
 package ch.fhnw.cpib.compiler.ast.classes;
 
 
+
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IGlobalImport;
 import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.context.Variable;
@@ -9,6 +10,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Operators;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.ChangeMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.FlowMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Scope;
+import ch.fhnw.cpib.compiler.vm.ICodeArray;
+import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
 
 public class GlobalImport implements IGlobalImport {
 	Token flowMode;
@@ -63,6 +66,12 @@ public class GlobalImport implements IGlobalImport {
 	@Override
 	public Token getToken() {
 		return ident;
+	}
+
+	@Override
+	public int code(int i) throws CodeTooSmallError {
+	    //vm.DebugInfo(loc++, this.getClass().getSimpleName(), this.getToken());
+	    return i;
 	}
 
 }
