@@ -2,18 +2,18 @@ package ch.fhnw.cpib.compiler.ast.classes;
 
 
 
-import java.util.IllformedLocaleException;
 import java.util.List;
 
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IDeclaration;
-import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IParameter;
 import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.context.Context;
 import ch.fhnw.cpib.compiler.context.Variable;
-import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn.IBlockCmd;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.FlowMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
+import ch.fhnw.cpib.compiler.vm.ICodeArray;
+import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
+import ch.fhnw.cpib.compiler.vm.IInstructions;
 
 public class FunctionDeclaration implements IDeclaration{
 
@@ -115,5 +115,57 @@ public class FunctionDeclaration implements IDeclaration{
 	public List<IParameter> getParamList() {
 		return parameters;
 	}
+
+	public int getLocation() {
+		return location;
+	}
+
+	public void setLocation(int location) {
+		this.location = location;
+	}
+
+	@Override
+	public int code(int i) throws CodeTooSmallError {
+		int loc = i;
+	    final int jumpLoc = loc++;
+
+	    CompilerE.COMPILER.switchToContext(this.context);
+	    final ICodeArray codeArray =  CompilerE.COMPILER.getCodeArray();
+
+	    this.setLocation(loc);
+
+	    loc = this.storageDeclaration.code(loc);
+	    for(IParameter p : parameters)
+	    	loc = p.code(loc);
+	    for(IGlobalImport g : globalImports)
+	    	loc = g.code(loc);
+	    for(IDeclaration d : storageDeclarations)
+	    	loc = d.code(loc);
+	    for(ICommand c : commands)
+	    	loc = c.code(loc);
+
+	    final int localVariableCount = this.context.getVariableCount() - 4
+	        - globalImports.size()
+	        - storageDeclarations.size();
+
+	    // Store Return Variable on stack cell before funCall
+	    final Variable var = CompilerE.COMPILER.getCurrentContext().getVariable(
+	        this.storageDeclaration.getToken());
+	    
+	    codeArray.put(loc++, new IInstructions.LoadAddrRel(var.getRelLocation()));
+	    codeArray.put(loc++, new IInstructions.Deref());
+	    codeArray.put(loc++, new IInstructions.LoadAddrRel(-(parameters.size() + 1)));
+	    codeArray.put(loc++, new IInstructions.Store());
+	    
+	    codeArray.put(loc++, new IInstructions.Return(localVariableCount));
+	    CompilerE.COMPILER.returnContext();
+
+	    // To jump over funDecl since it should not be executed until a Call to it
+	    codeArray.put(jumpLoc, new IInstructions.UncondJump(loc));
+
+	    return loc;
+	}
 	
+	
+
 }

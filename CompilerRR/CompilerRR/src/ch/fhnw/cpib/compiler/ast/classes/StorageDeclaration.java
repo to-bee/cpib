@@ -10,6 +10,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.Operators;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.ChangeMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
+import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
+import ch.fhnw.cpib.compiler.vm.IInstructions;
 
 //A var
 public class StorageDeclaration implements IDeclaration {
@@ -58,6 +60,21 @@ public class StorageDeclaration implements IDeclaration {
 	@Override
 	public Type getType() {
 		return typeIdent.getType();
+	}
+
+	@Override
+	public int code(int i) throws CodeTooSmallError {
+	    // Note that the caller of this method can be a Parameter.
+	    // When this call returns the variable is known to the context.
+	    // Some of the modes are set to default values and must be altered
+	    // afterwards.
+
+	    int loc = i;
+	    // Allocate one cell on the stack for the variable value:
+	    // TODO: allocstack or allocblock?
+	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.AllocBlock(1));
+
+	    return loc;
 	}
 
 }

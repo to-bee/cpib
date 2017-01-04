@@ -49,7 +49,7 @@ public class WhileCmd implements ICommand {
 		int loc4 = loc3+1;
 		CompilerE.COMPILER.getCodeArray().put(loc1, new CondJump(loc4));
 		CompilerE.COMPILER.getCodeArray().put(loc3, new UncondJump(i));
-		return 0;
+		return loc4;
 	}
 
 }

@@ -8,6 +8,9 @@ import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IParameter;
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IRoutineCall;
 import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.scanner.Token;
+import ch.fhnw.cpib.compiler.scanner.enums.operators.MechMode;
+import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
+import ch.fhnw.cpib.compiler.vm.IInstructions;
 
 public class RoutineCall implements IRoutineCall {
 	
@@ -66,6 +69,38 @@ public class RoutineCall implements IRoutineCall {
 		}
 	    
 		
+	}
+
+	@Override
+	public int code(int i) throws CodeTooSmallError {
+	    int loc = i;
+	    int routineLocation;
+
+	    if (this.isFunc) {
+	      routineLocation = CompilerE.COMPILER.getCurrentContext().getFunction(this.ident)
+	          .getLocation();
+	      // Allocate Stack cell for return variable
+	      // TODO: allocstack or allocblock?
+	      CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.AllocBlock(1));
+	    } else {
+	      routineLocation =  CompilerE.COMPILER.getCurrentContext().getProcedure(this.ident)
+	          .getLocation();
+	    }
+
+	    while (this.paramCallList.getItem() != null) {
+	      final StoreExpression storeExpr = (StoreExpression) this.paramCallList.getItem();
+	      final IParameter parameter = this.paramList.getItem();
+
+	      if (parameter.getMechMode() == MechMode.REF) storeExpr.setWrite(true);
+
+	      loc = storeExpr.code(loc);
+
+	      this.paramCallList = this.paramCallList.next();
+	      this.paramList = this.paramList.next();
+	    }
+
+	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.Call(routineLocation));
+	    return loc;
 	}
 	 
 	 

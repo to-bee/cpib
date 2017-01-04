@@ -10,6 +10,8 @@ import ch.fhnw.cpib.compiler.scanner.enums.operators.FlowMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.MechMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Scope;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
+import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
+import ch.fhnw.cpib.compiler.vm.IInstructions;
 
 public class StoreExpression implements IExpression{
 
@@ -92,6 +94,30 @@ public class StoreExpression implements IExpression{
 	@Override
 	public Type getType() {
 		return type;
+	}
+
+	@Override
+	public int code(int i) throws CodeTooSmallError {
+	    int loc = i;
+	    
+	    final Variable var = CompilerE.COMPILER.getCurrentContext().getVariable(this.ident);
+
+	    if (this.scope == Scope.GLOBAL) {
+	    	CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.LoadImInt(var.getAbsLocation()));
+	    } else {
+	    	CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.LoadAddrRel(var.getRelLocation()));
+	    }
+
+	    // If MechMode.REF, get the address of the referenced variable
+	    if (var.getMechMode() == MechMode.REF) 
+	    	CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.Deref());
+
+
+	    if (!this.isWrite) {
+	    	CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.Deref());
+	    }
+
+	    return loc;
 	}
 
 }

@@ -5,6 +5,7 @@ import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
 import ch.fhnw.cpib.compiler.scanner.tokens.IdentToken;
+import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
 
 public class TypeDeclarationIdent implements ITypeDeclaration{
 
@@ -44,6 +45,11 @@ public class TypeDeclarationIdent implements ITypeDeclaration{
 	@Override
 	public Token getToken() {
 		return ident;
+	}
+
+	@Override
+	public int code(int i) throws CodeTooSmallError {
+		return i;
 	}
 
 	

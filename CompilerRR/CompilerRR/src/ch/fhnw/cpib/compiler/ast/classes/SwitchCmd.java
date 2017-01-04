@@ -3,20 +3,14 @@ package ch.fhnw.cpib.compiler.ast.classes;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.swing.plaf.basic.BasicTreeUI.CellEditorHandler;
-
-import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ICase;
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ICommand;
-import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression;
 import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
 import ch.fhnw.cpib.compiler.scanner.tokens.LiteralToken;
 import ch.fhnw.cpib.compiler.vm.ICodeArray;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
-import ch.fhnw.cpib.compiler.vm.IInstructions;
-import ch.fhnw.cpib.compiler.vm.*;
-import ch.fhnw.cpib.compiler.vm.IInstructions.*;
+import ch.fhnw.cpib.compiler.vm.IInstructions.LoadImInt;
 
 public class SwitchCmd implements ICommand {
 	IExpression expression;
