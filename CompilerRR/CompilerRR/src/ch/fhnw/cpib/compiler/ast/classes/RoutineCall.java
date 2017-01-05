@@ -88,15 +88,11 @@ public class RoutineCall implements IRoutineCall {
 	    }
 	    
 		for(int j = 0; j < this.paramCallList.size(); j++){
+			StoreExpression storeEx = (StoreExpression) paramCallList.get(j);
+			IParameter parameter = paramList.get(j);
+			if (parameter.getMechMode() == MechMode.REF) storeEx.setWrite(true);
 			
-			IExpression expression = paramCallList.get(j);
-			if(expression instanceof StoreExpression){
-				StoreExpression storeEx = (StoreExpression) expression;
-				IParameter parameter = paramList.get(j);
-				if (parameter.getMechMode() == MechMode.REF) storeEx.setWrite(true);
-			}
-			
-			loc = expression.code(loc);
+			loc = storeEx.code(loc);
 		}
 		
 	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.Call(routineLocation));

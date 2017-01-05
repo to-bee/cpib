@@ -28,14 +28,30 @@ public class Compiler {
 			//compiler.compile(new BufferedReader(isr));
 			Scanner s = new Scanner();
 			LinkedList<Token> list = s.scan(new BufferedReader(isr));
+
+			System.out.println("-------------------------");
+			System.out.println("       TOKENLIST         ");
+			System.out.println("-------------------------");
 			System.out.println(list.toString());
 			
 			ProgramParser p = new ProgramParser(list);
 			IConcSyn.IProgram cst = p.parse();
+			System.out.println("-------------------------");
+			System.out.println("          CST            ");
+			System.out.println("-------------------------");
 			
 			IAbsSyn.IProgram ast = cst.toAbs();
+			System.out.println("-------------------------");
+			System.out.println("          AST            ");
+			System.out.println("-------------------------");
 			
+			
+			System.out.println("-------------------------");
+			System.out.println("         Code            ");
+			System.out.println("-------------------------");
 			CompilerE.COMPILER.compile(ast);
+			CompilerE.COMPILER.getCodeArray().resize();
+			
 			
 			VirtualMachine vm = new VirtualMachine(CompilerE.COMPILER.getCodeArray(), 1000);
 			

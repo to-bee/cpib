@@ -1,18 +1,24 @@
 program SwitchCase()
 global
-fun switchIntFun(n:int32) returns var res:int32
+fun switchIntFun(in copy n:int32) returns var res:int32
     do
-      res init := 0;
-      switch n
+      res init := 22;
+      debugout n;
+      switch 3
         case 1 : res := n + n;
 	        res := n - n
         case 2 : res := n * n
-        case 3 : res := n * n + n
+        case 3 : 
+        	res := 2 * 3 + 1;
+        	debugout res
         casedefault : res := n
       endswitch
     endfun;
 
-var f:int32
+var f:int32;
+var n:int32
 do
-    f init := switchIntFun(10)
+	n init := 3;
+    f init := switchIntFun(n);
+    debugout f
 endprogram

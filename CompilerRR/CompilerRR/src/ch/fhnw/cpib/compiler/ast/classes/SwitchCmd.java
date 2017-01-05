@@ -100,7 +100,7 @@ public class SwitchCmd implements ICommand {
 			carr.put(condJumpFromPositions[k], new IInstructions.CondJump(condJumpToPositions[k]));
 		}
 		for(int location : uncondJumpFromPositions){
-			carr.put(location, new IInstructions.CondJump(endJumpPoint));
+			carr.put(location, new IInstructions.UncondJump(endJumpPoint));
 		}
 		
 	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
