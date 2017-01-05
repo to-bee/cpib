@@ -49,6 +49,13 @@ public class WhileCmd implements ICommand {
 		int loc4 = loc3+1;
 		CompilerE.COMPILER.getCodeArray().put(loc1, new CondJump(loc4));
 		CompilerE.COMPILER.getCodeArray().put(loc3, new UncondJump(i));
+		
+	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
+	    for(int ii = i; ii < loc4; ii++){
+	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
+	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
+	    	else System.out.println("null <--------------------------");
+	    }
 		return loc4;
 	}
 

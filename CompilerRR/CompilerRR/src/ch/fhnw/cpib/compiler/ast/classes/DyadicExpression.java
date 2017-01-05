@@ -60,6 +60,9 @@ public class DyadicExpression implements IExpression {
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
+		
+		System.out.println("+++ " + this.getClass().getSimpleName() + " : wird nicht geprinted. +++");
+		
 		ICodeArray codeArr = CompilerE.COMPILER.getCodeArray();
 	   
 		//vm.DebugInfo(location, this.getClass().getSimpleName(), this.getToken());

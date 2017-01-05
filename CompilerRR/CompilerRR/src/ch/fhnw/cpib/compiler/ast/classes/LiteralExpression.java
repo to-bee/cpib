@@ -1,5 +1,7 @@
 package ch.fhnw.cpib.compiler.ast.classes;
 
+import javax.management.RuntimeErrorException;
+
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression;
 import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.scanner.Token;
@@ -9,7 +11,6 @@ import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
 import ch.fhnw.cpib.compiler.scanner.tokens.LiteralToken;
 import ch.fhnw.cpib.compiler.vm.ICodeArray;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
-import ch.fhnw.cpib.compiler.vm.IInstructions;
 import ch.fhnw.cpib.compiler.vm.*;
 import ch.fhnw.cpib.compiler.vm.IInstructions.*;
 
@@ -53,10 +54,20 @@ public class LiteralExpression implements IExpression {
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
+		System.out.println("+++ " + this.getClass().getSimpleName() + " : wird nicht geprinted. +++");
+
 		final ICodeArray carr = CompilerE.COMPILER.getCodeArray();
 
 	    switch (this.type) {
 	    case BOOL:
+	    	if(literalToken.getOperator() == Operators.TRUE)
+	    		carr.put(i, new LoadImInt(1));
+	    	else if(literalToken.getOperator() == Operators.FALSE)
+	    		carr.put(i, new LoadImInt(0));
+	    	else {
+	    		throw new RuntimeException("Wrong Operator! Must be True or False.");
+	    	}
+	    	return i + 1;
 	    case INT32:
 	      carr.put(i, new LoadImInt(((LiteralToken)literalToken).getValue()));
 	      return i + 1;

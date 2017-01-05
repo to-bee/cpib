@@ -20,7 +20,6 @@ public class SkipCmd implements ICommand{
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
-		// TODO Auto-generated method stub
 		return i;
 	}
 	

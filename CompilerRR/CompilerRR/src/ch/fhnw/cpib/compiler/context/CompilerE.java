@@ -21,18 +21,14 @@ public enum CompilerE {
   /** Current context. */
   private Context         context = null;
 
-  private IVirtualMachine vm      = null;
-  
   private ICodeArray Carr 		  = null;
 
-  public Compilation compile(final IProgram program) throws CodeTooSmallError, ExecutionError {
+  public void compile(final IProgram program) throws CodeTooSmallError, ExecutionError {
     this.global = new Context();
     this.context = this.global;
     this.Carr = new CodeArray(10000);
-    this.vm = new VirtualMachine(Carr, 10000);
     program.check();
     program.code(0);
-    return null;
   }
   
   public ICodeArray getCodeArray() {
@@ -69,7 +65,4 @@ public enum CompilerE {
     this.context = context;
   }
 
-  public IVirtualMachine getVM() {
-    return this.vm;
-  }
 }

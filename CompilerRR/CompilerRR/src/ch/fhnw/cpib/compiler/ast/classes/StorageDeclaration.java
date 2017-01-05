@@ -64,6 +64,8 @@ public class StorageDeclaration implements IDeclaration {
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
+		System.out.println(this.getClass().getSimpleName());
+		
 	    // Note that the caller of this method can be a Parameter.
 	    // When this call returns the variable is known to the context.
 	    // Some of the modes are set to default values and must be altered
@@ -74,6 +76,12 @@ public class StorageDeclaration implements IDeclaration {
 	    // TODO: allocstack or allocblock?
 	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.AllocBlock(1));
 
+	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
+	    for(int ii = i; ii < loc; ii++){
+	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
+	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
+	    	else System.out.println("null <--------------------------");
+	    }
 	    return loc;
 	}
 

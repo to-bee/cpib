@@ -15,7 +15,7 @@ import ch.fhnw.cpib.compiler.vm.IInstructions;
 public class RoutineCall implements IRoutineCall {
 	
 	 private Token ident;
-	 private List<IExpression>        paramCallList;
+	 private List<IExpression>   paramCallList;
 	 private boolean             isFunc = false;
 
 	 private List<IParameter>   paramList;
@@ -88,15 +88,25 @@ public class RoutineCall implements IRoutineCall {
 	    }
 	    
 		for(int j = 0; j < this.paramCallList.size(); j++){
-			StoreExpression expression = (StoreExpression) paramCallList.get(j);
-			IParameter parameter = paramList.get(j);
 			
-			if (parameter.getMechMode() == MechMode.REF) expression.setWrite(true);
+			IExpression expression = paramCallList.get(j);
+			if(expression instanceof StoreExpression){
+				StoreExpression storeEx = (StoreExpression) expression;
+				IParameter parameter = paramList.get(j);
+				if (parameter.getMechMode() == MechMode.REF) storeEx.setWrite(true);
+			}
+			
 			loc = expression.code(loc);
-			
 		}
 		
 	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.Call(routineLocation));
+	    
+	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
+	    for(int ii = i; ii < loc; ii++){
+	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
+	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
+	    	else System.out.println("null <--------------------------");
+	    }
 	    return loc;
 	}
 	 

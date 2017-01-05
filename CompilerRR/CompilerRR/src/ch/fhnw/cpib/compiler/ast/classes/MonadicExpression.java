@@ -41,6 +41,8 @@ public class MonadicExpression implements IExpression{
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
+		System.out.println("+++ " + this.getClass().getSimpleName() + " : wird nicht geprinted. +++");
+		
 		ICodeArray codeArr = CompilerE.COMPILER.getCodeArray();
 	    int loc = i;
 	    //vm.DebugInfo(loc++, this.getClass().getSimpleName(), this.getToken());

@@ -15,7 +15,7 @@ public interface IAbsSyn {
 	
 	public interface IProgram extends IAbsSyn {
 
-		void code(int i);
+		void code(int i) throws CodeTooSmallError;
 
 	}
 	

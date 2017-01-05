@@ -10,7 +10,6 @@ import ch.fhnw.cpib.compiler.scanner.enums.operators.ChangeMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
 import ch.fhnw.cpib.compiler.vm.ICodeArray;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
-import ch.fhnw.cpib.compiler.vm.IInstructions.IInstr;
 import ch.fhnw.cpib.compiler.vm.IInstructions.*;
 
 public class AssiCmd implements ICommand {
@@ -33,7 +32,6 @@ public class AssiCmd implements ICommand {
 		StoreExpression storeExpr = (StoreExpression) expressionLeft;
 	    storeExpr.setWrite(true);
 	    
-	    System.out.println(CompilerE.COMPILER.getCurrentContext());
 	    ch.fhnw.cpib.compiler.context.Variable var1 = CompilerE.COMPILER.getCurrentContext().getVariable(storeExpr.getToken());
         if (var1 == null)
           throw new RuntimeException("Varibale does not exist." + token.toString());
@@ -60,18 +58,20 @@ public class AssiCmd implements ICommand {
 	@Override
 	public int code(int i) throws CodeTooSmallError {
 		ICodeArray codeArr = CompilerE.COMPILER.getCodeArray();
-	    Variable var = CompilerE.COMPILER.getCurrentContext().getVariable(((StoreExpression) this.expressionLeft).getToken());
-	    
 	    
 	    int loc = i;
-//	    vm.DebugInfo(loc++, this.getClass().getSimpleName() + ": " + var.getName()
-//	        + " := ?", this.getToken());
 	    
-
-	    //TODO: Maybe other way around
-	    loc = this.expressionRight.code(loc);
 	    loc = this.expressionLeft.code(loc);
+	    loc = this.expressionRight.code(loc);
 	    codeArr.put(loc++, new Store());
+	   
+	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
+	    for(int ii = i; ii < loc; ii++){
+	    	if(codeArr.get(ii) != null)
+	    		System.out.println(codeArr.get(ii).toString());
+	    	else System.out.println("null <--------------------------");
+	    }
+	    
 	    return loc;
 	}
 	

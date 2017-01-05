@@ -1,17 +1,12 @@
 package ch.fhnw.cpib.compiler.ast.classes;
 
-import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ICommand;
-import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ITypeDeclaration;
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ITypedIdent;
 import ch.fhnw.cpib.compiler.context.CompilerE;
+import ch.fhnw.cpib.compiler.context.Variable;
 import ch.fhnw.cpib.compiler.scanner.Token;
-import ch.fhnw.cpib.compiler.scanner.enums.Operators;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
-import ch.fhnw.cpib.compiler.scanner.tokens.LiteralToken;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
 import ch.fhnw.cpib.compiler.vm.IInstructions;
-import ch.fhnw.cpib.compiler.vm.IInstructions.CondJump;
-import ch.fhnw.cpib.compiler.vm.IInstructions.UncondJump;
 
 public class TypedIdent implements ITypedIdent{
 
@@ -45,16 +40,20 @@ public class TypedIdent implements ITypedIdent{
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
-		int value = 0;
-		if(Type.INT32 == getType())
-			value = ((LiteralToken) getToken()).getValue();
-		else if(getToken().getOperator() == Operators.TRUE)
-			value = 1;
-		else if(getToken().getOperator() == Operators.FALSE)
-			value = 0;
-		
-		CompilerE.COMPILER.getCodeArray().put(i, new IInstructions.LoadImInt(value));
-		return i+1;
+	    int loc = i;
+	    final Variable var = CompilerE.COMPILER.getCurrentContext().getVariable(this.ident);
+
+	    // Load address of Variable onto the stack
+	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.LoadAddrRel(var.getRelLocation()));
+	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.Store());
+
+	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
+	    for(int ii = i; ii < loc; ii++){
+	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
+	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
+	    	else System.out.println("null <--------------------------");
+	    }
+	    return loc;
 	}
 	
 	

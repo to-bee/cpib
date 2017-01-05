@@ -3,6 +3,7 @@ package ch.fhnw.cpib.compiler.ast.classes;
 import java.util.List;
 
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.ICommand;
+import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
 
@@ -36,6 +37,13 @@ public class CpsCmd implements ICommand{
 		for (ICommand iCommand : commands) {
 			loc = iCommand.code(loc);
 		}
+		
+	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
+	    for(int ii = i; ii < loc; ii++){
+	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
+	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
+	    	else System.out.println("null <--------------------------");
+	    }
 		return loc;
 	}
 }

@@ -10,6 +10,7 @@ import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
 import ch.fhnw.cpib.compiler.scanner.tokens.LiteralToken;
 import ch.fhnw.cpib.compiler.vm.ICodeArray;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
+import ch.fhnw.cpib.compiler.vm.IInstructions;
 import ch.fhnw.cpib.compiler.vm.IInstructions.LoadImInt;
 
 public class SwitchCmd implements ICommand {
@@ -29,9 +30,6 @@ public class SwitchCmd implements ICommand {
 	public void check() {
 		//First check expression, so type is not null
 		expression.check();
-		
-		System.out.println(expression.getClass());
-		System.out.println(expression.getType());
 		
 		if (expression.getType() != Type.INT32) {
 			throw new RuntimeException("Wrong Type of Switchexpression");
@@ -68,27 +66,51 @@ public class SwitchCmd implements ICommand {
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
+		System.out.println(this.getClass().getSimpleName());
+		
 		ICodeArray carr = CompilerE.COMPILER.getCodeArray();
 		
-		int loc1 = expression.code(i);
-		int value = ((LoadImInt)carr.get(i)).getValue();
+		int loc = i;
 		
-		int loc2 = loc1;
-		boolean found = false;
-		for (ICase iCase : cases) {
-			if (((LiteralToken)iCase.getToken()).getValue() == value) {
-				loc2 = iCase.code(loc2);
-				found = true;
-				break;
-			}
+		int[] condJumpFromPositions = new int[cases.size()];
+		int[] condJumpToPositions = new int[cases.size()];
+		
+		int[] uncondJumpFromPositions = new int[cases.size()];
+		int endJumpPoint = -1;
+		
+		int j = 0; // current index
+		for(ICase currentCase : cases){
+			loc = expression.code(loc);
+			carr.put(loc++, new IInstructions.LoadImInt(((LiteralToken)currentCase.getToken()).getValue()));
+			carr.put(loc++, new IInstructions.EqInt());
+			condJumpFromPositions[j] = loc++;
+			loc = currentCase.code(loc);
+			uncondJumpFromPositions[j] = loc++;
+			condJumpToPositions[j] = loc;
+			j++;
 		}
-		if (!found) {
-			for (ICommand iCommand : defaultCommands) {
-				loc2 = iCommand.code(loc2);
-			}
-			
+		// default case
+		for(ICommand cmd : defaultCommands)
+			loc = cmd.code(loc);
+		
+		endJumpPoint = loc;
+		
+		// create Jumps
+		for(int k = 0; k < condJumpFromPositions.length; k++){
+			carr.put(condJumpFromPositions[k], new IInstructions.CondJump(condJumpToPositions[k]));
 		}
-		return loc2;
+		for(int location : uncondJumpFromPositions){
+			carr.put(location, new IInstructions.CondJump(endJumpPoint));
+		}
+		
+	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
+	    for(int ii = i; ii < endJumpPoint; ii++){
+	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
+	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
+	    	else System.out.println("null <--------------------------");
+	    }
+		
+		return endJumpPoint;
 	}
 
 }

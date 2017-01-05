@@ -127,6 +127,13 @@ public class Parameter implements IParameter {
 	    codeArr.put(loc++, new LoadAddrRel(var.getRelLocation()));
 	    codeArr.put(loc++, new Store());
 
+	    
+	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
+	    for(int ii = i; ii < loc; ii++){
+	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
+	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
+	    	else System.out.println("null <--------------------------");
+	    }
 	    return loc;
 	}
 
