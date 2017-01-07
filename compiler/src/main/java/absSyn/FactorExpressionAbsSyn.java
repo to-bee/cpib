@@ -1,6 +1,7 @@
 package absSyn;
 
 import scanner.errors.ContextError;
+import scanner.token.IToken;
 import virtualmachineFS2015.ICodeArray;
 
 /**
@@ -9,10 +10,24 @@ import virtualmachineFS2015.ICodeArray;
 public class FactorExpressionAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
 
+    private IToken token;
     private final ExpressionAbsSyn expressionAbsSyn;
     private final RepeatingOptionalExpressionsAbsSyn repeatingOptionalExpressionsAbsSyn;
 
-    public FactorExpressionAbsSyn(ExpressionAbsSyn expressionAbsSyn, RepeatingOptionalExpressionsAbsSyn repeatingOptionalExpressionsAbsSyn) {
+    public IToken getToken() {
+        return token;
+    }
+
+    public ExpressionAbsSyn getExpressionAbsSyn() {
+        return expressionAbsSyn;
+    }
+
+    public RepeatingOptionalExpressionsAbsSyn getRepeatingOptionalExpressionsAbsSyn() {
+        return repeatingOptionalExpressionsAbsSyn;
+    }
+
+    public FactorExpressionAbsSyn(IToken token, ExpressionAbsSyn expressionAbsSyn, RepeatingOptionalExpressionsAbsSyn repeatingOptionalExpressionsAbsSyn) {
+        this.token = token;
 
         this.expressionAbsSyn = expressionAbsSyn;
         this.repeatingOptionalExpressionsAbsSyn = repeatingOptionalExpressionsAbsSyn;

@@ -1,6 +1,8 @@
 package absSyn;
 
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
+import scanner.token.IToken;
 import virtualmachineFS2015.ICodeArray;
 
 /**
@@ -9,9 +11,24 @@ import virtualmachineFS2015.ICodeArray;
 public class FactorLiteralAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
 
+    private IToken token;
+
+    public IToken getToken() {
+        return token;
+    }
+
+    public FactorLiteralAbsSyn(IToken token) {
+
+        this.token = token;
+    }
+
     @Override
     public void check() throws ContextError {
-        //nothing to check
+        if(CmdAssignAbsSyn.getCurrentVariable().getType() == Terminal.COMPL) {
+            if(this.token.getTerminal() == Terminal.NOT || this.token.getTerminal() == Terminal.IDENT) {
+                throw new ContextError(String.format("%s not allowed for variables of type %s", this.token.getTerminal(), Terminal.COMPL));
+            }
+        }
     }
 
     @Override

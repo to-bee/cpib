@@ -1,6 +1,8 @@
 package absSyn;
 
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
+import scanner.token.IToken;
 import virtualmachineFS2015.ICodeArray;
 
 /**
@@ -9,9 +11,22 @@ import virtualmachineFS2015.ICodeArray;
 public class FactorImaginaryPartAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
 
+    private IToken token;
+
+    public IToken getToken() {
+        return token;
+    }
+
+    public FactorImaginaryPartAbsSyn(IToken token) {
+
+        this.token = token;
+    }
+
     @Override
     public void check() throws ContextError {
-        //nothing to check
+        if(this.token.getTerminal() == Terminal.IMAGINARY_PART) {
+            CmdAssignAbsSyn.getCurrentVariable().setImaginary(true);
+        }
     }
 
     @Override

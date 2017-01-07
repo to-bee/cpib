@@ -9,11 +9,11 @@ import scanner.tokenList.ITokenList;
 /**
  * Created by tobi on 17.12.16.
  */
-public class FactorMoniadicConcSyn extends AbstractConcSyn implements IConcSyn {
+public class FactorMonadicConcSyn extends AbstractConcSyn implements IConcSyn {
     private MonadictOperatorConcSyn monadictOperatorConcSyn;
     private FactorConcSyn factorConcSyn;
 
-    public FactorMoniadicConcSyn(ITokenList tokenList, int i) {
+    public FactorMonadicConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 

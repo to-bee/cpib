@@ -1,5 +1,6 @@
 package absSyn;
 
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import virtualmachineFS2015.ICodeArray;
 
@@ -24,6 +25,14 @@ public class Term1AbsSyn extends AbstractAbsSyn implements IAbsSyn{
     @Override
     public int code(int location) throws ICodeArray.CodeTooSmallError {
         return 0;
+    }
+
+    public Term2AbsSyn getTerm2AbsSyn() {
+        return term2AbsSyn;
+    }
+
+    public RepRelOprTerm2AbsSyn getRepRelOprTerm2AbsSyn() {
+        return repRelOprTerm2AbsSyn;
     }
 }
 

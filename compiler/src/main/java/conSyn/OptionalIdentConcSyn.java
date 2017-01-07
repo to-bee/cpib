@@ -44,7 +44,9 @@ public class OptionalIdentConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal().getType() == TerminalType.RELOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR) {
+                || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.MODOPR) {
             subType = new EmptyConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.INIT) {
             subType = new EmptyConsumeConcSyn(getTokenList(), getCounter());

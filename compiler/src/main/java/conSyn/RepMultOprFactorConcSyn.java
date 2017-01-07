@@ -45,7 +45,9 @@ public class RepMultOprFactorConcSyn extends AbstractConcSyn implements IConcSyn
                 || getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR) {
             subType = new EmptyConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR) {
+        } else if (getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.MODOPR) {
             subType = new RepMultOprFactorConcSyn1(getTokenList(), getCounter());
         } else {
             throwGrammarError();

@@ -20,13 +20,14 @@ public class ComplImagConcSyn extends AbstractConcSyn implements IConcSyn {
     private IToken token;
     @Override
     public ComplImagAbsSyn toAbsSyn() throws ContextError {
-        return new ComplImagAbsSyn(expressionConcSyn.toAbsSyn());
+        return new ComplImagAbsSyn(token, expressionConcSyn.toAbsSyn());
     }
 
 
     @Override
     public void parse() throws GrammarError {
         if (getTokenList().getCurrent().getTerminal() == Terminal.IMAG) {
+            this.token = this.getTokenList().getCurrent();
             consume();
             if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
                 consume();

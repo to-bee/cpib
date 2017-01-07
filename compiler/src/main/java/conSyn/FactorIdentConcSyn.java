@@ -14,6 +14,14 @@ public class FactorIdentConcSyn extends AbstractConcSyn implements IConcSyn {
     private Ident ident;
     private OptionalIdentConcSyn optionalIdentConcSyn;
 
+    public Ident getIdent() {
+        return ident;
+    }
+
+    public OptionalIdentConcSyn getOptionalIdentConcSyn() {
+        return optionalIdentConcSyn;
+    }
+
     public FactorIdentConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }

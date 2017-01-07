@@ -50,7 +50,7 @@ public enum Terminal {
     INIT("INIT", null),
     NOT("!", TerminalType.UNARYOPR),
     DIV("/", TerminalType.ARITHMOPR),
-    MOD("%", TerminalType.ARITHMOPR),
+    MODOPR("%", TerminalType.ARITHMOPR),
     COMPLEMENT("!", TerminalType.UNARYOPR),
     BECOMES(":=", TerminalType.ASSIGNOPR),
     EQ("==", TerminalType.RELOPR),

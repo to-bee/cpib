@@ -30,6 +30,9 @@ public class Term1ConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.LPAREN
                 || getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.MODOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {

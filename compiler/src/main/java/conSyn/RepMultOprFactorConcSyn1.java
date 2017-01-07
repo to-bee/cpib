@@ -3,6 +3,7 @@ package conSyn;
 import absSyn.RepMultOprFactorAbsSyn1;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
 
 /**
@@ -11,6 +12,7 @@ import scanner.tokenList.ITokenList;
 public class RepMultOprFactorConcSyn1 extends AbstractConcSyn implements IConcSyn {
     private FactorConcSyn factorConcSyn;
     private RepMultOprFactorConcSyn repMultOprFactorConcSyn;
+    private IToken token;
 
     public RepMultOprFactorConcSyn1(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -18,7 +20,7 @@ public class RepMultOprFactorConcSyn1 extends AbstractConcSyn implements IConcSy
 
     @Override
     public RepMultOprFactorAbsSyn1 toAbsSyn() throws ContextError {
-        return new RepMultOprFactorAbsSyn1(factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn());
+        return new RepMultOprFactorAbsSyn1(token, factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn());
     }
 
     /**
@@ -26,7 +28,9 @@ public class RepMultOprFactorConcSyn1 extends AbstractConcSyn implements IConcSy
      */
     @Override
     public void parse() throws GrammarError {
+        this.token = getTokenList().getCurrent();
         consume();
+
         factorConcSyn = new FactorConcSyn(getTokenList(), getCounter());
         parseNext(factorConcSyn);
 

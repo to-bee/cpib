@@ -27,7 +27,11 @@ public class RepAddOprTerm3ConcSyn extends AbstractConcSyn implements IConcSyn {
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR) {
+        if (getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.MODOPR) {
             subType = new RepAddOprTerm3ConcSyn1(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN
                 || getTokenList().getCurrent().getTerminal() == Terminal.COMMA

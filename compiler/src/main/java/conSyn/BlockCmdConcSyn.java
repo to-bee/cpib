@@ -35,12 +35,16 @@ public class BlockCmdConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.LPAREN
                 || getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.MODOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL
                 || getTokenList().getCurrent().getTerminal() == Terminal.SKIP) {
             cmdConcSyn = new CmdConcSyn(getTokenList(), getCounter());
             this.parseNext(cmdConcSyn);
+
             repeatingOptionalCmdsConcSyn = new RepeatingOptionalCmdsConcSyn(getTokenList(), getCounter());
             this.parseNext(repeatingOptionalCmdsConcSyn);
         } else {

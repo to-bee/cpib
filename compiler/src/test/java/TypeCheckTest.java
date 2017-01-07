@@ -23,6 +23,15 @@ public class TypeCheckTest {
          *
          * type checking
          * string not assigneable to int etc.
+         *
+         * typechecker
+         * <=, >=, contexterror,
+         * ==, != funktioniert
+         * division, evt. modulo contexterror
+         * NOT contexterror
+         * &&, || contexterror
+         *
+         *
          */
         String complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
@@ -32,7 +41,7 @@ public class TypeCheckTest {
                 "var bsp2:Compl;\n" +
                 "var result:Compl\n" +
                 "do\n" +
-                "bsp1 := (5+I*4);\n" +
+                "bsp1 := (5+I*4)+I*4;\n" +
                 "bsp2 := 4-I*5;\n" +
                 "result := bsp1 + bsp2\n" +
                 "endfun\n" +

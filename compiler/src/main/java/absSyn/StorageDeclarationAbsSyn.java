@@ -1,5 +1,7 @@
 package absSyn;
 
+import context.Context;
+import context.Scope;
 import scanner.errors.ContextError;
 import virtualmachineFS2015.ICodeArray;
 
@@ -18,6 +20,8 @@ public class StorageDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     @Override
     public void check() throws ContextError {
+        Context.setCurrentContext(new Context(Scope.LOCAL));
+
         this.typedIdentAbsSyn.check();
         this.optionalChangeModeAbsSyn.check();
     }

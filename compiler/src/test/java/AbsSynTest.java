@@ -27,7 +27,7 @@ public class AbsSynTest {
          */
         String complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
-                "fun add(bsp1:Compl) returns s:Int32\n" +
+                "fun add(param1:Compl) returns s:Int32\n" +
                 "local\n" +
                 "var bsp1:Compl;\n" +
                 "var bsp2:Compl;\n" +

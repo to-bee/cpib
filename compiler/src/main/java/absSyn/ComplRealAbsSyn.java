@@ -10,9 +10,11 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class ComplRealAbsSyn extends AbstractAbsSyn implements IAbsSyn{
+    private IToken token;
     private final ExpressionAbsSyn expressionAbsSyn;
 
-    public ComplRealAbsSyn(ExpressionAbsSyn expressionAbsSyn) {
+    public ComplRealAbsSyn(IToken token, ExpressionAbsSyn expressionAbsSyn) {
+        this.token = token;
         this.expressionAbsSyn = expressionAbsSyn;
     }
 

@@ -4,7 +4,6 @@ import absSyn.FactorAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
-import scanner.token.IToken;
 import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
 
@@ -33,8 +32,11 @@ public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
             subType = new FactorIdentConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
+                || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT) {
-            subType = new FactorMoniadicConcSyn(getTokenList(), getCounter());
+            subType = new FactorMonadicConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
             subType = new FactorExpressionConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.IMAG) {

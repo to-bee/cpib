@@ -1,5 +1,8 @@
 package absSyn;
 import conSyn.IConcSyn;
+import conSyn.TypeDeclarationTypeConcSyn;
+import context.Context;
+import context.Variable;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
@@ -21,7 +24,13 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     @Override
     public void check() throws ContextError {
-        this.ident.check();
+        if(typeDeclarationAbsSyn.getSubType() instanceof TypeDeclarationTypeAbsSyn) {
+            Variable var = new Variable(ident, ((TypeDeclarationTypeAbsSyn) typeDeclarationAbsSyn.getSubType()).getType());
+            Variable.addVariable(var);
+        } else {
+            throw new ContextError("Check this case");
+        }
+
     }
 
     @Override

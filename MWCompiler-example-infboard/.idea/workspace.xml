@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d301c309-f902-4f24-ab8c-278fb47ccc13" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/typechecker/AccessMode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/typechecker/Context.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/java/typechecker/TypeChecker.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/main/resources/concSynTree1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../compiler/src/test/java/TypeCheckTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/AbstractAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/AbstractAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/BlockCmdAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/BlockCmdAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/DeclarationAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/DeclarationAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/EmptyAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/EmptyAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/EmptyConsumeAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/EmptyConsumeAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/IAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/IAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalGlobalDeclarationsAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/OptionalGlobalDeclarationsAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/ProgramAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/ProgramAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/ProgramParameterListAbsSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/absSyn/ProgramParameterListAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/AbstractConcSyn.java" afterPath="$PROJECT_DIR$/../compiler/src/main/java/conSyn/AbstractConcSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/test/java/AbsSynTest.java" afterPath="$PROJECT_DIR$/../compiler/src/test/java/AbsSynTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../compiler/src/test/java/ConSynTest.java" afterPath="$PROJECT_DIR$/../compiler/src/test/java/ConSynTest.java" />
-    </list>
+    <list default="true" id="d301c309-f902-4f24-ab8c-278fb47ccc13" name="Default" comment="" />
     <ignored path="MWCompiler.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -181,6 +162,9 @@
         <option name="mavenHome" value="Bundled (Maven 3)" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -782,7 +766,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="618" y="60" width="1867" height="1177" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

@@ -8,6 +8,10 @@ import virtualmachineFS2015.ICodeArray;
  * Created by ylaub on 28.12.2016.
  */
 public class TypeDeclarationTypeAbsSyn extends AbstractAbsSyn implements IAbsSyn {
+    public IToken getType() {
+        return type;
+    }
+
     private IToken type;
 
     public TypeDeclarationTypeAbsSyn(IToken type) {
