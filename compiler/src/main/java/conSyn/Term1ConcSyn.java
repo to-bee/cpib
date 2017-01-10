@@ -1,9 +1,11 @@
 package conSyn;
 
 import absSyn.Term1AbsSyn;
+import context.Variable;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
 /**
  * Created by tobi on 17.12.16.

@@ -1,11 +1,9 @@
 package absSyn;
 
-import context.Type;
+import context.Variable;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
-import scanner.token.Ident;
-import scanner.token.Literal;
 import virtualmachineFS2015.ICodeArray;
 
 /**
@@ -25,6 +23,8 @@ public class ExpressionAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     @Override
     public void check() throws ContextError {
+        Variable.setRelOprVariableLeft(this.token);
+
         if(CmdAssignAbsSyn.getCurrentVariable().getType() == Terminal.COMPL) {
             if(this.token.getTerminal() == Terminal.IMAGINARY_PART) {
                 CmdAssignAbsSyn.getCurrentVariable().setImaginary(true);

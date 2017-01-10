@@ -35,7 +35,6 @@ public class Term2ConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.NOT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
-
             term3ConcSyn = new Term3ConcSyn(getTokenList(), getCounter());
             parseNext(term3ConcSyn);
 

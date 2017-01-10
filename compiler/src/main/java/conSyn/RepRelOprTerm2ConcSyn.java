@@ -5,14 +5,13 @@ import scanner.datatypes.Terminal;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
 
 /**
  * Created by tobi on 17.12.16.
  */
 public class RepRelOprTerm2ConcSyn extends AbstractConcSyn implements IConcSyn {
-    private Term2ConcSyn term2ConcSyn;
-    private RepRelOprTerm2ConcSyn repRelOprTerm2ConcSyn;
     private IConcSyn subType;
 
     public RepRelOprTerm2ConcSyn(ITokenList tokenList, int i) {

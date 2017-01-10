@@ -1,7 +1,9 @@
 package absSyn;
 
+import context.Variable;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
+import scanner.token.IToken;
 import virtualmachineFS2015.ICodeArray;
 
 /**

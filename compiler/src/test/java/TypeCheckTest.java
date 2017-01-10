@@ -33,7 +33,77 @@ public class TypeCheckTest {
          *
          *
          */
-        String complexAddProgram = "program ComplexTest()\n" +
+
+        String complexAddProgram;
+
+        complexAddProgram = "program ComplexTest()\n" +
+                "global\n" +
+                "fun testGt() returns s:Int32\n" +
+                "local\n" +
+                "var bsp1:Compl;\n" +
+                "var bsp2:Compl;\n" +
+                "var isEquals:Bool\n" +
+                "do\n" +
+                "bsp1 := (5+I*4)+I*4;\n" +
+                "bsp2 := 4-I*5;\n" +
+                "isEquals := bsp1 >= bsp2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(complexAddProgram);
+            Assert.fail();
+        }
+        catch(ContextError e) {
+            // thats ok
+        }
+
+        complexAddProgram = "program ComplexTest()\n" +
+                "global\n" +
+                "fun testEquals() returns s:Int32\n" +
+                "local\n" +
+                "var bsp1:Compl;\n" +
+                "var bsp2:Compl;\n" +
+                "var isEquals:Bool\n" +
+                "do\n" +
+                "bsp1 := (5+I*4)+I*4;\n" +
+                "bsp2 := 4-I*5;\n" +
+                "isEquals := bsp1 == bsp2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(complexAddProgram);
+        } catch (ContextError contextError) {
+            contextError.printStackTrace();
+            Assert.fail();
+        }
+
+        complexAddProgram = "program ComplexTest()\n" +
+                "global\n" +
+                "fun testUnequals() returns s:Int32\n" +
+                "local\n" +
+                "var bsp1:Compl;\n" +
+                "var bsp2:Compl;\n" +
+                "var isUnequals:Bool\n" +
+                "do\n" +
+                "bsp1 := (5+I*4)+I*4;\n" +
+                "bsp2 := 4-I*5;\n" +
+                "isUnequals := bsp1 != bsp2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(complexAddProgram);
+        } catch (ContextError contextError) {
+            contextError.printStackTrace();
+            Assert.fail();
+        }
+
+        complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
                 "fun add(bsp1:Compl) returns s:Int32\n" +
                 "local\n" +
@@ -48,11 +118,16 @@ public class TypeCheckTest {
                 "do\n" +
                 "call add()\n" +
                 "endprogram";
-        absSyn = checkProgram(complexAddProgram);
-        System.out.println(absSyn.toString());
+        try {
+            absSyn = checkProgram(complexAddProgram);
+            System.out.println(absSyn.toString());
+        } catch (ContextError contextError) {
+            contextError.printStackTrace();
+            Assert.fail();
+        }
     }
 
-    private IAbsSyn checkProgram(String addProgram) {
+    private IAbsSyn checkProgram(String addProgram) throws ContextError {
         ITokenList tokenList = null;
         try {
             Scanner scanner = new Scanner();
@@ -71,16 +146,10 @@ public class TypeCheckTest {
             Assert.fail();
         }
 
-        try {
-            IAbsSyn absSyn = parseTree.toAbsSyn();
-            absSyn.check();
-            return absSyn;
-        } catch (ContextError contextError) {
-            contextError.printStackTrace();
-            Assert.fail();
-        }
+        IAbsSyn absSyn = parseTree.toAbsSyn();
+        absSyn.check();
+        return absSyn;
 
-        return null;
     }
 
 
