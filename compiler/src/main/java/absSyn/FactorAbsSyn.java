@@ -45,6 +45,10 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
                     currentVariable.addRightSideType(Terminal.BOOL);
                     break;
             }
+        } else {
+            // We just add this as a type - maybe that's enough - doesn't work compl==compl is ok, but compl==bool is not
+//            currentVariable.addRightSideType(var.getLeftSideType());
+            currentVariable.addExprVariable(this.token);
         }
 
         this.subType.check();

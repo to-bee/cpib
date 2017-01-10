@@ -7,6 +7,10 @@ import scanner.token.IToken;
 import scanner.token.Ident;
 import virtualmachineFS2015.ICodeArray;
 
+import java.util.List;
+
+import static sun.jvm.hotspot.runtime.BasicObjectLock.size;
+
 /**
  * Created by tobi on 17.12.16.
  */
@@ -54,8 +58,19 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
             }
 
             if (!var.rightSideContainsOnly(allowedTypes)) {
-                throw new ContextError(String.format("LType and RType mismatch for variable: %s", var));
+                throw new ContextError(String.format("LType and RType mismatch for variable: %s", var.getIdent()));
             }
+
+            List<Variable> subExprVars = var.getExprVariables();
+            for(int i = 0; i<subExprVars.size(); i++) {
+                for(int j = i; j<subExprVars.size(); j++) {
+                    if(subExprVars.get(i).getLeftSideType() != subExprVars.get(j).getLeftSideType()) {
+                        throw new ContextError(String.format("RValues must have the same type: %s/%s", subExprVars.get(i), subExprVars.get(j)));
+                    }
+                }
+            }
+
+
 
             Terminal leftType = var.getLeftSideType();
             IToken opr = var.getOpr();
