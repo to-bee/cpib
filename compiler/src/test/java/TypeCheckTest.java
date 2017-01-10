@@ -38,6 +38,32 @@ public class TypeCheckTest {
 
         String complexAddProgram;
 
+        // should fail because of boolVal
+        complexAddProgram = "program ComplexTest()\n" +
+                "global\n" +
+                "fun add(bsp1:Compl) returns s:Int32\n" +
+                "local\n" +
+                "var bsp1:Compl;\n" +
+                "var bsp2:Compl;\n" +
+                "var boolVal:Bool;\n" +
+                "var result:Compl\n" +
+                "do\n" +
+                "bsp1 := (5+I*4)+I*4;\n" +
+                "bsp2 := 4-I*5;\n" +
+                "boolVal := true;\n" +
+                "result := bsp1 + bsp2 + 4-I*5 + boolVal\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(complexAddProgram);
+            System.out.println(absSyn.toString());
+        } catch (ContextError contextError) {
+            contextError.printStackTrace();
+            Assert.fail();
+        }
+
         /**
          * Check ! allowed for boolean (true | false)
          */
