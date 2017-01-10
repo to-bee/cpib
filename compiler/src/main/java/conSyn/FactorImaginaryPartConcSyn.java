@@ -19,7 +19,7 @@ public class FactorImaginaryPartConcSyn extends AbstractConcSyn implements IConc
 
     @Override
     public FactorImaginaryPartAbsSyn toAbsSyn() throws ContextError {
-        return new FactorImaginaryPartAbsSyn(token);
+        return new FactorImaginaryPartAbsSyn();
     }
 
     public IToken getToken() {

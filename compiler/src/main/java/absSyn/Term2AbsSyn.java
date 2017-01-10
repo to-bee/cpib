@@ -12,7 +12,6 @@ public class Term2AbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
 
     public Term2AbsSyn(Term3AbsSyn term3AbsSyn, RepAddOprTerm3AbsSyn repAddOprTerm3AbsSyn) {
-
         this.term3AbsSyn = term3AbsSyn;
         this.repAddOprTerm3AbsSyn = repAddOprTerm3AbsSyn;
     }

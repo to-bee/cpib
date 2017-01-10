@@ -23,8 +23,12 @@ public class RepBoolOprTerm1AbsSyn1 extends AbstractAbsSyn implements IAbsSyn{
 
     @Override
     public void check() throws ContextError {
-        Variable.setExprOpr(this.exprOpr);
-        Variable.setExprVariableRight(this.exprVarRight);
+        Variable currentVariable = Variable.getCurrentVariable();
+        currentVariable.setExprOpr(this.exprOpr);
+        Variable var = Variable.getVar(this.exprVarRight);
+        if(var != null) {
+            currentVariable.addExprVariable(this.exprVarRight);
+        }
 
         term1AbsSyn.check();
         repBoolOprTerm1AbsSyn.check();

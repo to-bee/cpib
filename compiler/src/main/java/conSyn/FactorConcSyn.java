@@ -4,6 +4,7 @@ import absSyn.FactorAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.IToken;
 import scanner.token.Ident;
 import scanner.tokenList.ITokenList;
 
@@ -12,7 +13,7 @@ import scanner.tokenList.ITokenList;
  */
 public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
-    private Ident ident;
+    private IToken token;
 
     public FactorConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -20,11 +21,12 @@ public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public FactorAbsSyn toAbsSyn() throws ContextError {
-        return new FactorAbsSyn(subType.toAbsSyn());
+        return new FactorAbsSyn(token, subType.toAbsSyn());
     }
 
     @Override
     public void parse() throws GrammarError {
+        this.token = this.getTokenList().getCurrent();
         if (getTokenList().getCurrent().getTerminal() == Terminal.IMAGINARY_PART) {
             subType = new FactorImaginaryPartConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {

@@ -20,40 +20,29 @@ public class CmdAssignAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         this.exprR = exprR;
     }
 
-    public static Variable getCurrentVariable() {
-        return currentVariable;
-    }
-
     @Override
     public void check() throws ContextError {
-        Variable var = Variable.getVar(this.exprL.getToken());
-        if (var == null) {
-            throw new ContextError(String.format("A variable: \"%s\" doesn't exist in this context", this.exprL.getToken()));
-        } else {
-            currentVariable = var;
-        }
-
-        Variable.resetExpr();
+        Variable.setCurrentVariable(this.exprL.getToken());
+        Variable currentVariable = Variable.getCurrentVariable();
         exprR.check();
 
-        if (Variable.getOpr() != null) {
-            if (Variable.getOpr().getTerminal() == Terminal.GT
-                    || Variable.getOpr().getTerminal() == Terminal.LT
-                    || Variable.getOpr().getTerminal() == Terminal.GE
-                    || Variable.getOpr().getTerminal() == Terminal.LE
-                    || Variable.getOpr().getTerminal() == Terminal.CAND
-                    || Variable.getOpr().getTerminal() == Terminal.COR) {
-                if (Variable.getExprVariableLeft().isImaginary()) {
-                    throw new ContextError(String.format("%s not allowed for variables of type %s", Variable.getExprVariableLeft(), Terminal.COMPL));
-                } else if (Variable.getExprVariableRight().isImaginary()) {
-                    throw new ContextError(String.format("%s not allowed for variables of type %s", Variable.getExprVariableRight(), Terminal.COMPL));
-                }
-            } else if (Variable.getOpr().getTerminal() == Terminal.COMPLEMENT) {
-                if (Variable.getExprVariableRight().getType() != Terminal.BOOL) {
-                    throw new ContextError(String.format("%s not allowed for variables of type %s", Variable.getExprVariableRight(), Terminal.COMPL));
-                }
-            }
-        }
+        // TODO: moved
+//        if (currentVariable.getOpr() != null) {
+//            if (currentVariable.getOpr().getTerminal() == Terminal.GT
+//                    || currentVariable.getOpr().getTerminal() == Terminal.LT
+//                    || currentVariable.getOpr().getTerminal() == Terminal.GE
+//                    || currentVariable.getOpr().getTerminal() == Terminal.LE
+//                    || currentVariable.getOpr().getTerminal() == Terminal.CAND
+//                    || currentVariable.getOpr().getTerminal() == Terminal.COR) {
+//                if (currentVariable.exprVariableContains(Terminal.COMPL)) {
+//                    throw new ContextError(String.format("%s not allowed for variables of type %s", currentVariable.getOpr().getTerminal(), Terminal.COMPL));
+//                }
+//            } else if (currentVariable.getOpr().getTerminal() == Terminal.COMPLEMENT) {
+//                if (currentVariable.exprVariableContains(Terminal.BOOL)) {
+//                    throw new ContextError(String.format("%s not allowed for variables of type %s", currentVariable.getOpr().getTerminal(), Terminal.COMPL));
+//                }
+//            }
+//        }
     }
 
     @Override

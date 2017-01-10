@@ -23,8 +23,12 @@ public class RepRelOprTerm2AbsSyn1 extends AbstractAbsSyn implements IAbsSyn {
 
     @Override
     public void check() throws ContextError {
-        Variable.setExprOpr(this.relOpr);
-        Variable.setExprVariableRight(this.relOprVariableRight);
+        Variable currentVariable = Variable.getCurrentVariable();
+        currentVariable.setExprOpr(this.relOpr);
+        Variable var = Variable.getVar(this.relOprVariableRight);
+        if(var != null) {
+            currentVariable.addExprVariable(this.relOprVariableRight);
+        }
 
         term2AbsSyn.check();
         repRelOprTerm2AbsSyn.check();

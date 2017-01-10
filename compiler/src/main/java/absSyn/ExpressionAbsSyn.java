@@ -23,17 +23,21 @@ public class ExpressionAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     @Override
     public void check() throws ContextError {
-        Variable.setExprVariableLeft(this.token);
-
-        if(CmdAssignAbsSyn.getCurrentVariable().getType() == Terminal.COMPL) {
-            if(this.token.getTerminal() == Terminal.IMAGINARY_PART) {
-                CmdAssignAbsSyn.getCurrentVariable().setImaginary(true);
-            }
-            else if(this.token.getTerminal() == Terminal.DIVOPR
-                    || this.token.getTerminal() == Terminal.COMPLEMENT) {
-                throw new ContextError(String.format("%s not allowed for variables of type %s", this.token.getTerminal(), Terminal.COMPL));
-            }
+        // TODO: check
+        Variable currentVariable = Variable.getCurrentVariable();
+        Variable var = Variable.getVar(this.token);
+        if(var != null) {
+            currentVariable.addExprVariable(this.token);
         }
+//        if(var != null && var.getLeftSideType() == Terminal.COMPL) {
+//            if(this.token.getTerminal() == Terminal.IMAGINARY_PART) {
+//                Variable.getExprVariableLeft().addRightSideType(Terminal.COMPL);
+//            }
+//            else if(this.token.getTerminal() == Terminal.DIVOPR
+//                    || this.token.getTerminal() == Terminal.COMPLEMENT) {
+//                throw new ContextError(String.format("%s not allowed for variables of type %s", this.token.getTerminal(), Terminal.COMPL));
+//            }
+//        }
 
         term1AbsSyn.check();
         repBoolOprTerm1AbsSyn.check();

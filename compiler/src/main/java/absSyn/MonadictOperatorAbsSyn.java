@@ -23,11 +23,12 @@ public class MonadictOperatorAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     @Override
     public void check() throws ContextError {
         // TODO: maybe wrong place, we won't need this
-        if(CmdAssignAbsSyn.getCurrentVariable().getType() == Terminal.COMPL) {
-            if(this.token.getTerminal() == Terminal.DIVOPR) {
-                throw new ContextError(String.format("%s not allowed for variables of type %s", this.token.getTerminal(), Terminal.COMPL));
-            }
-        }
+//        Variable var = Variable.getExprVariableLeft();
+//        if(var != null && var.rightSideTypeContains(Terminal.COMPL)) {
+//            if(this.token.getTerminal() == Terminal.DIVOPR) {
+//                throw new ContextError(String.format("%s not allowed for variables of type %s", this.token.getTerminal(), Terminal.COMPL));
+//            }
+//        }
     }
 
     @Override

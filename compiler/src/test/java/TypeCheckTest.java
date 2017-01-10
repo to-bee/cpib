@@ -31,10 +31,80 @@ public class TypeCheckTest {
          * DONE: COMPLEMENT contexterror, TODO: complement only allowed for bool?
          * DONE: &&, || contexterror
          *
+         * Init checks
+         *
          *
          */
 
         String complexAddProgram;
+
+        /**
+         * Check ! allowed for boolean (true | false)
+         */
+        complexAddProgram = "program ComplexTest()\n" +
+                "global\n" +
+                "fun testComplementBool() returns s:Int32\n" +
+                "local\n" +
+                "var bsp2NoCompl:Bool;\n" +
+                "var complementVar:Bool\n" +
+                "do\n" +
+                "bsp2NoCompl := true;\n" +
+                "complementVar := !bsp2NoCompl\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(complexAddProgram);
+        } catch (ContextError e) {
+            Assert.fail();
+        }
+
+        // possible
+        complexAddProgram = "program ComplexTest()\n" +
+                "global\n" +
+                "fun testEquals() returns s:Int32\n" +
+                "local\n" +
+                "var bsp1:Compl;\n" +
+                "var bsp2:Compl;\n" +
+                "var isEquals:Bool\n" +
+                "do\n" +
+                "bsp1 := (5+I*4)+I*4;\n" +
+                "bsp2 := 4-I*5;\n" +
+                "isEquals := bsp1 == bsp2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(complexAddProgram);
+        } catch (ContextError contextError) {
+            contextError.printStackTrace();
+            Assert.fail();
+        }
+
+        // possible
+        complexAddProgram = "program ComplexTest()\n" +
+                "global\n" +
+                "fun testUnequals() returns s:Int32\n" +
+                "local\n" +
+                "var bsp1:Compl;\n" +
+                "var bsp2:Compl;\n" +
+                "var isUnequals:Bool\n" +
+                "do\n" +
+                "bsp1 := (5+I*4)+I*4;\n" +
+                "bsp2 := 4-I*5;\n" +
+                "isUnequals := bsp1 != bsp2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(complexAddProgram);
+        } catch (ContextError contextError) {
+            contextError.printStackTrace();
+            Assert.fail();
+        }
 
         /**
          * Check ! (not allowed for complex)
@@ -55,35 +125,9 @@ public class TypeCheckTest {
         try {
             absSyn = checkProgram(complexAddProgram);
             Assert.fail();
-        }
-        catch(ContextError e) {
+        } catch (ContextError e) {
             // thats ok
         }
-
-        /**
-         * Check ! allowed for boolean (true | false)
-         * TODO: Not working because bool (true | false) is not defined in our grammar
-         */
-//        complexAddProgram = "program ComplexTest()\n" +
-//                "global\n" +
-//                "fun testComplementBool() returns s:Int32\n" +
-//                "local\n" +
-//                "var bsp2NoCompl:Bool;\n" +
-//                "var complementVar:Bool\n" +
-//                "do\n" +
-//                "bsp2NoCompl := true;\n" +
-//                "complementVar := !bsp2NoCompl\n" +
-//                "endfun\n" +
-//                "do\n" +
-//                "call add()\n" +
-//                "endprogram";
-//        try {
-//            absSyn = checkProgram(complexAddProgram);
-//            Assert.fail();
-//        }
-//        catch(ContextError e) {
-//            // thats ok
-//        }
 
         /**
          * Check &&, || (not allowed for complex)
@@ -106,8 +150,7 @@ public class TypeCheckTest {
         try {
             absSyn = checkProgram(complexAddProgram);
             Assert.fail();
-        }
-        catch(ContextError e) {
+        } catch (ContextError e) {
             // thats ok
         }
 
@@ -132,55 +175,11 @@ public class TypeCheckTest {
         try {
             absSyn = checkProgram(complexAddProgram);
             Assert.fail();
-        }
-        catch(ContextError e) {
+        } catch (ContextError e) {
             // thats ok
         }
 
-        complexAddProgram = "program ComplexTest()\n" +
-                "global\n" +
-                "fun testEquals() returns s:Int32\n" +
-                "local\n" +
-                "var bsp1:Compl;\n" +
-                "var bsp2:Compl;\n" +
-                "var isEquals:Bool\n" +
-                "do\n" +
-                "bsp1 := (5+I*4)+I*4;\n" +
-                "bsp2 := 4-I*5;\n" +
-                "isEquals := bsp1 == bsp2\n" +
-                "endfun\n" +
-                "do\n" +
-                "call add()\n" +
-                "endprogram";
-        try {
-            absSyn = checkProgram(complexAddProgram);
-        } catch (ContextError contextError) {
-            contextError.printStackTrace();
-            Assert.fail();
-        }
-
-        complexAddProgram = "program ComplexTest()\n" +
-                "global\n" +
-                "fun testUnequals() returns s:Int32\n" +
-                "local\n" +
-                "var bsp1:Compl;\n" +
-                "var bsp2:Compl;\n" +
-                "var isUnequals:Bool\n" +
-                "do\n" +
-                "bsp1 := (5+I*4)+I*4;\n" +
-                "bsp2 := 4-I*5;\n" +
-                "isUnequals := bsp1 != bsp2\n" +
-                "endfun\n" +
-                "do\n" +
-                "call add()\n" +
-                "endprogram";
-        try {
-            absSyn = checkProgram(complexAddProgram);
-        } catch (ContextError contextError) {
-            contextError.printStackTrace();
-            Assert.fail();
-        }
-
+        // Normal add
         complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
                 "fun add(bsp1:Compl) returns s:Int32\n" +

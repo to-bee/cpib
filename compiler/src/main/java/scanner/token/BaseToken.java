@@ -24,4 +24,19 @@ public class BaseToken implements IToken{
     public String toString() {
         return String.format("%s", getTerminal().toString());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BaseToken baseToken = (BaseToken) o;
+
+        return terminal == baseToken.terminal;
+    }
+
+    @Override
+    public int hashCode() {
+        return terminal.hashCode();
+    }
 }

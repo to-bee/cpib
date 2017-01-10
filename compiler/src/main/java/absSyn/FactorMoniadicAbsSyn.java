@@ -25,8 +25,12 @@ public class FactorMoniadicAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
     @Override
     public void check() throws ContextError {
-        Variable.setExprOpr(this.exprOpr);
-        Variable.setExprVariableRight(this.exprVariableRight);
+        Variable currentVariable = Variable.getCurrentVariable();
+        currentVariable.setExprOpr(this.exprOpr);
+        Variable var = Variable.getVar(this.exprVariableRight);
+        if(var != null) {
+            currentVariable.addExprVariable(this.exprVariableRight);
+        }
 
         this.monadictOperatorAbsSyn.check();
         this.factorAbsSyn.check();
