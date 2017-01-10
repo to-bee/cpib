@@ -35,7 +35,7 @@ public class ExpressionConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MODOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.NOT
+                || getTokenList().getCurrent().getTerminal() == Terminal.COMPLEMENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
             token = getTokenList().getCurrent();

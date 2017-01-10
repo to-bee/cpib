@@ -1,11 +1,9 @@
 package absSyn;
 
-import context.Type;
+import context.Variable;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
-import scanner.token.Ident;
-import scanner.token.Literal;
 import virtualmachineFS2015.ICodeArray;
 
 /**
@@ -25,14 +23,10 @@ public class ExpressionAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     @Override
     public void check() throws ContextError {
-        if(CmdAssignAbsSyn.getCurrentVariable().getType() == Terminal.COMPL) {
-            if(this.token.getTerminal() == Terminal.IMAGINARY_PART) {
-                CmdAssignAbsSyn.getCurrentVariable().setImaginary(true);
-            }
-            else if(this.token.getTerminal() == Terminal.DIVOPR
-                    || this.token.getTerminal() == Terminal.NOT) {
-                throw new ContextError(String.format("%s not allowed for variables of type %s", this.token.getTerminal(), Terminal.COMPL));
-            }
+        Variable currentVariable = Variable.getCurrentVariable();
+        Variable var = Variable.getVar(this.token);
+        if(var != null) {
+            currentVariable.addExprVariable(this.token);
         }
 
         term1AbsSyn.check();

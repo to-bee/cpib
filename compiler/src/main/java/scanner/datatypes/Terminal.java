@@ -11,7 +11,6 @@ import java.util.List;
 public enum Terminal {
     UNDEFINED("UNDEFINED", null),
     DO("DO", null),
-    INT("int", null),
     WHILE("WHILE", null),
     ENDWHILE("ENDWHILE", null),
     PROGRAM("PROGRAM", null),
@@ -48,10 +47,9 @@ public enum Terminal {
     ELSE("ELSE", null),
     ENDIF("ENDIF", null),
     INIT("INIT", null),
-    NOT("!", TerminalType.UNARYOPR),
+    COMPLEMENT("!", TerminalType.UNARYOPR),
     DIV("/", TerminalType.ARITHMOPR),
     MODOPR("%", TerminalType.ARITHMOPR),
-    COMPLEMENT("!", TerminalType.UNARYOPR),
     BECOMES(":=", TerminalType.ASSIGNOPR),
     EQ("==", TerminalType.RELOPR),
     NE("!=", TerminalType.RELOPR),
@@ -70,8 +68,8 @@ public enum Terminal {
     REF("ref", TerminalType.MECHMODE),
     INT32("Int32", TerminalType.TYPE),
     BOOL("Bool", TerminalType.TYPE),
-    TrueOPR("true", TerminalType.BOOLOPR),
-    FalseOPR("false", TerminalType.BOOLOPR),
+//    TRUE("true", TerminalType.TYPE),
+//    FALSE("false", TerminalType.TYPE),
     COMPL("Compl", TerminalType.TYPE),
     IMAGINARY_PART("I", TerminalType.TYPE);
 

@@ -9,24 +9,12 @@ import virtualmachineFS2015.ICodeArray;
  * Created by ylaub on 26.12.2016.
  */
 public class FactorImaginaryPartAbsSyn extends AbstractAbsSyn implements IAbsSyn {
-
-
-    private IToken token;
-
-    public IToken getToken() {
-        return token;
-    }
-
-    public FactorImaginaryPartAbsSyn(IToken token) {
-
-        this.token = token;
+    public FactorImaginaryPartAbsSyn() {
     }
 
     @Override
     public void check() throws ContextError {
-        if(this.token.getTerminal() == Terminal.IMAGINARY_PART) {
-            CmdAssignAbsSyn.getCurrentVariable().setImaginary(true);
-        }
+
     }
 
     @Override

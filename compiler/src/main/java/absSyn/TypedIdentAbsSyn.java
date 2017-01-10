@@ -27,10 +27,10 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         if(typeDeclarationAbsSyn.getSubType() instanceof TypeDeclarationTypeAbsSyn) {
             Variable var = new Variable(ident, ((TypeDeclarationTypeAbsSyn) typeDeclarationAbsSyn.getSubType()).getType());
             Variable.addVariable(var);
+            Variable.setCurrentVariable(ident);
         } else {
             throw new ContextError("Check this case");
         }
-
     }
 
     @Override

@@ -1,8 +1,5 @@
 package context;
 
-import absSyn.ExpressionAbsSyn;
-import absSyn.IAbsSyn;
-import absSyn.TypeDeclarationAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
@@ -15,71 +12,139 @@ import java.util.*;
  */
 public class Variable {
     private static Set<Variable> variables = new HashSet<>();
+    private static Variable currentVariable;
+    private Set<Variable> exprVariables = new HashSet<>();
+    private IToken opr;
     private final Ident ident;
-    private Context context;
     /**
-     * Whether the value of variable contains imaginary terminal
+     * Type on the left side which is defined
      */
-    private boolean imaginary;
+    private final Terminal leftSideType;
+    /**
+     * Type on the right side which is calculated
+     */
+    private Set<Terminal> rightSideTypes = new HashSet<>();
+    private Context context;
 
-    public Ident getIdent() {
-        return ident;
+    public Variable(Ident ident, IToken leftSideType) {
+        this.ident = ident;
+        this.leftSideType = leftSideType.getTerminal();
+    }
+
+    public static Variable getCurrentVariable() {
+        return currentVariable;
+    }
+
+    public static void setCurrentVariable(IToken token) {
+        Variable var = getVar(token);
+        if (var != null) {
+            currentVariable = var;
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(!(o instanceof Variable))
+            return false;
+        Variable variable = (Variable) o;
+        return ident.equals(variable.ident) && context.equals(variable.context);
+    }
+
+    public static Variable getVar(IToken token) {
+        if (!(token instanceof Ident)) {
+            return null;
+        }
+        Ident _ident = (Ident) token;
+        try {
+            return variables.stream().filter(v -> v.getContext().equals(Context.getCurrentContext()) && v.getIdent().getValue().equals(_ident.getValue())).findFirst().get();
+        } catch (NoSuchElementException e) {
+            return null;
+        }
     }
 
     public Context getContext() {
         return context;
     }
 
-    public Variable(Ident ident, IToken type) {
-
-        this.ident = ident;
-        this.type = type.getTerminal();
-
-        //        if(exprL.getType() != Type.IDENT) {
-//            throw new ContextError("LType must be Ident");
-//        }
-//        if(exprR.getType() != Type.LITERAL && exprR.getType() != Type.BOOL) {
-//            throw new ContextError("RType must be Literal or Bool");
-//        }
+    public Ident getIdent() {
+        return ident;
     }
-
-    public static void addVariable(Variable var) {
-        var.setContext(Context.getCurrentContext());
-        variables.add(var);
-    }
-
-    public Terminal getType() {
-        return type;
-    }
-
-    public void setType(Terminal type) {
-        this.type = type;
-    }
-
-    private Terminal type;
 
     public void setContext(Context context) {
         this.context = context;
     }
 
-    public static Variable getVar(IToken token) {
-        if(!(token instanceof Ident)) {
-            return null;
-        }
-        Ident _ident = (Ident)token;
-        try {
-            return variables.stream().filter(v -> v.getContext().equals(Context.getCurrentContext()) && v.getIdent().getValue().equals(_ident.getValue())).findFirst().get();
-        }
-        catch(NoSuchElementException e) {
-            return null;
+    public void addExprVariable(IToken token) throws ContextError {
+        Variable var = getVar(token);
+        if (var != null) {
+            exprVariables.add(var);
         }
     }
 
-    public void setImaginary(boolean imaginary) {
-        this.imaginary = imaginary;
+    public IToken getOpr() {
+        return opr;
     }
 
-    public boolean isImaginary() {
-        return imaginary;
+    public static void addVariable(Variable var) {
+        if(!variables.contains(var)) {
+            var.setContext(Context.getCurrentContext());
+            variables.add(var);
+        }
+    }
+
+    public static Set<Variable> getVariables() {
+        return variables;
+    }
+
+    public void setExprOpr(IToken relOpr) {
+        this.opr = relOpr;
+    }
+
+    public void resetExpr() {
+        exprVariables.clear();
+        opr = null;
+    }
+
+    public List<Variable> getExprVariables() {
+        List<Variable> exprVariables = new ArrayList<Variable>(this.exprVariables);
+        return exprVariables;
+    }
+
+    public boolean exprVariableContains(Terminal terminal) {
+        return this.exprVariables.stream().filter(v -> v.leftSideType == terminal).count() > 0;
+    }
+
+    public Terminal getLeftSideType() {
+        return leftSideType;
+    }
+
+    public List<Terminal> getRightSideTypes() {
+        List<Terminal> rightSideTypes = new ArrayList<Terminal>(this.rightSideTypes);
+        return rightSideTypes;
+    }
+
+    public boolean rightSideTypeContains(Terminal terminal) {
+        return rightSideTypes.contains(terminal);
+    }
+
+    /**
+     * Check for forbidden types
+     * @param mustContainTypes
+     * @return
+     */
+    public boolean rightSideContainsOnly(Terminal[] mustContainTypes) {
+        List<Terminal> copy = getRightSideTypes();
+        copy.removeAll(Arrays.asList(mustContainTypes));
+        return copy.size() == 0;
+    }
+
+
+
+    public void addRightSideType(Terminal rightSideType) {
+        this.rightSideTypes.add(rightSideType);
+    }
+
+    public static void clearVariables() {
+        variables.clear();
     }
 }

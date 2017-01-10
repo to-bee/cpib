@@ -1,5 +1,6 @@
 package absSyn;
 
+import context.Variable;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
@@ -16,17 +17,18 @@ public class MonadictOperatorAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     }
 
     public MonadictOperatorAbsSyn(IToken token) {
-
         this.token = token;
     }
 
     @Override
     public void check() throws ContextError {
-        if(CmdAssignAbsSyn.getCurrentVariable().getType() == Terminal.COMPL) {
-            if(this.token.getTerminal() == Terminal.DIVOPR) {
-                throw new ContextError(String.format("%s not allowed for variables of type %s", this.token.getTerminal(), Terminal.COMPL));
-            }
-        }
+        // TODO: maybe wrong place, we won't need this
+//        Variable var = Variable.getExprVariableLeft();
+//        if(var != null && var.rightSideTypeContains(Terminal.COMPL)) {
+//            if(this.token.getTerminal() == Terminal.DIVOPR) {
+//                throw new ContextError(String.format("%s not allowed for variables of type %s", this.token.getTerminal(), Terminal.COMPL));
+//            }
+//        }
     }
 
     @Override
