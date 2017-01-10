@@ -1,14 +1,10 @@
 package conSyn;
 
 import absSyn.CmdAbsSyn;
-import absSyn.IAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
-import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
-
-import java.util.List;
 
 /**
  * Created by tobi on 17.12.16.
@@ -44,7 +40,7 @@ public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MODOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.NOT
+                || getTokenList().getCurrent().getTerminal() == Terminal.COMPLEMENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
             subType = new CmdAssignConcSyn(getTokenList(), getCounter());

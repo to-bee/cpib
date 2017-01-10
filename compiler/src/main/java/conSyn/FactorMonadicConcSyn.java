@@ -2,8 +2,10 @@ package conSyn;
 
 import absSyn.CmdSkipAbsSyn;
 import absSyn.FactorMoniadicAbsSyn;
+import context.Variable;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
 
 /**
@@ -12,6 +14,8 @@ import scanner.tokenList.ITokenList;
 public class FactorMonadicConcSyn extends AbstractConcSyn implements IConcSyn {
     private MonadictOperatorConcSyn monadictOperatorConcSyn;
     private FactorConcSyn factorConcSyn;
+    private IToken exprOpr;
+    private IToken exprVariableRight;
 
     public FactorMonadicConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -19,14 +23,16 @@ public class FactorMonadicConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public FactorMoniadicAbsSyn toAbsSyn() throws ContextError {
-        return new FactorMoniadicAbsSyn(monadictOperatorConcSyn.toAbsSyn(), factorConcSyn.toAbsSyn());
+        return new FactorMoniadicAbsSyn(exprOpr, exprVariableRight, monadictOperatorConcSyn.toAbsSyn(), factorConcSyn.toAbsSyn());
     }
 
     @Override
     public void parse() throws GrammarError {
+        this.exprOpr = this.getTokenList().getCurrent();
         monadictOperatorConcSyn = new MonadictOperatorConcSyn(getTokenList(), getCounter());
         parseNext(monadictOperatorConcSyn);
 
+        this.exprVariableRight = this.getTokenList().getCurrent();
         factorConcSyn = new FactorConcSyn(getTokenList(), getCounter());
         parseNext(factorConcSyn);
     }

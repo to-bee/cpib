@@ -36,15 +36,22 @@ public class CmdAssignAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         Variable.resetExpr();
         exprR.check();
 
-        if (Variable.getRelOpr() != null &&
-                (Variable.getRelOpr().getTerminal() == Terminal.GT
-                        || Variable.getRelOpr().getTerminal() == Terminal.LT
-                        || Variable.getRelOpr().getTerminal() == Terminal.GE
-                        || Variable.getRelOpr().getTerminal() == Terminal.LE)) {
-            if (Variable.getRelOprVariableLeft().isImaginary()) {
-                throw new ContextError(String.format("%s not allowed for variables of type %s", Variable.getRelOprVariableLeft(), Terminal.COMPL));
-            } else if (Variable.getRelOprVariableRight().isImaginary()) {
-                throw new ContextError(String.format("%s not allowed for variables of type %s", Variable.getRelOprVariableRight(), Terminal.COMPL));
+        if (Variable.getOpr() != null) {
+            if (Variable.getOpr().getTerminal() == Terminal.GT
+                    || Variable.getOpr().getTerminal() == Terminal.LT
+                    || Variable.getOpr().getTerminal() == Terminal.GE
+                    || Variable.getOpr().getTerminal() == Terminal.LE
+                    || Variable.getOpr().getTerminal() == Terminal.CAND
+                    || Variable.getOpr().getTerminal() == Terminal.COR) {
+                if (Variable.getExprVariableLeft().isImaginary()) {
+                    throw new ContextError(String.format("%s not allowed for variables of type %s", Variable.getExprVariableLeft(), Terminal.COMPL));
+                } else if (Variable.getExprVariableRight().isImaginary()) {
+                    throw new ContextError(String.format("%s not allowed for variables of type %s", Variable.getExprVariableRight(), Terminal.COMPL));
+                }
+            } else if (Variable.getOpr().getTerminal() == Terminal.COMPLEMENT) {
+                if (Variable.getExprVariableRight().getType() != Terminal.BOOL) {
+                    throw new ContextError(String.format("%s not allowed for variables of type %s", Variable.getExprVariableRight(), Terminal.COMPL));
+                }
             }
         }
     }

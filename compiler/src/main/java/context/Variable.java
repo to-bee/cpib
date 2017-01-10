@@ -1,8 +1,5 @@
 package context;
 
-import absSyn.ExpressionAbsSyn;
-import absSyn.IAbsSyn;
-import absSyn.TypeDeclarationAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
@@ -15,9 +12,9 @@ import java.util.*;
  */
 public class Variable {
     private static Set<Variable> variables = new HashSet<>();
-    private static Variable relOprVariableLeft;
-    private static Variable relOprVariableRight;
-    private static IToken relOpr;
+    private static Variable exprVariableLeft;
+    private static Variable exprVariableRight;
+    private static IToken opr;
     private final Ident ident;
     private Context context;
     /**
@@ -25,16 +22,16 @@ public class Variable {
      */
     private boolean imaginary;
 
-    public static Variable getRelOprVariableLeft() {
-        return relOprVariableLeft;
+    public static Variable getExprVariableLeft() {
+        return exprVariableLeft;
     }
 
-    public static Variable getRelOprVariableRight() {
-        return relOprVariableRight;
+    public static Variable getExprVariableRight() {
+        return exprVariableRight;
     }
 
-    public static IToken getRelOpr() {
-        return relOpr;
+    public static IToken getOpr() {
+        return opr;
     }
 
     public Ident getIdent() {
@@ -63,28 +60,28 @@ public class Variable {
         variables.add(var);
     }
 
-    public static void setRelOprVariableLeft(IToken token) throws ContextError {
+    public static void setExprVariableLeft(IToken token) throws ContextError {
         Variable var = getVar(token);
         if(var != null) {
-            relOprVariableLeft = var;
+            exprVariableLeft = var;
         }
     }
 
-    public static void setRelOprVariableRight(IToken token) throws ContextError {
+    public static void setExprVariableRight(IToken token) throws ContextError {
         Variable var = getVar(token);
         if(var != null) {
-            relOprVariableRight = var;
+            exprVariableRight = var;
         }
     }
 
-    public static void setRelOpr(IToken relOpr) {
-        Variable.relOpr = relOpr;
+    public static void setExprOpr(IToken relOpr) {
+        Variable.opr = relOpr;
     }
 
     public static void resetExpr() {
-        relOprVariableLeft = null;
-        relOpr = null;
-        relOprVariableRight = null;
+        exprVariableLeft = null;
+        opr = null;
+        exprVariableRight = null;
     }
 
     public Terminal getType() {

@@ -25,7 +25,7 @@ public class MonadictOperatorConcSyn extends AbstractConcSyn implements IConcSyn
 
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.NOT
+        if (getTokenList().getCurrent().getTerminal() == Terminal.COMPLEMENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR

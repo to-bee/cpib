@@ -25,17 +25,95 @@ public class TypeCheckTest {
          * string not assigneable to int etc.
          *
          * typechecker
-         * <=, >=, contexterror,
-         * ==, != funktioniert
-         * division, evt. modulo contexterror
-         * NOT contexterror
-         * &&, || contexterror
+         * DONE: <=, >=, contexterror,
+         * DONE: ==, != funktioniert
+         * DONE: division, evt. modulo contexterror
+         * DONE: COMPLEMENT contexterror, TODO: complement only allowed for bool?
+         * DONE: &&, || contexterror
          *
          *
          */
 
         String complexAddProgram;
 
+        /**
+         * Check ! (not allowed for complex)
+         */
+        complexAddProgram = "program ComplexTest()\n" +
+                "global\n" +
+                "fun getComplementComplex() returns s:Int32\n" +
+                "local\n" +
+                "var bsp1Compl:Compl;\n" +
+                "var complementVar:Bool\n" +
+                "do\n" +
+                "bsp1Compl := (5+I*4)+I*4;\n" +
+                "complementVar := !bsp1Compl\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(complexAddProgram);
+            Assert.fail();
+        }
+        catch(ContextError e) {
+            // thats ok
+        }
+
+        /**
+         * Check ! allowed for boolean (true | false)
+         * TODO: Not working because bool (true | false) is not defined in our grammar
+         */
+//        complexAddProgram = "program ComplexTest()\n" +
+//                "global\n" +
+//                "fun testComplementBool() returns s:Int32\n" +
+//                "local\n" +
+//                "var bsp2NoCompl:Bool;\n" +
+//                "var complementVar:Bool\n" +
+//                "do\n" +
+//                "bsp2NoCompl := true;\n" +
+//                "complementVar := !bsp2NoCompl\n" +
+//                "endfun\n" +
+//                "do\n" +
+//                "call add()\n" +
+//                "endprogram";
+//        try {
+//            absSyn = checkProgram(complexAddProgram);
+//            Assert.fail();
+//        }
+//        catch(ContextError e) {
+//            // thats ok
+//        }
+
+        /**
+         * Check &&, || (not allowed for complex)
+         */
+        complexAddProgram = "program ComplexTest()\n" +
+                "global\n" +
+                "fun testGt() returns s:Int32\n" +
+                "local\n" +
+                "var bsp1:Compl;\n" +
+                "var bsp2:Compl;\n" +
+                "var andOpVar:Bool\n" +
+                "do\n" +
+                "bsp1 := (5+I*4)+I*4;\n" +
+                "bsp2 := 4-I*5;\n" +
+                "andOpVar := bsp1 && bsp2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(complexAddProgram);
+            Assert.fail();
+        }
+        catch(ContextError e) {
+            // thats ok
+        }
+
+        /**
+         * All rel operations but ==/!= are not allowed
+         */
         complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
                 "fun testGt() returns s:Int32\n" +

@@ -37,7 +37,7 @@ public class OptionalExpressionsConcSyn extends AbstractConcSyn implements IConc
                 || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MODOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.NOT
+                || getTokenList().getCurrent().getTerminal() == Terminal.COMPLEMENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
                 || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
             subType = new OptionalExpressionsConcSyn1(getTokenList(), getCounter());

@@ -35,7 +35,7 @@ public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
                 || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
                 || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.NOT) {
+                || getTokenList().getCurrent().getTerminal() == Terminal.COMPLEMENT) {
             subType = new FactorMonadicConcSyn(getTokenList(), getCounter());
         } else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
             subType = new FactorExpressionConcSyn(getTokenList(), getCounter());
