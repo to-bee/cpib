@@ -17,6 +17,7 @@ public class GlobalImportConcSyn extends AbstractConcSyn implements IConcSyn {
     private OptionalFlowModeConcSyn optionalFlowModeConcSyn;
     private OptionalChangeModeConcSyn optionalChangeModeConcSyn;
     private Ident ident;
+    private Terminal terminal;
 
     public GlobalImportConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -30,16 +31,17 @@ public class GlobalImportConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.IDENT
+                || this.terminal.getType() == TerminalType.CHANGEMODE
+                || this.terminal.getType() == TerminalType.FLOWMODE) {
 
             optionalFlowModeConcSyn = new OptionalFlowModeConcSyn(getTokenList(), getCounter());
             parseNext(optionalFlowModeConcSyn);
 
             optionalChangeModeConcSyn = new OptionalChangeModeConcSyn(getTokenList(), getCounter());
             parseNext(optionalChangeModeConcSyn);
-            if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+            if (this.terminal == Terminal.IDENT) {
                 this.ident = (Ident) getTokenList().getCurrent();
                 consume();
             } else {

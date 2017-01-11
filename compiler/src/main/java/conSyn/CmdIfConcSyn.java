@@ -17,6 +17,7 @@ public class CmdIfConcSyn extends AbstractConcSyn implements IConcSyn {
     private ExpressionConcSyn exprIf;
     private BlockCmdConcSyn cmdThen;
     private BlockCmdConcSyn cmdElse;
+    private Terminal terminal;
 
     public CmdIfConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -30,17 +31,20 @@ public class CmdIfConcSyn extends AbstractConcSyn implements IConcSyn {
     @Override
     public void parse() throws GrammarError {
         consume();
+        this.terminal = getTokenList().getCurrent().getTerminal();
         exprIf = new ExpressionConcSyn(getTokenList(), getCounter());
         parseNext(exprIf);
-        if (getTokenList().getCurrent().getTerminal() == Terminal.THEN) {
+        if (this.terminal == Terminal.THEN) {
             consume();
             cmdThen = new BlockCmdConcSyn(getTokenList(), getCounter());
             parseNext(cmdThen);
-            if (getTokenList().getCurrent().getTerminal() == Terminal.ELSE) {
+            this.terminal = getTokenList().getCurrent().getTerminal();
+            if (this.terminal == Terminal.ELSE) {
                 consume();
                 cmdElse = new BlockCmdConcSyn(getTokenList(), getCounter());
                 parseNext(cmdElse);
-                if (getTokenList().getCurrent().getTerminal() == Terminal.ENDIF) {
+                this.terminal = getTokenList().getCurrent().getTerminal();
+                if (this.terminal == Terminal.ENDIF) {
                     consume();
                 } else {
                     throwGrammarError();

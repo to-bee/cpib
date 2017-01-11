@@ -21,6 +21,7 @@ public class ProcedureDeclarationConcSyn extends AbstractConcSyn implements ICon
     private OptionalGlobalImportsConcSyn optionalGlobalImportsConcSyn;
     private OptionalLocalStorageDeclarationsConcSyn optionalLocalStorageDeclarationsConcSyn;
     private Ident ident;
+    private Terminal terminal;
     public ProcedureDeclarationConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
@@ -41,9 +42,11 @@ public class ProcedureDeclarationConcSyn extends AbstractConcSyn implements ICon
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.PROC) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal  == Terminal.PROC) {
             consume();
-            if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+            this.terminal = getTokenList().getCurrent().getTerminal();
+            if (this.terminal == Terminal.IDENT) {
                 ident = (Ident) this.getTokenList().getCurrent();
                 consume();
 
@@ -56,12 +59,14 @@ public class ProcedureDeclarationConcSyn extends AbstractConcSyn implements ICon
                 optionalLocalStorageDeclarationsConcSyn = new OptionalLocalStorageDeclarationsConcSyn(getTokenList(), getCounter());
                 parseNext(optionalLocalStorageDeclarationsConcSyn);
 
-                if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
+                this.terminal = getTokenList().getCurrent().getTerminal();
+                if (this.terminal == Terminal.DO) {
                     consume();
 
                     blockCmdConcSyn = new BlockCmdConcSyn(getTokenList(), getCounter());
                     parseNext(blockCmdConcSyn);
-                    if (getTokenList().getCurrent().getTerminal() == Terminal.ENDPROC) {
+                    this.terminal = getTokenList().getCurrent().getTerminal();
+                    if (this.terminal == Terminal.ENDPROC) {
                         consume();
 
                     } else {

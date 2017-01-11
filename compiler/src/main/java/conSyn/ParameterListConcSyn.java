@@ -10,6 +10,7 @@ import scanner.tokenList.ITokenList;
  */
 public class ParameterListConcSyn extends AbstractConcSyn implements IConcSyn {
     private OptionalParametersConcSyn optionalParametersConcSyn;
+    private Terminal terminal;
 
     public ParameterListConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -23,13 +24,15 @@ public class ParameterListConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.LPAREN) {
             consume();
 
             optionalParametersConcSyn = new OptionalParametersConcSyn(getTokenList(), getCounter());
             parseNext(optionalParametersConcSyn);
 
-            if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
+            this.terminal = getTokenList().getCurrent().getTerminal();
+            if (this.terminal == Terminal.RPAREN) {
                 consume();
             } else {
                 throwGrammarError();

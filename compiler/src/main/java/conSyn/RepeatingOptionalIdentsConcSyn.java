@@ -12,6 +12,7 @@ import scanner.tokenList.ITokenList;
  */
 public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
+    private Terminal terminal;
 
     public RepeatingOptionalIdentsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -28,15 +29,16 @@ public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements I
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.ENDPROC
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDFUN
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDWHILE
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDIF
-                || getTokenList().getCurrent().getTerminal() == Terminal.ELSE
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDPROGRAM
-                || getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.ENDPROC
+                || this.terminal == Terminal.ENDFUN
+                || this.terminal == Terminal.ENDWHILE
+                || this.terminal == Terminal.ENDIF
+                || this.terminal == Terminal.ELSE
+                || this.terminal == Terminal.ENDPROGRAM
+                || this.terminal == Terminal.SEMICOLON) {
             subType = new EmptyConsumeConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA) {
+        } else if (this.terminal == Terminal.COMMA) {
             subType = new RepeatingOptionalIdentsConcSyn1(getTokenList(), getCounter());
         } else {
             throwGrammarError();

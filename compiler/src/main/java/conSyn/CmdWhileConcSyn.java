@@ -12,6 +12,7 @@ import scanner.tokenList.ITokenList;
 public class CmdWhileConcSyn extends AbstractConcSyn implements IConcSyn {
     private ExpressionConcSyn exprWhile;
     private BlockCmdConcSyn cmdWhile;
+    private Terminal terminal;
 
     public CmdWhileConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -25,13 +26,15 @@ public class CmdWhileConcSyn extends AbstractConcSyn implements IConcSyn {
     @Override
     public void parse() throws GrammarError {
         consume();
+        this.terminal = getTokenList().getCurrent().getTerminal();
         exprWhile = new ExpressionConcSyn(getTokenList(), getCounter());
         parseNext(exprWhile);
-        if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
+        if (this.terminal == Terminal.DO) {
             consume();
             cmdWhile = new BlockCmdConcSyn(getTokenList(), getCounter());
             parseNext(cmdWhile);
-            if (getTokenList().getCurrent().getTerminal() == Terminal.ENDWHILE) {
+            this.terminal = getTokenList().getCurrent().getTerminal();
+            if (this.terminal == Terminal.ENDWHILE) {
                 consume();
             } else {
                 throwGrammarError();

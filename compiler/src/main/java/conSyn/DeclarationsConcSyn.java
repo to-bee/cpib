@@ -12,6 +12,7 @@ import scanner.tokenList.ITokenList;
 public class DeclarationsConcSyn extends AbstractConcSyn implements IConcSyn {
     private DeclarationConcSyn declarationConcSyn;
     private RepeatingOptionalDeclarationsConcSyn repeatingOptionalDeclarationsConcSyn;
+    private Terminal terminal;
 
     public DeclarationsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -25,10 +26,11 @@ public class DeclarationsConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
-                || getTokenList().getCurrent().getTerminal() == Terminal.FUN
-                || getTokenList().getCurrent().getTerminal() == Terminal.PROC
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.IDENT
+                || this.terminal == Terminal.FUN
+                || this.terminal == Terminal.PROC
+                || this.terminal.getType() == TerminalType.CHANGEMODE) {
             declarationConcSyn = new DeclarationConcSyn(this.getTokenList(), getCounter());
             this.parseNext(declarationConcSyn);
             repeatingOptionalDeclarationsConcSyn = new RepeatingOptionalDeclarationsConcSyn(this.getTokenList(), getCounter());

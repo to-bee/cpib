@@ -9,8 +9,6 @@ import virtualmachineFS2015.ICodeArray;
 
 import java.util.List;
 
-import static sun.jvm.hotspot.runtime.BasicObjectLock.size;
-
 /**
  * Created by tobi on 17.12.16.
  */

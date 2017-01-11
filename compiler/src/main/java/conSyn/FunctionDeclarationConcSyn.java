@@ -16,6 +16,7 @@ public class FunctionDeclarationConcSyn extends AbstractConcSyn implements IConc
     private StorageDeclarationConcSyn storageDeclarationConcSyn;
     private OptionalGlobalImportsConcSyn optionalGlobalImportsConcSyn;
     private OptionalLocalStorageDeclarationsConcSyn optionalLocalStorageDeclarationsConcSyn;
+    private Terminal terminal;
 
     public FunctionDeclarationConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -35,14 +36,17 @@ public class FunctionDeclarationConcSyn extends AbstractConcSyn implements IConc
 
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.FUN) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.FUN) {
             consume();
-            if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+            this.terminal = getTokenList().getCurrent().getTerminal();
+            if (this.terminal == Terminal.IDENT) {
                 ident = (Ident) this.getTokenList().getCurrent();
                 consume();
                 parameterListConcSyn = new ParameterListConcSyn(getTokenList(), getCounter());
                 parseNext(parameterListConcSyn);
-                if (getTokenList().getCurrent().getTerminal() == Terminal.RETURNS) {
+                this.terminal = getTokenList().getCurrent().getTerminal();
+                if (this.terminal == Terminal.RETURNS) {
                     consume();
 
                     storageDeclarationConcSyn = new StorageDeclarationConcSyn(getTokenList(), getCounter());
@@ -54,13 +58,15 @@ public class FunctionDeclarationConcSyn extends AbstractConcSyn implements IConc
                     optionalLocalStorageDeclarationsConcSyn = new OptionalLocalStorageDeclarationsConcSyn(getTokenList(), getCounter());
                     parseNext(optionalLocalStorageDeclarationsConcSyn);
 
-                    if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
+                    this.terminal = getTokenList().getCurrent().getTerminal();
+                    if (this.terminal == Terminal.DO) {
                         consume();
 
                         blockCmdConcSyn = new BlockCmdConcSyn(getTokenList(), getCounter());
                         parseNext(blockCmdConcSyn);
 
-                        if (getTokenList().getCurrent().getTerminal() == Terminal.ENDFUN) {
+                        this.terminal = getTokenList().getCurrent().getTerminal();
+                        if (this.terminal == Terminal.ENDFUN) {
                             consume();
                         } else {
                             throwGrammarError();

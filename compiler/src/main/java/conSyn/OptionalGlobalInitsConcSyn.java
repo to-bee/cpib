@@ -11,6 +11,7 @@ import scanner.tokenList.ITokenList;
  */
 public class OptionalGlobalInitsConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
+    private Terminal terminal;
 
     public OptionalGlobalInitsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -26,15 +27,16 @@ public class OptionalGlobalInitsConcSyn extends AbstractConcSyn implements IConc
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.ENDPROC
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDFUN
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDWHILE
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDIF
-                || getTokenList().getCurrent().getTerminal() == Terminal.ELSE
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDPROGRAM
-                || getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.ENDPROC
+                || this.terminal == Terminal.ENDFUN
+                || this.terminal == Terminal.ENDWHILE
+                || this.terminal == Terminal.ENDIF
+                || this.terminal == Terminal.ELSE
+                || this.terminal == Terminal.ENDPROGRAM
+                || this.terminal == Terminal.SEMICOLON) {
             subType = new EmptyConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.INIT) {
+        } else if (this.terminal == Terminal.INIT) {
             subType = new OptionalGlobalInitsConcSyn1(getTokenList(), getCounter());
         } else {
             throwGrammarError();
