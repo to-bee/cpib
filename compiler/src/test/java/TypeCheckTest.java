@@ -58,10 +58,9 @@ public class TypeCheckTest {
                 "endprogram";
         try {
             absSyn = checkProgram(complexAddProgram);
-            System.out.println(absSyn.toString());
-        } catch (ContextError contextError) {
-            contextError.printStackTrace();
             Assert.fail();
+        } catch (ContextError e) {
+            System.out.println(e.getMessage());
         }
 
         /**
@@ -152,7 +151,7 @@ public class TypeCheckTest {
             absSyn = checkProgram(complexAddProgram);
             Assert.fail();
         } catch (ContextError e) {
-            // thats ok
+            System.out.println(e.getMessage());
         }
 
         /**
@@ -177,7 +176,7 @@ public class TypeCheckTest {
             absSyn = checkProgram(complexAddProgram);
             Assert.fail();
         } catch (ContextError e) {
-            // thats ok
+            System.out.println(e.getMessage());
         }
 
         /**
@@ -202,7 +201,7 @@ public class TypeCheckTest {
             absSyn = checkProgram(complexAddProgram);
             Assert.fail();
         } catch (ContextError e) {
-            // thats ok
+            System.out.println(e.getMessage());
         }
 
         // Normal add
@@ -223,7 +222,6 @@ public class TypeCheckTest {
                 "endprogram";
         try {
             absSyn = checkProgram(complexAddProgram);
-            System.out.println(absSyn.toString());
         } catch (ContextError contextError) {
             contextError.printStackTrace();
             Assert.fail();

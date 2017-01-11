@@ -1,0 +1,15 @@
+program basicFun()
+global
+fun basicFunc(in copy a:int32) returns var res:int32
+    do
+	res init := a;
+	debugout res
+    endfun;
+
+var f:int32;
+var x:bool
+do
+	x init := 1;
+	f init := basicFunc(3);
+	debugout x
+endprogram

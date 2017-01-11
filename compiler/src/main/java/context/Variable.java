@@ -50,6 +50,11 @@ public class Variable {
         return ident.equals(variable.ident) && context.equals(variable.context);
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s:%s", this.ident.getValue(), this.getLeftSideType().getValue());
+    }
+
     public static Variable getVar(IToken token) {
         if (!(token instanceof Ident)) {
             return null;

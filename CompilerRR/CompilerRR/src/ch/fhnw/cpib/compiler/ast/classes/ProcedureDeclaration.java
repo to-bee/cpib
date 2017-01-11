@@ -57,7 +57,10 @@ public class ProcedureDeclaration implements IDeclaration{
 //		    this.context.addVariable(EXTREME_POINTER, Type.INT32, ChangeMode.CONST);
 //		    this.context.addVariable(PROGRAM_COUNTER_OLD, Type.INT32, ChangeMode.CONST);
 
+	    int posOfPar = parameters.size()+1;
 	    for (IParameter iParameter : parameters) {
+	    	iParameter.setLocationInParamList(posOfPar);
+	    	posOfPar -= 1;
 			iParameter.check();
 		}
 	    for (IGlobalImport iGlobalImport : globalImports) {

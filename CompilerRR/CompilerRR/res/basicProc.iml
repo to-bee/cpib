@@ -1,0 +1,16 @@
+program basicProc()
+global
+  proc procTest()
+  local
+  var f:int32
+  do
+    f init := 10;
+    debugout f
+  endproc;
+
+var x:int32
+do
+  call procTest();
+  x init := 5;
+  debugout x
+endprogram
