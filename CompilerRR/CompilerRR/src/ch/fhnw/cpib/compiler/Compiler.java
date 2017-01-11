@@ -21,7 +21,7 @@ public class Compiler {
 		try {
 			
 //			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/IntDiv.iml"));
-			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/test.iml"));
+			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/basicFun.iml"));
 			
 			
 			Compiler compiler = new Compiler();

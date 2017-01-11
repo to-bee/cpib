@@ -57,10 +57,6 @@ public class FunctionDeclaration implements IDeclaration{
 	    assert this.context == null;
 	    this.context = CompilerE.COMPILER.switchContext();
 	    
-	    //TODO: Idk
-//	    this.context.addVariable(FRAME_POINTER_OLD, Type.INT32, ChangeMode.CONST);
-//	    this.context.addVariable(EXTREME_POINTER, Type.INT32, ChangeMode.CONST);
-//	    this.context.addVariable(PROGRAM_COUNTER_OLD, Type.INT32, ChangeMode.CONST);
 
 	    this.storageDeclaration.check();
 	    
@@ -73,8 +69,10 @@ public class FunctionDeclaration implements IDeclaration{
 	    
 	    this.context.setReturnStoreDecl(this.retVar);
 	    
-	    //TODO: REally list?
+	    int posOfPar = parameters.size()+1;
 	    for (IParameter param : parameters) {
+	    	param.setLocationInParamList(posOfPar);
+	    	posOfPar -= 1;
 	    	param.check();
 		}
 
@@ -134,12 +132,12 @@ public class FunctionDeclaration implements IDeclaration{
 
 	    this.setLocation(loc);
 
-	    loc = this.storageDeclaration.code(loc);
+	    loc = this.storageDeclaration.code(loc); // return variable, allocates 1 block
 	    for(IParameter p : parameters)
 	    	loc = p.code(loc);
 	    for(IGlobalImport g : globalImports)
 	    	loc = g.code(loc);
-	    for(IDeclaration d : storageDeclarations)
+	    for(IDeclaration d : storageDeclarations) // locals
 	    	loc = d.code(loc);
 	    for(ICommand c : commands)
 	    	loc = c.code(loc);

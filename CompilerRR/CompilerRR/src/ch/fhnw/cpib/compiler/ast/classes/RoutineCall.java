@@ -7,7 +7,9 @@ import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression;
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IParameter;
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IRoutineCall;
 import ch.fhnw.cpib.compiler.context.CompilerE;
+import ch.fhnw.cpib.compiler.context.Variable;
 import ch.fhnw.cpib.compiler.scanner.Token;
+import ch.fhnw.cpib.compiler.scanner.enums.operators.FlowMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.MechMode;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
 import ch.fhnw.cpib.compiler.vm.IInstructions;
@@ -15,9 +17,12 @@ import ch.fhnw.cpib.compiler.vm.IInstructions;
 public class RoutineCall implements IRoutineCall {
 	
 	 private Token ident;
+	 
+	 // Übergebene Params
 	 private List<IExpression>   paramCallList;
 	 private boolean             isFunc = false;
 
+	 //Erwartete Dekl
 	 private List<IParameter>   paramList;
 
 	public RoutineCall(Token ident, List<IExpression> paramCallList) {
@@ -88,11 +93,19 @@ public class RoutineCall implements IRoutineCall {
 	    }
 	    
 		for(int j = 0; j < this.paramCallList.size(); j++){
-			StoreExpression storeEx = (StoreExpression) paramCallList.get(j);
-			IParameter parameter = paramList.get(j);
-			if (parameter.getMechMode() == MechMode.REF) storeEx.setWrite(true);
+			Variable var = CompilerE.COMPILER.getCurrentContext().getVariable(paramCallList.get(j).getToken());
+			if (var.getFlowMode() ==  FlowMode.IN && var.getMechMode() == MechMode.COPY && paramCallList.get(j) instanceof LiteralExpression) { //TODO: check if copy in, allow literalexpr
+				LiteralExpression litExpr = (LiteralExpression) paramCallList.get(j);
+				loc = litExpr.code(loc);
+			} else {
+				StoreExpression storeEx = (StoreExpression) paramCallList.get(j);
+				IParameter parameter = paramList.get(j);
+				if (parameter.getMechMode() == MechMode.REF) storeEx.setWrite(true);
+				
+				loc = storeEx.code(loc);
+			}
 			
-			loc = storeEx.code(loc);
+			
 		}
 		
 	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.Call(routineLocation));
