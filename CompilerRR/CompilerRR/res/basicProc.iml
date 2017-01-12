@@ -1,16 +1,21 @@
 program basicProc()
 global
-  proc procTest()
-  local
-  var f:int32
+  proc procTest(inout ref a:int32, inout ref b:int32)
   do
-    f init := 10;
-    debugout f
+    debugout a;
+    debugout b;
+    a:=b
   endproc;
 
-var x:int32
+  var f:int32;
+  var g:int32
 do
-  call procTest();
-  x init := 5;
-  debugout x
+  f init := 10;
+  g init := 5;
+  debugout f;
+
+  call procTest(f, g);
+
+  debugout f
+
 endprogram

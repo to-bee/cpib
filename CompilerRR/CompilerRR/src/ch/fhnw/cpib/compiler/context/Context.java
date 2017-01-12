@@ -5,6 +5,7 @@ import java.util.Map;
 
 import ch.fhnw.cpib.compiler.ast.classes.FunctionDeclaration;
 import ch.fhnw.cpib.compiler.ast.classes.ProcedureDeclaration;
+import ch.fhnw.cpib.compiler.scanner.IToken;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.ChangeMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.FlowMode;
@@ -19,9 +20,9 @@ public final class Context {
   private final int                           startLocation;
   private int                                 globalImportedVars = 0;
 
-  private final Map<Token, Variable> variables      = new LinkedHashMap<>();
-  public final Map<Token, FunctionDeclaration>  functions      = new LinkedHashMap<>();
-  private final Map<Token, ProcedureDeclaration> procedures     = new LinkedHashMap<>();
+  private final Map<IToken, Variable> variables      = new LinkedHashMap<>();
+  public final Map<IToken, FunctionDeclaration>  functions      = new LinkedHashMap<>();
+  private final Map<IToken, ProcedureDeclaration> procedures     = new LinkedHashMap<>();
 
   private Variable                            returnVariable = null;
 
@@ -96,7 +97,7 @@ public final class Context {
     this.globalImportedVars++;
   }
 
-  public void addVariable(final Token token, final Type type,
+  public void addVariable(final IToken token, final Type type,
       final ChangeMode changeMode) {
     final Variable var = new Variable(token, type, this.scope, changeMode);
     var.setRelLocation(this.variables.size() - this.globalImportedVars);
@@ -105,7 +106,7 @@ public final class Context {
     this.variables.put(token, var);
   }
 
-  private void addVariable(final Token token, final int absLocation,
+  private void addVariable(final IToken token, final int absLocation,
       final int relLocation, final Type type, final MechMode mechMode,
       final boolean isReturnVar, final Scope scope,
       final ChangeMode changeMode, final FlowMode flowMode) {

@@ -27,7 +27,7 @@ public class CondCmd implements ICommand {
 	public void check() {
 		expression.check();
 		if (expression.getType() != Type.BOOL) throw new RuntimeException("Expression != BOOL");
-		//TODO: Really a list?
+
 		for (ICommand iCommand : commandsThen) {
 			iCommand.check();
 		}
@@ -38,8 +38,7 @@ public class CondCmd implements ICommand {
 
 	@Override
 	public Token getToken() {
-		// TODO Auto-generated method stub
-		return null;
+		return expression.getToken();
 	}
 
 	@Override
@@ -47,37 +46,32 @@ public class CondCmd implements ICommand {
 		ICodeArray codeArr = CompilerE.COMPILER.getCodeArray();
 	    int loc = i;
 	    
-	    //vm.DebugInfo(loc++, this.getClass().getSimpleName(), this.getToken());
-	   
 	    loc = this.expression.code(loc);
 	    int locJump1 = loc++;
-	    //vm.DebugInfo(loc++, "TRUE -> THEN", this.thenCmd.getToken());
 	    
-	    int loc2 = loc;
 	    for (ICommand iCommand : commandsThen) {
-	    	 loc2 = iCommand.code(loc2);
+	    	 loc = iCommand.code(loc);
 		}
 	 
-	    int locJump2 = loc2++;
-	    int locElse = loc2;
+	    int locJump2 = loc++;
+	    int locElse = loc;
 	    
-	    //vm.DebugInfo(loc++, "FALSE -> ELSE", this.elseCmd.getToken());
 	    
 	    for (ICommand iCommand : commandsElse) {
-			loc2 = iCommand.code(loc2);
+			loc = iCommand.code(loc);
 		}
 
 	    codeArr.put(locJump1, new CondJump(locElse));
-	    codeArr.put(locJump2, new UncondJump(loc2));
+	    codeArr.put(locJump2, new UncondJump(loc));
 
 	    
 	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < loc2; ii++){
+	    for(int ii = i; ii < loc; ii++){
 	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
 	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
 	    	else System.out.println("null <--------------------------");
 	    }
-	    return loc2;
+	    return loc;
 	}
 
 }

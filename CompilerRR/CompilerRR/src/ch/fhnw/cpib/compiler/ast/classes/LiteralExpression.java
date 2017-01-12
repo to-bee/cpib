@@ -29,12 +29,11 @@ public class LiteralExpression implements IExpression {
 
 	@Override
 	public void check() {
-		//TODO: Check what?
-		if (literalToken instanceof LiteralToken) {
+		if (literalToken instanceof LiteralToken && literalToken.getTerminal() == Terminals.LITERAL) {
 			this.type = Type.INT32;
-		} else if (literalToken.getTerminal() == Terminals.BOOLLITERAL) {
+		} else if (literalToken instanceof LiteralToken && literalToken.getTerminal() == Terminals.BOOLLITERAL) {
 			if (literalToken.getOperator() == Operators.TRUE || literalToken.getOperator() == Operators.FALSE) {
-				type = Type.BOOL;
+				this.type = Type.BOOL;
 			}
 		} 
 		if (type == null) {
@@ -55,7 +54,7 @@ public class LiteralExpression implements IExpression {
 	@Override
 	public int code(int i) throws CodeTooSmallError {
 		System.out.println("+++ " + this.getClass().getSimpleName() + " : wird nicht geprinted. +++");
-
+		
 		final ICodeArray carr = CompilerE.COMPILER.getCodeArray();
 
 	    switch (this.type) {

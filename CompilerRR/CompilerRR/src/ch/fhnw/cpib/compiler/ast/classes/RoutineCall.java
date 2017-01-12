@@ -84,8 +84,8 @@ public class RoutineCall implements IRoutineCall {
 	    if (this.isFunc) {
 	      routineLocation = CompilerE.COMPILER.getCurrentContext().getFunction(this.ident)
 	          .getLocation();
-	      // Allocate Stack cell for return variable
-	      // TODO: allocstack or allocblock?
+	      
+	      //Space for ret var
 	      CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.AllocBlock(1));
 	    } else {
 	      routineLocation =  CompilerE.COMPILER.getCurrentContext().getProcedure(this.ident)
@@ -93,14 +93,22 @@ public class RoutineCall implements IRoutineCall {
 	    }
 	    
 		for(int j = 0; j < this.paramCallList.size(); j++){
-			Variable var = CompilerE.COMPILER.getCurrentContext().getVariable(paramCallList.get(j).getToken());
+			IParameter var = paramList.get(j);
+			
+			//TODO: Change back
+			//Allow Expressions as funparam if copy in
 			if (var.getFlowMode() ==  FlowMode.IN && var.getMechMode() == MechMode.COPY && paramCallList.get(j) instanceof LiteralExpression) { //TODO: check if copy in, allow literalexpr
 				LiteralExpression litExpr = (LiteralExpression) paramCallList.get(j);
 				loc = litExpr.code(loc);
+			} else if (var.getFlowMode() ==  FlowMode.IN && var.getMechMode() == MechMode.COPY && paramCallList.get(j) instanceof DyadicExpression){
+				DyadicExpression litExpr = (DyadicExpression) paramCallList.get(j);
+				loc = litExpr.code(loc);
+			} else if (var.getFlowMode() ==  FlowMode.IN && var.getMechMode() == MechMode.COPY && paramCallList.get(j) instanceof MonadicExpression){
+				MonadicExpression litExpr = (MonadicExpression) paramCallList.get(j);
+				loc = litExpr.code(loc);
 			} else {
 				StoreExpression storeEx = (StoreExpression) paramCallList.get(j);
-				IParameter parameter = paramList.get(j);
-				if (parameter.getMechMode() == MechMode.REF) storeEx.setWrite(true);
+				if (var.getMechMode() == MechMode.REF) storeEx.setWrite(true);
 				
 				loc = storeEx.code(loc);
 			}
@@ -109,6 +117,8 @@ public class RoutineCall implements IRoutineCall {
 		}
 		
 	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.Call(routineLocation));
+	    //CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.
+	    
 	    
 	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
 	    for(int ii = i; ii < loc; ii++){

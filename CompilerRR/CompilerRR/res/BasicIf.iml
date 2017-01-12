@@ -1,0 +1,13 @@
+program basicIf()
+global
+
+var x:bool;
+var y:int32;
+var z:int32
+do
+  x init := 0;
+  y init := 5;
+  z init := 10;
+  if x then debugout y else debugout z endif
+
+endprogram

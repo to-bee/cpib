@@ -3,7 +3,7 @@ package ch.fhnw.cpib.compiler.scanner;
 import ch.fhnw.cpib.compiler.scanner.enums.Operators;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 
-public class Token {
+public class Token implements IToken{
 
 	private final Terminals terminal;
 	private final Operators operator;

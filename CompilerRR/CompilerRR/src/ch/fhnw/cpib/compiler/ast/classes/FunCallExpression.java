@@ -68,7 +68,6 @@ public class FunCallExpression implements IExpression{
 	@Override
 	public int code(int i) throws CodeTooSmallError {
 	    int loc = i;
-	    //vm.DebugInfo(loc++, this.getClass().getSimpleName(), this.getToken());
 	    loc = this.routineCall.code(loc);
 	    
 	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");

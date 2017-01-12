@@ -8,6 +8,7 @@ import ch.fhnw.cpib.compiler.context.Variable;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.ChangeMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
+import ch.fhnw.cpib.compiler.scanner.tokens.LiteralToken;
 import ch.fhnw.cpib.compiler.vm.ICodeArray;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
 import ch.fhnw.cpib.compiler.vm.IInstructions.*;
@@ -32,20 +33,23 @@ public class AssiCmd implements ICommand {
 		StoreExpression storeExpr = (StoreExpression) expressionLeft;
 	    storeExpr.setWrite(true);
 	    
-	    ch.fhnw.cpib.compiler.context.Variable var1 = CompilerE.COMPILER.getCurrentContext().getVariable(storeExpr.getToken());
+	    Variable var1 = CompilerE.COMPILER.getCurrentContext().getVariable(storeExpr.getToken());
         if (var1 == null)
           throw new RuntimeException("Varibale does not exist." + token.toString());
         if (var1.getChangeMode() == ChangeMode.CONST && var1.isInitialized())
           throw new RuntimeException("Cannot assign value to CONST."+ token.toString());
 	   
-	    
+        this.expressionLeft.check();
+        this.expressionRight.check();
 	    Type tL = expressionLeft.getType();
 	    Type tR = expressionRight.getType();
 	    
-	    if (tL != tR) throw new RuntimeException("Invalid Assignment: Left: " + tL + "Right: " +tR );
+	    if (tL == Type.BOOL && tR == Type.INT32) {
+			if ( ((LiteralToken)expressionRight.getToken()).getValue() > 1 ||  ((LiteralToken)expressionRight.getToken()).getValue() < 0) {
+				throw new RuntimeException("Invalid Assignment: Left: " + tL + " Right: " +tR );
+			}
+		}
 	    
-	    this.expressionLeft.check();
-	    this.expressionRight.check();
 	}
 
 

@@ -70,7 +70,6 @@ public class GlobalImport implements IGlobalImport {
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
-	    //vm.DebugInfo(loc++, this.getClass().getSimpleName(), this.getToken());
 	    return i;
 	}
 

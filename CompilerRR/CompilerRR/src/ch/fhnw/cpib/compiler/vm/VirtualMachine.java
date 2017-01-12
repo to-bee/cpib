@@ -11,6 +11,7 @@ import ch.fhnw.cpib.compiler.vm.IInstructions.CondJump;
 import ch.fhnw.cpib.compiler.vm.IInstructions.Deref;
 import ch.fhnw.cpib.compiler.vm.IInstructions.DivTruncInt;
 import ch.fhnw.cpib.compiler.vm.IInstructions.Dup;
+import ch.fhnw.cpib.compiler.vm.IInstructions.Enter;
 import ch.fhnw.cpib.compiler.vm.IInstructions.EqInt;
 import ch.fhnw.cpib.compiler.vm.IInstructions.GeInt;
 import ch.fhnw.cpib.compiler.vm.IInstructions.GtInt;
@@ -149,6 +150,21 @@ public class VirtualMachine implements IVirtualMachine {
             pc= pc + 1;
         }
     }
+    
+    public class EnterExec extends Enter implements IExecInstr {
+
+		EnterExec(int size, int extreme) {
+			super(size, extreme);
+		}
+
+		@Override
+		public void execute() throws ExecutionError {
+			sp = fp + 3 + this.size;
+			if (sp > hp + 1) { throw new ExecutionError(SP_OVER_HP); }
+			pc = pc + 1;
+		}
+    }
+    
 
     public class CallExec extends Call implements IExecInstr {
         public CallExec(int routAddress) { super(routAddress); }

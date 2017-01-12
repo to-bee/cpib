@@ -2,6 +2,7 @@ package ch.fhnw.cpib.compiler.ast.classes;
 
 
 
+
 import java.util.List;
 
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IDeclaration;
@@ -9,11 +10,15 @@ import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.context.Context;
 import ch.fhnw.cpib.compiler.context.Variable;
 import ch.fhnw.cpib.compiler.scanner.Token;
+import ch.fhnw.cpib.compiler.scanner.enums.operators.ChangeMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.FlowMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
 import ch.fhnw.cpib.compiler.vm.ICodeArray;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
 import ch.fhnw.cpib.compiler.vm.IInstructions;
+import static ch.fhnw.cpib.compiler.scanner.tokens.PseudoToken.EXTREME_POINTER;
+import static ch.fhnw.cpib.compiler.scanner.tokens.PseudoToken.FRAME_POINTER_OLD;
+import static ch.fhnw.cpib.compiler.scanner.tokens.PseudoToken.PROGRAM_COUNTER_OLD;
 
 public class FunctionDeclaration implements IDeclaration{
 
@@ -57,19 +62,20 @@ public class FunctionDeclaration implements IDeclaration{
 	    assert this.context == null;
 	    this.context = CompilerE.COMPILER.switchContext();
 	    
+	    this.context.addVariable(FRAME_POINTER_OLD, Type.INT32, ChangeMode.CONST);
+	    this.context.addVariable(EXTREME_POINTER, Type.INT32, ChangeMode.CONST);
+	    this.context.addVariable(PROGRAM_COUNTER_OLD, Type.INT32, ChangeMode.CONST);
 
 	    this.storageDeclaration.check();
 	    
 	    assert this.retVar == null;
 	    this.retVar = this.context.getVariable(this.storageDeclaration.getToken());
-	    
-	    assert this.retVar != null : "No return-variable for function available.";
 	    this.retVar.setReturnVar(true);
 	    this.retVar.setFlowMode(FlowMode.OUT);
-	    
 	    this.context.setReturnStoreDecl(this.retVar);
 	    
-	    int posOfPar = parameters.size()+1;
+	    
+	    int posOfPar = parameters.size();
 	    for (IParameter param : parameters) {
 	    	param.setLocationInParamList(posOfPar);
 	    	posOfPar -= 1;
@@ -131,6 +137,7 @@ public class FunctionDeclaration implements IDeclaration{
 	    final ICodeArray codeArray =  CompilerE.COMPILER.getCodeArray();
 
 	    this.setLocation(loc);
+	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.Enter(0,0));
 
 	    loc = this.storageDeclaration.code(loc); // return variable, allocates 1 block
 	    for(IParameter p : parameters)
@@ -143,8 +150,8 @@ public class FunctionDeclaration implements IDeclaration{
 	    	loc = c.code(loc);
 
 	    final int localVariableCount = this.context.getVariableCount() - 4
-	        - globalImports.size()
-	        - storageDeclarations.size();
+	    		- globalImports.size()
+	    		- storageDeclarations.size();
 
 	    // Store Return Variable on stack cell before funCall
 	    final Variable var = CompilerE.COMPILER.getCurrentContext().getVariable(

@@ -7,9 +7,14 @@ import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IDeclaration;
 import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.context.Context;
 import ch.fhnw.cpib.compiler.scanner.Token;
+import ch.fhnw.cpib.compiler.scanner.enums.operators.ChangeMode;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
+import ch.fhnw.cpib.compiler.vm.CodeArray;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
 import ch.fhnw.cpib.compiler.vm.IInstructions;
+import static ch.fhnw.cpib.compiler.scanner.tokens.PseudoToken.EXTREME_POINTER;
+import static ch.fhnw.cpib.compiler.scanner.tokens.PseudoToken.FRAME_POINTER_OLD;
+import static ch.fhnw.cpib.compiler.scanner.tokens.PseudoToken.PROGRAM_COUNTER_OLD;
 
 public class ProcedureDeclaration implements IDeclaration{
 
@@ -46,18 +51,13 @@ public class ProcedureDeclaration implements IDeclaration{
 	    CompilerE.COMPILER.getCurrentContext().addProcedure(this);
 	    assert this.context == null;
 	    this.context = CompilerE.COMPILER.switchContext();
+	    
+	    this.context.addVariable(FRAME_POINTER_OLD, Type.INT32, ChangeMode.CONST);
+	    this.context.addVariable(EXTREME_POINTER, Type.INT32, ChangeMode.CONST);
+	    this.context.addVariable(PROGRAM_COUNTER_OLD, Type.INT32, ChangeMode.CONST);
 
-//		    /**
-//		     * These Variables are set on vm.Enter to store the old pointers to return
-//		     * to after function call. They are never used in the code, the declaration
-//		     * here serves only the purpose of having the right relativePosition of
-//		     * variables after vm.Enter
-//		     */
-//		    this.context.addVariable(FRAME_POINTER_OLD, Type.INT32, ChangeMode.CONST);
-//		    this.context.addVariable(EXTREME_POINTER, Type.INT32, ChangeMode.CONST);
-//		    this.context.addVariable(PROGRAM_COUNTER_OLD, Type.INT32, ChangeMode.CONST);
 
-	    int posOfPar = parameters.size()+1;
+	    int posOfPar = parameters.size();
 	    for (IParameter iParameter : parameters) {
 	    	iParameter.setLocationInParamList(posOfPar);
 	    	posOfPar -= 1;
@@ -107,6 +107,8 @@ public class ProcedureDeclaration implements IDeclaration{
 	    CompilerE.COMPILER.switchToContext(this.context);
 
 	    this.setLocation(loc);
+	    
+	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.Enter(0,0));
 
 	    for(IParameter p: parameters){
 	    	loc = p.code(loc);

@@ -29,11 +29,6 @@ public class StorageDeclaration implements IDeclaration {
 
 	@Override
 	public void check() {
-		// Note that the caller of this method can be a Parameter.
-	    // When this call returns the variable is known to the context.
-	    // Some of the modes are set to default values and must be altered
-	    // afterwards.
-		
 	    final Context context = CompilerE.COMPILER.getCurrentContext();
 
 	    if(context.exists(this.typeIdent.getToken()))
@@ -66,14 +61,7 @@ public class StorageDeclaration implements IDeclaration {
 	public int code(int i) throws CodeTooSmallError {
 		System.out.println(this.getClass().getSimpleName());
 		
-	    // Note that the caller of this method can be a Parameter.
-	    // When this call returns the variable is known to the context.
-	    // Some of the modes are set to default values and must be altered
-	    // afterwards.
-
 	    int loc = i;
-	    // Allocate one cell on the stack for the variable value:
-	    // TODO: allocstack or allocblock?
 	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.AllocBlock(1));
 
 	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");

@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn;
-import ch.fhnw.cpib.compiler.context.Compilation;
 import ch.fhnw.cpib.compiler.context.CompilerE;
 import ch.fhnw.cpib.compiler.cst.interfaces.IConcSyn;
 import ch.fhnw.cpib.compiler.parser.ProgramParser;

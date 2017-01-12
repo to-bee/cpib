@@ -118,14 +118,14 @@ public class Parameter implements IParameter {
 	    Variable var = CompilerE.COMPILER.getCurrentContext().getVariable(this.storageDeclaration.getToken());
 	    int loc = i;
 	    
-	    //vm.DebugInfo(loc++, this.getClass().getSimpleName(), this.getToken());
-
-	    loc = this.storageDeclaration.code(loc);
+	    //TODO: Comment this and second loadaddrrel and store
+	    loc = this.storageDeclaration.code(loc); //allocblock
 	    
 	    codeArr.put(loc++, new LoadAddrRel(-var.getParamLocation()));
 	    codeArr.put(loc++, new Deref());
 	    codeArr.put(loc++, new LoadAddrRel(var.getRelLocation()));
 	    codeArr.put(loc++, new Store());
+	    
 
 	    
 	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");

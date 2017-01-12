@@ -1,5 +1,6 @@
 package ch.fhnw.cpib.compiler.context;
 
+import ch.fhnw.cpib.compiler.scanner.IToken;
 import ch.fhnw.cpib.compiler.scanner.Token;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.*;
 import ch.fhnw.cpib.compiler.scanner.tokens.IdentToken;
@@ -9,7 +10,7 @@ public final class Variable {
     /**
      * Identifier-Token that gives this variable its name.
      */
-    private final Token token;
+    private final IToken token;
     private final Type type;
     private final Scope scope;
     /**
@@ -36,7 +37,7 @@ public final class Variable {
     private ChangeMode changeMode = ChangeMode.VAR;
     private boolean isReturnVar = false;
     private FlowMode flowMode = FlowMode.NONE;
-    Variable(final Token token, final Type type, final Scope scope,
+    Variable(final IToken token, final Type type, final Scope scope,
              final ChangeMode changeMode) {
         super();
         this.token = token;
@@ -44,7 +45,7 @@ public final class Variable {
         this.scope = scope;
         this.changeMode = changeMode;
     }
-    Variable(final Token token, final int absLocation,
+    Variable(final IToken token, final int absLocation,
              final int relLocation, final Type type, final MechMode mechMode,
              final boolean isReturnVal, final Scope scope,
              final ChangeMode changeMode, final FlowMode flowMode) {
@@ -60,7 +61,7 @@ public final class Variable {
         this.flowMode = flowMode;
     }
 
-    public Token getToken() {
+    public IToken getToken() {
         return this.token;
     }
 
@@ -117,7 +118,7 @@ public final class Variable {
         return this.relLocation;
     }
 
-    void setRelLocation(final int relLoc) {
+    public void setRelLocation(final int relLoc) {
         assert this.relLocation == -1;
         this.relLocation = relLoc;
     }
