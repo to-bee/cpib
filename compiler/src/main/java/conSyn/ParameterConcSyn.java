@@ -13,6 +13,7 @@ public class ParameterConcSyn extends AbstractConcSyn implements IConcSyn {
     private StorageDeclarationConcSyn storageDeclarationConcSyn;
     private OptionalFlowModeConcSyn optionalFlowModeConcSyn;
     private OptionalMechModeConcSyn optionalMechModeConcSyn;
+    private Terminal terminal;
 
     public ParameterConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -26,10 +27,11 @@ public class ParameterConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.MECHMODE
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.IDENT
+                || this.terminal.getType() == TerminalType.CHANGEMODE
+                || this.terminal.getType() == TerminalType.MECHMODE
+                || this.terminal.getType() == TerminalType.FLOWMODE) {
 
             optionalFlowModeConcSyn = new OptionalFlowModeConcSyn(getTokenList(), getCounter());
             parseNext(optionalFlowModeConcSyn);

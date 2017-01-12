@@ -12,6 +12,7 @@ import scanner.tokenList.ITokenList;
 public class BlockCmdConcSyn extends AbstractConcSyn implements IConcSyn {
     private CmdConcSyn cmdConcSyn;
     private RepeatingOptionalCmdsConcSyn repeatingOptionalCmdsConcSyn;
+    private Terminal terminal;
 
     public BlockCmdConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -24,24 +25,25 @@ public class BlockCmdConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.DEBUGOUT
-                || getTokenList().getCurrent().getTerminal() == Terminal.DEBUGIN
-                || getTokenList().getCurrent().getTerminal() == Terminal.CALL
-                || getTokenList().getCurrent().getTerminal() == Terminal.WHILE
-                || getTokenList().getCurrent().getTerminal() == Terminal.IF
-                || getTokenList().getCurrent().getTerminal() == Terminal.IMAGINARY_PART
-                || getTokenList().getCurrent().getTerminal() == Terminal.REAL
-                || getTokenList().getCurrent().getTerminal() == Terminal.IMAG
-                || getTokenList().getCurrent().getTerminal() == Terminal.LPAREN
-                || getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MODOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.COMPLEMENT
-                || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
-                || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL
-                || getTokenList().getCurrent().getTerminal() == Terminal.SKIP) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.DEBUGOUT
+                || this.terminal == Terminal.DEBUGIN
+                || this.terminal == Terminal.CALL
+                || this.terminal == Terminal.WHILE
+                || this.terminal == Terminal.IF
+                || this.terminal == Terminal.IMAGINARY_PART
+                || this.terminal == Terminal.REAL
+                || this.terminal == Terminal.IMAG
+                || this.terminal == Terminal.LPAREN
+                || this.terminal == Terminal.ADDOPR
+                || this.terminal == Terminal.MINOPR
+                || this.terminal == Terminal.MULTOPR
+                || this.terminal == Terminal.DIVOPR
+                || this.terminal == Terminal.MODOPR
+                || this.terminal == Terminal.COMPLEMENT
+                || this.terminal == Terminal.IDENT
+                || this.terminal == Terminal.LITERAL
+                || this.terminal == Terminal.SKIP) {
             cmdConcSyn = new CmdConcSyn(getTokenList(), getCounter());
             this.parseNext(cmdConcSyn);
 

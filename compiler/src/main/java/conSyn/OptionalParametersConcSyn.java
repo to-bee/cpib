@@ -13,6 +13,7 @@ import scanner.tokenList.ITokenList;
  */
 public class OptionalParametersConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
+    private Terminal terminal;
 
     public OptionalParametersConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -28,13 +29,14 @@ public class OptionalParametersConcSyn extends AbstractConcSyn implements IConcS
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.RPAREN) {
             subType = new EmptyConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+        } else if (this.terminal == Terminal.IDENT) {
             subType = new OptionalParametersConcSyn1(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.MECHMODE
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
+        } else if (this.terminal.getType() == TerminalType.CHANGEMODE
+                || this.terminal.getType() == TerminalType.MECHMODE
+                || this.terminal.getType() == TerminalType.FLOWMODE) {
             subType = new OptionalParametersConcSyn2(getTokenList(), getCounter());
         } else {
             throwGrammarError();

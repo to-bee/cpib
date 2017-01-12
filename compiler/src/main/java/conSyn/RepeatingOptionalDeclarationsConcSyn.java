@@ -11,6 +11,7 @@ import scanner.tokenList.ITokenList;
  */
 public class RepeatingOptionalDeclarationsConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
+    private Terminal terminal;
 
     public RepeatingOptionalDeclarationsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -26,9 +27,10 @@ public class RepeatingOptionalDeclarationsConcSyn extends AbstractConcSyn implem
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.DO) {
             subType = new EmptyConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON) {
+        } else if (this.terminal == Terminal.SEMICOLON) {
             subType = new RepeatingOptionalDeclarationsConcSyn1(getTokenList(), getCounter());
         } else {
             throwGrammarError();

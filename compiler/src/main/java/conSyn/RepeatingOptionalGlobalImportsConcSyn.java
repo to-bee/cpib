@@ -11,6 +11,7 @@ import scanner.tokenList.ITokenList;
  */
 public class RepeatingOptionalGlobalImportsConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
+    private Terminal terminal;
 
     public RepeatingOptionalGlobalImportsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -26,10 +27,11 @@ public class RepeatingOptionalGlobalImportsConcSyn extends AbstractConcSyn imple
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.DO
-                || getTokenList().getCurrent().getTerminal() == Terminal.LOCAL) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.DO
+                || this.terminal == Terminal.LOCAL) {
             subType = new EmptyConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.COMMA) {
+        } else if (this.terminal == Terminal.COMMA) {
             subType = new RepeatingOptionalGlobalImportsConcSyn1(getTokenList(), getCounter());
         }else {
             //Maybe change, added exception: 28.12.2016, by Yves

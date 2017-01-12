@@ -14,6 +14,7 @@ public class OptionalMechModeConcSyn extends AbstractConcSyn implements IConcSyn
     public OptionalMechModeConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
+    private Terminal terminal;
 
     @Override
     public OptionalMechModeAbsSyn toAbsSyn() throws ContextError {
@@ -26,10 +27,11 @@ public class OptionalMechModeConcSyn extends AbstractConcSyn implements IConcSyn
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.IDENT
+                || this.terminal.getType() == TerminalType.CHANGEMODE) {
 
-        } else if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.MECHMODE) {
+        } else if (this.terminal.getType() == TerminalType.MECHMODE) {
             consume();
         } else{
             throwGrammarError();

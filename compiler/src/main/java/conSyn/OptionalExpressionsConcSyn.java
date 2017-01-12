@@ -11,6 +11,7 @@ import scanner.tokenList.ITokenList;
  */
 public class OptionalExpressionsConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
+    private Terminal terminal;
 
     public OptionalExpressionsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -26,20 +27,21 @@ public class OptionalExpressionsConcSyn extends AbstractConcSyn implements IConc
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.RPAREN) {
             subType = new EmptyConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.IMAGINARY_PART
-                || getTokenList().getCurrent().getTerminal() == Terminal.REAL
-                || getTokenList().getCurrent().getTerminal() == Terminal.IMAG
-                || getTokenList().getCurrent().getTerminal() == Terminal.LPAREN
-                || getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MODOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.COMPLEMENT
-                || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
-                || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
+        } else if (this.terminal == Terminal.IMAGINARY_PART
+                || this.terminal == Terminal.REAL
+                || this.terminal == Terminal.IMAG
+                || this.terminal == Terminal.LPAREN
+                || this.terminal == Terminal.ADDOPR
+                || this.terminal == Terminal.MINOPR
+                || this.terminal == Terminal.MULTOPR
+                || this.terminal == Terminal.DIVOPR
+                || this.terminal == Terminal.MODOPR
+                || this.terminal == Terminal.COMPLEMENT
+                || this.terminal == Terminal.IDENT
+                || this.terminal == Terminal.LITERAL) {
             subType = new OptionalExpressionsConcSyn1(getTokenList(), getCounter());
         } else {
             throwGrammarError();

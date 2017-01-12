@@ -11,6 +11,7 @@ import scanner.tokenList.ITokenList;
  */
 public class RepBoolOprTerm1ConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
+    private Terminal terminal;
 
     public RepBoolOprTerm1ConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -27,20 +28,21 @@ public class RepBoolOprTerm1ConcSyn extends AbstractConcSyn implements IConcSyn 
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN
-                || getTokenList().getCurrent().getTerminal() == Terminal.COMMA
-                || getTokenList().getCurrent().getTerminal() == Terminal.DO
-                || getTokenList().getCurrent().getTerminal() == Terminal.THEN
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDPROC
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDFUN
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDWHILE
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDIF
-                || getTokenList().getCurrent().getTerminal() == Terminal.ELSE
-                || getTokenList().getCurrent().getTerminal() == Terminal.ENDPROGRAM
-                || getTokenList().getCurrent().getTerminal() == Terminal.SEMICOLON
-                || getTokenList().getCurrent().getTerminal() == Terminal.BECOMES) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.RPAREN
+                || this.terminal == Terminal.COMMA
+                || this.terminal == Terminal.DO
+                || this.terminal == Terminal.THEN
+                || this.terminal == Terminal.ENDPROC
+                || this.terminal == Terminal.ENDFUN
+                || this.terminal == Terminal.ENDWHILE
+                || this.terminal == Terminal.ENDIF
+                || this.terminal == Terminal.ELSE
+                || this.terminal == Terminal.ENDPROGRAM
+                || this.terminal == Terminal.SEMICOLON
+                || this.terminal == Terminal.BECOMES) {
             subType = new EmptyConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.BOOLOPR) {
+        } else if (this.terminal.getType() == TerminalType.BOOLOPR) {
             subType = new RepBoolOprTerm1ConcSyn1(getTokenList(), getCounter());
         } else {
             throwGrammarError();

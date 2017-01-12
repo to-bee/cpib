@@ -12,6 +12,7 @@ import scanner.tokenList.ITokenList;
  */
 public class OptionalProgramParamConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
+    private Terminal terminal;
 
     public OptionalProgramParamConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -27,11 +28,12 @@ public class OptionalProgramParamConcSyn extends AbstractConcSyn implements ICon
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.RPAREN) {
             subType = new EmptyConsumeConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
+        } else if (this.terminal == Terminal.IDENT
+                || this.terminal.getType() == TerminalType.CHANGEMODE
+                || this.terminal.getType() == TerminalType.FLOWMODE) {
             subType = new OptionalProgramParamConcSyn1(getTokenList(), getCounter());
         } else {
             throwGrammarError();

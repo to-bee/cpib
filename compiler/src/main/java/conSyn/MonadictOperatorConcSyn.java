@@ -12,6 +12,7 @@ import scanner.tokenList.ITokenList;
  */
 public class MonadictOperatorConcSyn extends AbstractConcSyn implements IConcSyn {
     private IToken token;
+    private Terminal terminal;
 
     public MonadictOperatorConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -25,12 +26,13 @@ public class MonadictOperatorConcSyn extends AbstractConcSyn implements IConcSyn
 
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.COMPLEMENT
-                || getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.COMPLEMENT
+                || this.terminal == Terminal.ADDOPR
+                || this.terminal == Terminal.MINOPR
+                || this.terminal == Terminal.MULTOPR
+                || this.terminal == Terminal.DIVOPR
+                || this.terminal == Terminal.MINOPR) {
             this.token = this.getTokenList().getCurrent();
             consume();
         } else {

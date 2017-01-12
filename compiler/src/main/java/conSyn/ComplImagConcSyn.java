@@ -12,6 +12,7 @@ import scanner.tokenList.ITokenList;
  */
 public class ComplImagConcSyn extends AbstractConcSyn implements IConcSyn {
     private ExpressionConcSyn expressionConcSyn;
+    private Terminal terminal;
 
     public ComplImagConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -26,14 +27,17 @@ public class ComplImagConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.IMAG) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.IMAG) {
             this.token = this.getTokenList().getCurrent();
             consume();
-            if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
+            this.terminal = getTokenList().getCurrent().getTerminal();
+            if (this.terminal == Terminal.LPAREN) {
                 consume();
                 expressionConcSyn = new ExpressionConcSyn(this.getTokenList(), getCounter());
                 this.parseNext(expressionConcSyn);
-                if (getTokenList().getCurrent().getTerminal() == Terminal.RPAREN) {
+                this.terminal = getTokenList().getCurrent().getTerminal();
+                if (this.terminal == Terminal.RPAREN) {
                     consume();
                 } else {
                     throwGrammarError();

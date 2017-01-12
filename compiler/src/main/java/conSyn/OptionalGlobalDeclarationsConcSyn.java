@@ -10,6 +10,7 @@ import scanner.tokenList.ITokenList;
  */
 public class OptionalGlobalDeclarationsConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
+    private Terminal terminal;
 
     public OptionalGlobalDeclarationsConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -25,9 +26,10 @@ public class OptionalGlobalDeclarationsConcSyn extends AbstractConcSyn implement
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.DO) {
             subType = new EmptyConsumeConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.GLOBAL) {
+        } else if (this.terminal == Terminal.GLOBAL) {
             subType = new OptionalGlobalDeclarationsConcSyn1(getTokenList(), getCounter());
         } else {
             throwGrammarError();

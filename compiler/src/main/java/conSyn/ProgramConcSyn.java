@@ -15,6 +15,7 @@ public class ProgramConcSyn extends AbstractConcSyn {
     private ProgramParameterListConcSyn programParameterListConcSyn;
     private OptionalGlobalDeclarationsConcSyn optionalGlobalDeclarationsConcSyn;
     private BlockCmdConcSyn blockCmdConcSyn;
+    private Terminal terminal;
 
     public ProgramConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -27,9 +28,11 @@ public class ProgramConcSyn extends AbstractConcSyn {
 
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.PROGRAM) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.PROGRAM) {
             consume();
-            if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+            this.terminal = getTokenList().getCurrent().getTerminal();
+            if (this.terminal == Terminal.IDENT) {
                 ident = (Ident) this.getTokenList().getCurrent();
                 consume();
 
@@ -38,12 +41,14 @@ public class ProgramConcSyn extends AbstractConcSyn {
 
                 optionalGlobalDeclarationsConcSyn = new OptionalGlobalDeclarationsConcSyn(getTokenList(), getCounter());
                 parseNext(optionalGlobalDeclarationsConcSyn);
+                this.terminal = getTokenList().getCurrent().getTerminal();
 
-                if (getTokenList().getCurrent().getTerminal() == Terminal.DO) {
+                if (this.terminal == Terminal.DO) {
                     consume();
                     blockCmdConcSyn = new BlockCmdConcSyn(getTokenList(), getCounter());
                     parseNext(blockCmdConcSyn);
-                    if (getTokenList().getCurrent().getTerminal() == Terminal.ENDPROGRAM) {
+                    this.terminal = getTokenList().getCurrent().getTerminal();
+                    if (this.terminal == Terminal.ENDPROGRAM) {
                         consume();
                     } else {
                         throwGrammarError();

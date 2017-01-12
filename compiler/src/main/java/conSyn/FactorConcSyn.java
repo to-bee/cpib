@@ -14,6 +14,7 @@ import scanner.tokenList.ITokenList;
 public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
     private IToken token;
+    private Terminal terminal;
 
     public FactorConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -27,23 +28,24 @@ public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
     @Override
     public void parse() throws GrammarError {
         this.token = this.getTokenList().getCurrent();
-        if (getTokenList().getCurrent().getTerminal() == Terminal.IMAGINARY_PART) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.IMAGINARY_PART) {
             subType = new FactorImaginaryPartConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
+        } else if (this.terminal == Terminal.LITERAL) {
             subType = new FactorLiteralConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+        } else if (this.terminal == Terminal.IDENT) {
             subType = new FactorIdentConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.COMPLEMENT) {
+        } else if (this.terminal == Terminal.ADDOPR
+                || this.terminal == Terminal.MINOPR
+                || this.terminal == Terminal.MULTOPR
+                || this.terminal == Terminal.DIVOPR
+                || this.terminal == Terminal.COMPLEMENT) {
             subType = new FactorMonadicConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.LPAREN) {
+        } else if (this.terminal == Terminal.LPAREN) {
             subType = new FactorExpressionConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.IMAG) {
+        } else if (this.terminal == Terminal.IMAG) {
             subType = new ComplImagConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.REAL) {
+        } else if (this.terminal == Terminal.REAL) {
             subType = new ComplRealConcSyn(getTokenList(), getCounter());
         } else {
             throwGrammarError();

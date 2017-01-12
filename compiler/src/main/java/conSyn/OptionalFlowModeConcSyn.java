@@ -15,6 +15,7 @@ public class OptionalFlowModeConcSyn extends AbstractConcSyn implements IConcSyn
     public OptionalFlowModeConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
+    private Terminal terminal;
 
     @Override
     public OptionalFlowModeAbsSyn toAbsSyn() throws ContextError {
@@ -27,11 +28,12 @@ public class OptionalFlowModeConcSyn extends AbstractConcSyn implements IConcSyn
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.MECHMODE
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.IDENT
+                || this.terminal.getType() == TerminalType.MECHMODE
+                || this.terminal.getType() == TerminalType.CHANGEMODE) {
 
-        } else if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.FLOWMODE) {
+        } else if (this.terminal.getType() == TerminalType.FLOWMODE) {
             consume();
         } else {
             throwGrammarError();

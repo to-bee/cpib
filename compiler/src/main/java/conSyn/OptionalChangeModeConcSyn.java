@@ -15,6 +15,7 @@ public class OptionalChangeModeConcSyn extends AbstractConcSyn implements IConcS
     public OptionalChangeModeConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
+    private Terminal terminal;
 
     @Override
     public OptionalChangeModeAbsSyn toAbsSyn() throws ContextError {
@@ -27,9 +28,10 @@ public class OptionalChangeModeConcSyn extends AbstractConcSyn implements IConcS
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.IDENT) {
 
-        } else if (getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
+        } else if (this.terminal.getType() == TerminalType.CHANGEMODE) {
             consume();
         } else {
             throwGrammarError();

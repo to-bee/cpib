@@ -11,6 +11,7 @@ import scanner.tokenList.ITokenList;
  */
 public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subType;
+    private Terminal terminal;
 
     public CmdConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -23,29 +24,30 @@ public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.SKIP) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.SKIP) {
             subType = new CmdSkipConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.IF) {
+        } else if (this.terminal == Terminal.IF) {
             subType = new CmdIfConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.WHILE) {
+        } else if (this.terminal == Terminal.WHILE) {
             subType = new CmdWhileConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.CALL) {
+        } else if (this.terminal == Terminal.CALL) {
             subType = new CmdCallConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.IMAGINARY_PART
-                || getTokenList().getCurrent().getTerminal() == Terminal.REAL
-                || getTokenList().getCurrent().getTerminal() == Terminal.IMAG
-                || getTokenList().getCurrent().getTerminal() == Terminal.LPAREN
-                || getTokenList().getCurrent().getTerminal() == Terminal.ADDOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MINOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MULTOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.DIVOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.MODOPR
-                || getTokenList().getCurrent().getTerminal() == Terminal.COMPLEMENT
-                || getTokenList().getCurrent().getTerminal() == Terminal.IDENT
-                || getTokenList().getCurrent().getTerminal() == Terminal.LITERAL) {
+        } else if (this.terminal  == Terminal.IMAGINARY_PART
+                || this.terminal  == Terminal.REAL
+                || this.terminal  == Terminal.IMAG
+                || this.terminal  == Terminal.LPAREN
+                || this.terminal  == Terminal.ADDOPR
+                || this.terminal  == Terminal.MINOPR
+                || this.terminal  == Terminal.MULTOPR
+                || this.terminal  == Terminal.DIVOPR
+                || this.terminal  == Terminal.MODOPR
+                || this.terminal  == Terminal.COMPLEMENT
+                || this.terminal  == Terminal.IDENT
+                || this.terminal  == Terminal.LITERAL) {
             subType = new CmdAssignConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.DEBUGIN
-                || getTokenList().getCurrent().getTerminal() == Terminal.DEBUGOUT) {
+        } else if (this.terminal == Terminal.DEBUGIN
+                || this.terminal == Terminal.DEBUGOUT) {
             consume();
             subType = new ExpressionConcSyn(getTokenList(), getCounter());
         } else {

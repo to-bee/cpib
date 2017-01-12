@@ -13,6 +13,7 @@ import scanner.tokenList.ITokenList;
  */
 public class DeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
     private IConcSyn subtype;
+    private Terminal terminal;
 
     public DeclarationConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -28,12 +29,13 @@ public class DeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
      */
     @Override
     public void parse() throws GrammarError {
-        if (getTokenList().getCurrent().getTerminal() == Terminal.IDENT
-                || getTokenList().getCurrent().getTerminal().getType() == TerminalType.CHANGEMODE) {
+        this.terminal = getTokenList().getCurrent().getTerminal();
+        if (this.terminal == Terminal.IDENT
+                || this.terminal.getType() == TerminalType.CHANGEMODE) {
             subtype = new StorageDeclarationConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.FUN) {
+        } else if (this.terminal == Terminal.FUN) {
             subtype = new FunctionDeclarationConcSyn(getTokenList(), getCounter());
-        } else if (getTokenList().getCurrent().getTerminal() == Terminal.PROC) {
+        } else if (this.terminal == Terminal.PROC) {
             subtype = new ProcedureDeclarationConcSyn(getTokenList(), getCounter());
         } else {
             throwGrammarError();

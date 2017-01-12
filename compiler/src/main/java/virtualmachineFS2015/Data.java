@@ -192,6 +192,11 @@ public class Data
         return complNew(getReal(a)*getReal(b) - getImag(a)*getImag(b), getReal(a)*getImag(b) + getReal(b)*getImag(a));
     }
 
+    static ComplData complModTrunc(IBaseData a, IBaseData b)
+    {
+        return complNew(0,0);
+    }
+
     static IntData complEQ(IBaseData a, IBaseData b)
     {
         return boolNew(getReal(a) == getReal(b) && getImag(a) == getImag(b));
@@ -201,4 +206,5 @@ public class Data
     {
         return boolNew(getReal(a) != getReal(b) || getImag(a) != getImag(b));
     }
+
 }
