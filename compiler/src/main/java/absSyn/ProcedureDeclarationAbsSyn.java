@@ -1,5 +1,6 @@
 package absSyn;
 
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import virtualmachineFS2015.ICodeArray;
 import scanner.token.Ident;
@@ -14,14 +15,16 @@ public class ProcedureDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSy
     private final OptionalGlobalImportsAbsSyn optionalGlobalImportsAbsSyn;
     private final OptionalLocalStorageDeclarationsAbsSyn optionalLocalStorageDeclarationsAbsSyn;
     private final BlockCmdAbsSyn blockCmdAbsSyn;
+    private final Terminal terminal;
 
-    public ProcedureDeclarationAbsSyn(Ident ident, ParameterListAbsSyn parameterListAbsSyn, OptionalGlobalImportsAbsSyn optionalGlobalImportsAbsSyn, OptionalLocalStorageDeclarationsAbsSyn optionalLocalStorageDeclarationsAbsSyn, BlockCmdAbsSyn blockCmdAbsSyn) {
+    public ProcedureDeclarationAbsSyn(Ident ident, ParameterListAbsSyn parameterListAbsSyn, OptionalGlobalImportsAbsSyn optionalGlobalImportsAbsSyn, OptionalLocalStorageDeclarationsAbsSyn optionalLocalStorageDeclarationsAbsSyn, BlockCmdAbsSyn blockCmdAbsSyn, Terminal terminal) {
         this.ident = ident;
 
         this.parameterListAbsSyn = parameterListAbsSyn;
         this.optionalGlobalImportsAbsSyn = optionalGlobalImportsAbsSyn;
         this.optionalLocalStorageDeclarationsAbsSyn = optionalLocalStorageDeclarationsAbsSyn;
         this.blockCmdAbsSyn = blockCmdAbsSyn;
+        this.terminal = terminal;
     }
 
     @Override

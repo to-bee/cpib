@@ -19,8 +19,7 @@ public class RepBoolOprTerm1ConcSyn extends AbstractConcSyn implements IConcSyn 
 
     @Override
     public RepBoolOprTerm1AbsSyn toAbsSyn() throws ContextError {
-        return new RepBoolOprTerm1AbsSyn(subType.toAbsSyn());
-
+        return new RepBoolOprTerm1AbsSyn(subType.toAbsSyn(), terminal);
     }
 
     /**

@@ -1,5 +1,6 @@
 package absSyn;
 
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import virtualmachineFS2015.ICodeArray;
 
@@ -11,11 +12,13 @@ public class CmdIfAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     private final ExpressionAbsSyn exprIf;
     private final BlockCmdAbsSyn cmdThen;
     private final BlockCmdAbsSyn cmdElse;
+    private final Terminal terminal;
 
-    public CmdIfAbsSyn(ExpressionAbsSyn exprIf, BlockCmdAbsSyn cmdThen, BlockCmdAbsSyn cmdElse) {
+    public CmdIfAbsSyn(ExpressionAbsSyn exprIf, BlockCmdAbsSyn cmdThen, BlockCmdAbsSyn cmdElse, Terminal terminal) {
         this.exprIf = exprIf;
         this.cmdThen = cmdThen;
         this.cmdElse = cmdElse;
+        this.terminal = terminal;
     }
 
     @Override

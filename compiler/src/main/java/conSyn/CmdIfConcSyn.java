@@ -25,7 +25,7 @@ public class CmdIfConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public CmdIfAbsSyn toAbsSyn() throws ContextError {
-        return new CmdIfAbsSyn(exprIf.toAbsSyn(), cmdThen.toAbsSyn(),cmdElse.toAbsSyn());
+        return new CmdIfAbsSyn(exprIf.toAbsSyn(), cmdThen.toAbsSyn(),cmdElse.toAbsSyn(), terminal);
     }
 
     @Override

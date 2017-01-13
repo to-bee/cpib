@@ -20,7 +20,7 @@ public class BlockCmdConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public BlockCmdAbsSyn toAbsSyn() throws ContextError {
-        return new BlockCmdAbsSyn(cmdConcSyn.toAbsSyn(), repeatingOptionalCmdsConcSyn.toAbsSyn());
+        return new BlockCmdAbsSyn(cmdConcSyn.toAbsSyn(), repeatingOptionalCmdsConcSyn.toAbsSyn(), terminal);
     }
 
     @Override

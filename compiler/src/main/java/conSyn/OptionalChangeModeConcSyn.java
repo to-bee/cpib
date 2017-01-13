@@ -19,7 +19,7 @@ public class OptionalChangeModeConcSyn extends AbstractConcSyn implements IConcS
 
     @Override
     public OptionalChangeModeAbsSyn toAbsSyn() throws ContextError {
-        return new OptionalChangeModeAbsSyn();
+        return new OptionalChangeModeAbsSyn(terminal);
     }
 
     /** TODO rewrite (no ident consume)

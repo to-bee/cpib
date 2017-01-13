@@ -20,8 +20,9 @@ public class FunctionDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn
     private final OptionalGlobalImportsAbsSyn optionalGlobalImportsAbsSyn;
     private final OptionalLocalStorageDeclarationsAbsSyn optionalLocalStorageDeclarationsAbsSyn;
     private final BlockCmdAbsSyn blockCmdAbsSyn;
+    private final Terminal terminal;
 
-    public FunctionDeclarationAbsSyn(Ident ident, ParameterListAbsSyn parameterListAbsSyn, StorageDeclarationAbsSyn storageDeclarationAbsSyn, OptionalGlobalImportsAbsSyn optionalGlobalImportsAbsSyn, OptionalLocalStorageDeclarationsAbsSyn optionalLocalStorageDeclarationsAbsSyn, BlockCmdAbsSyn blockCmdAbsSyn) {
+    public FunctionDeclarationAbsSyn(Ident ident, ParameterListAbsSyn parameterListAbsSyn, StorageDeclarationAbsSyn storageDeclarationAbsSyn, OptionalGlobalImportsAbsSyn optionalGlobalImportsAbsSyn, OptionalLocalStorageDeclarationsAbsSyn optionalLocalStorageDeclarationsAbsSyn, BlockCmdAbsSyn blockCmdAbsSyn, Terminal terminal) {
 
         this.ident = ident;
         this.parameterListAbsSyn = parameterListAbsSyn;
@@ -29,6 +30,7 @@ public class FunctionDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn
         this.optionalGlobalImportsAbsSyn = optionalGlobalImportsAbsSyn;
         this.optionalLocalStorageDeclarationsAbsSyn = optionalLocalStorageDeclarationsAbsSyn;
         this.blockCmdAbsSyn = blockCmdAbsSyn;
+        this.terminal = terminal;
     }
 
     @Override

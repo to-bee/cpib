@@ -19,7 +19,7 @@ public class RepeatingOptionalGlobalImportsConcSyn extends AbstractConcSyn imple
 
     @Override
     public RepeatingOptionalGlobalImportsAbsSyn toAbsSyn() throws ContextError {
-        return new RepeatingOptionalGlobalImportsAbsSyn(subType.toAbsSyn());
+        return new RepeatingOptionalGlobalImportsAbsSyn(subType.toAbsSyn(), terminal);
     }
 
     /**

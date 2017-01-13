@@ -18,7 +18,7 @@ public class OptionalMechModeConcSyn extends AbstractConcSyn implements IConcSyn
 
     @Override
     public OptionalMechModeAbsSyn toAbsSyn() throws ContextError {
-        return new OptionalMechModeAbsSyn();
+        return new OptionalMechModeAbsSyn(terminal);
     }
 
     /**

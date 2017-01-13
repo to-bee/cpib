@@ -30,7 +30,8 @@ public class FunctionDeclarationConcSyn extends AbstractConcSyn implements IConc
                 storageDeclarationConcSyn.toAbsSyn(),
                 optionalGlobalImportsConcSyn.toAbsSyn(),
                 optionalLocalStorageDeclarationsConcSyn.toAbsSyn(),
-                blockCmdConcSyn.toAbsSyn());
+                blockCmdConcSyn.toAbsSyn(),
+                terminal);
     }
 
 

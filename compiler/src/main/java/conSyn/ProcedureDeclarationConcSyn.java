@@ -33,7 +33,8 @@ public class ProcedureDeclarationConcSyn extends AbstractConcSyn implements ICon
                 parameterListConcSyn.toAbsSyn(),
                 optionalGlobalImportsConcSyn.toAbsSyn(),
                 optionalLocalStorageDeclarationsConcSyn.toAbsSyn(),
-                blockCmdConcSyn.toAbsSyn());
+                blockCmdConcSyn.toAbsSyn(),
+                terminal);
     }
 
     /**

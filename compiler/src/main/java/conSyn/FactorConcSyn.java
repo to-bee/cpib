@@ -22,7 +22,7 @@ public class FactorConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public FactorAbsSyn toAbsSyn() throws ContextError {
-        return new FactorAbsSyn(token, subType.toAbsSyn());
+        return new FactorAbsSyn(token, subType.toAbsSyn(), terminal);
     }
 
     @Override

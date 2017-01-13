@@ -21,7 +21,7 @@ public class ExpressionConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public ExpressionAbsSyn toAbsSyn() throws ContextError {
-        return new ExpressionAbsSyn(token, term1ConcSyn.toAbsSyn(),repBoolOprTerm1ConcSyn.toAbsSyn());
+        return new ExpressionAbsSyn(token, term1ConcSyn.toAbsSyn(),repBoolOprTerm1ConcSyn.toAbsSyn(), terminal);
     }
 
 

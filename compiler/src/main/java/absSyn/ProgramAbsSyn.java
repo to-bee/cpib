@@ -16,16 +16,18 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     private final OptionalGlobalDeclarationsAbsSyn optionalGlobalDeclarationList;
     private final ProgramParameterListAbsSyn programParameterList;
     private final BlockCmdAbsSyn blockCmdConcSyn;
+    private final Terminal terminal;
     /**
      * Programs identifier
      */
     private Ident ident;
 
-    public ProgramAbsSyn(Ident ident, ProgramParameterListAbsSyn programParameterListConcSyn, OptionalGlobalDeclarationsAbsSyn optionalGlobalDeclarationsConcSyn, BlockCmdAbsSyn blockCmdConcSyn) {
+    public ProgramAbsSyn(Ident ident, ProgramParameterListAbsSyn programParameterListConcSyn, OptionalGlobalDeclarationsAbsSyn optionalGlobalDeclarationsConcSyn, BlockCmdAbsSyn blockCmdConcSyn, Terminal terminal) {
         this.ident = ident;
         this.optionalGlobalDeclarationList = optionalGlobalDeclarationsConcSyn;
         this.programParameterList = programParameterListConcSyn;
         this.blockCmdConcSyn = blockCmdConcSyn;
+        this.terminal = terminal;
     }
 
     @Override

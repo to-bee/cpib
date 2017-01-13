@@ -20,7 +20,7 @@ public class RepeatingOptionalIdentsConcSyn extends AbstractConcSyn implements I
 
     @Override
     public RepeatingOptionalIdentsAbsSyn toAbsSyn() throws ContextError {
-        return new RepeatingOptionalIdentsAbsSyn(subType.toAbsSyn());
+        return new RepeatingOptionalIdentsAbsSyn(subType.toAbsSyn(), terminal);
 
     }
 

@@ -20,7 +20,7 @@ public class Term3ConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public Term3AbsSyn toAbsSyn() throws ContextError {
-        return new Term3AbsSyn(factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn());
+        return new Term3AbsSyn(factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn(), terminal);
     }
 
     @Override

@@ -14,12 +14,14 @@ public class ParameterAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     private final OptionalFlowModeAbsSyn optionalFlowModeAbsSyn;
     private final OptionalMechModeAbsSyn optionalMechModeAbsSyn;
     private final StorageDeclarationAbsSyn storageDeclarationAbsSyn;
+    private final Terminal terminal;
 
-    public ParameterAbsSyn(OptionalFlowModeAbsSyn optionalFlowModeAbsSyn, OptionalMechModeAbsSyn optionalMechModeAbsSyn, StorageDeclarationAbsSyn storageDeclarationAbsSyn) {
+    public ParameterAbsSyn(OptionalFlowModeAbsSyn optionalFlowModeAbsSyn, OptionalMechModeAbsSyn optionalMechModeAbsSyn, StorageDeclarationAbsSyn storageDeclarationAbsSyn, Terminal terminal) {
 
         this.optionalFlowModeAbsSyn = optionalFlowModeAbsSyn;
         this.optionalMechModeAbsSyn = optionalMechModeAbsSyn;
         this.storageDeclarationAbsSyn = storageDeclarationAbsSyn;
+        this.terminal = terminal;
     }
 
     @Override

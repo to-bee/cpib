@@ -1,5 +1,6 @@
 package absSyn;
 
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.Ident;
 import virtualmachineFS2015.ICodeArray;
@@ -11,10 +12,12 @@ public class RepeatingOptionalIdentsAbsSyn extends AbstractAbsSyn implements IAb
 
 
     private IAbsSyn subType;
+    private Terminal terminal;
 
-    public RepeatingOptionalIdentsAbsSyn(IAbsSyn subType) {
+    public RepeatingOptionalIdentsAbsSyn(IAbsSyn subType, Terminal terminal) {
 
         this.subType = subType;
+        this.terminal = terminal;
     }
 
     @Override

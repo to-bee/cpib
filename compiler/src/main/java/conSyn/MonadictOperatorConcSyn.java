@@ -20,7 +20,7 @@ public class MonadictOperatorConcSyn extends AbstractConcSyn implements IConcSyn
 
     @Override
     public MonadictOperatorAbsSyn toAbsSyn() throws ContextError {
-        return new MonadictOperatorAbsSyn(token);
+        return new MonadictOperatorAbsSyn(token, terminal);
     }
 
 

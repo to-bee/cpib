@@ -19,7 +19,7 @@ public class RepeatingOptionalDeclarationsConcSyn extends AbstractConcSyn implem
 
     @Override
     public RepeatingOptionalDeclarationsAbsSyn toAbsSyn() throws ContextError {
-        return new RepeatingOptionalDeclarationsAbsSyn(subType.toAbsSyn());
+        return new RepeatingOptionalDeclarationsAbsSyn(subType.toAbsSyn(), terminal);
     }
 
     /**

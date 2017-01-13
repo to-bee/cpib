@@ -21,7 +21,7 @@ public class OptionalParametersConcSyn extends AbstractConcSyn implements IConcS
 
     @Override
     public OptionalParametersAbsSyn toAbsSyn() throws ContextError {
-        return new OptionalParametersAbsSyn(subType.toAbsSyn());
+        return new OptionalParametersAbsSyn(subType.toAbsSyn(), terminal);
     }
 
     /**

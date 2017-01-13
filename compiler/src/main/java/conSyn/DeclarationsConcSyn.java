@@ -20,7 +20,7 @@ public class DeclarationsConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public DeclarationsAbsSyn toAbsSyn() throws ContextError {
-        return new DeclarationsAbsSyn(declarationConcSyn.toAbsSyn(),repeatingOptionalDeclarationsConcSyn.toAbsSyn());
+        return new DeclarationsAbsSyn(declarationConcSyn.toAbsSyn(),repeatingOptionalDeclarationsConcSyn.toAbsSyn(), terminal);
     }
 
 

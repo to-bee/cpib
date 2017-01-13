@@ -11,13 +11,16 @@ import virtualmachineFS2015.ICodeArray;
  */
 public class MonadictOperatorAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     private IToken token;
+    private final Terminal terminal;
+
+    public MonadictOperatorAbsSyn(IToken token, Terminal terminal) {
+        this.token = token;
+        this.terminal = terminal;
+
+    }
 
     public IToken getToken() {
         return token;
-    }
-
-    public MonadictOperatorAbsSyn(IToken token) {
-        this.token = token;
     }
 
     @Override

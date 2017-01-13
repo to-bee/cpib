@@ -21,7 +21,7 @@ public class RepMultOprFactorConcSyn extends AbstractConcSyn implements IConcSyn
 
     @Override
     public RepMultOprFactorAbsSyn toAbsSyn() throws ContextError {
-        return new RepMultOprFactorAbsSyn(subType.toAbsSyn());
+        return new RepMultOprFactorAbsSyn(subType.toAbsSyn(), terminal);
     }
 
     /**

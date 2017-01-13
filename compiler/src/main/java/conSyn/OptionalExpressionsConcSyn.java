@@ -19,7 +19,7 @@ public class OptionalExpressionsConcSyn extends AbstractConcSyn implements IConc
 
     @Override
     public OptionalExpressionsAbsSyn toAbsSyn() throws ContextError {
-        return new OptionalExpressionsAbsSyn(subType.toAbsSyn());
+        return new OptionalExpressionsAbsSyn(subType.toAbsSyn(), terminal);
     }
 
     /**

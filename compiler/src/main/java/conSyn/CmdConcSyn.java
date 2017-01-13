@@ -19,7 +19,7 @@ public class CmdConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public CmdAbsSyn toAbsSyn() throws ContextError {
-        return new CmdAbsSyn(subType.toAbsSyn());
+        return new CmdAbsSyn(subType.toAbsSyn(), terminal);
     }
 
     @Override

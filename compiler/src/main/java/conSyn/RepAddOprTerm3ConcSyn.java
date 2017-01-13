@@ -21,7 +21,8 @@ public class RepAddOprTerm3ConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public RepAddOprTerm3AbsSyn toAbsSyn() throws ContextError {
-        return new RepAddOprTerm3AbsSyn(subType.toAbsSyn());
+        return new RepAddOprTerm3AbsSyn(subType.toAbsSyn(),
+                terminal);
     }
 
     /**

@@ -1,5 +1,6 @@
 package absSyn;
 
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import virtualmachineFS2015.ICodeArray;
 
@@ -9,11 +10,12 @@ import virtualmachineFS2015.ICodeArray;
 public class CmdWhileAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     private final ExpressionAbsSyn exprWhile;
     private final BlockCmdAbsSyn cmdWhile;
+    private final Terminal terminal;
 
-    public CmdWhileAbsSyn(ExpressionAbsSyn exprWhile, BlockCmdAbsSyn cmdWhile) {
-
+    public CmdWhileAbsSyn(ExpressionAbsSyn exprWhile, BlockCmdAbsSyn cmdWhile, Terminal terminal) {
         this.exprWhile = exprWhile;
         this.cmdWhile = cmdWhile;
+        this.terminal = terminal;
     }
 
     @Override

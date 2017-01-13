@@ -21,7 +21,10 @@ public class ParameterConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public ParameterAbsSyn toAbsSyn() throws ContextError {
-        return new ParameterAbsSyn(optionalFlowModeConcSyn.toAbsSyn(), optionalMechModeConcSyn.toAbsSyn(), storageDeclarationConcSyn.toAbsSyn());
+        return new ParameterAbsSyn(optionalFlowModeConcSyn.toAbsSyn(),
+                optionalMechModeConcSyn.toAbsSyn(),
+                storageDeclarationConcSyn.toAbsSyn(),
+                terminal);
     }
 
 

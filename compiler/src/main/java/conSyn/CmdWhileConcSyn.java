@@ -20,7 +20,7 @@ public class CmdWhileConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public CmdWhileAbsSyn toAbsSyn() throws ContextError {
-        return new CmdWhileAbsSyn(exprWhile.toAbsSyn(), cmdWhile.toAbsSyn());
+        return new CmdWhileAbsSyn(exprWhile.toAbsSyn(), cmdWhile.toAbsSyn(), terminal);
     }
 
     @Override

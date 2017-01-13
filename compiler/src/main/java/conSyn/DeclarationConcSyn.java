@@ -21,7 +21,7 @@ public class DeclarationConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public DeclarationAbsSyn toAbsSyn() throws ContextError {
-        return new DeclarationAbsSyn(subtype.toAbsSyn());
+        return new DeclarationAbsSyn(subtype.toAbsSyn(), terminal);
     }
 
     /**

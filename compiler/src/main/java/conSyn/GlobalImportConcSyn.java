@@ -25,7 +25,7 @@ public class GlobalImportConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public GlobalImportAbsSyn toAbsSyn() throws ContextError {
-        return new GlobalImportAbsSyn(ident, optionalFlowModeConcSyn.toAbsSyn(), optionalChangeModeConcSyn.toAbsSyn());
+        return new GlobalImportAbsSyn(ident, optionalFlowModeConcSyn.toAbsSyn(), optionalChangeModeConcSyn.toAbsSyn(), terminal);
     }
 
 

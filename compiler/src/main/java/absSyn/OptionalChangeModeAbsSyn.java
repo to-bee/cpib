@@ -1,5 +1,6 @@
 package absSyn;
 
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import virtualmachineFS2015.ICodeArray;
 
@@ -7,8 +8,11 @@ import virtualmachineFS2015.ICodeArray;
  * Created by ylaub on 26.12.2016.
  */
 public class OptionalChangeModeAbsSyn extends AbstractAbsSyn implements IAbsSyn{
+    private final Terminal terminal;
 
-    public OptionalChangeModeAbsSyn() {
+    public OptionalChangeModeAbsSyn(Terminal terminal) {
+        this.terminal = terminal;
+
     }
 
     @Override

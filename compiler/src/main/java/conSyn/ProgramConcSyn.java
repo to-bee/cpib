@@ -23,7 +23,11 @@ public class ProgramConcSyn extends AbstractConcSyn {
 
     @Override
     public ProgramAbsSyn toAbsSyn() throws ContextError {
-        return new ProgramAbsSyn(ident, programParameterListConcSyn.toAbsSyn(), optionalGlobalDeclarationsConcSyn.toAbsSyn(), blockCmdConcSyn.toAbsSyn());
+        return new ProgramAbsSyn(ident,
+                programParameterListConcSyn.toAbsSyn(),
+                optionalGlobalDeclarationsConcSyn.toAbsSyn(),
+                blockCmdConcSyn.toAbsSyn(),
+                terminal);
     }
 
     @Override

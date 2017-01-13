@@ -14,9 +14,11 @@ import java.util.List;
  */
 public class DeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     private IAbsSyn subType;
+    private final Terminal terminal;
 
-    public DeclarationAbsSyn(IAbsSyn subType) {
+    public DeclarationAbsSyn(IAbsSyn subType, Terminal terminal) {
         this.subType = subType;
+        this.terminal = terminal;
     }
 
     @Override

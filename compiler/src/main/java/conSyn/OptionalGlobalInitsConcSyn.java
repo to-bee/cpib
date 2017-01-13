@@ -19,7 +19,7 @@ public class OptionalGlobalInitsConcSyn extends AbstractConcSyn implements IConc
 
     @Override
     public OptionalGlobalInitsAbsSyn toAbsSyn() throws ContextError {
-        return new OptionalGlobalInitsAbsSyn(subType.toAbsSyn());
+        return new OptionalGlobalInitsAbsSyn(subType.toAbsSyn(), terminal);
     }
 
     /**

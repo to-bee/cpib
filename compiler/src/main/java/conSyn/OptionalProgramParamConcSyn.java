@@ -20,7 +20,7 @@ public class OptionalProgramParamConcSyn extends AbstractConcSyn implements ICon
 
     @Override
     public OptionalProgramParamAbsSyn toAbsSyn() throws ContextError {
-        return new OptionalProgramParamAbsSyn(subType.toAbsSyn());
+        return new OptionalProgramParamAbsSyn(subType.toAbsSyn(), terminal);
     }
 
     /**

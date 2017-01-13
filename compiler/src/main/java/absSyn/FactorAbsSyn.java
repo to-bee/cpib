@@ -14,10 +14,12 @@ import static scanner.datatypes.Terminal.IMAGINARY_PART;
 public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     private IToken token;
     private IAbsSyn subType;
+    private final Terminal terminal;
 
-    public FactorAbsSyn(IToken token, IAbsSyn subType) {
+    public FactorAbsSyn(IToken token, IAbsSyn subType, Terminal terminal) {
         this.token = token;
         this.subType = subType;
+        this.terminal = terminal;
     }
 
     @Override

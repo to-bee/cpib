@@ -20,7 +20,7 @@ public class OptionalIdentConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public OptionalIdentAbsSyn toAbsSyn()throws ContextError {
-        return new OptionalIdentAbsSyn(subType.toAbsSyn());
+        return new OptionalIdentAbsSyn(subType.toAbsSyn(), terminal);
 
     }
 

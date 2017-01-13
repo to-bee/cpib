@@ -18,7 +18,7 @@ public class ParameterListConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public ParameterListAbsSyn toAbsSyn()throws ContextError {
-        return new ParameterListAbsSyn(optionalParametersConcSyn.toAbsSyn());
+        return new ParameterListAbsSyn(optionalParametersConcSyn.toAbsSyn(), terminal);
     }
 
 

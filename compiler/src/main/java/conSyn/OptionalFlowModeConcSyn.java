@@ -19,7 +19,7 @@ public class OptionalFlowModeConcSyn extends AbstractConcSyn implements IConcSyn
 
     @Override
     public OptionalFlowModeAbsSyn toAbsSyn() throws ContextError {
-        return new OptionalFlowModeAbsSyn();
+        return new OptionalFlowModeAbsSyn(terminal);
     }
 
     /**

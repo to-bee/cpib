@@ -1,5 +1,6 @@
 package absSyn;
 
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import virtualmachineFS2015.ICodeArray;
 
@@ -9,10 +10,12 @@ import virtualmachineFS2015.ICodeArray;
 public class RepRelOprTerm2AbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
     private IAbsSyn subType;
+    private final Terminal terminal;
 
-    public RepRelOprTerm2AbsSyn(IAbsSyn subType) {
+    public RepRelOprTerm2AbsSyn(IAbsSyn subType, Terminal terminal) {
 
         this.subType = subType;
+        this.terminal = terminal;
     }
 
     @Override

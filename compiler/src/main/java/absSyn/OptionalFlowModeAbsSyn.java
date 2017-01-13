@@ -1,5 +1,6 @@
 package absSyn;
 
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
 import virtualmachineFS2015.ICodeArray;
@@ -11,7 +12,11 @@ import java.util.List;
  */
 public class OptionalFlowModeAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
-    public OptionalFlowModeAbsSyn() {
+    private final Terminal terminal;
+
+    public OptionalFlowModeAbsSyn(Terminal terminal) {
+
+        this.terminal = terminal;
     }
 
     @Override

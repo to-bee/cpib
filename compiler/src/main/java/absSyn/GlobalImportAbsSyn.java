@@ -11,17 +11,16 @@ import java.util.List;
  * Created by ylaub on 26.12.2016.
  */
 public class GlobalImportAbsSyn extends AbstractAbsSyn implements IAbsSyn{
-
-
     private final Ident ident;
     private final OptionalFlowModeAbsSyn optionalFlowModeAbsSyn;
     private final OptionalChangeModeAbsSyn optionalChangeModeAbsSyn;
+    private final Terminal terminal;
 
-    public GlobalImportAbsSyn(Ident ident, OptionalFlowModeAbsSyn optionalFlowModeAbsSyn, OptionalChangeModeAbsSyn optionalChangeModeAbsSyn) {
-
+    public GlobalImportAbsSyn(Ident ident, OptionalFlowModeAbsSyn optionalFlowModeAbsSyn, OptionalChangeModeAbsSyn optionalChangeModeAbsSyn, Terminal terminal) {
         this.ident = ident;
         this.optionalFlowModeAbsSyn = optionalFlowModeAbsSyn;
         this.optionalChangeModeAbsSyn = optionalChangeModeAbsSyn;
+        this.terminal = terminal;
     }
 
     @Override

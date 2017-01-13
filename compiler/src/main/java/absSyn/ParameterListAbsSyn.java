@@ -11,10 +11,12 @@ import java.util.List;
  */
 public class ParameterListAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     private OptionalParametersAbsSyn optionalParametersAbsSyn;
+    private final Terminal terminal;
 
-    public ParameterListAbsSyn(OptionalParametersAbsSyn optionalParametersAbsSyn) {
+    public ParameterListAbsSyn(OptionalParametersAbsSyn optionalParametersAbsSyn, Terminal terminal) {
 
         this.optionalParametersAbsSyn = optionalParametersAbsSyn;
+        this.terminal = terminal;
     }
 
     @Override

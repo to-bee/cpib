@@ -12,10 +12,12 @@ import virtualmachineFS2015.ICodeArray;
 public class Term1AbsSyn extends AbstractAbsSyn implements IAbsSyn{
     private final Term2AbsSyn term2AbsSyn;
     private final RepRelOprTerm2AbsSyn repRelOprTerm2AbsSyn;
+    private final Terminal terminal;
 
-    public Term1AbsSyn(Term2AbsSyn term2AbsSyn, RepRelOprTerm2AbsSyn repRelOprTerm2AbsSyn) {
+    public Term1AbsSyn(Term2AbsSyn term2AbsSyn, RepRelOprTerm2AbsSyn repRelOprTerm2AbsSyn, Terminal terminal) {
         this.term2AbsSyn = term2AbsSyn;
         this.repRelOprTerm2AbsSyn = repRelOprTerm2AbsSyn;
+        this.terminal = terminal;
     }
 
     @Override

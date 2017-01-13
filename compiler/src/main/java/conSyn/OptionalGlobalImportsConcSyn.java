@@ -19,7 +19,7 @@ public class OptionalGlobalImportsConcSyn extends AbstractConcSyn implements ICo
 
     @Override
     public OptionalGlobalImportsAbsSyn toAbsSyn() throws ContextError {
-        return new OptionalGlobalImportsAbsSyn(subType.toAbsSyn());
+        return new OptionalGlobalImportsAbsSyn(subType.toAbsSyn(), terminal);
     }
 
     /**
