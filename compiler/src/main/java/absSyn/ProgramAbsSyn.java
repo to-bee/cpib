@@ -65,6 +65,10 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
                     break;
             }
 
+            if (!var.rightSideContainsOnly(allowedTypes)) {
+                throw new ContextError(String.format("LType and RType mismatch for variable: %s", var.getIdent()));
+            }
+
             List<DefaultVar> subExprVars = var.getExprVariables();
             for(int i = 0; i<subExprVars.size(); i++) {
                 for(int j = i; j<subExprVars.size(); j++) {

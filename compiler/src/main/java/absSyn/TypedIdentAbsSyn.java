@@ -31,11 +31,8 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn {
             //wenn lparen --> dann tuple
             //DefaultVar erstellen mit ident
             TupleVar var = new TupleVar(ident);
-            DefaultVar.setCurrentVariable(ident);
-            DefaultVar.getCurrentVariable();
-            //ArrayList<DefaultVar> vars = new ArrayList<DefaultVar>();
-
-            //TODO variablenliste erstellen
+            Var.setCurrentVariable(ident);
+            Var.getCurrentVariable();
         }
         else {
             throw new ContextError("Check this case in TypedIdentAbsSyn");
