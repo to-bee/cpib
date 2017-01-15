@@ -1,7 +1,7 @@
 package absSyn;
 
-import context.Variable;
-import context.DefaultVariable;
+import context.DefaultVar;
+import context.Var;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
@@ -34,7 +34,7 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     @Override
     public void check() throws ContextError {
         // Clear existing vars
-        DefaultVariable.clearVariables();
+        DefaultVar.clearVariables();
 
         if (this.ident.getValue().length() > 256) {
             throw new ContextError("Ident too long");
@@ -44,8 +44,8 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         blockCmdConcSyn.check();
 
         // Check if left type match with right type
-        for (Variable aVar : DefaultVariable.getVariables()) {
-            DefaultVariable var = (DefaultVariable) aVar;
+        for (Var aVar : DefaultVar.getVariables()) {
+            DefaultVar var = (DefaultVar) aVar;
             Terminal[] allowedTypes = null;
             switch (var.getLeftSideType()) {
                 case COMPL:
@@ -55,15 +55,17 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
                     allowedTypes = new Terminal[]{Terminal.INT32};
                     break;
                 case BOOL:
-                    allowedTypes = new Terminal[]{Terminal.BOOL};
+                    allowedTypes = new Terminal[]{Terminal.IDENT};
+                    for(IToken token : var.getRightSideTokens()) {
+                        Ident ident = (Ident) token;
+                        if(!ident.getValue().toLowerCase().equals("true")
+                                && !ident.getValue().toLowerCase().equals("false"))
+                            throw new ContextError(String.format("LType and RType mismatch for variable: %s", var.getIdent()));
+                    }
                     break;
             }
 
-            if (!var.rightSideContainsOnly(allowedTypes)) {
-                throw new ContextError(String.format("LType and RType mismatch for variable: %s", var.getIdent()));
-            }
-
-            List<DefaultVariable> subExprVars = var.getExprVariables();
+            List<DefaultVar> subExprVars = var.getExprVariables();
             for(int i = 0; i<subExprVars.size(); i++) {
                 for(int j = i; j<subExprVars.size(); j++) {
                     if(subExprVars.get(i).getLeftSideType() != subExprVars.get(j).getLeftSideType()) {

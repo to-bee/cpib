@@ -10,8 +10,8 @@ import java.util.NoSuchElementException;
 /**
  * Created by tobi on 15.01.17.
  */
-public abstract class Variable {
-    private static List<Variable> variables = new ArrayList<>();
+public abstract class Var {
+    private static List<Var> variables = new ArrayList<>();
 
     private int relLocation;
     private int absLocation;
@@ -34,25 +34,25 @@ public abstract class Variable {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof DefaultVariable))
+        if (!(o instanceof DefaultVar))
             return false;
-        DefaultVariable variable = (DefaultVariable) o;
+        DefaultVar variable = (DefaultVar) o;
         return getIdent().equals(variable.getIdent()) && getContext().equals(variable.getContext());
     }
 
-    public Variable(Ident ident) {
+    public Var(Ident ident) {
 
         this.ident = ident;
     }
 
-    public static void addVariable(Variable var) {
+    public static void addVariable(Var var) {
         var.setContext(Context.getCurrentContext());
         if (!variables.contains(var)) {
             variables.add(var);
         }
     }
 
-    public static List<Variable> getVariables() {
+    public static List<Var> getVariables() {
         return variables;
     }
 
@@ -60,12 +60,12 @@ public abstract class Variable {
         variables.clear();
     }
 
-    public static Variable getCurrentVariable() {
+    public static Var getCurrentVariable() {
         return currentVariable;
     }
 
     public static void setCurrentVariable(IToken token) {
-        Variable var = getVar(token);
+        Var var = getVar(token);
         if (var != null) {
             currentVariable = var;
         }
@@ -87,10 +87,10 @@ public abstract class Variable {
         this.context = context;
     }
 
-    private static Variable currentVariable;
+    private static Var currentVariable;
 
 
-    public static Variable getVar(IToken token) {
+    public static Var getVar(IToken token) {
         if (!(token instanceof Ident)) {
             return null;
         }

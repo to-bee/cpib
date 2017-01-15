@@ -1,7 +1,7 @@
 package absSyn;
 
-import context.Variable;
-import context.DefaultVariable;
+import context.DefaultVar;
+import context.Var;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
@@ -26,8 +26,8 @@ public class ExpressionAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     @Override
     public void check() throws ContextError {
-        DefaultVariable currentVariable = (DefaultVariable) Variable.getCurrentVariable();
-        DefaultVariable var = (DefaultVariable) DefaultVariable.getVar(this.token);
+        DefaultVar currentVariable = (DefaultVar) Var.getCurrentVariable();
+        DefaultVar var = (DefaultVar) DefaultVar.getVar(this.token);
         if(var != null) {
             currentVariable.addExprVariable(this.token);
         }

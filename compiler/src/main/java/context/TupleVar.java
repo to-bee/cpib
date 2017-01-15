@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * Created by tobi on 07.01.17.
  */
-public class TupleVar extends Variable {
+public class TupleVar extends Var {
     /**
      * Type on the left side which is defined
      * For example tuple1:(int

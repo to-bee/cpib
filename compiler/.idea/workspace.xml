@@ -2,17 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5651070e-9a24-4729-a323-810fac4d0144" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/context/AbstractVar.java" afterPath="$PROJECT_DIR$/src/main/java/context/Variable.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/context/DefaultVariable.java" afterPath="$PROJECT_DIR$/src/main/java/context/DefaultVar.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/context/Variable.java" afterPath="$PROJECT_DIR$/src/main/java/context/Var.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/FactorLiteralAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/FactorLiteralAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/FactorMoniadicAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/FactorMoniadicAbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/MonadictOperatorAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/MonadictOperatorAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/RepBoolOprTerm1AbsSyn1.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/RepBoolOprTerm1AbsSyn1.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/RepMultOprFactorAbsSyn1.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/RepMultOprFactorAbsSyn1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/RepRelOprTerm2AbsSyn1.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/RepRelOprTerm2AbsSyn1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/SubTypeDeclarationAbsSyn1.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/SubTypeDeclarationAbsSyn1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/context/TupleVar.java" afterPath="$PROJECT_DIR$/src/main/java/context/TupleVar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vm/VmInstructions.java" afterPath="$PROJECT_DIR$/src/main/java/vm/VmInstructions.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,11 +34,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="TypeCheckTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TypeCheckTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/TypeCheckTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="89">
               <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FactorAbsSyn.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="39" column="26" lean-forward="false" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Terminal.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/scanner/datatypes/Terminal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="70" column="8" lean-forward="true" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -51,36 +77,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultVariable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/context/DefaultVariable.java">
+      <file leaf-file-name="DefaultVar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/context/DefaultVar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="332">
+              <caret line="91" column="24" lean-forward="false" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1015#1016#0" expanded="true" />
-                <element signature="e#1123#1124#0" expanded="true" />
-                <element signature="e#1164#1165#0" expanded="true" />
-                <element signature="e#1199#1200#0" expanded="true" />
-                <element signature="e#1440#1441#0" expanded="true" />
-                <element signature="e#1466#1467#0" expanded="true" />
-                <element signature="e#1511#1512#0" expanded="true" />
-                <element signature="e#1544#1545#0" expanded="true" />
-                <element signature="e#1660#1677#0" expanded="true" />
-                <element signature="e#1795#1796#0" expanded="true" />
-                <element signature="e#1897#1898#0" expanded="true" />
-                <element signature="e#2634#2635#0" expanded="true" />
-                <element signature="e#2690#2691#0" expanded="true" />
+                <element signature="e#990#991#0" expanded="true" />
+                <element signature="e#1098#1099#0" expanded="true" />
+                <element signature="e#1139#1140#0" expanded="true" />
+                <element signature="e#1174#1175#0" expanded="true" />
+                <element signature="e#1405#1406#0" expanded="true" />
+                <element signature="e#1431#1432#0" expanded="true" />
+                <element signature="e#1476#1477#0" expanded="true" />
+                <element signature="e#1509#1510#0" expanded="true" />
+                <element signature="e#1615#1627#0" expanded="true" />
+                <element signature="e#1745#1746#0" expanded="true" />
+                <element signature="e#1847#1848#0" expanded="true" />
+                <element signature="e#2584#2585#0" expanded="true" />
+                <element signature="e#2640#2641#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Variable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/context/Variable.java">
+      <file leaf-file-name="Var.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/context/Var.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="361">
+              <caret line="63" column="30" lean-forward="false" selection-start-line="63" selection-start-column="15" selection-end-line="63" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProgramAbsSyn.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProgramAbsSyn.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="314">
+              <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -114,8 +140,8 @@
             <state relative-caret-position="185">
               <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
               <folding>
-                <element signature="e#876#877#0" expanded="true" />
-                <element signature="e#978#979#0" expanded="true" />
+                <element signature="e#871#872#0" expanded="true" />
+                <element signature="e#973#974#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -132,9 +158,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>set</find>
-      <find>rightSideTypes</find>
-      <find>compl</find>
       <find>bool</find>
       <find>get</find>
       <find>leftsidet</find>
@@ -160,8 +183,11 @@
       <find>context</find>
       <find>setcont</find>
       <find>setConte</find>
-      <find>addVariable</find>
       <find>getContext</find>
+      <find>addVariable</find>
+      <find>getCurrent</find>
+      <find>addright</find>
+      <find>true</find>
     </findStrings>
     <replaceStrings>
       <replace>user/</replace>
@@ -181,7 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalChangeModeAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/MonadictOperatorAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalExpressionsAbsSyn1.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalExpressionsAbsSyn.java" />
@@ -218,7 +243,6 @@
         <option value="$PROJECT_DIR$/src/main/java/virtualmachineFS2015/IInstructions.java" />
         <option value="$PROJECT_DIR$/src/main/java/vm/VmInstructions.java" />
         <option value="$PROJECT_DIR$/src/main/java/context/Variable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/FactorMoniadicAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/RepRelOprTerm2AbsSyn1.java" />
@@ -227,11 +251,13 @@
         <option value="$PROJECT_DIR$/src/main/java/absSyn/RepBoolOprTerm1AbsSyn1.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/FactorLiteralAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/context/DefaultVariable.java" />
         <option value="$PROJECT_DIR$/src/main/java/context/TupleVar.java" />
         <option value="$PROJECT_DIR$/src/main/java/context/AbstractVar.java" />
         <option value="$PROJECT_DIR$/src/test/java/TypeCheckTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/DefaultVariable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/DefaultVar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java" />
       </list>
     </option>
   </component>
@@ -1402,7 +1428,7 @@
       <workItem from="1483825375498" duration="2727000" />
       <workItem from="1484080729111" duration="3908000" />
       <workItem from="1484256442373" duration="8126000" />
-      <workItem from="1484500975582" duration="8254000" />
+      <workItem from="1484500975582" duration="8927000" />
     </task>
     <task id="LOCAL-00004" summary="test">
       <created>1482858661917</created>
@@ -1530,28 +1556,17 @@
       <option name="project" value="LOCAL" />
       <updated>1484511258309</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="variables">
+      <created>1484511284363</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1484511284363</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 20h 01m 20s.xml">
-      <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 20h 37m 52s.xml">
-      <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 21h 00m 14s.xml">
-      <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 21h 02m 56s.xml">
-      <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 21h 03m 54s.xml">
-      <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 21h 04m 40s.xml">
-      <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 21h 07m 00s.xml">
       <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
     </history-entry>
@@ -1564,9 +1579,27 @@
     <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 21h 11m 01s.xml">
       <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 21h 18m 49s.xml">
+      <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 21h 21m 03s.xml">
+      <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 21h 22m 04s.xml">
+      <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 21h 22m 49s.xml">
+      <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 21h 23m 26s.xml">
+      <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TypeCheckTest_testComplex - 2017.01.15 at 21h 25m 45s.xml">
+      <configuration name="TypeCheckTest.testComplex" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52951000" />
+    <option name="totallyTimeSpent" value="53624000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1599,8 +1632,8 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31444758" sideWeight="0.4789041" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.69068205" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31444758" sideWeight="0.4789041" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286119" sideWeight="0.69068205" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881084" sideWeight="0.49615753" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2558904" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295562" sideWeight="0.4980822" order="2" side_tool="false" content_ui="tabs" />
@@ -1675,7 +1708,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="23" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1684,6 +1717,9 @@
         <watch expression="getIdent()" language="JAVA" />
         <watch expression="variable.getIdent()" language="JAVA" />
         <watch expression="getContext()" language="JAVA" />
+        <watch expression="var.getRightSideTokens()" language="JAVA" />
+        <watch expression="token" language="JAVA" />
+        <watch expression="((Ident) token).getValue()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -1692,14 +1728,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ParameterListAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ProcedureDeclarationAbsSyn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -2028,14 +2056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/context/Context.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -2052,41 +2072,8 @@
         <state relative-caret-position="185">
           <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
           <folding>
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#978#979#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/context/DefaultVariable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1015#1016#0" expanded="true" />
-            <element signature="e#1123#1124#0" expanded="true" />
-            <element signature="e#1164#1165#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1440#1441#0" expanded="true" />
-            <element signature="e#1466#1467#0" expanded="true" />
-            <element signature="e#1511#1512#0" expanded="true" />
-            <element signature="e#1544#1545#0" expanded="true" />
-            <element signature="e#1660#1677#0" expanded="true" />
-            <element signature="e#1795#1796#0" expanded="true" />
-            <element signature="e#1897#1898#0" expanded="true" />
-            <element signature="e#2634#2635#0" expanded="true" />
-            <element signature="e#2690#2691#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/context/Variable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#871#872#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2099,11 +2086,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/Var.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="361">
+          <caret line="63" column="30" lean-forward="false" selection-start-line="63" selection-start-column="15" selection-end-line="63" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2111,6 +2100,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
           <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/DefaultVar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="91" column="24" lean-forward="false" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#990#991#0" expanded="true" />
+            <element signature="e#1098#1099#0" expanded="true" />
+            <element signature="e#1139#1140#0" expanded="true" />
+            <element signature="e#1174#1175#0" expanded="true" />
+            <element signature="e#1405#1406#0" expanded="true" />
+            <element signature="e#1431#1432#0" expanded="true" />
+            <element signature="e#1476#1477#0" expanded="true" />
+            <element signature="e#1509#1510#0" expanded="true" />
+            <element signature="e#1615#1627#0" expanded="true" />
+            <element signature="e#1745#1746#0" expanded="true" />
+            <element signature="e#1847#1848#0" expanded="true" />
+            <element signature="e#2584#2585#0" expanded="true" />
+            <element signature="e#2640#2641#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/scanner/datatypes/Terminal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="70" column="8" lean-forward="true" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="39" column="26" lean-forward="false" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
           <folding />
         </state>
       </provider>

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 /**
  * Created by tobi on 07.01.17.
  */
-public class DefaultVariable extends Variable {
+public class DefaultVar extends Var {
     /**
      * Type on the left side which is defined
      * For example
@@ -19,7 +19,7 @@ public class DefaultVariable extends Variable {
      * compl1:Compl
      */
     private final Terminal leftSideType;
-    private Set<DefaultVariable> exprVariables = new HashSet<>();
+    private Set<DefaultVar> exprVariables = new HashSet<>();
     private IToken opr;
 
     /**
@@ -27,7 +27,7 @@ public class DefaultVariable extends Variable {
      */
     private Set<IToken> rightSideTokens = new HashSet<>();
 
-    public DefaultVariable(Ident ident, IToken leftSideType) {
+    public DefaultVar(Ident ident, IToken leftSideType) {
         super(ident);
         this.leftSideType = leftSideType.getTerminal();
     }
@@ -35,7 +35,7 @@ public class DefaultVariable extends Variable {
     /*
      * Tuple Type Checker
      */
-    public DefaultVariable(Ident ident) {
+    public DefaultVar(Ident ident) {
         super(ident);
         this.leftSideType = null;
     }
@@ -50,7 +50,7 @@ public class DefaultVariable extends Variable {
     }
 
     public void addExprVariable(IToken token) throws ContextError {
-        DefaultVariable var = (DefaultVariable) getVar(token);
+        DefaultVar var = (DefaultVar) getVar(token);
         if (var != null) {
             exprVariables.add(var);
         }
@@ -64,8 +64,8 @@ public class DefaultVariable extends Variable {
         this.opr = relOpr;
     }
 
-    public List<DefaultVariable> getExprVariables() {
-        List<DefaultVariable> exprVariables = new ArrayList<DefaultVariable>(this.exprVariables);
+    public List<DefaultVar> getExprVariables() {
+        List<DefaultVar> exprVariables = new ArrayList<DefaultVar>(this.exprVariables);
         return exprVariables;
     }
 

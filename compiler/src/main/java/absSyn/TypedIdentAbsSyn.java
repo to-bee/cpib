@@ -1,7 +1,7 @@
 package absSyn;
 
-import context.Variable;
-import context.DefaultVariable;
+import context.DefaultVar;
+import context.Var;
 import context.TupleVar;
 import scanner.errors.ContextError;
 import scanner.token.Ident;
@@ -23,17 +23,17 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     public void check() throws ContextError {
 
         if (typeDeclarationAbsSyn.getSubType() instanceof TypeDeclarationTypeAbsSyn) {
-            DefaultVariable var = new DefaultVariable(ident, ((TypeDeclarationTypeAbsSyn) typeDeclarationAbsSyn.getSubType()).getType());
-            Variable.addVariable(var);
-            DefaultVariable.setCurrentVariable(ident);
+            DefaultVar var = new DefaultVar(ident, ((TypeDeclarationTypeAbsSyn) typeDeclarationAbsSyn.getSubType()).getType());
+            Var.addVariable(var);
+            DefaultVar.setCurrentVariable(ident);
         }
         else if (typeDeclarationAbsSyn.getSubType() instanceof TypeDeclarationAbsSyn1) {
             //wenn lparen --> dann tuple
-            //DefaultVariable erstellen mit ident
+            //DefaultVar erstellen mit ident
             TupleVar var = new TupleVar(ident);
-            DefaultVariable.setCurrentVariable(ident);
-            DefaultVariable.getCurrentVariable();
-            //ArrayList<DefaultVariable> vars = new ArrayList<DefaultVariable>();
+            DefaultVar.setCurrentVariable(ident);
+            DefaultVar.getCurrentVariable();
+            //ArrayList<DefaultVar> vars = new ArrayList<DefaultVar>();
 
             //TODO variablenliste erstellen
         }
