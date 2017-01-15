@@ -14,7 +14,6 @@ import static vm.Compiler.COMPILER;
  */
 public class VmInstructions {
 
-
     //ADDOPR
     public static int addInt(int loc) throws ICodeArray.CodeTooSmallError {
         COMPILER.getCodeArray().put(loc, new IInstructions.AddInt());
@@ -165,8 +164,26 @@ public class VmInstructions {
         return loc;
     }
 
+    /**
+     * to use for normal declarations
+     * @param loc
+     * @return
+     * @throws ICodeArray.CodeTooSmallError
+     */
     public static int storageDeclaration(int loc) throws ICodeArray.CodeTooSmallError {
         COMPILER.getCodeArray().put(loc++, new IInstructions.AllocBlock(1));
+        return loc;
+    }
+
+    /**
+     * to use for tuple-declarations, as allocSize can be variable
+     * @param loc
+     * @param allocSize
+     * @return
+     * @throws ICodeArray.CodeTooSmallError
+     */
+    public static int storageDeclaration(int loc, int allocSize) throws ICodeArray.CodeTooSmallError {
+        COMPILER.getCodeArray().put(loc++, new IInstructions.AllocBlock(allocSize));
         return loc;
     }
 }
