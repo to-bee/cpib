@@ -75,8 +75,8 @@ public class ConSynTest {
                     "var a:int32;\n" +
                     "var b:int32\n" +
                   "do\n" +
-                    "a := mytuple1[0];\n" +
-                    "b := mytuple1[1];\n" +
+                    "a := 2;\n" +
+                    "b := 6;\n" +
                     "testrun001 := (b >= 5,(a,b))\n" +
                   "endfun\n" +
                 "do\n" +

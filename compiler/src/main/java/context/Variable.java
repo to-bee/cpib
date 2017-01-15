@@ -51,6 +51,15 @@ public class Variable {
         this.leftSideType = leftSideType.getTerminal();
     }
 
+    /*
+     * Tuple Type Checker
+     */
+    public Variable(Ident ident) {
+        //TODO
+        this.ident = ident;
+        this.leftSideType = null;
+    }
+
     public static Variable getCurrentVariable() {
         return currentVariable;
     }

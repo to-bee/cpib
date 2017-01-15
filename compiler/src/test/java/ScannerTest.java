@@ -60,6 +60,9 @@ public class ScannerTest {
         text = "%63";
         tokenList = scanner.scan(text);
 
+        text = "testdata:(int32,int32)";
+        tokenList = scanner.scan(text);
+
         text = "while632";
         tokenList = scanner.scan(text);
 

@@ -1,6 +1,7 @@
 package absSyn;
 
 import conSyn.TypeDeclarationTypeConcSyn;
+import context.Variable;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
 import scanner.token.Ident;
@@ -23,9 +24,11 @@ public class TypeDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
     @Override
     public void check() throws ContextError {
-       if(subType instanceof TypeDeclarationTypeConcSyn) {
+        //Wenn Tuple, dann weiter checken
+        if (subType instanceof TypeDeclarationAbsSyn1) {
 
-       }
+            subType.check();
+        }
     }
 
     @Override
