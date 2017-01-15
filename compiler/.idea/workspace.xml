@@ -2,27 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5651070e-9a24-4729-a323-810fac4d0144" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/context/AbstractVar.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/context/DefaultVariable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/context/TupleVar.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/context/Variable.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/context/AbstractVar.java" afterPath="$PROJECT_DIR$/src/main/java/context/Variable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/FactorLiteralAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/FactorLiteralAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/FactorMoniadicAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/FactorMoniadicAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/MonadictOperatorAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/MonadictOperatorAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/RepBoolOprTerm1AbsSyn1.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/RepBoolOprTerm1AbsSyn1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/RepMultOprFactorAbsSyn1.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/RepMultOprFactorAbsSyn1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/RepRelOprTerm2AbsSyn1.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/RepRelOprTerm2AbsSyn1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/SubTypeDeclarationAbsSyn1.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/SubTypeDeclarationAbsSyn1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/Term1AbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/Term1AbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/FactorMonadicConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/FactorMonadicConcSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/TypeCheckTest.java" afterPath="$PROJECT_DIR$/src/test/java/TypeCheckTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +31,8 @@
       <file leaf-file-name="TypeCheckTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/TypeCheckTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="62" column="22" lean-forward="true" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+            <state relative-caret-position="89">
+              <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -68,26 +58,26 @@
               <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1018#1019#0" expanded="true" />
-                <element signature="e#1126#1127#0" expanded="true" />
-                <element signature="e#1167#1168#0" expanded="true" />
-                <element signature="e#1202#1203#0" expanded="true" />
-                <element signature="e#1443#1444#0" expanded="true" />
-                <element signature="e#1469#1470#0" expanded="true" />
-                <element signature="e#1514#1515#0" expanded="true" />
-                <element signature="e#1547#1548#0" expanded="true" />
-                <element signature="e#1663#1680#0" expanded="true" />
-                <element signature="e#1798#1799#0" expanded="true" />
-                <element signature="e#1900#1901#0" expanded="true" />
-                <element signature="e#2637#2638#0" expanded="true" />
-                <element signature="e#2693#2694#0" expanded="true" />
+                <element signature="e#1015#1016#0" expanded="true" />
+                <element signature="e#1123#1124#0" expanded="true" />
+                <element signature="e#1164#1165#0" expanded="true" />
+                <element signature="e#1199#1200#0" expanded="true" />
+                <element signature="e#1440#1441#0" expanded="true" />
+                <element signature="e#1466#1467#0" expanded="true" />
+                <element signature="e#1511#1512#0" expanded="true" />
+                <element signature="e#1544#1545#0" expanded="true" />
+                <element signature="e#1660#1677#0" expanded="true" />
+                <element signature="e#1795#1796#0" expanded="true" />
+                <element signature="e#1897#1898#0" expanded="true" />
+                <element signature="e#2634#2635#0" expanded="true" />
+                <element signature="e#2690#2691#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractVar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/context/AbstractVar.java">
+      <file leaf-file-name="Variable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/context/Variable.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
               <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
@@ -124,8 +114,8 @@
             <state relative-caret-position="185">
               <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
               <folding>
-                <element signature="e#879#880#0" expanded="true" />
-                <element signature="e#981#982#0" expanded="true" />
+                <element signature="e#876#877#0" expanded="true" />
+                <element signature="e#978#979#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1412,7 +1402,7 @@
       <workItem from="1483825375498" duration="2727000" />
       <workItem from="1484080729111" duration="3908000" />
       <workItem from="1484256442373" duration="8126000" />
-      <workItem from="1484500975582" duration="8222000" />
+      <workItem from="1484500975582" duration="8254000" />
     </task>
     <task id="LOCAL-00004" summary="test">
       <created>1482858661917</created>
@@ -1533,7 +1523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484501079846</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="variables">
+      <created>1484511258309</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1484511258309</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1569,7 +1566,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52919000" />
+    <option name="totallyTimeSpent" value="52951000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1673,7 +1670,8 @@
     <MESSAGE value="add terminal type" />
     <MESSAGE value="add Compiler Class for getting vm" />
     <MESSAGE value="locations var" />
-    <option name="LAST_COMMIT_MESSAGE" value="locations var" />
+    <MESSAGE value="variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="variables" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1804,6 +1802,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-931">
           <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2053,8 +2052,8 @@
         <state relative-caret-position="185">
           <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
           <folding>
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#978#979#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2065,24 +2064,24 @@
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1018#1019#0" expanded="true" />
-            <element signature="e#1126#1127#0" expanded="true" />
-            <element signature="e#1167#1168#0" expanded="true" />
-            <element signature="e#1202#1203#0" expanded="true" />
-            <element signature="e#1443#1444#0" expanded="true" />
-            <element signature="e#1469#1470#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
-            <element signature="e#1547#1548#0" expanded="true" />
-            <element signature="e#1663#1680#0" expanded="true" />
-            <element signature="e#1798#1799#0" expanded="true" />
-            <element signature="e#1900#1901#0" expanded="true" />
-            <element signature="e#2637#2638#0" expanded="true" />
-            <element signature="e#2693#2694#0" expanded="true" />
+            <element signature="e#1015#1016#0" expanded="true" />
+            <element signature="e#1123#1124#0" expanded="true" />
+            <element signature="e#1164#1165#0" expanded="true" />
+            <element signature="e#1199#1200#0" expanded="true" />
+            <element signature="e#1440#1441#0" expanded="true" />
+            <element signature="e#1466#1467#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#1660#1677#0" expanded="true" />
+            <element signature="e#1795#1796#0" expanded="true" />
+            <element signature="e#1897#1898#0" expanded="true" />
+            <element signature="e#2634#2635#0" expanded="true" />
+            <element signature="e#2690#2691#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/context/AbstractVar.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/Variable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
@@ -2110,8 +2109,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TypeCheckTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="62" column="22" lean-forward="true" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+        <state relative-caret-position="89">
+          <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
           <folding />
         </state>
       </provider>

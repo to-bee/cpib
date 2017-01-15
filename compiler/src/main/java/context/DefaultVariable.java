@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 /**
  * Created by tobi on 07.01.17.
  */
-public class DefaultVariable extends AbstractVar {
+public class DefaultVariable extends Variable {
     /**
      * Type on the left side which is defined
      * For example

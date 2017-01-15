@@ -1,6 +1,6 @@
 package absSyn;
 
-import context.AbstractVar;
+import context.Variable;
 import context.DefaultVariable;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
@@ -21,7 +21,7 @@ public class SubTypeDeclarationAbsSyn1 extends AbstractAbsSyn implements IAbsSyn
     public void check() throws ContextError {
         //TODO Add Types to Tuple
         //für alle subtypes einen Eintrag in DefaultVariable erstellen.
-        DefaultVariable currentVariable = (DefaultVariable) AbstractVar.getCurrentVariable();
+        DefaultVariable currentVariable = (DefaultVariable) Variable.getCurrentVariable();
         //TODO Leftsidetype liste abfüllen
         //currentVariable.addTuple(subType);
 

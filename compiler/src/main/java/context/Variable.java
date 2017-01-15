@@ -10,8 +10,8 @@ import java.util.NoSuchElementException;
 /**
  * Created by tobi on 15.01.17.
  */
-public abstract class AbstractVar {
-    private static List<AbstractVar> variables = new ArrayList<>();
+public abstract class Variable {
+    private static List<Variable> variables = new ArrayList<>();
 
     private int relLocation;
     private int absLocation;
@@ -40,19 +40,19 @@ public abstract class AbstractVar {
         return getIdent().equals(variable.getIdent()) && getContext().equals(variable.getContext());
     }
 
-    public AbstractVar(Ident ident) {
+    public Variable(Ident ident) {
 
         this.ident = ident;
     }
 
-    public static void addVariable(AbstractVar var) {
+    public static void addVariable(Variable var) {
         var.setContext(Context.getCurrentContext());
         if (!variables.contains(var)) {
             variables.add(var);
         }
     }
 
-    public static List<AbstractVar> getVariables() {
+    public static List<Variable> getVariables() {
         return variables;
     }
 
@@ -60,12 +60,12 @@ public abstract class AbstractVar {
         variables.clear();
     }
 
-    public static AbstractVar getCurrentVariable() {
+    public static Variable getCurrentVariable() {
         return currentVariable;
     }
 
     public static void setCurrentVariable(IToken token) {
-        AbstractVar var = getVar(token);
+        Variable var = getVar(token);
         if (var != null) {
             currentVariable = var;
         }
@@ -87,10 +87,10 @@ public abstract class AbstractVar {
         this.context = context;
     }
 
-    private static AbstractVar currentVariable;
+    private static Variable currentVariable;
 
 
-    public static AbstractVar getVar(IToken token) {
+    public static Variable getVar(IToken token) {
         if (!(token instanceof Ident)) {
             return null;
         }

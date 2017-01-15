@@ -1,6 +1,6 @@
 package absSyn;
 
-import context.AbstractVar;
+import context.Variable;
 import context.DefaultVariable;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
@@ -44,7 +44,7 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         blockCmdConcSyn.check();
 
         // Check if left type match with right type
-        for (AbstractVar aVar : DefaultVariable.getVariables()) {
+        for (Variable aVar : DefaultVariable.getVariables()) {
             DefaultVariable var = (DefaultVariable) aVar;
             Terminal[] allowedTypes = null;
             switch (var.getLeftSideType()) {

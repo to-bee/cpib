@@ -1,6 +1,6 @@
 package absSyn;
 
-import context.AbstractVar;
+import context.Variable;
 import context.DefaultVariable;
 import scanner.errors.ContextError;
 import virtualmachineFS2015.ICodeArray;
@@ -24,7 +24,7 @@ public class CmdAssignAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     @Override
     public void check() throws ContextError {
         DefaultVariable.setCurrentVariable(this.exprL.getToken());
-        DefaultVariable currentVariable = (DefaultVariable) AbstractVar.getCurrentVariable();
+        DefaultVariable currentVariable = (DefaultVariable) Variable.getCurrentVariable();
         exprR.check();
     }
 

@@ -1,6 +1,6 @@
 package absSyn;
 
-import context.AbstractVar;
+import context.Variable;
 import context.DefaultVariable;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
@@ -24,9 +24,9 @@ public class RepBoolOprTerm1AbsSyn1 extends AbstractAbsSyn implements IAbsSyn{
 
     @Override
     public void check() throws ContextError {
-        DefaultVariable currentVariable = (DefaultVariable) AbstractVar.getCurrentVariable();
+        DefaultVariable currentVariable = (DefaultVariable) Variable.getCurrentVariable();
         currentVariable.setExprOpr(this.exprOpr);
-        DefaultVariable var = (DefaultVariable) AbstractVar.getVar(this.exprVarRight);
+        DefaultVariable var = (DefaultVariable) Variable.getVar(this.exprVarRight);
         if(var != null) {
             currentVariable.addExprVariable(this.exprVarRight);
         }

@@ -1,6 +1,6 @@
 package absSyn;
 
-import context.AbstractVar;
+import context.Variable;
 import context.DefaultVariable;
 import context.TupleVar;
 import scanner.errors.ContextError;
@@ -24,7 +24,7 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
         if (typeDeclarationAbsSyn.getSubType() instanceof TypeDeclarationTypeAbsSyn) {
             DefaultVariable var = new DefaultVariable(ident, ((TypeDeclarationTypeAbsSyn) typeDeclarationAbsSyn.getSubType()).getType());
-            AbstractVar.addVariable(var);
+            Variable.addVariable(var);
             DefaultVariable.setCurrentVariable(ident);
         }
         else if (typeDeclarationAbsSyn.getSubType() instanceof TypeDeclarationAbsSyn1) {
