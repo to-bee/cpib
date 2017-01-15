@@ -16,6 +16,26 @@ public class Variable {
     private Set<Variable> exprVariables = new HashSet<>();
     private IToken opr;
     private final Ident ident;
+
+    private int relLocation;
+
+    public int getRelLocation() {
+        return relLocation;
+    }
+
+    public void setRelLocation(int relLocation) {
+        this.relLocation = relLocation;
+    }
+
+    public int getAbsLocation() {
+        return absLocation;
+    }
+
+    public void setAbsLocation(int absLocation) {
+        this.absLocation = absLocation;
+    }
+
+    private int absLocation;
     /**
      * Type on the left side which is defined
      */
