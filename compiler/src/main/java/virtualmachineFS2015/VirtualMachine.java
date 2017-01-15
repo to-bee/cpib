@@ -338,6 +338,15 @@ public class VirtualMachine implements IVirtualMachine {
         }
     }
 
+    public class ModTruncComplExec extends ModTruncCompl implements IExecInstr {
+        public void execute() throws ExecutionError
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.complModTrunc(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
     public class EqComplExec extends EqCompl implements IExecInstr {
         public void execute()
         {

@@ -222,6 +222,13 @@ public interface IInstructions {
         }
     }
 
+    class ModTruncCompl implements IInstr {
+        public String toString() { return "ModTruncCompl"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new ModTruncComplExec();
+        }
+    }
+
     class EqCompl implements IInstr {
         public String toString() { return "EqCompl"; }
         public IExecInstr toExecInstr(VirtualMachine vm) {
