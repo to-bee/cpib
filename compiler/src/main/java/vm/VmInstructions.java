@@ -1,5 +1,6 @@
 package vm;
 
+import absSyn.IAbsSyn;
 import virtualmachineFS2015.ICodeArray;
 import virtualmachineFS2015.IInstructions;
 
@@ -9,6 +10,7 @@ import static vm.Compiler.COMPILER;
  * Created by Malin on 15.01.2017.
  */
 public class VmInstructions {
+
 
     //ADDOPR
     public static int addInt(int loc) throws ICodeArray.CodeTooSmallError {
@@ -95,6 +97,26 @@ public class VmInstructions {
 
     public static int neCompl(int loc) throws ICodeArray.CodeTooSmallError {
         COMPILER.getCodeArray().put(loc, new IInstructions.NeCompl());
+        return loc + 1;
+    }
+
+    //&& ||
+    public static int cAnd(int loc, IAbsSyn rExpr) throws ICodeArray.CodeTooSmallError  {
+        int loc2 = loc + 1;
+        int loc3 = rExpr.code(loc2);
+        int loc4 = loc3 + 1;
+        COMPILER.getCodeArray().put(loc3, new IInstructions.UncondJump(loc4 + 1));
+        COMPILER.getCodeArray().put(loc, new IInstructions.CondJump(loc4));
+        return loc4 + 1;
+    }
+
+    public static int cOr(int loc, IAbsSyn rExpr) throws ICodeArray.CodeTooSmallError  {
+        int loc2 = loc + 1;
+        int loc3 = loc2 + 2;
+        int loc4 = rExpr.code(loc3);
+        int loc5 = loc4 + 1;
+        int loo6 = loc4 + 2;
+        COMPILER.getCodeArray().put(loc, new IInstructions.AddInt());// 0 = FALSE / 1,2 = TRUE
         return loc + 1;
     }
 }
