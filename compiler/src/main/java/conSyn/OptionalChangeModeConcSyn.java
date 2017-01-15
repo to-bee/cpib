@@ -32,6 +32,7 @@ public class OptionalChangeModeConcSyn extends AbstractConcSyn implements IConcS
         if (this.terminal == Terminal.IDENT) {
 
         } else if (this.terminal.getType() == TerminalType.CHANGEMODE) {
+            //TODO changemode speichern!
             consume();
         } else {
             throwGrammarError();

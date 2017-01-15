@@ -41,13 +41,12 @@ public class TupleTypeCheckTest {
         // should fail because of int32,bool assign
         String tupleTest = "program TupleTest()\n" +
                 "global\n" +
-                "fun add(mytuple1:(bool,int32)) returns s:Int32\n" +
+                "fun add() returns result:int32\n" +
                 "local\n" +
-                "const mytuple1:(bool,bool);\n" +
-                "var a:int32\n" +
+                "const a:bool\n" +
                 "do\n" +
-                "mytuple1 := (1,2);\n" +
-                "a := True;\n" +
+                "a := false;\n" +
+                "a := true;\n" +
                 "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
