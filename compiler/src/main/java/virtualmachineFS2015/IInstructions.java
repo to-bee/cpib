@@ -283,6 +283,16 @@ public interface IInstructions {
         }
     }
 
+
+    class InputCompl implements IInstr {
+        protected String indicator;
+        public InputCompl(String indicator) { this.indicator= indicator; }
+        public String toString() { return "InputCompl(\"" + indicator + "\")"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new InputComplExec(indicator);
+        }
+    }
+
     class OutputBool implements IInstr {
         protected String indicator;
         public OutputBool(String indicator) { this.indicator= indicator; }
@@ -298,6 +308,15 @@ public interface IInstructions {
         public String toString() { return "OutputInt(\"" + indicator + "\")"; }
         public IExecInstr toExecInstr(VirtualMachine vm) {
             return vm.new OutputIntExec(indicator);
+        }
+    }
+
+    class OutputCompl implements IInstr {
+        protected String indicator;
+        public OutputCompl(String indicator) { this.indicator= indicator; }
+        public String toString() { return "OutputCompl(\"" + indicator + "\")"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new OutputComplExec(indicator);
         }
     }
 }

@@ -1,5 +1,6 @@
 package vm;
 
+import absSyn.ExpressionAbsSyn;
 import absSyn.IAbsSyn;
 import context.Variable;
 import virtualmachineFS2015.ICodeArray;
@@ -121,11 +122,24 @@ public class VmInstructions {
         return loc + 1;
     }
 
-    public static void storeGlobal(int loc, Variable var) {
-        COMPILER.getCodeArray().put(loc++, new IInstructions.LoadImInt(var.getAbsLocation());
+    public static void storeGlobal(int loc, Variable var) throws ICodeArray.CodeTooSmallError  {
+        COMPILER.getCodeArray().put(loc++, new IInstructions.LoadImInt(var.getAbsLocation()));
     }
 
     public static void storeLocal(int loc, Variable var) throws ICodeArray.CodeTooSmallError {
         COMPILER.getCodeArray().put(loc++, new IInstructions.LoadAddrRel(var.getRelLocation()));
+    }
+
+
+    public static void outputBool(int loc, ExpressionAbsSyn expr) throws ICodeArray.CodeTooSmallError  {
+        COMPILER.getCodeArray().put(loc++, new IInstructions.OutputBool(expr.getToken().toString()));
+    }
+
+    public static void outputInt(int loc, ExpressionAbsSyn expr) throws ICodeArray.CodeTooSmallError {
+        COMPILER.getCodeArray().put(loc++, new IInstructions.OutputInt(expr.getToken().toString()));
+    }
+
+    public static void outputCompl(int loc, ExpressionAbsSyn expr) throws ICodeArray.CodeTooSmallError {
+        COMPILER.getCodeArray().put(loc++, new IInstructions.OutputCompl(expr.getToken().toString()));
     }
 }

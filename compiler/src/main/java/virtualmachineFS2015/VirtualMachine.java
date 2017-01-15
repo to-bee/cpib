@@ -416,6 +416,22 @@ public class VirtualMachine implements IVirtualMachine {
         }
     }
 
+    public class InputComplExec extends InputCompl implements IExecInstr {
+        public InputComplExec(String indicator) { super(indicator); }
+
+        public void execute() throws ExecutionError
+        {
+            System.out.print("? " + indicator + " : real = ");
+            int real = InputUtility.readInt();
+            System.out.print("? " + indicator + " : imag = ");
+            int imag = InputUtility.readInt();
+            int address= Data.getImag(store[sp - 1])+1000*Data.getReal(store[sp - 1]);
+            store[address]= Data.complNew(imag, real);
+            sp= sp - 1;
+            pc= pc + 1;
+        }
+    }
+
     public class OutputBoolExec extends OutputBool implements IExecInstr {
         public OutputBoolExec(String indicator) { super(indicator); }
 
@@ -436,6 +452,19 @@ public class VirtualMachine implements IVirtualMachine {
             sp= sp - 1;
             int output= Data.intGet(store[sp]);
             System.out.println("! " + indicator + " : int = " + output);
+            pc= pc + 1;
+        }
+    }
+
+    public class OutputComplExec extends OutputCompl implements IExecInstr {
+        public OutputComplExec(String indicator) { super(indicator); }
+
+        public void execute()
+        {
+            sp= sp - 1;
+            int outputReal = Data.getReal(store[sp]);
+            int outputImag = Data.getImag(store[sp]);
+            System.out.println("! " + indicator + " : compl = real:" + outputReal + " imag:" + outputImag );
             pc= pc + 1;
         }
     }
