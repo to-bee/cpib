@@ -1,5 +1,6 @@
 package vm;
 
+import absSyn.AbstractAbsSyn;
 import absSyn.ExpressionAbsSyn;
 import absSyn.IAbsSyn;
 import context.Variable;
@@ -142,18 +143,30 @@ public class VmInstructions {
         COMPILER.getCodeArray().put(loc++, new IInstructions.OutputCompl(expr.getToken().toString()));
     }
 
-    public static void inputBool(int loc, ExpressionAbsSyn expr, String var) throws ICodeArray.CodeTooSmallError  {
+    public static void inputBool(int loc, IAbsSyn expr, String var) throws ICodeArray.CodeTooSmallError  {
         loc = expr.code(loc);
         COMPILER.getCodeArray().put(loc++, new IInstructions.InputBool(var));
     }
 
-    public static void inputInt(int loc, ExpressionAbsSyn expr, String var) throws ICodeArray.CodeTooSmallError {
+    public static void inputInt(int loc, IAbsSyn expr, String var) throws ICodeArray.CodeTooSmallError {
         loc = expr.code(loc);
         COMPILER.getCodeArray().put(loc++, new IInstructions.InputInt(var));
     }
 
-    public static void inputCompl(int loc,  ExpressionAbsSyn expr, String var) throws ICodeArray.CodeTooSmallError {
+    public static void inputCompl(int loc,  IAbsSyn expr, String var) throws ICodeArray.CodeTooSmallError {
         loc = expr.code(loc);
         COMPILER.getCodeArray().put(loc++, new IInstructions.InputCompl(var));
+    }
+
+    public static int assign(int loc, IAbsSyn exprLeft, AbstractAbsSyn exprRight) throws ICodeArray.CodeTooSmallError {
+        loc = exprLeft.code(loc);
+        loc = exprRight.code(loc);
+        COMPILER.getCodeArray().put(loc++, new IInstructions.Store());
+        return loc;
+    }
+
+    public static int storageDeclaration(int loc) throws ICodeArray.CodeTooSmallError {
+        COMPILER.getCodeArray().put(loc++, new IInstructions.AllocBlock(1));
+        return loc;
     }
 }
