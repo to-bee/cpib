@@ -130,7 +130,6 @@ public class VmInstructions {
         COMPILER.getCodeArray().put(loc++, new IInstructions.LoadAddrRel(var.getRelLocation()));
     }
 
-
     public static void outputBool(int loc, ExpressionAbsSyn expr) throws ICodeArray.CodeTooSmallError  {
         COMPILER.getCodeArray().put(loc++, new IInstructions.OutputBool(expr.getToken().toString()));
     }
@@ -141,5 +140,20 @@ public class VmInstructions {
 
     public static void outputCompl(int loc, ExpressionAbsSyn expr) throws ICodeArray.CodeTooSmallError {
         COMPILER.getCodeArray().put(loc++, new IInstructions.OutputCompl(expr.getToken().toString()));
+    }
+
+    public static void inputBool(int loc, ExpressionAbsSyn expr, String var) throws ICodeArray.CodeTooSmallError  {
+        loc = expr.code(loc);
+        COMPILER.getCodeArray().put(loc++, new IInstructions.InputBool(var));
+    }
+
+    public static void inputInt(int loc, ExpressionAbsSyn expr, String var) throws ICodeArray.CodeTooSmallError {
+        loc = expr.code(loc);
+        COMPILER.getCodeArray().put(loc++, new IInstructions.InputInt(var));
+    }
+
+    public static void inputCompl(int loc,  ExpressionAbsSyn expr, String var) throws ICodeArray.CodeTooSmallError {
+        loc = expr.code(loc);
+        COMPILER.getCodeArray().put(loc++, new IInstructions.InputCompl(var));
     }
 }
