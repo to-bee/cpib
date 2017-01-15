@@ -1,5 +1,6 @@
 package context;
 
+import scanner.datatypes.Terminal;
 import scanner.token.IToken;
 import scanner.token.Ident;
 
@@ -15,6 +16,7 @@ public abstract class Var {
 
     private int relLocation;
     private int absLocation;
+    private Terminal changemode;
 
     public int getRelLocation() {
         return relLocation;
@@ -100,5 +102,13 @@ public abstract class Var {
         } catch (NoSuchElementException e) {
             return null;
         }
+    }
+
+    public Terminal getChangemode() {
+        return changemode;
+    }
+
+    public void setChangemode(Terminal changemode) {
+        this.changemode = changemode;
     }
 }

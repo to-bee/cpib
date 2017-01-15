@@ -1,6 +1,7 @@
 package absSyn;
 
 import context.DefaultVar;
+import context.Mode;
 import context.Var;
 import context.TupleVar;
 import scanner.errors.ContextError;
@@ -26,8 +27,12 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn {
             DefaultVar var = new DefaultVar(ident, ((TypeDeclarationTypeAbsSyn) typeDeclarationAbsSyn.getSubType()).getType());
             Var.addVariable(var);
             DefaultVar.setCurrentVariable(ident);
+            //store Changemode to var and reset to null for future use
+            DefaultVar.getCurrentVariable().setChangemode(Mode.getCurrentMode());
+            Mode.setCurrentMode(null);
         }
         else if (typeDeclarationAbsSyn.getSubType() instanceof TypeDeclarationAbsSyn1) {
+            //TODO rewrite to TupleVar
             //wenn lparen --> dann tuple
             //DefaultVar erstellen mit ident
             TupleVar var = new TupleVar(ident);
