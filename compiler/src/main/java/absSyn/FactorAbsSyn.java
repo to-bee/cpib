@@ -24,6 +24,7 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
     @Override
     public void check() throws ContextError {
+        //TODO Tuple Assign
         /**
          * Check whether name is left or right side expression
          * We need to set the type of the right side,
@@ -43,7 +44,7 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
                 case LITERAL:
                     currentVariable.addRightSideType(Terminal.INT32);
                     break;
-                case BOOL:
+                case IDENT:
                     currentVariable.addRightSideType(Terminal.BOOL);
                     break;
             }
