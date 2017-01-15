@@ -38,6 +38,8 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn {
             Variable var = new Variable(ident);
             Variable.setCurrentVariable(ident);
             Variable.getCurrentVariable();
+
+            //wenn ident = null --> anonymes tupel
             //ArrayList<Variable> vars = new ArrayList<Variable>();
 
             //TODO variablenliste erstellen
