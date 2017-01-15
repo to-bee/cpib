@@ -24,6 +24,6 @@ public class OptionalProgramParamAbsSyn extends AbstractAbsSyn implements IAbsSy
 
     @Override
     public int code(int location) throws ICodeArray.CodeTooSmallError {
-        return 0;
+        return location; // nothing to do
     }
 }
