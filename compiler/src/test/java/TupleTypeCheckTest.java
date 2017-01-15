@@ -46,7 +46,6 @@ public class TupleTypeCheckTest {
                 "const a:bool\n" +
                 "do\n" +
                 "a := false;\n" +
-                "a := true;\n" +
                 "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
