@@ -1,6 +1,7 @@
 package absSyn;
 
-import context.Variable;
+import context.AbstractVar;
+import context.DefaultVariable;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
@@ -33,7 +34,7 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     @Override
     public void check() throws ContextError {
         // Clear existing vars
-        Variable.clearVariables();
+        DefaultVariable.clearVariables();
 
         if (this.ident.getValue().length() > 256) {
             throw new ContextError("Ident too long");
@@ -43,11 +44,12 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         blockCmdConcSyn.check();
 
         // Check if left type match with right type
-        for (Variable var : Variable.getVariables()) {
+        for (AbstractVar aVar : DefaultVariable.getVariables()) {
+            DefaultVariable var = (DefaultVariable) aVar;
             Terminal[] allowedTypes = null;
             switch (var.getLeftSideType()) {
                 case COMPL:
-                    allowedTypes = new Terminal[]{Terminal.COMPL, Terminal.INT32};
+                    allowedTypes = new Terminal[]{Terminal.COMPL, Terminal.IMAGINARY_PART, Terminal.INT32};
                     break;
                 case INT32:
                     allowedTypes = new Terminal[]{Terminal.INT32};
@@ -61,7 +63,7 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
                 throw new ContextError(String.format("LType and RType mismatch for variable: %s", var.getIdent()));
             }
 
-            List<Variable> subExprVars = var.getExprVariables();
+            List<DefaultVariable> subExprVars = var.getExprVariables();
             for(int i = 0; i<subExprVars.size(); i++) {
                 for(int j = i; j<subExprVars.size(); j++) {
                     if(subExprVars.get(i).getLeftSideType() != subExprVars.get(j).getLeftSideType()) {

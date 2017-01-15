@@ -1,6 +1,7 @@
 package absSyn;
 
-import context.Variable;
+import context.AbstractVar;
+import context.DefaultVariable;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
@@ -25,7 +26,7 @@ public class FactorLiteralAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
     @Override
     public void check() throws ContextError {
-        if(Variable.getCurrentVariable().rightSideTypeContains(Terminal.COMPL)) {
+        if(((DefaultVariable)AbstractVar.getCurrentVariable()).rightSideTypeContains(Terminal.COMPL)) {
             if(this.token.getTerminal() == Terminal.COMPLEMENT || this.token.getTerminal() == Terminal.IDENT) {
                 throw new ContextError(String.format("%s not allowed for variables of type %s", this.token.getTerminal(), Terminal.COMPL));
             }

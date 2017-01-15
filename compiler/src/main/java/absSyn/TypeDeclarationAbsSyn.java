@@ -1,10 +1,6 @@
 package absSyn;
 
-import conSyn.TypeDeclarationTypeConcSyn;
-import context.Variable;
 import scanner.errors.ContextError;
-import scanner.token.IToken;
-import scanner.token.Ident;
 import virtualmachineFS2015.ICodeArray;
 
 /**

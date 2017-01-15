@@ -37,6 +37,10 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
              * Loads the left side variable and sets type
              * TODO: Add other types
              */
+//            if(this.token.getTerminal() == Terminal.IMAGINARY_PART
+//                || this.token.getTerminal() == Terminal.INT32
+//                || this.token.getTerminal() == Terminal.IDENT) {
+//                currentVariable.addRightSideToken(this.token);
             switch(this.token.getTerminal()) {
                 case IMAGINARY_PART:
                     currentVariable.addRightSideType(Terminal.COMPL);

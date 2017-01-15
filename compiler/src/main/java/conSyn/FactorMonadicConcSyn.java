@@ -1,8 +1,6 @@
 package conSyn;
 
-import absSyn.CmdSkipAbsSyn;
 import absSyn.FactorMoniadicAbsSyn;
-import context.Variable;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.IToken;
