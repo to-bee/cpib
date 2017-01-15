@@ -1,5 +1,6 @@
 package absSyn;
 
+import context.Var;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import virtualmachineFS2015.ICodeArray;
@@ -18,6 +19,9 @@ public class OptionalChangeModeAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     @Override
     public void check() throws ContextError {
         //TODO const check
+        if (terminal.getValue() == "const"){
+            //currentvariable gibts noch nicht...
+        }
     }
 
     @Override
