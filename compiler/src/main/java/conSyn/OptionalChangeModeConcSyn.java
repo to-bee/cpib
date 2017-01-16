@@ -30,7 +30,6 @@ public class OptionalChangeModeConcSyn extends AbstractConcSyn implements IConcS
     public void parse() throws GrammarError {
         this.terminal = getTokenList().getCurrent().getTerminal();
         if (this.terminal == Terminal.IDENT) {
-
         } else if (this.terminal.getType() == TerminalType.CHANGEMODE) {
             consume();
         } else {
