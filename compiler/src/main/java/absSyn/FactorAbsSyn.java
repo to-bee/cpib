@@ -23,7 +23,6 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
     @Override
     public void check() throws ContextError {
-        //TODO Tuple Assign
         /**
          * Check whether name is left or right side expression
          * We need to set the type of the right side,
@@ -33,8 +32,7 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         Var var = Var.getVar(this.token);
         if (var == null) {
             /**
-             * Loads the left side variable and sets type
-             * TODO: Add other types
+             * Loads the left side variable and sets type on right side
              */
             if (this.token.getTerminal() == Terminal.IMAGINARY_PART
                     || this.token.getTerminal() == Terminal.INT32
