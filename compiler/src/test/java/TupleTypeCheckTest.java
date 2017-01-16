@@ -65,10 +65,15 @@ public class TupleTypeCheckTest {
                 "global\n" +
                 "fun add() returns result:int32\n" +
                 "local\n" +
-                "const a:int32\n" +
+                "var a:bool;\n" +
+                "var b:int32\n" +
+                "const c:(bool,int32);\n" +
                 "do\n" +
                 "a := false;\n" +
                 "a := true;\n" +
+                "b := 2;\n" +
+                "b := 2;\n" +
+                "c := (true,2);\n" +
                 "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
@@ -76,7 +81,7 @@ public class TupleTypeCheckTest {
                 "endprogram";
         try {
             absSyn = checkProgram(tupleTest);
-            Assert.fail();
+//            Assert.fail();
         } catch (ContextError e) {
             System.out.println(e.getMessage());
 //            e.printStackTrace();
