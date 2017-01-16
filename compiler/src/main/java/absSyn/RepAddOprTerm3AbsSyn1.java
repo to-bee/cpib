@@ -1,6 +1,10 @@
 package absSyn;
 
+import context.Assignment;
+import context.Context;
+import context.VmVar;
 import scanner.errors.ContextError;
+import scanner.token.IToken;
 import virtualmachineFS2015.ICodeArray;
 
 /**

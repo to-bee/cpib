@@ -29,6 +29,7 @@ public class MonadictOperatorAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     @Override
     public void check() throws ContextError {
+        System.out.println(this.token);
         // TODO: maybe wrong place, we won't need this
 //        DefaultVar var = DefaultVar.getExprVariableLeft();
 //        if(var != null && var.rightSideTypeContains(Terminal.COMPL)) {

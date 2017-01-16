@@ -10,13 +10,8 @@ import virtualmachineFS2015.ICodeArray;
 public class FactorExpressionAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
 
-    private IToken token;
     private final ExpressionAbsSyn expressionAbsSyn;
     private final RepeatingOptionalExpressionsAbsSyn repeatingOptionalExpressionsAbsSyn;
-
-    public IToken getToken() {
-        return token;
-    }
 
     public ExpressionAbsSyn getExpressionAbsSyn() {
         return expressionAbsSyn;
@@ -26,13 +21,7 @@ public class FactorExpressionAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         return repeatingOptionalExpressionsAbsSyn;
     }
 
-    public String toString(int counter) {
-        return "FactorExpressionsAbsSyn:\r\n\t" + expressionAbsSyn.toString(counter) +"," + repeatingOptionalExpressionsAbsSyn.toString(counter);
-    }
-
-    public FactorExpressionAbsSyn(IToken token, ExpressionAbsSyn expressionAbsSyn, RepeatingOptionalExpressionsAbsSyn repeatingOptionalExpressionsAbsSyn) {
-        this.token = token;
-
+    public FactorExpressionAbsSyn(ExpressionAbsSyn expressionAbsSyn, RepeatingOptionalExpressionsAbsSyn repeatingOptionalExpressionsAbsSyn) {
         this.expressionAbsSyn = expressionAbsSyn;
         this.repeatingOptionalExpressionsAbsSyn = repeatingOptionalExpressionsAbsSyn;
     }

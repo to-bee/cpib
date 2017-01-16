@@ -16,13 +16,11 @@ public class ExpressionAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     private final Term1AbsSyn term1AbsSyn;
     private final RepBoolOprTerm1AbsSyn repBoolOprTerm1AbsSyn;
     private final IToken token;
-    private final Terminal terminal;
 
     public ExpressionAbsSyn(IToken token, Term1AbsSyn term1AbsSyn, RepBoolOprTerm1AbsSyn repBoolOprTerm1AbsSyn, Terminal terminal) {
         this.token = token;
         this.term1AbsSyn = term1AbsSyn;
         this.repBoolOprTerm1AbsSyn = repBoolOprTerm1AbsSyn;
-        this.terminal = terminal;
     }
 
     public String toString(int counter) {

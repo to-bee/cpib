@@ -3,6 +3,7 @@ package conSyn;
 import absSyn.RepAddOprTerm3AbsSyn1;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
 
 /**

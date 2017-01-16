@@ -1,6 +1,5 @@
 package conSyn;
 
-import absSyn.CmdSkipAbsSyn;
 import absSyn.FactorExpressionAbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
@@ -23,24 +22,17 @@ public class FactorExpressionConcSyn extends AbstractConcSyn implements IConcSyn
         return repeatingOptionalExpressionsConcSyn;
     }
 
-    public IToken getToken() {
-        return token;
-    }
-
-    private IToken token;
-
     public FactorExpressionConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
     }
 
     @Override
     public FactorExpressionAbsSyn toAbsSyn() throws ContextError {
-        return new FactorExpressionAbsSyn(token, expressionConcSyn.toAbsSyn(), repeatingOptionalExpressionsConcSyn.toAbsSyn());
+        return new FactorExpressionAbsSyn(expressionConcSyn.toAbsSyn(), repeatingOptionalExpressionsConcSyn.toAbsSyn());
     }
 
     @Override
     public void parse() throws GrammarError {
-        this.token = this.getTokenList().getCurrent();
         consume();
 
         expressionConcSyn = new ExpressionConcSyn(getTokenList(), getCounter());

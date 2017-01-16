@@ -14,6 +14,7 @@ import static scanner.datatypes.Terminal.COMPL;
  * Created by tobi on 16.01.17.
  */
 public class Assignment {
+    private Assignment parent;
     private List<Object> components = new ArrayList<>();
 
 
@@ -28,8 +29,12 @@ public class Assignment {
 //        this.var = var;
     }
 
-    public void addAnyComponent(IToken token) {
-        this.components.add(token);
+    public Assignment(Assignment parent) {
+        this.parent = parent;
+    }
+
+    public void addComponent(Object comp) {
+        this.components.add(comp);
     }
 
     public void addRightSideToken(IToken rightSideToken) throws ContextError {
@@ -84,4 +89,7 @@ public class Assignment {
         return new ArrayList<>(this.rightSideTokens);
     }
 
+    public Assignment getParent() {
+        return parent;
+    }
 }

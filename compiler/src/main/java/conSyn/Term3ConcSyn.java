@@ -4,6 +4,7 @@ import absSyn.Term3AbsSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
 
 /**
@@ -12,7 +13,7 @@ import scanner.tokenList.ITokenList;
 public class Term3ConcSyn extends AbstractConcSyn implements IConcSyn {
     private FactorConcSyn factorConcSyn;
     private RepMultOprFactorConcSyn repMultOprFactorConcSyn;
-    private Terminal terminal;
+    private IToken token;
 
     public Term3ConcSyn(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -20,24 +21,25 @@ public class Term3ConcSyn extends AbstractConcSyn implements IConcSyn {
 
     @Override
     public Term3AbsSyn toAbsSyn() throws ContextError {
-        return new Term3AbsSyn(factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn(), terminal);
+        return new Term3AbsSyn(factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn(), token);
     }
 
     @Override
     public void parse() throws GrammarError {
-        this.terminal = getTokenList().getCurrent().getTerminal();
-        if (this.terminal == Terminal.IMAGINARY_PART
-                || this.terminal == Terminal.REAL
-                || this.terminal == Terminal.IMAG
-                || this.terminal == Terminal.LPAREN
-                || this.terminal == Terminal.ADDOPR
-                || this.terminal == Terminal.MINOPR
-                || this.terminal == Terminal.MULTOPR
-                || this.terminal == Terminal.DIVOPR
-                || this.terminal == Terminal.MODOPR
-                || this.terminal == Terminal.COMPLEMENT
-                || this.terminal == Terminal.IDENT
-                || this.terminal == Terminal.LITERAL) {
+        this.token = getTokenList().getCurrent();
+        Terminal terminal = getTokenList().getCurrent().getTerminal();
+        if (terminal == Terminal.IMAGINARY_PART
+                || terminal == Terminal.REAL
+                || terminal == Terminal.IMAG
+                || terminal == Terminal.LPAREN
+                || terminal == Terminal.ADDOPR
+                || terminal == Terminal.MINOPR
+                || terminal == Terminal.MULTOPR
+                || terminal == Terminal.DIVOPR
+                || terminal == Terminal.MODOPR
+                || terminal == Terminal.COMPLEMENT
+                || terminal == Terminal.IDENT
+                || terminal == Terminal.LITERAL) {
             factorConcSyn = new FactorConcSyn(getTokenList(), getCounter());
             parseNext(factorConcSyn);
 
