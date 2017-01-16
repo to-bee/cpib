@@ -22,11 +22,6 @@ public class DefaultVar extends Var {
     private Set<DefaultVar> exprVariables = new HashSet<>();
     private IToken opr;
 
-    /**
-     * Type on the right side which is calculated
-     */
-    private Set<IToken> rightSideTokens = new HashSet<>();
-
     public DefaultVar(Ident ident, IToken leftSideType) {
         super(ident);
         this.leftSideType = leftSideType.getTerminal();
@@ -73,28 +68,4 @@ public class DefaultVar extends Var {
         return this.exprVariables.stream().filter(v -> v.leftSideType == terminal).count() > 0;
     }
 
-    public boolean rightSideTypeContains(Terminal terminal) {
-        return rightSideTokens.contains(terminal);
-    }
-
-    /**
-     * Check for forbidden types
-     *
-     * @param mustContainTypes
-     * @return
-     */
-    public boolean rightSideContainsOnly(Terminal[] mustContainTypes) {
-        List<Terminal> copy = getRightSideTokens().stream().map(token -> token.getTerminal()).collect(Collectors.toList());
-        copy.removeAll(Arrays.asList(mustContainTypes));
-        return copy.size() == 0;
-    }
-
-    public List<IToken> getRightSideTokens() {
-        List<IToken> rightSideTypes = new ArrayList<>(this.rightSideTokens);
-        return rightSideTypes;
-    }
-
-    public void addRightSideToken(IToken rightSideToken) {
-        this.rightSideTokens.add(rightSideToken);
-    }
 }

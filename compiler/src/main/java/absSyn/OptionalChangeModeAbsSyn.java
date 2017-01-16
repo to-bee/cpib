@@ -18,9 +18,9 @@ public class OptionalChangeModeAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     @Override
     public void check() throws ContextError {
-        //TODO const check
-        if (terminal.getValue() == "const"){
-            //currentvariable gibts noch nicht...
+        if (terminal == Terminal.CONST){
+            Var var = Var.getCurrentVariable();
+            var.setConst(true);
         }
     }
 

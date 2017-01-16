@@ -68,8 +68,6 @@ public enum Terminal {
     REF("ref", TerminalType.MECHMODE),
     INT32("Int32", TerminalType.TYPE),
     BOOL("Bool", TerminalType.TYPE),
-//    TRUE("true", TerminalType.TYPE),
-//    FALSE("false", TerminalType.TYPE),
     COMPL("Compl", TerminalType.TYPE),
     IMAGINARY_PART("I", TerminalType.TYPE);
 
