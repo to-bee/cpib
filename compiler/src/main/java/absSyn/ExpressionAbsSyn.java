@@ -31,7 +31,6 @@ public class ExpressionAbsSyn extends AbstractAbsSyn implements IAbsSyn{
             defaultVar.addExprVariable(this.token);
         }
 
-
         term1AbsSyn.check();
         repBoolOprTerm1AbsSyn.check();
     }

@@ -50,7 +50,7 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         programParameterList.check();
         blockCmdConcSyn.check();
 
-        // Check if left type match with right type
+        // Check if left type match with right type (for standard variables)
         for (Var aVar : Var.getVariables()) {
             if(aVar instanceof DefaultVar) {
                 DefaultVar var = (DefaultVar) aVar;
