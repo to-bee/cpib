@@ -4,13 +4,14 @@ import absSyn.SubTypeDeclarationAbsSyn1;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.IToken;
 import scanner.tokenList.ITokenList;
 
 /**
  * Created by ylaub on 19.12.2016.
  */
 public class SubTypeDeclarationConcSyn1 extends AbstractConcSyn implements IConcSyn {
-    private Terminal type;
+    private IToken token;
 
     public SubTypeDeclarationConcSyn1(ITokenList tokenList, int i) {
         super(tokenList, i);
@@ -18,7 +19,7 @@ public class SubTypeDeclarationConcSyn1 extends AbstractConcSyn implements IConc
 
     @Override
     public SubTypeDeclarationAbsSyn1 toAbsSyn() throws ContextError {
-        return new SubTypeDeclarationAbsSyn1(type);
+        return new SubTypeDeclarationAbsSyn1(token);
     }
 
     /**
@@ -26,7 +27,7 @@ public class SubTypeDeclarationConcSyn1 extends AbstractConcSyn implements IConc
      */
     @Override
     public void parse() throws GrammarError {
-        type = getTokenList().getCurrent().getTerminal();
+        token = getTokenList().getCurrent();
         consume();
     }
 }

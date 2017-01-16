@@ -41,13 +41,57 @@ public class TupleTypeCheckTest {
 
         String tupleTest;
 
-        // Should fail because of tuple type declaration is wrong
+        // c has less arguments assigned
         tupleTest = "program TupleTest()\n" +
                 "global\n" +
                 "fun add() returns result:int32\n" +
                 "local\n" +
-                "const a:int32\n" +
+                "c:(bool,int32, bool)\n" +
                 "do\n" +
+                "c := (true, 2);\n" +
+                "result := 2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(tupleTest);
+            Assert.fail();
+
+        } catch (ContextError e) {
+            System.out.println(e.getMessage());
+        }
+
+        // c has too many arguments assigned
+        tupleTest = "program TupleTest()\n" +
+                "global\n" +
+                "fun add() returns result:int32\n" +
+                "local\n" +
+                "c:(bool,int32)\n" +
+                "do\n" +
+                "c := (true, 2, 33);\n" +
+                "result := 2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(tupleTest);
+            Assert.fail();
+
+        } catch (ContextError e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        // Thats ok
+        tupleTest = "program TupleTest()\n" +
+                "global\n" +
+                "fun add() returns result:int32\n" +
+                "local\n" +
+                "c:(bool,int32)\n" +
+                "do\n" +
+                "c := (true, 2);\n" +
                 "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
@@ -56,6 +100,7 @@ public class TupleTypeCheckTest {
         try {
             absSyn = checkProgram(tupleTest);
         } catch (ContextError e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
             Assert.fail();
         }
@@ -65,15 +110,9 @@ public class TupleTypeCheckTest {
                 "global\n" +
                 "fun add() returns result:int32\n" +
                 "local\n" +
-                "var a:bool;\n" +
-                "var b:int32;\n" +
-                "const c:(bool,int32)\n" +
+                "c:(bool,int32)\n" +
                 "do\n" +
-                "a := false;\n" +
-                "a := true;\n" +
-                "b := 2;\n" +
-                "b := 2;\n" +
-                "c := (true,2);\n" +
+                "c := (2, true);\n" +
                 "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
@@ -81,7 +120,29 @@ public class TupleTypeCheckTest {
                 "endprogram";
         try {
             absSyn = checkProgram(tupleTest);
-//            Assert.fail();
+            Assert.fail();
+        } catch (ContextError e) {
+            System.out.println(e.getMessage());
+//            e.printStackTrace();
+        }
+
+        // Should fail because of const multiple assignment
+        tupleTest = "program TupleTest()\n" +
+                "global\n" +
+                "fun add() returns result:int32\n" +
+                "local\n" +
+                "const a:int32\n" +
+                "do\n" +
+                "a := false;\n" +
+                "a := true;\n" +
+                "result := 2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(tupleTest);
+            Assert.fail();
         } catch (ContextError e) {
             System.out.println(e.getMessage());
 //            e.printStackTrace();

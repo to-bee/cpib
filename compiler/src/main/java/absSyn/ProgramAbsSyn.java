@@ -1,6 +1,7 @@
 package absSyn;
 
 import context.DefaultVar;
+import context.TupleVar;
 import context.Var;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
@@ -44,56 +45,42 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         blockCmdConcSyn.check();
 
         // Check if left type match with right type
-        for (Var aVar : DefaultVar.getVariables()) {
-            DefaultVar var = (DefaultVar) aVar;
-            Terminal[] allowedTypes = null;
-            switch (var.getLeftSideType()) {
-                case COMPL:
-                    allowedTypes = new Terminal[]{Terminal.COMPL, Terminal.IMAGINARY_PART, Terminal.INT32};
-                    break;
-                case INT32:
-                    allowedTypes = new Terminal[]{Terminal.INT32};
-                    break;
-                case BOOL:
-                    allowedTypes = new Terminal[]{Terminal.IDENT};
-                    for(IToken token : var.getRightSideTokens()) {
-                        Ident ident = (Ident) token;
-                        if(!ident.getValue().toLowerCase().equals("true")
-                                && !ident.getValue().toLowerCase().equals("false"))
-                            throw new ContextError(String.format("LType and RType mismatch for variable: %s", var.getIdent()));
-                    }
-                    break;
-            }
+        for (Var aVar : Var.getVariables()) {
+            if(aVar instanceof DefaultVar) {
+                DefaultVar var = (DefaultVar) aVar;
+                var.checkAssignmentEquality();
 
-            if (!var.rightSideContainsOnly(allowedTypes)) {
-                throw new ContextError(String.format("LType and RType mismatch for variable: %s", var.getIdent()));
-            }
-
-            List<DefaultVar> subExprVars = var.getExprVariables();
-            for(int i = 0; i<subExprVars.size(); i++) {
-                for(int j = i; j<subExprVars.size(); j++) {
-                    if(subExprVars.get(i).getLeftSideType() != subExprVars.get(j).getLeftSideType()) {
-                        throw new ContextError(String.format("RValues must have the same type: %s/%s", subExprVars.get(i), subExprVars.get(j)));
+                List<DefaultVar> subExprVars = var.getExprVariables();
+                for(int i = 0; i<subExprVars.size(); i++) {
+                    for (int j = i; j < subExprVars.size(); j++) {
+                        if (subExprVars.get(i).getLeftSideType() != subExprVars.get(j).getLeftSideType()) {
+                            throw new ContextError(String.format("RValues must have the same type: %s/%s", subExprVars.get(i), subExprVars.get(j)));
+                        }
                     }
                 }
-            }
 
-
-
-            Terminal leftType = var.getLeftSideType();
-            IToken opr = var.getOpr();
-            if (leftType != null && opr != null && var.exprVariableContains(Terminal.COMPL)) {
-                if (opr.getTerminal() == Terminal.DIVOPR
-                        || opr.getTerminal() == Terminal.COMPLEMENT
-                        || opr.getTerminal() == Terminal.GT
-                        || opr.getTerminal() == Terminal.LT
-                        || opr.getTerminal() == Terminal.GE
-                        || opr.getTerminal() == Terminal.LE
-                        || opr.getTerminal() == Terminal.CAND
-                        || opr.getTerminal() == Terminal.COR) {
-                    throw new ContextError(String.format("%s not allowed for variables of type %s", opr.getTerminal(), Terminal.COMPL));
+                Terminal leftType = var.getLeftSideType();
+                IToken opr = var.getOpr();
+                if (leftType != null && opr != null && var.exprVariableContains(Terminal.COMPL)) {
+                    if (opr.getTerminal() == Terminal.DIVOPR
+                            || opr.getTerminal() == Terminal.COMPLEMENT
+                            || opr.getTerminal() == Terminal.GT
+                            || opr.getTerminal() == Terminal.LT
+                            || opr.getTerminal() == Terminal.GE
+                            || opr.getTerminal() == Terminal.LE
+                            || opr.getTerminal() == Terminal.CAND
+                            || opr.getTerminal() == Terminal.COR) {
+                        throw new ContextError(String.format("%s not allowed for variables of type %s", opr.getTerminal(), Terminal.COMPL));
+                    }
                 }
+            } else if(aVar instanceof TupleVar) {
+                TupleVar var = (TupleVar) aVar;
+
+                var.checkAssignmentEquality();
             }
+
+
+
         }
     }
 

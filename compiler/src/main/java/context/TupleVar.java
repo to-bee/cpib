@@ -1,6 +1,5 @@
 package context;
 
-import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
 import scanner.token.Ident;
@@ -33,25 +32,49 @@ public class TupleVar extends Var {
 
     @Override
     public String toString() {
-        return String.format("%s:(%s)", this.getIdent().getValue(), this.joinLeftSideTokens());
+        return String.format("%s:(%s)", this.getIdent().getValue(), this.joinTokens(getLeftSideTokens()));
     }
 
     public List<IToken> getLeftSideTokens() {
         return leftSideTokens;
     }
 
-    private String joinLeftSideTokens() {
+    public String joinTokens(List<IToken> tokens) {
         StringBuilder sb = new StringBuilder();
 
-        Iterator<IToken> iterator = this.getLeftSideTokens().iterator();
+        Iterator<IToken> iterator = tokens.iterator();
         while(iterator.hasNext())
         {
-            sb.append(iterator.next().getTerminal());
+            sb.append(iterator.next().getTerminal().getValue());
             if(iterator.hasNext()) {
                 sb.append(", ");
             }
         }
 
         return sb.toString();
+    }
+
+    public void addLeftSideToken(IToken rightSideToken) throws ContextError {
+        this.leftSideTokens.add(rightSideToken);
+    }
+
+    public void checkAssignmentEquality() throws ContextError {
+        if(leftSideTokens.size() > getRightSideTokens().size()) {
+            throw new ContextError(String.format("Var: %s cannot be assigned with: %s", toString(), joinTokens(getRightSideTokens())));
+        } else {
+            Iterator<IToken> rightSideIterator = getRightSideTokens().iterator();
+            IToken rightSideToken;
+            for(IToken leftSideToken : leftSideTokens) {
+                rightSideToken = rightSideIterator.next();
+                checkRightSideTypeMatch(leftSideToken.getTerminal(), rightSideToken);
+            }
+        }
+    }
+
+    public void addRightSideToken(IToken rightSideToken) throws ContextError {
+        if(isConst() && this.getRightSideTokens().size() >= this.leftSideTokens.size()) {
+            throw new ContextError(String.format("Variable %s is const", toString()));
+        }
+        super.addRightSideToken(rightSideToken);
     }
 }

@@ -21,7 +21,6 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
     @Override
     public void check() throws ContextError {
-
         if (typeDeclarationAbsSyn.getSubType() instanceof TypeDeclarationTypeAbsSyn) {
             DefaultVar var = new DefaultVar(ident, ((TypeDeclarationTypeAbsSyn) typeDeclarationAbsSyn.getSubType()).getType());
             Var.addVariable(var);
@@ -31,7 +30,6 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn {
             TupleVar var = new TupleVar(ident);
             Var.addVariable(var);
             DefaultVar.setCurrentVariable(ident);
-            Var.getCurrentVariable();
         }
         else {
             throw new ContextError("Check this case in TypedIdentAbsSyn");

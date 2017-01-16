@@ -36,6 +36,13 @@ public class DefaultVar extends Var {
     }
 
     @Override
+    public void checkAssignmentEquality() throws ContextError {
+        for(IToken rightSideToken : getRightSideTokens()) {
+            checkRightSideTypeMatch(getLeftSideType(), rightSideToken);
+        }
+    }
+
+    @Override
     public String toString() {
         return String.format("%s:%s", this.getIdent().getValue(), this.getLeftSideType().getValue());
     }
@@ -62,6 +69,13 @@ public class DefaultVar extends Var {
     public List<DefaultVar> getExprVariables() {
         List<DefaultVar> exprVariables = new ArrayList<DefaultVar>(this.exprVariables);
         return exprVariables;
+    }
+
+    public void addRightSideToken(IToken rightSideToken) throws ContextError {
+        if(isConst() && this.getRightSideTokens().size() > 0) {
+            throw new ContextError(String.format("Variable %s is const", toString()));
+        }
+        super.addRightSideToken(rightSideToken);
     }
 
     public boolean exprVariableContains(Terminal terminal) {

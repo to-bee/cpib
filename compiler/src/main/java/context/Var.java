@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
+import static scanner.datatypes.Terminal.COMPL;
+
 /**
  * Created by tobi on 15.01.17.
  */
@@ -117,35 +119,50 @@ public abstract class Var {
     }
 
     /**
-     * Check for forbidden types
-     *
-     * @param mustContainTypes
-     * @return
-     */
-    public boolean rightSideContainsOnly(Terminal[] mustContainTypes) {
-        List<Terminal> copy = getRightSideTokens().stream().map(token -> token.getTerminal()).collect(Collectors.toList());
-        copy.removeAll(Arrays.asList(mustContainTypes));
-        return copy.size() == 0;
-    }
-
-    /**
      * Type on the right side which is calculated
      */
     private List<IToken> rightSideTokens = new ArrayList<>();
 
     public List<IToken> getRightSideTokens() {
-        List<IToken> rightSideTypes = new ArrayList<>(this.rightSideTokens);
-        return rightSideTypes;
+        return new ArrayList<>(this.rightSideTokens);
     }
 
     public void addRightSideToken(IToken rightSideToken) throws ContextError {
-        if(isConst() && this.rightSideTokens.size() > 0) {
-            throw new ContextError(String.format("Variable %s is const", toString()));
-        }
         this.rightSideTokens.add(rightSideToken);
     }
 
     public boolean rightSideTypeContains(Terminal terminal) {
         return rightSideTokens.contains(terminal);
     }
+
+    public void checkRightSideTypeMatch(Terminal leftSideType, IToken rightSideType) throws ContextError {
+        List<Terminal> allowedTypes = new ArrayList<>();
+        switch (leftSideType) {
+            case COMPL:
+                allowedTypes.add(COMPL);
+                allowedTypes.add(Terminal.IMAGINARY_PART);
+                allowedTypes.add(Terminal.INT32);
+                break;
+            case INT32:
+                allowedTypes.add(Terminal.LITERAL);
+                allowedTypes.add(Terminal.INT32);
+                break;
+            case BOOL:
+                allowedTypes.add(Terminal.IDENT);
+
+                if(rightSideType instanceof Ident) {
+                    Ident ident = (Ident) rightSideType;
+                    if(!ident.getValue().toLowerCase().equals("true") && !ident.getValue().toLowerCase().equals("false"))
+                        throw new ContextError(String.format("LType and RType mismatch for variable: %s. Cannot assign: %s to %s", toString(), leftSideType.toString(), rightSideType.toString()));
+                }
+                break;
+        }
+
+        if (!allowedTypes.contains(rightSideType.getTerminal())) {
+            throw new ContextError(String.format("LType and RType mismatch for variable: %s. Cannot assign: %s to %s", toString(), leftSideType.toString(), rightSideType.toString()));
+
+        }
+    }
+
+    protected abstract void checkAssignmentEquality() throws ContextError;
 }

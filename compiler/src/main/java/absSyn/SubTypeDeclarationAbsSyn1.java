@@ -1,30 +1,28 @@
 package absSyn;
 
+import context.TupleVar;
 import context.Var;
-import context.DefaultVar;
-import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
+import scanner.token.IToken;
 import virtualmachineFS2015.ICodeArray;
 
 /**
  * Created by ylaub on 28.12.2016.
  */
 public class SubTypeDeclarationAbsSyn1 extends AbstractAbsSyn implements IAbsSyn {
-    private Terminal type;
+    private IToken token;
 
-    public SubTypeDeclarationAbsSyn1(Terminal type) {
-
-        this.type = type;
+    public SubTypeDeclarationAbsSyn1(IToken token) {
+        this.token = token;
     }
 
     @Override
     public void check() throws ContextError {
-        //TODO Add Types to Tuple
-        //für alle subtypes einen Eintrag in DefaultVar erstellen.
-        DefaultVar currentVariable = (DefaultVar) Var.getCurrentVariable();
-        //TODO Leftsidetype liste abfüllen
-        //currentVariable.addTuple(subType);
-
+        Var currentVariable = Var.getCurrentVariable();
+        if(currentVariable instanceof TupleVar) {
+            TupleVar tupleVar = (TupleVar) currentVariable;
+            tupleVar.addLeftSideToken(this.token);
+        }
     }
 
     @Override

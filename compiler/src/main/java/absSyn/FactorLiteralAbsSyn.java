@@ -26,7 +26,7 @@ public class FactorLiteralAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
     @Override
     public void check() throws ContextError {
-        if(((DefaultVar) Var.getCurrentVariable()).rightSideTypeContains(Terminal.COMPL)) {
+        if((Var.getCurrentVariable()).rightSideTypeContains(Terminal.COMPL)) {
             if(this.token.getTerminal() == Terminal.COMPLEMENT || this.token.getTerminal() == Terminal.IDENT) {
                 throw new ContextError(String.format("%s not allowed for variables of type %s", this.token.getTerminal(), Terminal.COMPL));
             }
