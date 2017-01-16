@@ -37,6 +37,7 @@ public class DefaultVar extends Var {
 
     @Override
     public void checkAssignmentEquality() throws ContextError {
+        //check if al rightSideTokens match in type with left side.
         for(IToken rightSideToken : getRightSideTokens()) {
             checkRightSideTypeMatch(getLeftSideType(), rightSideToken);
         }
@@ -72,6 +73,7 @@ public class DefaultVar extends Var {
     }
 
     public void addRightSideToken(IToken rightSideToken) throws ContextError {
+        //build right side tokens, wenn const Variable bereits initialisiert ist --> exception
         if(isConst() && this.getRightSideTokens().size() > 0) {
             throw new ContextError(String.format("Variable %s is const", toString()));
         }

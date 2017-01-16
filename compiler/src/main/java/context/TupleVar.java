@@ -59,6 +59,7 @@ public class TupleVar extends Var {
     }
 
     public void checkAssignmentEquality() throws ContextError {
+        //TODO verfeinern
         if(leftSideTokens.size() > getRightSideTokens().size()) {
             throw new ContextError(String.format("Var: %s cannot be assigned with: %s", toString(), joinTokens(getRightSideTokens())));
         } else {
@@ -72,8 +73,9 @@ public class TupleVar extends Var {
     }
 
     public void addRightSideToken(IToken rightSideToken) throws ContextError {
+        //TODO verfeinern
         if(isConst() && this.getRightSideTokens().size() >= this.leftSideTokens.size()) {
-            throw new ContextError(String.format("Variable %s is const", toString()));
+            throw new ContextError(String.format("Tuple %s is const (like all tuples are^^)", toString()));
         }
         super.addRightSideToken(rightSideToken);
     }
