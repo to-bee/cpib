@@ -41,6 +41,10 @@ public class AbsSynTest {
                 "call addVar()\n" +
                 "endprogram";
         absSyn = checkProgram(complexAddProgram);
+        Scanner scanner = new Scanner();
+        ITokenList tokenList;
+        tokenList = scanner.scan(complexAddProgram);
+        System.out.println(tokenList.toString());
         System.out.println(absSyn.toString());
     }
 

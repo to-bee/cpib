@@ -21,7 +21,8 @@ public class Term3AbsSyn extends AbstractAbsSyn implements IAbsSyn{
     }
 
     public String toString(int counter) {
-        return "Term3AbsSyn:\r\n\t" + factorAbsSyn.toString(counter) + "," + repMultOprFactorAbsSyn.toString(counter)+ "," + this.terminal;
+        return "";
+        //return "Term3AbsSyn:\r\n\t" + factorAbsSyn.toString(counter) + "," + repMultOprFactorAbsSyn.toString(counter)+ "," + this.terminal;
     }
 
     @Override

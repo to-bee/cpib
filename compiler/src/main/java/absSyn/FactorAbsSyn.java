@@ -21,7 +21,8 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     }
 
     public String toString(int counter) {
-        return "FactorAbsSyn:\r\n\t" + subType.toString(counter) +"," + this.terminal;
+        return "";
+        //return "FactorAbsSyn:\r\n\t" + subType.toString(counter) +"," + this.terminal;
     }
 
     @Override

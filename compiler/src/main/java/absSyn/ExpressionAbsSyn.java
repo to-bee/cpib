@@ -24,7 +24,8 @@ public class ExpressionAbsSyn extends AbstractAbsSyn implements IAbsSyn{
     }
 
     public String toString(int counter) {
-        return "cmdExpressionAbsSyn:\r\n\t" + term1AbsSyn.toString(counter) + "," + repBoolOprTerm1AbsSyn.toString(counter)+ "," + this.terminal;
+        return "";
+        //return "cmdExpressionAbsSyn:\r\n\t" + term1AbsSyn.toString(counter) + "," + repBoolOprTerm1AbsSyn.toString(counter)+ "," + this.terminal;
     }
 
     @Override
