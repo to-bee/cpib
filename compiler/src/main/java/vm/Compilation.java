@@ -11,6 +11,7 @@ import scanner.Scanner;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.Ident;
+import scanner.token.Literal;
 import scanner.tokenList.ITokenList;
 import virtualmachineFS2015.CodeArray;
 import virtualmachineFS2015.ICodeArray;
@@ -96,12 +97,22 @@ public class Compilation {
             // switch bool, int, compl
             if (a.getValue().getAssignments().size() > 0 ) {
                 for(Assignment aSub: a.getValue().getAssignments()) {
+                    int test = 0;
                     // falls Compl Abfrage ob components size 5 und erster Eintrag Literal
-                    //if (aSub.components.
+                    if (aSub.getComponents().size() == 5 && aSub.getComponents().get(0).getClass() == Literal.class) {
+                        VmInstructions.storeLocal(loc, a.getValue().getRelLocation());
+                    }
                     // falls Bool Abfrage ob components size 2 und erster Eintrag Ident
+                    if (aSub.getComponents().size() == 2 && aSub.getComponents().get(0).getClass() == Ident.class) {
+                        VmInstructions.storeLocal(loc, a.getValue().getRelLocation());
+                    }
                     // falls Int ABfrage ob components size 2 und erster Eintrag Ident
+                    if (aSub.getComponents().size() == 2 && aSub.getComponents().get(0).getClass() == Literal.class) {
+                        VmInstructions.storeLocal(loc, a.getValue().getRelLocation());
+                    }
 
                     // falls nicht zutreffend, rekursiv weiter anhand der Operatoren im zweiten Term
+                    // switch add, min, mult, div, mod
                     // bzw. weiter mit Variablen herausholen falls Ident nicht true oder false
                 }
 

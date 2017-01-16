@@ -17,6 +17,10 @@ public class Assignment {
     private Assignment parent;
     private List<Object> components = new ArrayList<>();
 
+    public List<Object> getComponents() {
+        return components;
+    }
+
 
 
 //    private final Var var;
