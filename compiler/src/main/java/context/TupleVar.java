@@ -1,6 +1,7 @@
 package context;
 
 import scanner.datatypes.Terminal;
+import scanner.errors.ContextError;
 import scanner.token.IToken;
 import scanner.token.Ident;
 
@@ -15,13 +16,11 @@ public class TupleVar extends Var {
      * For example tuple1:(int
      */
     private final List<IToken> leftSideTokens = new ArrayList<>();
-    /**
-     * Type on the right side which is calculated
-     */
-    private List<Terminal> rightSideTypes = new ArrayList<>();
 
     public TupleVar(Ident ident) {
         super(ident);
+        // Tuple is always const
+        setConst(true);
     }
 
     @Override
@@ -54,14 +53,5 @@ public class TupleVar extends Var {
         }
 
         return sb.toString();
-    }
-
-    public List<Terminal> getRightSideTypes() {
-        List<Terminal> rightSideTypes = new ArrayList<Terminal>(this.rightSideTypes);
-        return rightSideTypes;
-    }
-
-    public void addRightSideType(Terminal rightSideType) {
-        this.rightSideTypes.add(rightSideType);
     }
 }

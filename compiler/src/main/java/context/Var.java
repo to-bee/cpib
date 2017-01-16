@@ -1,12 +1,15 @@
 package context;
 
 import scanner.datatypes.Terminal;
+import scanner.errors.ContextError;
 import scanner.token.IToken;
 import scanner.token.Ident;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 /**
  * Created by tobi on 15.01.17.
@@ -16,7 +19,12 @@ public abstract class Var {
 
     private int relLocation;
     private int absLocation;
-    private Terminal changemode;
+
+    public boolean isConst() {
+        return isConst;
+    }
+
+    private boolean isConst;
 
     public int getRelLocation() {
         return relLocation;
@@ -104,11 +112,40 @@ public abstract class Var {
         }
     }
 
-    public Terminal getChangemode() {
-        return changemode;
+    public void setConst(boolean isConst) {
+        this.isConst = isConst;
     }
 
-    public void setChangemode(Terminal changemode) {
-        this.changemode = changemode;
+    /**
+     * Check for forbidden types
+     *
+     * @param mustContainTypes
+     * @return
+     */
+    public boolean rightSideContainsOnly(Terminal[] mustContainTypes) {
+        List<Terminal> copy = getRightSideTokens().stream().map(token -> token.getTerminal()).collect(Collectors.toList());
+        copy.removeAll(Arrays.asList(mustContainTypes));
+        return copy.size() == 0;
+    }
+
+    /**
+     * Type on the right side which is calculated
+     */
+    private List<IToken> rightSideTokens = new ArrayList<>();
+
+    public List<IToken> getRightSideTokens() {
+        List<IToken> rightSideTypes = new ArrayList<>(this.rightSideTokens);
+        return rightSideTypes;
+    }
+
+    public void addRightSideToken(IToken rightSideToken) throws ContextError {
+        if(isConst() && this.rightSideTokens.size() > 0) {
+            throw new ContextError(String.format("Variable %s is const", toString()));
+        }
+        this.rightSideTokens.add(rightSideToken);
+    }
+
+    public boolean rightSideTypeContains(Terminal terminal) {
+        return rightSideTokens.contains(terminal);
     }
 }

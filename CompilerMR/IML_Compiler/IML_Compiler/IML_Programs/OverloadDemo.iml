@@ -1,0 +1,39 @@
+﻿program OverloadDemo ()
+global
+	fun sum(a:int32, b:int32) returns res:int32
+	do
+		res init := a + b
+	endfun;
+
+	fun sum(a:int32, b:int32, c:int32, d:int32, e:int32) returns var res:int32
+	do
+		res init := sum(a,b,c,d) + e
+	endfun;
+
+	fun sum(a:int32, b:int32, c:int32, d:int32) returns var res:int32
+	do
+		res init := sum(a,b,c) + d
+	endfun;
+
+	fun sum(a:int32, b:int32, c:int32, d:int32, e:int32, f:int32) returns var res:int32
+	do
+		res init := sum(a,b,c,d,e) + f
+	endfun;
+
+	fun sum(a:int32, b:int32, c:int32) returns var res:int32
+	do
+		res init := sum(a,b) + c
+	endfun;
+
+	fun sum(a:int32, b:int32, c:int32, d:int32, e:int32, f:int32, g:int32) returns var res:int32
+	do
+		res init := sum(a,b,c,d,e,f) + g
+	endfun
+do
+	debugout sum(3,6);					// 9
+	debugout sum(3,6,9);				// 18
+	debugout sum(3,6,9,12);				// 30
+	debugout sum(3,6,9,12,15);			// 45
+	debugout sum(3,6,9,12,15,18);		// 63
+	debugout sum(3,6,9,12,15,18,21)		// 84
+endprogram

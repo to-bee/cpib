@@ -1,0 +1,25 @@
+program FloatExamplesInvalid()
+global
+	fun example() returns var f:float
+	local
+		var f1:float;
+		var f2:float;
+		var f3:float;
+		var f4:float;
+		var f5:float;
+		var f6:float;
+		var f7:float;
+	do
+		f1 init := .345;
+		f2 init := 435;
+		f3 init := 33.;
+		f4 init := 2..3;
+		f5 init := 66.46.6;
+		f6 init := 5.645’644;
+		f7 init := '.2;
+		f init := INFINITY
+	end fun
+do	
+	var f:float;
+	f init := example();
+end program

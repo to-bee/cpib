@@ -38,14 +38,16 @@ public class TupleTypeCheckTest {
 
         String program;
 
-        // should fail because of int32,bool assign
-        String tupleTest = "program TupleTest()\n" +
+
+        String tupleTest;
+
+        // Should fail because of tuple type declaration is wrong
+        tupleTest = "program TupleTest()\n" +
                 "global\n" +
                 "fun add() returns result:int32\n" +
                 "local\n" +
                 "const a:int32\n" +
                 "do\n" +
-                "a := false;\n" +
                 "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
@@ -53,10 +55,36 @@ public class TupleTypeCheckTest {
                 "endprogram";
         try {
             absSyn = checkProgram(tupleTest);
-            //TODO Assert enablen
-            //Assert.fail();
+        } catch (ContextError e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+
+        // Should fail because of const multiple assignment
+        tupleTest = "program TupleTest()\n" +
+                "global\n" +
+                "fun add() returns result:int32\n" +
+                "local\n" +
+                "var a:bool;\n" +
+                "var b:int32;\n" +
+                "const c:(bool,int32)\n" +
+                "do\n" +
+                "a := false;\n" +
+                "a := true;\n" +
+                "b := 2;\n" +
+                "b := 2;\n" +
+                "c := (true,2);\n" +
+                "result := 2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call add()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(tupleTest);
+//            Assert.fail();
         } catch (ContextError e) {
             System.out.println(e.getMessage());
+//            e.printStackTrace();
         }
     }
 

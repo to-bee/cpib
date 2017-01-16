@@ -1,0 +1,20 @@
+﻿program CastOverload()
+global
+	var i1:int32;
+	var i2:int32;
+	var f1:float;
+	var f2:float;
+
+	fun f(a:int32,b:float) returns var r:float
+	do
+		r init := b;
+		debugout r;
+		debugout a;
+		debugout b;
+		r := b + [float]a
+	endfun
+do
+	i1 init := 5;
+	f1 init := 2.5;
+	debugout f(i1,f1)
+endprogram

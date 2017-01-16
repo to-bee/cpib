@@ -1,0 +1,33 @@
+﻿program Proctest()
+global
+	var a:int32;
+	var b:int32;
+	var c:int32;
+	var d:int32;
+
+	proc Test(inout copy x1:int32, out copy x2:int32, ref x3:int32, in copy x4:int32)
+	do
+		debugout x1;
+		debugout x3;
+		debugout x4;
+		x1 := x1 + 1;
+		x2 init := 42;
+		x3 := x3 + 1;
+		x4 := x4 + 1;
+		debugout x1;
+		debugout x2;
+		debugout x3;
+		debugout x4
+	endproc
+do
+	a init := 10;
+	c init := 30;
+	d init := 40;
+
+	call Test(a,b,c,d);
+
+	debugout a; // 11
+	debugout b; // 42
+	debugout c; // 31
+	debugout d  // 40
+endprogram

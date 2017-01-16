@@ -2,7 +2,6 @@ package conSyn;
 
 import absSyn.OptionalChangeModeAbsSyn;
 import absSyn.ProgramParameterListAbsSyn;
-import context.Mode;
 import scanner.datatypes.TerminalType;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
@@ -33,7 +32,6 @@ public class OptionalChangeModeConcSyn extends AbstractConcSyn implements IConcS
         if (this.terminal == Terminal.IDENT) {
 
         } else if (this.terminal.getType() == TerminalType.CHANGEMODE) {
-            Mode.setCurrentMode(this.terminal);
             consume();
         } else {
             throwGrammarError();

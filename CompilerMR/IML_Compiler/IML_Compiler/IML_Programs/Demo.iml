@@ -1,0 +1,46 @@
+﻿// a: 1. Seitenlänge des Quaders
+// b: 2. Seitenlänge des Quaders
+// h: Höhe des Quaders
+// volumeQube: Volumen des Quaders
+// volumeInsideZyliner: Volumen des eingeschlossenen Zylinders
+
+program VolumeCalculations (in var a:int32, in var b:int32, in var h:int32,
+				out var volumeQube:int64, out var volumeInsideZylinder:float)
+
+global
+	const PI:float;
+	var radius:float;
+
+	// Berechnung des Volumens vom Quader
+	proc CalcVolume(in copy var a:int32, in copy var b:int32, in copy var h:int32, out volume:int64)
+	local
+		var area:int64
+	do
+		area init := [int64]a * [int64]b;
+		volume := area * [int64]h
+	endproc;
+
+	// Berechnung des Volumens vom Zylinder
+	proc CalcVolume(in copy var r:float, in copy var h:int32, out volume:float)
+	global in const PI
+	local
+		var area:float
+	do
+		area init := PI*r*r;
+		volume := area * [float]h
+	endproc
+do
+	PI init := 3.14159265358979323846;
+
+	// radius definieren
+	radius init := [float]a divE [float]2;
+
+	// radius anpassen falls b < a
+	if (a > b) then
+		radius := [float]b divE [float]2
+	endif;
+
+	// Berechnen der Volumen
+	call CalcVolume(a, b, h, volumeQube init);
+	call CalcVolume(radius, h, volumeInsideZylinder)
+endprogram
