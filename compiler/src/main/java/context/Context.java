@@ -53,6 +53,10 @@ public class Context {
 
     private static Map<Ident, VmVar> vmVariables = new HashMap<>();
 
+    public static Map<Ident, VmVar> getVmVariablesMap() {
+        return vmVariables;
+    }
+
     public static VmVar setCurrentVmVariable(IToken token) {
         VmVar vmVar = getVar(token);
         if (vmVar != null) {

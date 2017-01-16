@@ -4,6 +4,7 @@ import absSyn.AbstractAbsSyn;
 import absSyn.ExpressionAbsSyn;
 import absSyn.IAbsSyn;
 import context.Var;
+import context.VmVar;
 import virtualmachineFS2015.ICodeArray;
 import virtualmachineFS2015.IInstructions;
 
@@ -184,6 +185,11 @@ public class VmInstructions {
      */
     public static int storageDeclaration(int loc, int allocSize) throws ICodeArray.CodeTooSmallError {
         COMPILER.getCodeArray().put(loc++, new IInstructions.AllocBlock(allocSize));
+        return loc;
+    }
+
+    public static int loadAddrRel(int loc, VmVar var) throws ICodeArray.CodeTooSmallError {
+        COMPILER.getCodeArray().put(loc++, new IInstructions.LoadAddrRel(var.getRelLocation()));
         return loc;
     }
 }

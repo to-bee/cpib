@@ -83,6 +83,18 @@ public interface IInstructions {
         }
     }
 
+    // load immediate value (value -> stack)
+    class LoadImCompl implements IInstr {
+        protected int real;
+        protected int imag;
+        public LoadImCompl(int real, int imag) { this.real= real; this.imag = imag;}
+        public String toString() { return "LoadImCompl(r:" + real + ",i:" + imag+ ")"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new LoadImComplExec(real, imag);
+        }
+    }
+
+
     // load address relative to frame pointer (address -> stack)
     class LoadAddrRel implements IInstr {
         protected int relAddress;

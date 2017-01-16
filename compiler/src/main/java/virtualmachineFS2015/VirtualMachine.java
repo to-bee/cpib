@@ -161,6 +161,20 @@ public class VirtualMachine implements IVirtualMachine {
         }
     }
 
+    // load immediate value (value -> stack)
+    public class LoadImComplExec extends LoadImCompl implements IExecInstr {
+        public LoadImComplExec(int real, int imag) { super(real, imag); }
+
+        public void execute() throws ExecutionError
+        {
+            // remove following check if use ep
+            if (sp > hp) { throw new ExecutionError(SP_OVER_HP); }
+            store[sp]= Data.complNew(imag, real);
+            sp= sp + 1;
+            pc= pc + 1;
+        }
+    }
+
     // load address relative to frame pointer (address -> stack)
     public class LoadAddrRelExec extends LoadAddrRel implements IExecInstr {
         public LoadAddrRelExec(int relAddress) { super(relAddress); }
@@ -463,8 +477,10 @@ public class VirtualMachine implements IVirtualMachine {
         {
             sp= sp - 1;
             int outputReal = Data.getReal(store[sp]);
+            sp= sp - 1;
             int outputImag = Data.getImag(store[sp]);
             System.out.println("! " + indicator + " : compl = real:" + outputReal + " imag:" + outputImag );
+            pc= pc + 1;
             pc= pc + 1;
         }
     }
