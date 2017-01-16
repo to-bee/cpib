@@ -231,35 +231,45 @@ public class TypeCheckTest {
     }
 
     @Test
-    public void testTuple() {
+    public void testVariableTypes1() {
         IAbsSyn absSyn;
-        /**
-         * scope checking
-         * global storage delcaration, local storage declaration not the same name
-         * fun parameter not the same name as local storage declarations
-         * local storage declarations not two variables with the same name
-         *
-         * type checking
-         * string not assigneable to int etc.
-         *
-         * typechecker
-         * DONE: <=, >=, contexterror,
-         * DONE: ==, != funktioniert
-         * DONE: division, evt. modulo contexterror
-         * DONE: COMPLEMENT contexterror, TODO: complement only allowed for bool?
-         * DONE: &&, || contexterror
-         *
-         * Init checks
-         *
-         *
-         */
-
-        String program;
-
-
         String tupleTest;
 
-        // c has less arguments assigned
+        /*
+         *  var a:int32     a:=2
+         *  var a:bool      a:=true
+         *  const a:bool    a:=true
+         *  var a:int32     a:=true             LType and RType mismatch
+         *  var a:bool      a:=2                LType and RType mismatch
+         *  const a:bool    a:=true; a:=false   Variable a:Bool is const
+         */
+        tupleTest = "program TupleTest()\n" +
+                "global\n" +
+                "fun addVar() returns result:int32\n" +
+                "local\n" +
+                "const a:bool\n" +
+                "do\n" +
+                "a := true;\n" +
+                "a := false;\n" +
+                "result := 2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call addVar()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(tupleTest);
+            //Assert.fail();
+
+        } catch (ContextError e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testTuple1() {
+        IAbsSyn absSyn;
+        String tupleTest;
+
         tupleTest = "program TupleTest()\n" +
                 "global\n" +
                 "fun addVar() returns result:int32\n" +
@@ -279,6 +289,12 @@ public class TypeCheckTest {
         } catch (ContextError e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    @Test
+    public void testTuple2() {
+        IAbsSyn absSyn;
+        String tupleTest;
 
         // c has too many arguments assigned
         tupleTest = "program TupleTest()\n" +
@@ -293,15 +309,25 @@ public class TypeCheckTest {
                 "do\n" +
                 "call addVar()\n" +
                 "endprogram";
-        try {
+        try
+
+        {
             absSyn = checkProgram(tupleTest);
             Assert.fail();
 
-        } catch (ContextError e) {
+        } catch (
+                ContextError e)
+
+        {
             System.out.println(e.getMessage());
         }
 
+    }
 
+    @Test
+    public void testTuple3() {
+        IAbsSyn absSyn;
+        String tupleTest;
         // Thats ok
         tupleTest = "program TupleTest()\n" +
                 "global\n" +
@@ -315,13 +341,24 @@ public class TypeCheckTest {
                 "do\n" +
                 "call addVar()\n" +
                 "endprogram";
-        try {
+        try
+
+        {
             absSyn = checkProgram(tupleTest);
-        } catch (ContextError e) {
+        } catch (
+                ContextError e)
+
+        {
             System.out.println(e.getMessage());
             e.printStackTrace();
             Assert.fail();
         }
+    }
+
+    @Test
+    public void testTuple4() {
+        IAbsSyn absSyn;
+        String tupleTest;
 
         // Should fail because of const multiple assignment
         tupleTest = "program TupleTest()\n" +
@@ -336,14 +373,24 @@ public class TypeCheckTest {
                 "do\n" +
                 "call addVar()\n" +
                 "endprogram";
-        try {
+        try
+
+        {
             absSyn = checkProgram(tupleTest);
             Assert.fail();
-        } catch (ContextError e) {
+        } catch (
+                ContextError e)
+
+        {
             System.out.println(e.getMessage());
 //            e.printStackTrace();
         }
+    }
 
+    @Test
+    public void testTuple5() {
+        IAbsSyn absSyn;
+        String tupleTest;
         // Should fail because of const multiple assignment
         tupleTest = "program TupleTest()\n" +
                 "global\n" +
@@ -358,14 +405,20 @@ public class TypeCheckTest {
                 "do\n" +
                 "call addVar()\n" +
                 "endprogram";
-        try {
+        try
+
+        {
             absSyn = checkProgram(tupleTest);
             Assert.fail();
-        } catch (ContextError e) {
+        } catch (
+                ContextError e)
+
+        {
             System.out.println(e.getMessage());
 //            e.printStackTrace();
         }
     }
+
 
     private IAbsSyn checkProgram(String addProgram) throws ContextError {
         ITokenList tokenList = null;
