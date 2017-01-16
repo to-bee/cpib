@@ -2,20 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5651070e-9a24-4729-a323-810fac4d0144" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/context/Assignment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/context/TokenVm.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/context/VmWar.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/VmTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/TupleTypeCheckTest.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/ExpressionAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/FactorLiteralAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/FactorLiteralAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/SubTypeDeclarationAbsSyn1.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/SubTypeDeclarationAbsSyn1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java" afterPath="$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/SubTypeDeclarationConcSyn1.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/SubTypeDeclarationConcSyn1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/context/DefaultVar.java" afterPath="$PROJECT_DIR$/src/main/java/context/DefaultVar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/context/TupleVar.java" afterPath="$PROJECT_DIR$/src/main/java/context/TupleVar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conSyn/OptionalChangeModeConcSyn.java" afterPath="$PROJECT_DIR$/src/main/java/conSyn/OptionalChangeModeConcSyn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/context/Context.java" afterPath="$PROJECT_DIR$/src/main/java/context/Context.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/context/Var.java" afterPath="$PROJECT_DIR$/src/main/java/context/Var.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/TupleTypeCheckTest.java" afterPath="$PROJECT_DIR$/src/test/java/TupleTypeCheckTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scanner/token/IToken.java" afterPath="$PROJECT_DIR$/src/main/java/scanner/token/IToken.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scanner/tokenList/TokenList.java" afterPath="$PROJECT_DIR$/src/main/java/scanner/tokenList/TokenList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/AbsSynTest.java" afterPath="$PROJECT_DIR$/src/test/java/AbsSynTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ConSynTest.java" afterPath="$PROJECT_DIR$/src/test/java/ConSynTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/TypeCheckTest.java" afterPath="$PROJECT_DIR$/src/test/java/TypeCheckTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,55 +35,79 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="TupleTypeCheckTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TupleTypeCheckTest.java">
+      <file leaf-file-name="VmTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/VmTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Context.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/context/Context.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="185">
-              <caret line="70" column="24" lean-forward="true" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmptyConcSyn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/EmptyConcSyn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmptyAbsSyn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/EmptyAbsSyn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProgramAbsSyn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="59" column="17" lean-forward="false" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Var.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/context/Var.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="797">
-              <caret line="160" column="21" lean-forward="false" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
+              <caret line="32" column="37" lean-forward="false" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2900#2901#0" expanded="true" />
-                <element signature="e#2960#2961#0" expanded="true" />
+                <element signature="e#720#721#0" expanded="true" />
+                <element signature="e#760#761#0" expanded="true" />
+                <element signature="e#1919#1920#0" expanded="true" />
+                <element signature="e#1954#1955#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CmdAssignAbsSyn.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="24" column="45" lean-forward="true" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FactorAbsSyn.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CmdAbsSyn.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/CmdAbsSyn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VmWar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/context/VmWar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="82" column="41" lean-forward="false" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Assignment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/context/Assignment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,8 +116,8 @@
       <file leaf-file-name="DefaultVar.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/context/DefaultVar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="74" column="62" lean-forward="false" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="62" />
+            <state relative-caret-position="195">
+              <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,8 +128,8 @@
       <file leaf-file-name="TypedIdentAbsSyn.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+            <state relative-caret-position="405">
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,32 +137,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SubTypeDeclarationAbsSyn1.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/SubTypeDeclarationAbsSyn1.java">
+      <file leaf-file-name="Var.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/context/Var.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TupleVar.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/context/TupleVar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="74" column="32" lean-forward="true" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FactorAbsSyn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="185">
+              <caret line="53" column="36" lean-forward="true" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1105#1106#0" expanded="true" />
+                <element signature="e#1138#1139#0" expanded="true" />
+                <element signature="e#1933#1934#0" expanded="true" />
+                <element signature="e#1971#1972#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -150,39 +164,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setcont</find>
-      <find>setConte</find>
-      <find>getContext</find>
-      <find>addVariable</find>
-      <find>getCurrent</find>
-      <find>addV</find>
-      <find>getrightside</find>
-      <find>isConst</find>
-      <find>changeM</find>
-      <find>getright</find>
-      <find>setCons</find>
-      <find>add</find>
-      <find>rightSideTokens</find>
-      <find>rightside</find>
-      <find>subType</find>
-      <find>addRight</find>
-      <find>leftsi</find>
-      <find>currentVariable</find>
-      <find>join</find>
       <find>addright</find>
-      <find>right</find>
       <find>checkassign</find>
       <find>rightSideType</find>
       <find>const</find>
       <find>true</find>
-      <find>addRigh</find>
       <find>rightSideTypes</find>
       <find>LType and RType mismatch for variable</find>
       <find>TypedIdentAbsSyn</find>
+      <find>tostr</find>
+      <find>join</find>
       <find>tostring</find>
+      <find>checkProgram</find>
+      <find>addVar</find>
+      <find>components</find>
+      <find>right</find>
+      <find>checkRightSideTypeMatch</find>
+      <find>component</find>
+      <find>new</find>
+      <find>result</find>
+      <find>setConst</find>
+      <find>clear</find>
+      <find>bsp1</find>
+      <find>addRigh</find>
+      <find>setcurr</find>
+      <find>setcurrent</find>
+      <find>(bsp1:Compl</find>
+      <find>expr</find>
+      <find>addV</find>
+      <find>var</find>
+      <find>addVm</find>
     </findStrings>
     <replaceStrings>
       <replace>user/</replace>
+      <replace>(</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/java/conSyn</dir>
@@ -201,16 +216,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalInitsAbsSyn1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalIdentAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalIdentAbsSyn1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalLocalStorageDeclarationsAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalLocalStorageDeclarationsAbsSyn1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalMechModeAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalParametersAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalParametersAbsSyn1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalParametersAbsSyn2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalProgramParamAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalProgramParamAbsSyn1.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalTypeDeclarationAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalTypeDeclarationAbsSyn1.java" />
@@ -232,10 +237,8 @@
         <option value="$PROJECT_DIR$/src/main/java/absSyn/RepRelOprTerm2AbsSyn1.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/RepBoolOprTerm1AbsSyn1.java" />
         <option value="$PROJECT_DIR$/src/main/java/context/AbstractVar.java" />
-        <option value="$PROJECT_DIR$/src/test/java/TypeCheckTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/context/DefaultVariable.java" />
         <option value="$PROJECT_DIR$/src/main/java/scanner/datatypes/Terminal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalChangeModeConcSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalChangeModeAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/SubTypeDeclarationConcSyn1.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/SubTypeDeclarationAbsSyn1.java" />
@@ -244,14 +247,26 @@
         <option value="$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalDeclarationsAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/context/DefaultVar.java" />
         <option value="$PROJECT_DIR$/src/main/java/context/TupleVar.java" />
-        <option value="$PROJECT_DIR$/src/main/java/context/Var.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java" />
         <option value="$PROJECT_DIR$/src/main/java/conSyn/EmptyConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/TokenVm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/scanner/tokenList/TokenList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/TypedIdentConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/GlobalVar.java" />
         <option value="$PROJECT_DIR$/src/test/java/TupleTypeCheckTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/BigGlobalVar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/DefaultVar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/Var.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/VmVar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conSyn/OptionalChangeModeConcSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TypeCheckTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/VmTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/Context.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/Assignment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/context/VmWar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java" />
       </list>
     </option>
   </component>
@@ -477,7 +492,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="conSyn" />
+              <option name="myItemId" value="absSyn" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -498,19 +513,20 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="SearchEverywhereHistoryKey" value="TypedIdentAbsSyn&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/absSyn/TypedIdentAbsSyn.java&#10;empty&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/absSyn/EmptyAbsSyn.java&#10;tuple&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/TupleVar.java&#10;var&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/Var.java&#10;defaul&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/DefaultVar.java&#10;tuplev&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/TupleVar.java&#10;Defau&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/DefaultVar.java&#10;typedidentcon&#9;PSI&#9;JAVA://conSyn.TypedIdentConcSyn&#10;default&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/DefaultVar.java&#10;TupleVa&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/TupleVar.java&#10;defaultv&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/DefaultVar.java&#10;TypedI&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/absSyn/TypedIdentAbsSyn.java&#10;Tup&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/test/java/TupleTypeCheckTest.java&#10;Abstract&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/absSyn/AbstractAbsSyn.java&#10;factor&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/absSyn/FactorAbsSyn.java&#10;optional&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/conSyn/OptionalChangeModeConcSyn.java&#10;TypedIden&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/absSyn/TypedIdentAbsSyn.java&#10;terminal&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/scanner/datatypes/Terminal.java&#10;vari&#9;PSI&#9;JAVA://context.Variable&#10;varia&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/Variable.java" />
+    <property name="SearchEverywhereHistoryKey" value="var&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/DefaultVar.java&#10;vm&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/VmWar.java&#10;storage&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/conSyn/StorageDeclarationConcSyn.java&#10;TypedIdentAbsSyn&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/absSyn/TypedIdentAbsSyn.java&#10;storagede&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/conSyn/StorageDeclarationConcSyn.java&#10;optionalchangemodecon&#9;PSI&#9;JAVA://conSyn.OptionalChangeModeConcSyn&#10;tup&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/TupleVar.java&#10;vminst&#9;PSI&#9;JAVA://vm.VmInstructions&#10;TypedIdent&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/conSyn/TypedIdentConcSyn.java&#10;TypedIdentCon&#9;PSI&#9;JAVA://conSyn.TypedIdentConcSyn&#10;tokenli&#9;PSI&#9;JAVA://scanner.tokenList.TokenList&#10;empty&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/absSyn/EmptyAbsSyn.java&#10;tuple&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/TupleVar.java&#10;defaul&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/DefaultVar.java&#10;tuplev&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/TupleVar.java&#10;Defau&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/DefaultVar.java&#10;typedidentcon&#9;PSI&#9;JAVA://conSyn.TypedIdentConcSyn&#10;default&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/DefaultVar.java&#10;TupleVa&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/TupleVar.java&#10;defaultv&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/DefaultVar.java&#10;TypedI&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/absSyn/TypedIdentAbsSyn.java&#10;Tup&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/test/java/TupleTypeCheckTest.java&#10;Abstract&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/absSyn/AbstractAbsSyn.java&#10;factor&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/absSyn/FactorAbsSyn.java&#10;optional&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/conSyn/OptionalChangeModeConcSyn.java&#10;TypedIden&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/absSyn/TypedIdentAbsSyn.java&#10;terminal&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/scanner/datatypes/Terminal.java&#10;vari&#9;PSI&#9;JAVA://context.Variable&#10;varia&#9;FILE&#9;file:///Users/tobi/repo/fhnw/cpib-github/compiler/src/main/java/context/Variable.java" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="context" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Malin\IdeaProjects\cpib\compiler\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="context" />
       <recent name="absSyn" />
       <recent name="conSyn" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Malin\IdeaProjects\cpib\compiler\src\main\java" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="context" />
     </key>
   </component>
   <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
@@ -623,49 +639,7 @@
       </FILE-GROUP>
     </UpdatedFiles>
   </component>
-  <component name="RunManager" selected="JUnit.TupleTypeCheckTest">
-    <configuration default="false" name="AbsSynTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="compiler" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AbsSynTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="ConSynTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="compiler" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ConSynTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.VmTest">
     <configuration default="false" name="TupleTypeCheckTest.testTuple" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="compiler" />
@@ -715,6 +689,48 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TupleTypeCheckTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="TypeCheckTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="compiler" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TypeCheckTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="VmTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="compiler" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="VmTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -1317,19 +1333,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.AbsSynTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ConSynTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.TupleTypeCheckTest.testTuple" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.TypeCheckTest.testComplex" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.TupleTypeCheckTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.TupleTypeCheckTest.testTuple" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.TypeCheckTest.testComplex" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.TupleTypeCheckTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.TypeCheckTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.VmTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.TupleTypeCheckTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.TypeCheckTest.testComplex" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.TupleTypeCheckTest.testTuple" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ConSynTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AbsSynTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.VmTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.TypeCheckTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.TupleTypeCheckTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.TypeCheckTest.testComplex" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.TupleTypeCheckTest.testTuple" />
       </list>
     </recent_temporary>
   </component>
@@ -1380,7 +1396,7 @@
       <workItem from="1484080729111" duration="3908000" />
       <workItem from="1484256442373" duration="8126000" />
       <workItem from="1484500975582" duration="9918000" />
-      <workItem from="1484565803478" duration="11046000" />
+      <workItem from="1484565803478" duration="16860000" />
     </task>
     <task id="LOCAL-00004" summary="test">
       <created>1482858661917</created>
@@ -1536,43 +1552,50 @@
       <option name="project" value="LOCAL" />
       <updated>1484568414316</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="tuple test">
+      <created>1484577185542</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1484577185542</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TupleTypeCheckTest - 2017.01.16 at 14h 58m 58s.xml">
-      <configuration name="TupleTypeCheckTest" configurationId="JUnit" />
+    <history-entry file="TypeCheckTest - 2017.01.16 at 16h 57m 05s.xml">
+      <configuration name="TypeCheckTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TupleTypeCheckTest - 2017.01.16 at 14h 59m 04s.xml">
-      <configuration name="TupleTypeCheckTest" configurationId="JUnit" />
+    <history-entry file="VmTest - 2017.01.16 at 16h 59m 00s.xml">
+      <configuration name="VmTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TupleTypeCheckTest - 2017.01.16 at 14h 59m 06s.xml">
-      <configuration name="TupleTypeCheckTest" configurationId="JUnit" />
+    <history-entry file="VmTest - 2017.01.16 at 17h 01m 25s.xml">
+      <configuration name="VmTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TupleTypeCheckTest - 2017.01.16 at 15h 15m 07s.xml">
-      <configuration name="TupleTypeCheckTest" configurationId="JUnit" />
+    <history-entry file="VmTest - 2017.01.16 at 17h 01m 42s.xml">
+      <configuration name="VmTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TupleTypeCheckTest - 2017.01.16 at 15h 15m 48s.xml">
-      <configuration name="TupleTypeCheckTest" configurationId="JUnit" />
+    <history-entry file="VmTest - 2017.01.16 at 17h 04m 17s.xml">
+      <configuration name="VmTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TupleTypeCheckTest - 2017.01.16 at 15h 18m 16s.xml">
-      <configuration name="TupleTypeCheckTest" configurationId="JUnit" />
+    <history-entry file="VmTest - 2017.01.16 at 17h 04m 35s.xml">
+      <configuration name="VmTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TupleTypeCheckTest - 2017.01.16 at 15h 20m 53s.xml">
-      <configuration name="TupleTypeCheckTest" configurationId="JUnit" />
+    <history-entry file="VmTest - 2017.01.16 at 17h 05m 51s.xml">
+      <configuration name="VmTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TupleTypeCheckTest - 2017.01.16 at 15h 20m 59s.xml">
-      <configuration name="TupleTypeCheckTest" configurationId="JUnit" />
+    <history-entry file="VmTest - 2017.01.16 at 17h 06m 26s.xml">
+      <configuration name="VmTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TupleTypeCheckTest - 2017.01.16 at 15h 23m 50s.xml">
-      <configuration name="TupleTypeCheckTest" configurationId="JUnit" />
+    <history-entry file="VmTest - 2017.01.16 at 17h 07m 20s.xml">
+      <configuration name="VmTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TupleTypeCheckTest - 2017.01.16 at 15h 32m 53s.xml">
-      <configuration name="TupleTypeCheckTest" configurationId="JUnit" />
+    <history-entry file="VmTest - 2017.01.16 at 17h 08m 31s.xml">
+      <configuration name="VmTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65661000" />
+    <option name="totallyTimeSpent" value="71475000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1599,7 +1622,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24975985" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39943343" sideWeight="0.4958904" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39943343" sideWeight="0.4958904" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299763" sideWeight="0.49866667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32672334" sideWeight="0.48767123" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1609,7 +1632,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.69068205" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881084" sideWeight="0.49615753" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2713816" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295562" sideWeight="0.4980822" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295562" sideWeight="0.4980822" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1677,49 +1700,45 @@
     <MESSAGE value="locations var" />
     <MESSAGE value="variables" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="tuple test" />
+    <option name="LAST_COMMIT_MESSAGE" value="tuple test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TupleTypeCheckTest.java</url>
-          <line>129</line>
+          <url>file://$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java</url>
+          <line>35</line>
           <properties />
-          <option name="timeStamp" value="42" />
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TupleTypeCheckTest.java</url>
-          <line>100</line>
+          <url>file://$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java</url>
+          <line>25</line>
           <properties />
-          <option name="timeStamp" value="67" />
+          <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TupleTypeCheckTest.java</url>
-          <line>108</line>
+          <url>file://$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java</url>
+          <line>33</line>
           <properties />
-          <option name="timeStamp" value="68" />
+          <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TupleTypeCheckTest.java</url>
-          <line>57</line>
+          <url>file://$PROJECT_DIR$/src/main/java/context/VmWar.java</url>
+          <line>86</line>
           <properties />
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TupleTypeCheckTest.java</url>
-          <line>78</line>
-          <properties />
-          <option name="timeStamp" value="71" />
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="72" />
+      <option name="time" value="87" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
-        <watch expression="getRightSideTokens()" language="JAVA" />
-        <watch expression="allowedTypes.contains(rightSideType.getTerminal())" language="JAVA" />
         <watch expression="allowedTypes" language="JAVA" />
+        <watch expression="rightSideType" language="JAVA" />
+        <watch expression="getTokenList().getCurrent()" language="JAVA" />
+        <watch expression="this.exprL.getToken()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -1728,169 +1747,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/SubTypeDeclarationConcSyn1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="34" column="43" lean-forward="true" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-          <folding>
-            <element signature="e#454#455#0" expanded="false" />
-            <element signature="e#489#490#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/TypedIdentConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/TypeDeclarationConcSyn1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <element signature="e#595#596#0" expanded="false" />
-            <element signature="e#630#631#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/IAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalGlobalDeclarationsConcSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="20" column="19" lean-forward="false" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/AbstractAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalDeclarationsAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalGlobalDeclarationsAbsSyn1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/DeclarationsAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/DeclarationAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalParametersAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ParameterListAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/SubTypeDeclarationAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalTypeDeclarationAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/TypeDeclarationAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalChangeModeAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/StorageDeclarationAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalStorageDeclarationsAbsSyn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1919,41 +1775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/BlockCmdAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/CmdAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/context/Context.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#290#291#0" expanded="true" />
-            <element signature="e#327#328#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2065,18 +1886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/context/Var.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="797">
-          <caret line="160" column="21" lean-forward="false" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2900#2901#0" expanded="true" />
-            <element signature="e#2960#2961#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -2085,26 +1894,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="59" column="17" lean-forward="false" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/SubTypeDeclarationAbsSyn1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2125,38 +1918,267 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/parser/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="21" column="10" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/scanner/tokenList/ITokenList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="33" column="16" lean-forward="false" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/scanner/tokenList/TokenList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="57" column="35" lean-forward="false" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/RepeatingOptionalCmdsAbsSyn1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/BlockCmdAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/CmdAssignConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TupleTypeCheckTest.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/BigGlobalVar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/TokenVm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#252#253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/ext/nashorn.jar!/jdk/nashorn/internal/ir/Assignment.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vm/VmInstructions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/VmVar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/TupleVar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/OptionalChangeModeAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/AbstractConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/OptionalChangeModeConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/TypedIdentConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#517#518#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/conSyn/StorageDeclarationConcSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/ProgramAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/DefaultVar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/Var.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
-          <caret line="70" column="24" lean-forward="true" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
+          <caret line="53" column="36" lean-forward="true" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1105#1106#0" expanded="true" />
+            <element signature="e#1138#1139#0" expanded="true" />
+            <element signature="e#1933#1934#0" expanded="true" />
+            <element signature="e#1971#1972#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TypeCheckTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/TypedIdentAbsSyn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+        <state relative-caret-position="405">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/context/DefaultVar.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/FactorAbsSyn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="74" column="62" lean-forward="false" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="62" />
+        <state relative-caret-position="225">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/Context.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="32" column="37" lean-forward="false" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#760#761#0" expanded="true" />
+            <element signature="e#1919#1920#0" expanded="true" />
+            <element signature="e#1954#1955#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/VmTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/Assignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/context/TupleVar.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/context/VmWar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="74" column="32" lean-forward="true" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
+        <state relative-caret-position="347">
+          <caret line="82" column="41" lean-forward="false" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/CmdAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/absSyn/CmdAssignAbsSyn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="24" column="45" lean-forward="true" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
           <folding />
         </state>
       </provider>

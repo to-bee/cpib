@@ -1,5 +1,6 @@
 package absSyn;
 
+import context.Context;
 import context.DefaultVar;
 import context.TupleVar;
 import context.Var;
@@ -35,6 +36,7 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     @Override
     public void check() throws ContextError {
         // Clear existing vars
+        Context.clearVmVariables();
         DefaultVar.clearVariables();
 
         if (this.ident.getValue().length() > 256) {

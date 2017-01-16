@@ -6,10 +6,8 @@ import scanner.token.IToken;
 import scanner.token.Ident;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
 import static scanner.datatypes.Terminal.COMPL;
 
@@ -18,39 +16,16 @@ import static scanner.datatypes.Terminal.COMPL;
  */
 public abstract class Var {
     private static List<Var> variables = new ArrayList<>();
-
+    private static Var currentVariable;
+    private final Ident ident;
     private int relLocation;
     private int absLocation;
-
-    public boolean isConst() {
-        return isConst;
-    }
-
     private boolean isConst;
-
-    public int getRelLocation() {
-        return relLocation;
-    }
-
-    public void setRelLocation(int relLocation) {
-        this.relLocation = relLocation;
-    }
-
-    public int getAbsLocation() {
-        return absLocation;
-    }
-
-    public void setAbsLocation(int absLocation) {
-        this.absLocation = absLocation;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (!(o instanceof DefaultVar))
-            return false;
-        DefaultVar variable = (DefaultVar) o;
-        return getIdent().equals(variable.getIdent()) && getContext().equals(variable.getContext());
-    }
+    private Context context;
+    /**
+     * Type on the right side which is calculated
+     */
+    private List<IToken> rightSideTokens = new ArrayList<>();
 
     public Var(Ident ident) {
 
@@ -83,25 +58,6 @@ public abstract class Var {
         }
     }
 
-    private final Ident ident;
-
-    public Ident getIdent() {
-        return ident;
-    }
-
-    private Context context;
-
-    public Context getContext() {
-        return context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
-    private static Var currentVariable;
-
-
     public static Var getVar(IToken token) {
         if (!(token instanceof Ident)) {
             return null;
@@ -114,14 +70,49 @@ public abstract class Var {
         }
     }
 
+    public boolean isConst() {
+        return isConst;
+    }
+
     public void setConst(boolean isConst) {
         this.isConst = isConst;
     }
 
-    /**
-     * Type on the right side which is calculated
-     */
-    private List<IToken> rightSideTokens = new ArrayList<>();
+    public int getRelLocation() {
+        return relLocation;
+    }
+
+    public void setRelLocation(int relLocation) {
+        this.relLocation = relLocation;
+    }
+
+    public int getAbsLocation() {
+        return absLocation;
+    }
+
+    public void setAbsLocation(int absLocation) {
+        this.absLocation = absLocation;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof DefaultVar))
+            return false;
+        DefaultVar variable = (DefaultVar) o;
+        return getIdent().equals(variable.getIdent()) && getContext().equals(variable.getContext());
+    }
+
+    public Ident getIdent() {
+        return ident;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
 
     public List<IToken> getRightSideTokens() {
         return new ArrayList<>(this.rightSideTokens);
@@ -142,6 +133,7 @@ public abstract class Var {
                 allowedTypes.add(COMPL);
                 allowedTypes.add(Terminal.IMAGINARY_PART);
                 allowedTypes.add(Terminal.INT32);
+                allowedTypes.add(Terminal.LITERAL);
                 break;
             case INT32:
                 allowedTypes.add(Terminal.LITERAL);
@@ -150,9 +142,9 @@ public abstract class Var {
             case BOOL:
                 allowedTypes.add(Terminal.IDENT);
 
-                if(rightSideType instanceof Ident) {
+                if (rightSideType instanceof Ident) {
                     Ident ident = (Ident) rightSideType;
-                    if(!ident.getValue().toLowerCase().equals("true") && !ident.getValue().toLowerCase().equals("false"))
+                    if (!ident.getValue().toLowerCase().equals("true") && !ident.getValue().toLowerCase().equals("false"))
                         throw new ContextError(String.format("LType and RType mismatch for variable: %s. Cannot assign: %s to %s", toString(), leftSideType.toString(), rightSideType.toString()));
                 }
                 break;

@@ -1,7 +1,7 @@
 import absSyn.IAbsSyn;
 import conSyn.IConcSyn;
+import context.TokenVm;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import parser.Parser;
 import scanner.Scanner;
@@ -12,39 +12,37 @@ import scanner.tokenList.ITokenList;
 /**
  * Created by tobi on 27/09/16.
  */
-public class AbsSynTest {
+public class VmTest {
     @Test
     public void testComplex() {
         IAbsSyn absSyn;
-        /**
-         * scope checking
-         * global storage delcaration, local storage declaration not the same name
-         * fun parameter not the same name as local storage declarations
-         * local storage declarations not two variables with the same name
-         *
-         * type checking
-         * string not assigneable to int etc.
-         */
-        String complexAddProgram = "program ComplexTest()\n" +
+        String complexAddProgram;
+
+        complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
-                "fun addVar(param1:Compl) returns s:Int32\n" +
+                "fun addVar() returns s:Int32\n" +
                 "local\n" +
-                "var bsp1:Compl;\n" +
-                "var bsp2:Compl;\n" +
-                "var result:Compl\n" +
+                "var bsp1:Compl;\n" + // init/alloc
+                "var bsp2:Compl;\n" + // init/alloc
+                "var result:Compl\n" + // init/allow
                 "do\n" +
-                "bsp1 := (5+I*4);\n" +
+                "bsp1 := (5+I*4)+I*4;\n" + // assignment
                 "bsp2 := 4-I*5;\n" +
-                "result := bsp1 + bsp2\n" +
+                "result := bsp1 + bsp2 + 4-I*5\n" +
                 "endfun\n" +
                 "do\n" +
                 "call addVar()\n" +
                 "endprogram";
-        absSyn = checkProgram(complexAddProgram);
-        System.out.println(absSyn.toString());
+        try {
+            absSyn = checkProgram(complexAddProgram);
+        } catch (ContextError e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            Assert.fail();
+        }
     }
 
-    private IAbsSyn checkProgram(String addProgram) {
+    private IAbsSyn checkProgram(String addProgram) throws ContextError {
         ITokenList tokenList = null;
         try {
             Scanner scanner = new Scanner();
@@ -63,15 +61,12 @@ public class AbsSynTest {
             Assert.fail();
         }
 
-        try {
-            IAbsSyn absSyn = parseTree.toAbsSyn();
-            return absSyn;
-        } catch (ContextError contextError) {
-            contextError.printStackTrace();
-            Assert.fail();
-        }
+        TokenVm vm = new TokenVm(tokenList);
 
-        return null;
+        IAbsSyn absSyn = parseTree.toAbsSyn();
+        absSyn.check();
+        return absSyn;
+
     }
 
 

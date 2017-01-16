@@ -5,7 +5,7 @@ import context.Type;
 import scanner.datatypes.Terminal;
 
 /**
- * To add the lexemes to the tokenlist
+ * To addVar the lexemes to the tokenlist
  * @author Roman
  *
  */

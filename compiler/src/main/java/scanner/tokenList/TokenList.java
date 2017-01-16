@@ -51,8 +51,14 @@ public class TokenList implements ITokenList {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (IToken token : tokenList) {
-            sb.append(String.format("%s", token.toString()));
+
+        Iterator<IToken> iterator = tokenList.iterator();
+        while(iterator.hasNext())
+        {
+            sb.append(iterator.next().toString());
+            if(iterator.hasNext()) {
+                sb.append(", ");
+            }
         }
 
         return sb.toString();
