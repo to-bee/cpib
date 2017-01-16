@@ -46,6 +46,7 @@ public class TupleTypeCheckTest {
                 "global\n" +
                 "fun add() returns result:int32\n" +
                 "local\n" +
+                "const a:int32\n" +
                 "do\n" +
                 "result := 2\n" +
                 "endfun\n" +
@@ -77,7 +78,8 @@ public class TupleTypeCheckTest {
             absSyn = checkProgram(tupleTest);
             Assert.fail();
         } catch (ContextError e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+//            e.printStackTrace();
         }
     }
 

@@ -19,6 +19,8 @@ public class TupleVar extends Var {
 
     public TupleVar(Ident ident) {
         super(ident);
+        // Tuple is always const
+        setConst(true);
     }
 
     @Override

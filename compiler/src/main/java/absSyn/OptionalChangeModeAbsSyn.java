@@ -13,7 +13,6 @@ public class OptionalChangeModeAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     public OptionalChangeModeAbsSyn(Terminal terminal) {
         this.terminal = terminal;
-
     }
 
     @Override
