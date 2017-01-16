@@ -82,6 +82,7 @@ public class TypeCheckTest {
         try {
             absSyn = checkProgram(complexAddProgram);
         } catch (ContextError e) {
+            e.printStackTrace();
             Assert.fail();
         }
 

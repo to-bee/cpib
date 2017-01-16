@@ -3,7 +3,7 @@ package vm;
 import absSyn.AbstractAbsSyn;
 import absSyn.ExpressionAbsSyn;
 import absSyn.IAbsSyn;
-import context.Variable;
+import context.Var;
 import virtualmachineFS2015.ICodeArray;
 import virtualmachineFS2015.IInstructions;
 
@@ -122,11 +122,11 @@ public class VmInstructions {
         return loc + 1;
     }
 
-    public static void storeGlobal(int loc, Variable var) throws ICodeArray.CodeTooSmallError  {
+    public static void storeGlobal(int loc, Var var) throws ICodeArray.CodeTooSmallError  {
         COMPILER.getCodeArray().put(loc++, new IInstructions.LoadImInt(var.getAbsLocation()));
     }
 
-    public static void storeLocal(int loc, Variable var) throws ICodeArray.CodeTooSmallError {
+    public static void storeLocal(int loc, Var var) throws ICodeArray.CodeTooSmallError {
         COMPILER.getCodeArray().put(loc++, new IInstructions.LoadAddrRel(var.getRelLocation()));
     }
 

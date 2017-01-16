@@ -1,6 +1,7 @@
 package absSyn;
 
-import context.Variable;
+import context.DefaultVar;
+import context.Var;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
 import virtualmachineFS2015.ICodeArray;
@@ -30,9 +31,9 @@ public class FactorMoniadicAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
     @Override
     public void check() throws ContextError {
-        Variable currentVariable = Variable.getCurrentVariable();
+        DefaultVar currentVariable = (DefaultVar) Var.getCurrentVariable();
         currentVariable.setExprOpr(this.exprOpr);
-        Variable var = Variable.getVar(this.exprVariableRight);
+        DefaultVar var = (DefaultVar) Var.getVar(this.exprVariableRight);
         if(var != null) {
             currentVariable.addExprVariable(this.exprVariableRight);
         }
