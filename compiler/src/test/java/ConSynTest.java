@@ -31,7 +31,7 @@ public class ConSynTest {
         IConcSyn parseTree;
         String complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
-                "fun add(arg1:Compl) returns s:Int32\n" +
+                "fun addVar(arg1:Compl) returns s:Int32\n" +
                 "local\n" +
                 "var bsp1:Compl;\n" +
                 "var bsp2:Compl;\n" +
@@ -42,14 +42,14 @@ public class ConSynTest {
                 "result := bsp1 + bsp2\n" +
                 "endfun\n" +
                 "do\n" +
-                "call add()\n" +
+                "call addVar()\n" +
                 "endprogram";
         parseTree = checkProgram(complexAddProgram);
         System.out.println(parseTree.toString());
 
         String complexMultiplyProgram = "program ComplexTest()\n" +
                 "global\n" +
-                "fun add(arg1:Compl) returns s:Int32\n" +
+                "fun addVar(arg1:Compl) returns s:Int32\n" +
                 "local\n" +
                 "var bsp1:Compl;\n" +
                 "var bsp2:Compl;\n" +
@@ -60,7 +60,7 @@ public class ConSynTest {
                 "result := bsp1 * bsp2\n" +
                 "endfun\n" +
                 "do\n" +
-                "call add()\n" +
+                "call addVar()\n" +
                 "endprogram";
         parseTree = checkProgram(complexMultiplyProgram);
     }
@@ -90,7 +90,7 @@ public class ConSynTest {
     public void testTuple() {
         String program = "program TupleTest()\n" +
                 "global\n" +
-                "fun add(mytuple1:(int32,int32)) returns s:Int32\n" +
+                "fun addVar(mytuple1:(int32,int32)) returns s:Int32\n" +
                 "local\n" +
                 "const mytuple1:(int32,int32)\n" +
                 "do\n" +
@@ -98,7 +98,7 @@ public class ConSynTest {
                 "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
-                "call add()\n" +
+                "call addVar()\n" +
                 "endprogram";
         IConcSyn parseTree2 = checkProgram(program);
         parseTree2.toString();

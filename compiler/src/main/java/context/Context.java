@@ -1,13 +1,19 @@
 package context;
 
+import scanner.errors.ContextError;
+import scanner.token.IToken;
 import scanner.token.Ident;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by tobi on 07.01.17.
  */
 public class Context {
     private final Scope scope;
-//    private final Ident ident;
 
     public Context(Scope scope) {
         this.scope = scope;
@@ -23,6 +29,16 @@ public class Context {
 
     private static Context currentContext;
 
+    private static VmWar currentVmVariable;
+    public static VmWar getCurrentVmVariable() {
+        return currentVmVariable;
+    }
+
+    public static void setCurrentVariable(VmWar vmVar) {
+        currentVmVariable = vmVar;
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,5 +52,34 @@ public class Context {
     @Override
     public int hashCode() {
         return scope != null ? scope.hashCode() : 0;
+    }
+
+
+
+
+    private static Map<Ident, VmWar> vmVariables = new HashMap<>();
+
+    public static void addVmVariable(Ident ident) throws ContextError {
+        if (vmVariables.containsKey(ident)) {
+            throw new ContextError(String.format("Cannot define multiple variables: %s", vmVariables));
+        }
+
+        vmVariables.put(ident, new VmWar(ident));
+    }
+
+    public static VmWar getVar(IToken token) {
+        if (!(token instanceof Ident)) {
+            return null;
+        }
+        Ident ident = (Ident) token;
+        if (vmVariables.containsKey(ident)) {
+            return vmVariables.get(ident);
+        } else {
+            return null;
+        }
+    }
+
+    public static void clearVmVariables() {
+        vmVariables.clear();
     }
 }

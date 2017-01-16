@@ -23,10 +23,7 @@ public class TypeDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
     @Override
     public void check() throws ContextError {
-        //Wenn Tuple, dann weiter checken
-        if (subType instanceof TypeDeclarationAbsSyn1) {
-            subType.check();
-        }
+        subType.check();
     }
 
     @Override

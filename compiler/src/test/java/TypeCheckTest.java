@@ -1,5 +1,6 @@
 import absSyn.IAbsSyn;
 import conSyn.IConcSyn;
+import context.TokenVm;
 import org.junit.Assert;
 import org.junit.Test;
 import parser.Parser;
@@ -41,7 +42,7 @@ public class TypeCheckTest {
         // should fail because of boolVal
         complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
-                "fun add(bsp1:Compl) returns s:Int32\n" +
+                "fun addVar() returns s:Int32\n" +
                 "local\n" +
                 "var bsp1:Compl;\n" +
                 "var bsp2:Compl;\n" +
@@ -54,7 +55,7 @@ public class TypeCheckTest {
                 "result := bsp1 + bsp2 + 4-I*5 + boolVal\n" +
                 "endfun\n" +
                 "do\n" +
-                "call add()\n" +
+                "call addVar()\n" +
                 "endprogram";
         try {
             absSyn = checkProgram(complexAddProgram);
@@ -77,7 +78,7 @@ public class TypeCheckTest {
                 "complementVar := !bsp2NoCompl\n" +
                 "endfun\n" +
                 "do\n" +
-                "call add()\n" +
+                "call addVar()\n" +
                 "endprogram";
         try {
             absSyn = checkProgram(complexAddProgram);
@@ -100,7 +101,7 @@ public class TypeCheckTest {
                 "isEquals := bsp1 == bsp2\n" +
                 "endfun\n" +
                 "do\n" +
-                "call add()\n" +
+                "call addVar()\n" +
                 "endprogram";
         try {
             absSyn = checkProgram(complexAddProgram);
@@ -123,7 +124,7 @@ public class TypeCheckTest {
                 "isUnequals := bsp1 != bsp2\n" +
                 "endfun\n" +
                 "do\n" +
-                "call add()\n" +
+                "call addVar()\n" +
                 "endprogram";
         try {
             absSyn = checkProgram(complexAddProgram);
@@ -146,7 +147,7 @@ public class TypeCheckTest {
                 "complementVar := !bsp1Compl\n" +
                 "endfun\n" +
                 "do\n" +
-                "call add()\n" +
+                "call addVar()\n" +
                 "endprogram";
         try {
             absSyn = checkProgram(complexAddProgram);
@@ -171,7 +172,7 @@ public class TypeCheckTest {
                 "andOpVar := bsp1 && bsp2\n" +
                 "endfun\n" +
                 "do\n" +
-                "call add()\n" +
+                "call addVar()\n" +
                 "endprogram";
         try {
             absSyn = checkProgram(complexAddProgram);
@@ -196,7 +197,7 @@ public class TypeCheckTest {
                 "isEquals := bsp1 >= bsp2\n" +
                 "endfun\n" +
                 "do\n" +
-                "call add()\n" +
+                "call addVar()\n" +
                 "endprogram";
         try {
             absSyn = checkProgram(complexAddProgram);
@@ -205,10 +206,10 @@ public class TypeCheckTest {
             System.out.println(e.getMessage());
         }
 
-        // Normal add
+        // Normal addVar
         complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
-                "fun add(bsp1:Compl) returns s:Int32\n" +
+                "fun addVar() returns s:Int32\n" +
                 "local\n" +
                 "var bsp1:Compl;\n" +
                 "var bsp2:Compl;\n" +
@@ -219,13 +220,150 @@ public class TypeCheckTest {
                 "result := bsp1 + bsp2\n" +
                 "endfun\n" +
                 "do\n" +
-                "call add()\n" +
+                "call addVar()\n" +
                 "endprogram";
         try {
             absSyn = checkProgram(complexAddProgram);
         } catch (ContextError contextError) {
             contextError.printStackTrace();
             Assert.fail();
+        }
+    }
+
+    @Test
+    public void testTuple() {
+        IAbsSyn absSyn;
+        /**
+         * scope checking
+         * global storage delcaration, local storage declaration not the same name
+         * fun parameter not the same name as local storage declarations
+         * local storage declarations not two variables with the same name
+         *
+         * type checking
+         * string not assigneable to int etc.
+         *
+         * typechecker
+         * DONE: <=, >=, contexterror,
+         * DONE: ==, != funktioniert
+         * DONE: division, evt. modulo contexterror
+         * DONE: COMPLEMENT contexterror, TODO: complement only allowed for bool?
+         * DONE: &&, || contexterror
+         *
+         * Init checks
+         *
+         *
+         */
+
+        String program;
+
+
+        String tupleTest;
+
+        // c has less arguments assigned
+        tupleTest = "program TupleTest()\n" +
+                "global\n" +
+                "fun addVar() returns result:int32\n" +
+                "local\n" +
+                "c:(bool,int32, bool)\n" +
+                "do\n" +
+                "c := (true, 2);\n" +
+                "result := 2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call addVar()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(tupleTest);
+            Assert.fail();
+
+        } catch (ContextError e) {
+            System.out.println(e.getMessage());
+        }
+
+        // c has too many arguments assigned
+        tupleTest = "program TupleTest()\n" +
+                "global\n" +
+                "fun addVar() returns result:int32\n" +
+                "local\n" +
+                "c:(bool,int32)\n" +
+                "do\n" +
+                "c := (true, 2, 33);\n" +
+                "result := 2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call addVar()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(tupleTest);
+            Assert.fail();
+
+        } catch (ContextError e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        // Thats ok
+        tupleTest = "program TupleTest()\n" +
+                "global\n" +
+                "fun addVar() returns result:int32\n" +
+                "local\n" +
+                "c:(bool,int32)\n" +
+                "do\n" +
+                "c := (true, 2);\n" +
+                "result := 2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call addVar()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(tupleTest);
+        } catch (ContextError e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            Assert.fail();
+        }
+
+        // Should fail because of const multiple assignment
+        tupleTest = "program TupleTest()\n" +
+                "global\n" +
+                "fun addVar() returns result:int32\n" +
+                "local\n" +
+                "c:(bool,int32)\n" +
+                "do\n" +
+                "c := (2, true);\n" +
+                "result := 2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call addVar()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(tupleTest);
+            Assert.fail();
+        } catch (ContextError e) {
+            System.out.println(e.getMessage());
+//            e.printStackTrace();
+        }
+
+        // Should fail because of const multiple assignment
+        tupleTest = "program TupleTest()\n" +
+                "global\n" +
+                "fun addVar() returns result:int32\n" +
+                "local\n" +
+                "const a:int32\n" +
+                "do\n" +
+                "a := false;\n" +
+                "a := true;\n" +
+                "result := 2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call addVar()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(tupleTest);
+            Assert.fail();
+        } catch (ContextError e) {
+            System.out.println(e.getMessage());
+//            e.printStackTrace();
         }
     }
 
@@ -247,6 +385,8 @@ public class TypeCheckTest {
             grammarError.printStackTrace();
             Assert.fail();
         }
+
+        TokenVm vm = new TokenVm(tokenList);
 
         IAbsSyn absSyn = parseTree.toAbsSyn();
         absSyn.check();

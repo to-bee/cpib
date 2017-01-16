@@ -33,7 +33,7 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
          * We need to set the type of the right side,
          * left side types are already set
          */
-        DefaultVar currentVariable = (DefaultVar) Var.getCurrentVariable();
+        Var currentVariable = Var.getCurrentVariable();
         Var var = Var.getVar(this.token);
         if (var == null) {
             /**
@@ -42,24 +42,16 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
              */
             if (this.token.getTerminal() == Terminal.IMAGINARY_PART
                     || this.token.getTerminal() == Terminal.INT32
+                    || this.token.getTerminal() == Terminal.LITERAL
                     || this.token.getTerminal() == Terminal.IDENT) {
                 currentVariable.addRightSideToken(this.token);
             }
-//            switch(this.token.getTerminal()) {
-//                case IMAGINARY_PART:
-//                    currentVariable.addRightSideToken(Terminal.COMPL);
-//                    break;
-//                case LITERAL:
-//                    currentVariable.addRightSideToken(Terminal.INT32);
-//                    break;
-//                case IDENT:
-//                    currentVariable.addRightSideToken(Terminal.BOOL);
-//                    break;
-//            }
-        } else {
-            // We just add this as a type - maybe that's enough - doesn't work compl==compl is ok, but compl==bool is not
-//            currentVariable.addRightSideType(var.getLeftSideType());
-            currentVariable.addExprVariable(this.token);
+        }
+        // We just addVar this as a type - maybe that's enough - doesn't work compl==compl is ok, but compl==bool is not
+        // currentVariable.addRightSideType(var.getLeftSideType());
+        else if(currentVariable instanceof DefaultVar) {
+            DefaultVar defaultVar = (DefaultVar) currentVariable;
+            defaultVar.addExprVariable(this.token);
         }
 
         this.subType.check();
