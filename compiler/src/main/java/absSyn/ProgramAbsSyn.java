@@ -1,9 +1,6 @@
 package absSyn;
 
-import context.Context;
-import context.DefaultVar;
-import context.TupleVar;
-import context.Var;
+import context.*;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
@@ -37,6 +34,8 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         this.terminal = terminal;
     }
 
+    // TODO: Yves: check var tuple -> error
+
     @Override
     public void check() throws ContextError {
         // Clear existing vars
@@ -49,6 +48,11 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         optionalGlobalDeclarationList.check();
         programParameterList.check();
         blockCmdConcSyn.check();
+
+        // New checks with VmVar
+        for (VmVar vmVar : Context.getVmVariables()) {
+            vmVar.checkAssignmentEquality();
+        }
 
         // Check if left type match with right type (for standard variables)
         for (Var aVar : Var.getVariables()) {
@@ -76,7 +80,7 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
                             || opr.getTerminal() == Terminal.LE
                             || opr.getTerminal() == Terminal.CAND
                             || opr.getTerminal() == Terminal.COR) {
-                        throw new ContextError(String.format("%s not allowed for variables of type %s", opr.getTerminal(), Terminal.COMPL));
+                        throw new ContextError(String.format("A variable with type: %s must not contain an RValue with type: %s", Terminal.COMPL, opr.getTerminal()));
                     }
                 }
             } else if(aVar instanceof TupleVar) {

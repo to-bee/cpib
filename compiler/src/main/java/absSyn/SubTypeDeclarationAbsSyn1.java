@@ -1,7 +1,9 @@
 package absSyn;
 
+import context.Context;
 import context.TupleVar;
 import context.Var;
+import context.VmVar;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
 import virtualmachineFS2015.ICodeArray;
@@ -21,6 +23,9 @@ public class SubTypeDeclarationAbsSyn1 extends AbstractAbsSyn implements IAbsSyn
 
     @Override
     public void check() throws ContextError {
+        VmVar currentVmVar = Context.getCurrentVmVariable();
+        currentVmVar.addType(this.token);
+
         Var currentVariable = Var.getCurrentVariable();
         if(currentVariable instanceof TupleVar) {
             TupleVar tupleVar = (TupleVar) currentVariable;

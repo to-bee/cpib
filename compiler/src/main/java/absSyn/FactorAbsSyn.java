@@ -26,27 +26,12 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         //return "FactorAbsSyn:\r\n\t" + subType.toString(counter) +"," + this.terminal;
     }
 
-    private void resolveIdentifierAndAddComponent(Assignment currentAssignment, IToken token) {
-        boolean added = false;
-        if(token instanceof Ident) {
-            VmVar subVmVar = Context.getVar(token);
-            if(subVmVar != null) {
-                added = true;
-                currentAssignment.addComponent(subVmVar);
-            }
-        }
-
-        if(!added) {
-            currentAssignment.addComponent(token);
-        }
-    }
-
     @Override
     public void check() throws ContextError {
-        if(rightToken.getTerminal() != Terminal.BECOMES) {
+        if (rightToken.getTerminal() != Terminal.BECOMES) {
             VmVar currentVmVar = Context.getCurrentVmVariable();
             Assignment currentAssignment = currentVmVar.getCurrentAssignment();
-            if(leftToken.getTerminal() == Terminal.LPAREN) {
+            if (leftToken.getTerminal() == Terminal.LPAREN) {
                 // Create sub assignment and set current to it
                 Assignment subAssignment = new Assignment(currentAssignment);
                 currentAssignment.addComponent(subAssignment);
@@ -55,11 +40,13 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
                 resolveIdentifierAndAddComponent(currentAssignment, this.leftToken);
             }
 
-            if(rightToken.getTerminal() == Terminal.RPAREN) {
-                // Set parent as current assignment
-                currentVmVar.setCurrentAssignment(currentAssignment.getParent());
-            } else {
-                resolveIdentifierAndAddComponent(currentAssignment, this.rightToken);
+            if (rightToken.getTerminal() != Terminal.ENDFUN) {
+                if (rightToken.getTerminal() == Terminal.RPAREN) {
+                    // Set parent as current assignment
+                    currentVmVar.setCurrentAssignment(currentAssignment.getParent());
+                } else {
+                    resolveIdentifierAndAddComponent(currentAssignment, this.rightToken);
+                }
             }
         }
 
@@ -85,12 +72,27 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         }
         // We just addVar this as a type - maybe that's enough - doesn't work compl==compl is ok, but compl==bool is not
         // currentVariable.addRightSideType(var.getLeftSideType());
-        else if(currentVariable instanceof DefaultVar) {
+        else if (currentVariable instanceof DefaultVar) {
             DefaultVar defaultVar = (DefaultVar) currentVariable;
             defaultVar.addExprVariable(this.leftToken);
         }
 
         this.subType.check();
+    }
+
+    private void resolveIdentifierAndAddComponent(Assignment currentAssignment, IToken token) {
+        boolean added = false;
+        if (token instanceof Ident) {
+            VmVar subVmVar = Context.getVar(token);
+            if (subVmVar != null) {
+                added = true;
+                currentAssignment.addComponent(subVmVar);
+            }
+        }
+
+        if (!added) {
+            currentAssignment.addComponent(token);
+        }
     }
 
     @Override

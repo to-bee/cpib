@@ -17,7 +17,7 @@ public class Literal extends BaseToken {
         value = v;
     }
     
-    double getValue() {
+    public double getValue() {
     	return value;
     }
 

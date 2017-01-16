@@ -24,7 +24,7 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     public void check() throws ContextError {
         if (typeDeclarationAbsSyn.getSubType() instanceof TypeDeclarationTypeAbsSyn) {
             //normaler Type
-            DefaultVar var = new DefaultVar(ident, ((TypeDeclarationTypeAbsSyn) typeDeclarationAbsSyn.getSubType()).getType());
+            DefaultVar var = new DefaultVar(ident, ((TypeDeclarationTypeAbsSyn) typeDeclarationAbsSyn.getSubType()).getToken());
             Var.addVariable(var);
             DefaultVar.setCurrentVariable(ident);
         }
@@ -39,6 +39,8 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         }
 
         Context.addVmVariable(ident);
+        Context.setCurrentVmVariable(ident);
+
         typeDeclarationAbsSyn.check();
     }
 
