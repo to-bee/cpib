@@ -73,9 +73,12 @@ public class TupleVar extends Var {
     }
 
     public void addRightSideToken(IToken rightSideToken) throws ContextError {
-        //TODO verfeinern
+        //TODO unterschied bereits initialisiert vs. zu viele parameter rechts
+        //case1 c:(bool,int32)  c:(true,2,2)                Tuple %s cannot take this many parameters
+        //case2 c:(bool,int32)  c:(true,2); c:(false,1)     Tuple %s is constant and can only be initialized once
+
         if(isConst() && this.getRightSideTokens().size() >= this.leftSideTokens.size()) {
-            throw new ContextError(String.format("Tuple %s is const (like all tuples are)", toString()));
+            throw new ContextError(String.format("Tuple %s is constant and can only be initialized once", toString()));
         }
         super.addRightSideToken(rightSideToken);
     }

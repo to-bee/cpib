@@ -75,7 +75,6 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         if (var == null) {
             /**
              * Loads the left side variable and sets type
-             * TODO: Add other types
              */
             if (this.leftToken.getTerminal() == Terminal.IMAGINARY_PART
                     || this.leftToken.getTerminal() == Terminal.INT32
