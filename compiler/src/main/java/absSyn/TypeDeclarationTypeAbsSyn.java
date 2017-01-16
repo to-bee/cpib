@@ -1,5 +1,7 @@
 package absSyn;
 
+import context.Context;
+import context.VmVar;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
 import virtualmachineFS2015.ICodeArray;
@@ -8,23 +10,23 @@ import virtualmachineFS2015.ICodeArray;
  * Created by ylaub on 28.12.2016.
  */
 public class TypeDeclarationTypeAbsSyn extends AbstractAbsSyn implements IAbsSyn {
-    public IToken getType() {
-        return type;
+    public IToken getToken() {
+        return token;
     }
 
-    private IToken type;
+    private IToken token;
 
-    public TypeDeclarationTypeAbsSyn(IToken type) {
-        this.type = type;
+    public TypeDeclarationTypeAbsSyn(IToken token) {
+        this.token = token;
     }
     public String toString(int counter) {
-        return "TypeDeclarationTypeAbsSyn:\r\n\t" + type;
+        return "TypeDeclarationTypeAbsSyn:\r\n\t" + token;
     }
 
     @Override
     public void check() throws ContextError {
-        //todo Type Check
-
+        VmVar currentVmVar = Context.getCurrentVmVariable();
+        currentVmVar.addType(this.token);
     }
 
     @Override

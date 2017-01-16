@@ -70,12 +70,14 @@ public class Context {
         return vmVariables.values();
     }
 
-    public static void addVmVariable(Ident ident) throws ContextError {
+    public static VmVar addVmVariable(Ident ident) throws ContextError {
         if (vmVariables.containsKey(ident)) {
             throw new ContextError(String.format("Cannot define multiple variables: %s", vmVariables));
         }
 
-        vmVariables.put(ident, new VmVar(ident));
+        VmVar vmVar = new VmVar(ident);
+        vmVariables.put(ident, vmVar);
+        return vmVar;
     }
 
     public static VmVar getVar(IToken token) {

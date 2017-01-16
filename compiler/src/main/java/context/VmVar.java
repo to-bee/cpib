@@ -6,37 +6,28 @@ import scanner.token.IToken;
 import scanner.token.Ident;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import static scanner.datatypes.Terminal.COMPL;
+import static scanner.datatypes.Terminal.INT32;
 
 /**
  * Created by tobi on 15.01.17.
  */
 public class VmVar {
+    private final Ident ident;
     private int relLocation;
     private int absLocation;
     private boolean isConst;
     private Context context;
-
-    @Override
-    public String toString() {
-        return String.format("%s", this.ident.getValue());
-    }
-
+    private List<IToken> types = new ArrayList<>();
     private List<Assignment> assignments = new ArrayList();
+    private Assignment currentAssignment;
 
     public VmVar(Ident ident) {
         this.ident = ident;
     }
-
-    public List<Assignment> getAssignments() {
-        return assignments;
-    }
-
-    private final Ident ident;
-
 
     public boolean isConst() {
         return isConst;
@@ -70,6 +61,11 @@ public class VmVar {
         return getIdent().equals(variable.getIdent()) && getContext().equals(variable.getContext());
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s", this.ident.getValue());
+    }
+
     public Ident getIdent() {
         return ident;
     }
@@ -81,7 +77,6 @@ public class VmVar {
     public void setContext(Context context) {
         this.context = context;
     }
-
 
     public void addAssignment() {
         Assignment assignment = new Assignment();
@@ -97,5 +92,116 @@ public class VmVar {
         this.currentAssignment = currentAssignment;
     }
 
-    private Assignment currentAssignment;
+    public void addType(IToken type) {
+        this.types.add(type);
+    }
+
+    /**
+     * Check whether all rightSideTokens match in type with left side.
+     */
+    public void checkAssignmentEquality() throws ContextError {
+        /**
+         * Default var
+         */
+        if (getTypes().size() == 1) {
+            IToken type = getTypes().get(0);
+            for (Assignment assi : getAssignments()) {
+                Terminal rValueType = getRValueType();
+                if(type.getTerminal() != rValueType) {
+                    throw new ContextError(String.format("LType and RType mismatch for variable: %s. Cannot assign: %s to %s", toString(), type.getTerminal(), rValueType));
+                }
+            }
+        }
+        /**
+         * Tuple
+         */
+        else if (getTypes().size() > 0) {
+
+        } else {
+            throw new ContextError(String.format("%s: No Type Assigned", getIdent()));
+        }
+
+//        for (IToken rightSideToken : getRightSideTokens()) {
+//        }
+    }
+
+    public static Terminal getBestMatchingType(List<Terminal> types) throws ContextError {
+        if(types.size() > 0) {
+            // Check if all types are the same
+            for(int i = 0; i<types.size(); i++) {
+                List<Terminal> allowedTypes = getAllowedTypes(types.get(i));
+                // All the other types must be one type of allowedTypes
+                for(int j = i; j<types.size(); j++) {
+                    if (!allowedTypes.contains(types.get(j))) {
+                        throw new ContextError(String.format("Rtype mismatch detected. Variable:%s must not be assigned by a variable of the following type(s): (%s)", types.get(j).getValue(), join(allowedTypes)));
+                    }
+                }
+            }
+
+            if (types.contains(Terminal.COMPL)) {
+                return Terminal.COMPL;
+            } else {
+                return types.get(0);
+            }
+        } else {
+            throw new ContextError("No assignment not allowed");
+        }
+    }
+
+    public static String join(List<Terminal> terminals) {
+        StringBuilder sb = new StringBuilder();
+
+        Iterator<Terminal> iterator = terminals.iterator();
+        while (iterator.hasNext()) {
+            sb.append(iterator.next().getValue());
+            if (iterator.hasNext()) {
+                sb.append(", ");
+            }
+        }
+
+        return sb.toString();
+    }
+
+    private static List<Terminal> getAllowedTypes(Terminal terminal) {
+        List<Terminal> allowedTypes = new ArrayList<>();
+        switch (terminal) {
+            case COMPL:
+                allowedTypes.add(COMPL);
+                allowedTypes.add(INT32);
+//                allowedTypes.add(Terminal.IMAGINARY_PART);
+//                allowedTypes.add(Terminal.LITERAL);
+                break;
+            case INT32:
+                allowedTypes.add(COMPL);
+                allowedTypes.add(INT32);
+//                allowedTypes.add(Terminal.LITERAL);
+                break;
+            case BOOL:
+                allowedTypes.add(Terminal.BOOL);
+                break;
+        }
+
+        return allowedTypes;
+    }
+
+    public List<IToken> getTypes() {
+        return new ArrayList<>(types);
+    }
+
+    public List<Assignment> getAssignments() {
+        return assignments;
+    }
+
+    public Terminal getRValueType() throws ContextError {
+        List<Terminal> types = new ArrayList<>();
+        for (Assignment assi : getAssignments()) {
+            types.add(assi.getRValueType());
+        }
+
+        return getBestMatchingType(types);
+    }
+
+    public boolean isTuple() {
+        return getTypes().size() > 1;
+    }
 }
