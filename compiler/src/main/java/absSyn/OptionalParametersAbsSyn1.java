@@ -20,6 +20,13 @@ public class OptionalParametersAbsSyn1 extends AbstractAbsSyn implements IAbsSyn
         this.repeatingOptionalParametersAbsSyn = repeatingOptionalParametersAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "OptionalParametersAbsSyn2:\r\n\t" + ident.getValue() +
+                "," + parameterAbsSyn.toString(counter) +
+                "," + repeatingOptionalParametersAbsSyn.toString(counter);
+    }
+
+
     @Override
     public void check() throws ContextError {
         ident.check();

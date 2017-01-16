@@ -14,6 +14,9 @@ public class OptionalTypeDeclarationAbsSyn1 extends AbstractAbsSyn implements IA
 
         this.subTypeDeclarationAbsSyn = subTypeDeclarationAbsSyn;
     }
+    public String toString(int counter) {
+        return "OptionalTypeDeclarationAbsSyn1:\r\n\t" + subTypeDeclarationAbsSyn.toString(counter);
+    }
 
     @Override
     public void check() throws ContextError {

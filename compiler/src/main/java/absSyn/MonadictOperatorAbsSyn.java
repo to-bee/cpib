@@ -19,6 +19,11 @@ public class MonadictOperatorAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     }
 
+    public String toString(int counter) {
+        return "DeclarationsAbsSyn:\r\n\t" + token.getTerminal()
+                + "," + this.terminal;
+    }
+
     public IToken getToken() {
         return token;
     }

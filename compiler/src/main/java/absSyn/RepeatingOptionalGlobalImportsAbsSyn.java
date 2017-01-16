@@ -19,6 +19,11 @@ public class RepeatingOptionalGlobalImportsAbsSyn extends AbstractAbsSyn impleme
         this.terminal = terminal;
     }
 
+    public String toString(int counter) {
+        return "RepeatingOptionalGlobalImportsAbsSyn:\r\n\t" + subType.toString(counter) + "," + this.terminal;
+    }
+
+
     @Override
     public void check() throws ContextError {
         subType.check();

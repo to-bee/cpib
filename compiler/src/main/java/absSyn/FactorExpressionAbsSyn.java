@@ -26,6 +26,10 @@ public class FactorExpressionAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         return repeatingOptionalExpressionsAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "FactorExpressionsAbsSyn:\r\n\t" + expressionAbsSyn.toString(counter) +"," + repeatingOptionalExpressionsAbsSyn.toString(counter);
+    }
+
     public FactorExpressionAbsSyn(IToken token, ExpressionAbsSyn expressionAbsSyn, RepeatingOptionalExpressionsAbsSyn repeatingOptionalExpressionsAbsSyn) {
         this.token = token;
 

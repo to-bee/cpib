@@ -16,6 +16,11 @@ public class ExpressionListAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.optionalExpressionsAbsSyn = optionalExpressionsAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "ExpressionListAbsSyn:\r\n\t" + optionalExpressionsAbsSyn.toString(counter);
+    }
+
+
     @Override
     public void check() throws ContextError {
         optionalExpressionsAbsSyn.check();

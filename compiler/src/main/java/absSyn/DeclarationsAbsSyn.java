@@ -18,6 +18,12 @@ public class DeclarationsAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.terminal = terminal;
     }
 
+    public String toString(int counter) {
+        return "DeclarationsAbsSyn:\r\n\t" + declarationAbsSyn.toString(counter)
+                + "," + repeatingOptionalDeclarationsAbsSyn.toString(counter)
+                + "," + this.terminal;
+    }
+
     @Override
     public void check() throws ContextError {
         declarationAbsSyn.check();

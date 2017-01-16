@@ -23,6 +23,11 @@ public class FactorLiteralAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         this.token = token;
     }
 
+
+    public String toString(int counter) {
+        return "FactorLiteralAbsSyn:\r\n\t" + this.token.getTerminal();
+    }
+
     @Override
     public void check() throws ContextError {
         if(Variable.getCurrentVariable().rightSideTypeContains(Terminal.COMPL)) {

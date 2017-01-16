@@ -17,6 +17,9 @@ public class TypeDeclarationTypeAbsSyn extends AbstractAbsSyn implements IAbsSyn
     public TypeDeclarationTypeAbsSyn(IToken type) {
         this.type = type;
     }
+    public String toString(int counter) {
+        return "TypeDeclarationTypeAbsSyn:\r\n\t" + type;
+    }
 
     @Override
     public void check() throws ContextError {

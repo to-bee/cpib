@@ -16,6 +16,10 @@ public class CmdCallAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         this.optionalGlobalInitsAbsSyn = optionalGlobalInitsAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "cmdCallAbsSyn:\r\n\t" + expressionListAbsSyn.toString(counter) + "," + optionalGlobalInitsAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         expressionListAbsSyn.check();

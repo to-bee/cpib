@@ -14,6 +14,10 @@ public class OptionalGlobalInitsAbsSyn1 extends AbstractAbsSyn implements IAbsSy
         this.identsAbsSyn = identsAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "OptionalGlobalInitsAbsSyn1:\r\n\t" + identsAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         identsAbsSyn.check();

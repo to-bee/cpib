@@ -21,6 +21,10 @@ public class RepRelOprTerm2AbsSyn1 extends AbstractAbsSyn implements IAbsSyn {
         this.repRelOprTerm2AbsSyn = repRelOprTerm2AbsSyn;
     }
 
+    public String toString(int counter) {
+        return "RepRelOprTerm2AbsSyn1:\r\n\t" + relOpr.getTerminal() + "," + relOprVariableRight.getTerminal() +"," + term2AbsSyn.toString(counter) + "," + repRelOprTerm2AbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         Variable currentVariable = Variable.getCurrentVariable();

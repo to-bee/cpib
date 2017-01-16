@@ -21,6 +21,11 @@ public class RepeatingOptionalProgramParametersAbsSyn1 extends AbstractAbsSyn im
         this.repeatingOptionalParametersAbsSyn = repeatingOptionalParametersAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "RepeatingOptionalProgramParametersAbsSyn1:\r\n\t" + optionalFlowModeAbsSyn.toString(counter) + "," + typedIdentAbsSyn.toString(counter) + optionalFlowModeAbsSyn.toString(counter) + "," + repeatingOptionalParametersAbsSyn.toString(counter);
+    }
+
+
     @Override
     public void check() throws ContextError {
         optionalFlowModeAbsSyn.check();

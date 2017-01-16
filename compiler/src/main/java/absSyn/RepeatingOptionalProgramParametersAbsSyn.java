@@ -15,6 +15,10 @@ public class RepeatingOptionalProgramParametersAbsSyn extends AbstractAbsSyn imp
         this.subType = subType;
     }
 
+    public String toString(int counter) {
+        return "RepeatingOptionalProgramParametersAbsSyn:\r\n\t" + subType.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         subType.check();

@@ -12,12 +12,14 @@ public class OptionalExpressionsAbsSyn extends AbstractAbsSyn implements IAbsSyn
     private IAbsSyn subType;
     private final Terminal terminal;
 
+    public String toString(int counter) {
+        return "OptionalExpressionsAbsSyn:\r\n\t" + subType.toString(counter) +"," + this.terminal;
+    }
+
 
     public OptionalExpressionsAbsSyn(IAbsSyn subType, Terminal terminal) {
-
         this.subType = subType;
         this.terminal = terminal;
-
     }
 
     @Override

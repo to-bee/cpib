@@ -20,6 +20,9 @@ public class RepMultOprFactorAbsSyn1 extends AbstractAbsSyn implements IAbsSyn {
         this.repMultOprFactorAbsSyn = repMultOprFactorAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "RepMultOprFactorAbsSyn1:\r\n\t" + token.getTerminal() + "," + factorAbsSyn.toString(counter) + "," + repMultOprFactorAbsSyn.toString(counter);
+    }
     @Override
     public void check() throws ContextError {
         // TODO: move this maybe

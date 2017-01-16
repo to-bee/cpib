@@ -32,4 +32,9 @@ public class CmdAssignAbsSyn extends AbstractAbsSyn implements IAbsSyn {
     public int code(int location) throws ICodeArray.CodeTooSmallError {
         return VmInstructions.assign(location, exprL, exprR);
     }
+
+    public String toString(int counter) {
+        return "cmdAssignAbsSyn:\r\n\t" +
+                exprL.toString(counter) + ":" + exprL.getToken() + "," + exprR.toString(counter);
+    }
 }

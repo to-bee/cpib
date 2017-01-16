@@ -19,6 +19,11 @@ public class RepeatingOptionalDeclarationsAbsSyn extends AbstractAbsSyn implemen
         this.terminal = terminal;
     }
 
+    public String toString(int counter) {
+        return "RepeatingOptionalDeclarationsAbsSyn:\r\n\t" + subType.toString(counter) + "," + this.terminal;
+    }
+
+
     @Override
     public void check() throws ContextError {
         subType.check();

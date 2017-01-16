@@ -33,6 +33,10 @@ public class FunctionDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn
         this.terminal = terminal;
     }
 
+    public String toString(int counter) {
+        return "FunctionDeclarationAbsSyn:\r\n\t" + parameterListAbsSyn.toString(counter) +"," + storageDeclarationAbsSyn.toString(counter) +"," + optionalGlobalImportsAbsSyn.toString(counter)+"," + optionalLocalStorageDeclarationsAbsSyn.toString(counter) + "," + blockCmdAbsSyn.toString(counter) + "," + this.terminal;
+    }
+
     @Override
     public void check() throws ContextError {
         ident.check();

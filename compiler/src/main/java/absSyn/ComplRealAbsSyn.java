@@ -18,6 +18,11 @@ public class ComplRealAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.expressionAbsSyn = expressionAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "ComplRealAbsSyn:\r\n\t" + token.getTerminal()
+                + "," + this.expressionAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         expressionAbsSyn.check();

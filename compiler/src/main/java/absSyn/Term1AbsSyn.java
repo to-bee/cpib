@@ -20,6 +20,11 @@ public class Term1AbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.terminal = terminal;
     }
 
+
+    public String toString(int counter) {
+        return "Term1AbsSyn:\r\n\t" + term2AbsSyn.toString(counter) + "," + repRelOprTerm2AbsSyn.toString(counter)+ "," + this.terminal;
+    }
+
     @Override
     public void check() throws ContextError {
         this.term2AbsSyn.check();

@@ -15,6 +15,9 @@ public class RepeatingOptionalDeclarationsAbsSyn1 extends AbstractAbsSyn impleme
         this.declarationAbsSyn = declarationAbsSyn;
         this.repeatingOptionalDeclarationsAbsSyn = repeatingOptionalDeclarationsAbsSyn;
     }
+    public String toString(int counter) {
+        return "RepeatingOptionalDeclarationsAbsSyn1:\r\n\t" + declarationAbsSyn.toString(counter) + "," + repeatingOptionalDeclarationsAbsSyn.toString(counter);
+    }
 
     @Override
     public void check() throws ContextError {

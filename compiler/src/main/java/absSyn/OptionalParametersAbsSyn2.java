@@ -17,6 +17,12 @@ public class OptionalParametersAbsSyn2 extends AbstractAbsSyn implements IAbsSyn
         this.repeatingOptionalParametersAbsSyn = repeatingOptionalParametersAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "OptionalParametersAbsSyn2:\r\n\t" + parameterAbsSyn.toString(counter) +
+                "," + repeatingOptionalParametersAbsSyn.toString(counter);
+    }
+
+
     @Override
     public void check() throws ContextError {
         parameterAbsSyn.check();

@@ -19,6 +19,12 @@ public class ParameterListAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.terminal = terminal;
     }
 
+    public String toString(int counter) {
+        return "ParameterListAbsSyns:\r\n\t" + optionalParametersAbsSyn.toString(counter)
+                + "," + this.terminal;
+    }
+
+
     @Override
     public void check() throws ContextError {
         this.optionalParametersAbsSyn.check();

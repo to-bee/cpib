@@ -22,6 +22,10 @@ public class Term1ConcSyn extends AbstractConcSyn implements IConcSyn {
         return new Term1AbsSyn(term2ConcSyn.toAbsSyn(), repRelOprTerm2ConcSyn.toAbsSyn(), terminal);
     }
 
+    public String toString() {
+        return "Term1:" + this.terminal;
+    }
+
 
     @Override
     public void parse() throws GrammarError {

@@ -16,6 +16,10 @@ public class RepeatingOptionalExpressionsAbsSyn1 extends AbstractAbsSyn implemen
         this.repeatingOptionalExpressionsAbsSyn = repeatingOptionalExpressionsAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "RepeatingOptionalExpressionsAbsSyn1:\r\n\t" + expressionAbsSyn.toString(counter) + "," + repeatingOptionalExpressionsAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         expressionAbsSyn.check();

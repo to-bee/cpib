@@ -13,6 +13,11 @@ public class RepeatingOptionalParametersAbsSyn extends AbstractAbsSyn implements
         this.subType = subType;
     }
 
+    public String toString(int counter) {
+        return "RepeatingOptionalParametersAbsSyn:\r\n\t" + subType.toString(counter);
+    }
+
+
     @Override
     public void check() throws ContextError {
         subType.check();

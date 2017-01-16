@@ -16,6 +16,11 @@ public class RepeatingOptionalCmdsAbsSyn1 extends AbstractAbsSyn implements IAbs
         this.repeatingOptionalCmdsAbsSyn = repeatingOptionalCmdsAbsSyn;
     }
 
+
+    public String toString(int counter) {
+        return "RepeatingOptionalCmdsAbsSyn1:\r\n\t" + cmdAbsSyn.toString(counter) + "," + repeatingOptionalCmdsAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         cmdAbsSyn.check();

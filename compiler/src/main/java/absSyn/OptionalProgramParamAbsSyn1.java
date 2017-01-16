@@ -20,6 +20,13 @@ public class OptionalProgramParamAbsSyn1  extends AbstractAbsSyn implements IAbs
         this.repeatingOptionalProgramParametersAbsSyn = repeatingOptionalProgramParametersAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "OptionalProgramParamAbsSyn1:\r\n\t" + optionalFlowModeAbsSyn.toString(counter) +
+                "," + optionalChangeModeAbsSyn.toString(counter) +
+        "," + typedIdentAbsSyn.toString(counter) +
+        "," + repeatingOptionalProgramParametersAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         optionalFlowModeAbsSyn.check();

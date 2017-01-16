@@ -26,6 +26,12 @@ public class DeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         subType.check();
     }
 
+    public String toString(int counter) {
+        return "DeclarationAbsSyn:\r\n\t" + subType.toString(counter)
+                + "," + this.terminal;
+    }
+
+
     @Override
     public int code(int location) throws ICodeArray.CodeTooSmallError {
         return 0;

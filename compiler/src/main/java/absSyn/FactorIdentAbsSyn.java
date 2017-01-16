@@ -19,6 +19,11 @@ public class FactorIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         this.optionalIdentAbsSyn = optionalIdentAbsSyn;
     }
 
+
+    public String toString(int counter) {
+        return "FactorIdentAbsSyn:\r\n\t" + this.ident +"," + optionalIdentAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         ident.check();

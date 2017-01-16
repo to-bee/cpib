@@ -18,6 +18,12 @@ public class CmdWhileAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         this.terminal = terminal;
     }
 
+
+
+    public String toString(int counter) {
+        return "cmdWhileAbsSyn:\r\n\t" + exprWhile.toString(counter) + "," + cmdWhile.toString(counter)+ "," + this.terminal;
+    }
+
     @Override
     public void check() throws ContextError {
         exprWhile.check();

@@ -17,6 +17,10 @@ public class RepAddOprTerm3AbsSyn1 extends AbstractAbsSyn implements IAbsSyn {
         this.repAddOprTerm3AbsSyn = repAddOprTerm3AbsSyn;
     }
 
+    public String toString(int counter) {
+        return "RepAddOprTerm3AbsSyn1:\r\n\t" + term3AbsSyn.toString(counter) + "," + repAddOprTerm3AbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         term3AbsSyn.check();

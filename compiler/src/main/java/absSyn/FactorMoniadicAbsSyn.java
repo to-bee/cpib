@@ -23,6 +23,11 @@ public class FactorMoniadicAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         this.factorAbsSyn = factorAbsSyn;
     }
 
+
+    public String toString(int counter) {
+        return "FactorMonadicAbsSyn:\r\n\t" + this.exprOpr +"," + exprVariableRight.toString() +"," + monadictOperatorAbsSyn.toString(counter)+"," + factorAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         Variable currentVariable = Variable.getCurrentVariable();

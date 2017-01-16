@@ -15,6 +15,7 @@ public class OptionalGlobalDeclarationsAbsSyn1 extends AbstractAbsSyn implements
         this.declarationsAbsSyn = declarationsAbsSyn;
     }
 
+
     @Override
     public void check() throws ContextError {
         declarationsAbsSyn.check();

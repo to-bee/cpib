@@ -23,6 +23,7 @@ public class GlobalImportAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.terminal = terminal;
     }
 
+
     @Override
     public void check() throws ContextError {
         ident.check();

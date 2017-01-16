@@ -18,6 +18,11 @@ public class OptionalGlobalImportsAbsSyn extends AbstractAbsSyn implements IAbsS
         this.terminal = terminal;
     }
 
+    public String toString(int counter) {
+        return "OptionalFlowModeAbsSyn:\r\n\t" + subType.toString(counter) +
+              "," + this.terminal;
+    }
+
     @Override
     public void check() throws ContextError {
         subType.check();

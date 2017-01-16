@@ -15,6 +15,10 @@ public class OptionalLocalStorageDeclarationsAbsSyn extends AbstractAbsSyn imple
         this.subType = subType;
     }
 
+    public String toString(int counter) {
+        return "OptionalIOptionalLocalStorageDeclarationsAbsSyndentAbsSyn:\r\n\t" + subType.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         subType.check();

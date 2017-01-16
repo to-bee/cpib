@@ -15,6 +15,10 @@ public class OptionalTypeDeclarationAbsSyn extends AbstractAbsSyn implements IAb
 
         this.subType = subType;
     }
+    public String toString(int counter) {
+        return "OptionalTypeDeclarationAbsSyn:\r\n\t" + subType.toString(counter);
+    }
+
 
     @Override
     public void check() throws ContextError {

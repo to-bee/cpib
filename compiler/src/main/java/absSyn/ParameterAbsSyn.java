@@ -23,6 +23,12 @@ public class ParameterAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.storageDeclarationAbsSyn = storageDeclarationAbsSyn;
         this.terminal = terminal;
     }
+    public String toString(int counter) {
+        return "ParameterAbsSyn:\r\n\t" + optionalFlowModeAbsSyn.toString(counter)
+                + optionalMechModeAbsSyn.toString(counter)
+                + storageDeclarationAbsSyn.toString(counter)
+                + "," + this.terminal;
+    }
 
     @Override
     public void check() throws ContextError {

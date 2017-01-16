@@ -13,6 +13,11 @@ public class OptionalIdentAbsSyn1 extends AbstractAbsSyn implements IAbsSyn {
         this.expressionListAbsSyn = expressionListAbsSyn;
     }
 
+
+    public String toString(int counter) {
+        return "OptionalIdentAbsSyn1:\r\n\t" + expressionListAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         expressionListAbsSyn.check();

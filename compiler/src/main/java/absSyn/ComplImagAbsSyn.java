@@ -26,6 +26,11 @@ public class ComplImagAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.expressionAbsSyn = expressionAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "ComplImagAbsSyn:\r\n\t" + token.getTerminal()
+                + "," + this.expressionAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         expressionAbsSyn.check();

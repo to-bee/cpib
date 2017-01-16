@@ -15,6 +15,10 @@ public class OptionalMechModeAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     }
 
+    public String toString(int counter) {
+        return "OptionalMechModeAbsSyn:\r\n\t" +  this.terminal;
+    }
+
     @Override
     public void check() throws ContextError {
 

@@ -15,6 +15,10 @@ public class RepeatingOptionalStorageDeclarationsAbsSyn1 extends AbstractAbsSyn 
         this.repeatingOptionalStorageDeclarationsAbsSyn = repeatingOptionalStorageDeclarationsAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "RepeatingOptionalStorageDeclarationsAbsSyn1:\r\n\t" + storageDeclarationAbsSyn.toString(counter) + "," + repeatingOptionalStorageDeclarationsAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         storageDeclarationAbsSyn.check();

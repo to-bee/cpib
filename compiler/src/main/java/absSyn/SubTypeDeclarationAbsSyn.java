@@ -14,6 +14,9 @@ public class SubTypeDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn 
 
         this.subType = subType;
     }
+    public String toString(int counter) {
+        return "SubTypeDeclarationAbsSyn:\r\n\t" + subType.toString(counter);
+    }
 
     @Override
     public void check() throws ContextError {

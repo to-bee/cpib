@@ -23,6 +23,10 @@ public class ExpressionAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.terminal = terminal;
     }
 
+    public String toString(int counter) {
+        return "cmdExpressionAbsSyn:\r\n\t" + term1AbsSyn.toString(counter) + "," + repBoolOprTerm1AbsSyn.toString(counter)+ "," + this.terminal;
+    }
+
     @Override
     public void check() throws ContextError {
         Variable currentVariable = Variable.getCurrentVariable();

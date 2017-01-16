@@ -15,6 +15,10 @@ public class RepeatingOptionalParametersAbsSyn1 extends AbstractAbsSyn implement
         this.repeatingOptionalParametersAbsSyn1 = repeatingOptionalParametersAbsSyn1;
     }
 
+    public String toString(int counter) {
+        return "RepeatingOptionalParametersAbsSyn1:\r\n\t" + parameterAbsSyn.toString(counter) + "," + repeatingOptionalParametersAbsSyn1.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         parameterAbsSyn.check();

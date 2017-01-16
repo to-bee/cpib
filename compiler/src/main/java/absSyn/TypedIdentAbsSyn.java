@@ -24,6 +24,9 @@ public class TypedIdentAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         this.ident = ident;
         this.typeDeclarationAbsSyn = typeDeclarationAbsSyn;
     }
+    public String toString(int counter) {
+        return "TypedIdentAbsSyn:\r\n\t" + this.ident + "," + typeDeclarationAbsSyn.toString(counter);
+    }
 
     @Override
     public void check() throws ContextError {

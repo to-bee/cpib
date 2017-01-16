@@ -18,6 +18,11 @@ public class OptionalGlobalImportsAbsSyn1 extends AbstractAbsSyn implements IAbs
         this.repeatingOptionalGlobalImportsAbsSyn = repeatingOptionalGlobalImportsAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "OptionalGlobalImportsAbsSyn1:\r\n\t" + globalImportAbsSyn.toString(counter) +
+                "," + repeatingOptionalGlobalImportsAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         globalImportAbsSyn.check();

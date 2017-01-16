@@ -19,6 +19,10 @@ public class Term3AbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.terminal = terminal;
     }
 
+    public String toString(int counter) {
+        return "Term3AbsSyn:\r\n\t" + factorAbsSyn.toString(counter) + "," + repMultOprFactorAbsSyn.toString(counter)+ "," + this.terminal;
+    }
+
     @Override
     public void check() throws ContextError {
         this.factorAbsSyn.check();

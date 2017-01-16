@@ -21,6 +21,11 @@ public class RepBoolOprTerm1AbsSyn1 extends AbstractAbsSyn implements IAbsSyn{
         this.repBoolOprTerm1AbsSyn = repBoolOprTerm1AbsSyn;
     }
 
+
+    public String toString(int counter) {
+        return "RepBoolOprTerm1AbsSyn:\r\n\t" + this.exprOpr.toString() +"," + this.exprVarRight.toString() + "," + this.term1AbsSyn.toString(counter) + ", " + repBoolOprTerm1AbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         Variable currentVariable = Variable.getCurrentVariable();

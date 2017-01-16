@@ -16,6 +16,10 @@ public class RepeatingOptionalGlobalImportsAbsSyn1 extends AbstractAbsSyn implem
         this.repeatingOptionalGlobalImportsAbsSyn1 = repeatingOptionalGlobalImportsAbsSyn1;
     }
 
+    public String toString(int counter) {
+        return "RepeatingOptionalGlobalImportsAbsSyn1:\r\n\t" + globalImportAbsSyn.toString(counter) + "," + repeatingOptionalGlobalImportsAbsSyn1.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         globalImportAbsSyn.check();

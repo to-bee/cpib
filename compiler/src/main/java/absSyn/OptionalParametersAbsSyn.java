@@ -17,6 +17,11 @@ public class OptionalParametersAbsSyn extends AbstractAbsSyn implements IAbsSyn 
         this.terminal = terminal;
     }
 
+    public String toString(int counter) {
+        return "OptionalParametersAbsSyn:\r\n\t" + subType.toString(counter) +
+                "," + this.terminal;
+    }
+
     @Override
     public void check() throws ContextError {
         subType.check();

@@ -8,6 +8,9 @@ import virtualmachineFS2015.ICodeArray;
  */
 public class CmdSkipAbsSyn extends AbstractAbsSyn implements IAbsSyn {
 
+    public String toString(int counter) {
+        return "CmdSkipAbsSyn:\r\n";
+    }
 
     @Override
     public void check() throws ContextError {

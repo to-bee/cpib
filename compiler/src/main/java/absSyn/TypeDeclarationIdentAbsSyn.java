@@ -13,6 +13,9 @@ public class TypeDeclarationIdentAbsSyn extends AbstractAbsSyn implements IAbsSy
     public TypeDeclarationIdentAbsSyn(Ident ident) {
         this.ident = ident;
     }
+    public String toString(int counter) {
+        return "TypeDeclarationIdentAbsSyn:\r\n\t" + this.ident;
+    }
 
     @Override
     public void check() throws ContextError {

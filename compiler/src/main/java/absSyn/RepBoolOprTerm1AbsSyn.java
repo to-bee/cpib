@@ -19,6 +19,11 @@ public class RepBoolOprTerm1AbsSyn extends AbstractAbsSyn implements IAbsSyn {
         this.terminal = terminal;
     }
 
+
+    public String toString(int counter) {
+        return "RepBoolOprTerm1AbsSyn:\r\n\t" + this.subType.toString(counter) +"," + this.terminal;
+    }
+
     @Override
     public void check() throws ContextError {
         subType.check();

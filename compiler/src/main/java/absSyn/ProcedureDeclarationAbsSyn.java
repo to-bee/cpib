@@ -27,6 +27,15 @@ public class ProcedureDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSy
         this.terminal = terminal;
     }
 
+    public String toString(int counter) {
+        return "ProcedureDeclarationAbsSyn:\r\n\t" + this.ident + "," + parameterListAbsSyn.toString(counter)
+                + "," + optionalGlobalImportsAbsSyn.toString(counter)
+                + "," + optionalLocalStorageDeclarationsAbsSyn.toString(counter)
+                + "," + blockCmdAbsSyn.toString(counter)
+                + "," + this.terminal;
+    }
+
+
     @Override
     public void check() throws ContextError {
         ident.check();

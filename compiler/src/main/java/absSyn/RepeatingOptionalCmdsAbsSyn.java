@@ -16,6 +16,11 @@ public class RepeatingOptionalCmdsAbsSyn extends AbstractAbsSyn implements IAbsS
         this.subType = subType;
     }
 
+
+    public String toString(int counter) {
+        return "RepeatingOptionalCmdsAbsSyn:\r\n\t" + subType.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         subType.check();

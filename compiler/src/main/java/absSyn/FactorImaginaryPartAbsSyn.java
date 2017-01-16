@@ -19,6 +19,6 @@ public class FactorImaginaryPartAbsSyn extends AbstractAbsSyn implements IAbsSyn
 
     @Override
     public int code(int location) throws ICodeArray.CodeTooSmallError {
-        return 0;
+        return location;
     }
 }

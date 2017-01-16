@@ -18,6 +18,10 @@ public class StorageDeclarationAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.optionalChangeModeAbsSyn = optionalChangeModeAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "StorageDeclarationAbsSyn:\r\n\t" + typedIdentAbsSyn.toString(counter) + "," + optionalChangeModeAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         Context.setCurrentContext(new Context(Scope.LOCAL));

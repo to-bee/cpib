@@ -18,6 +18,10 @@ public class IdentsAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.repeatingOptionalIdentsAbsSyn = repeatingOptionalIdentsAbsSyn;
     }
 
+    public String toString(int counter) {
+        return "IdentsAbsSyn:\r\n\t" + this.repeatingOptionalIdentsAbsSyn.toString(counter);
+    }
+
     @Override
     public void check() throws ContextError {
         repeatingOptionalIdentsAbsSyn.check();

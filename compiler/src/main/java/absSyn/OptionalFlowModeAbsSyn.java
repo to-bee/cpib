@@ -19,6 +19,10 @@ public class OptionalFlowModeAbsSyn extends AbstractAbsSyn implements IAbsSyn{
         this.terminal = terminal;
     }
 
+    public String toString(int counter) {
+        return "OptionalFlowModeAbsSyn:\r\n\t" + this.terminal;
+    }
+
     @Override
     public void check() throws ContextError {
         //nothing to check

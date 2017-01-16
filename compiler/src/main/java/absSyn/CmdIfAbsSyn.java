@@ -3,6 +3,7 @@ package absSyn;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import virtualmachineFS2015.ICodeArray;
+import vm.VmInstructions;
 
 /**
  * Created by ylaub on 26.12.2016.
@@ -29,8 +30,13 @@ public class CmdIfAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         cmdElse.check();
     }
 
+
+    public String toString(int counter) {
+        return "cmdIfAbsSyn:\r\n\t" + exprIf.toString(counter) + "," + cmdThen.toString(counter)+ "," + cmdElse.toString(counter);
+    }
+
     @Override
     public int code(int location) throws ICodeArray.CodeTooSmallError {
-        return 0;
+        return location; // TODO
     }
 }
