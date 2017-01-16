@@ -4,9 +4,7 @@ import scanner.errors.ContextError;
 import scanner.token.IToken;
 import scanner.token.Ident;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,14 +27,9 @@ public class Context {
 
     private static Context currentContext;
 
-    private static VmWar currentVmVariable;
-    public static VmWar getCurrentVmVariable() {
+    private static VmVar currentVmVariable;
+    public static VmVar getCurrentVmVariable() {
         return currentVmVariable;
-    }
-
-    public static void setCurrentVariable(VmWar vmVar) {
-        currentVmVariable = vmVar;
-
     }
 
     @Override
@@ -57,17 +50,26 @@ public class Context {
 
 
 
-    private static Map<Ident, VmWar> vmVariables = new HashMap<>();
+    private static Map<Ident, VmVar> vmVariables = new HashMap<>();
+
+    public static VmVar setCurrentVmVariable(IToken token) {
+        VmVar vmVar = getVar(token);
+        if (vmVar != null) {
+            currentVmVariable = vmVar;
+        }
+        return vmVar;
+
+    }
 
     public static void addVmVariable(Ident ident) throws ContextError {
         if (vmVariables.containsKey(ident)) {
             throw new ContextError(String.format("Cannot define multiple variables: %s", vmVariables));
         }
 
-        vmVariables.put(ident, new VmWar(ident));
+        vmVariables.put(ident, new VmVar(ident));
     }
 
-    public static VmWar getVar(IToken token) {
+    public static VmVar getVar(IToken token) {
         if (!(token instanceof Ident)) {
             return null;
         }

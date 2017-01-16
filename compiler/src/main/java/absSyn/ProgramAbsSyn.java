@@ -25,7 +25,11 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
      */
     private Ident ident;
 
-    public ProgramAbsSyn(Ident ident, ProgramParameterListAbsSyn programParameterListConcSyn, OptionalGlobalDeclarationsAbsSyn optionalGlobalDeclarationsConcSyn, BlockCmdAbsSyn blockCmdConcSyn, Terminal terminal) {
+    public ProgramAbsSyn(Ident ident,
+                         ProgramParameterListAbsSyn programParameterListConcSyn,
+                         OptionalGlobalDeclarationsAbsSyn optionalGlobalDeclarationsConcSyn,
+                         BlockCmdAbsSyn blockCmdConcSyn,
+                         Terminal terminal) {
         this.ident = ident;
         this.optionalGlobalDeclarationList = optionalGlobalDeclarationsConcSyn;
         this.programParameterList = programParameterListConcSyn;

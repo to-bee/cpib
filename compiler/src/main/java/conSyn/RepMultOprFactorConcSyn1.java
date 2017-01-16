@@ -20,7 +20,7 @@ public class RepMultOprFactorConcSyn1 extends AbstractConcSyn implements IConcSy
 
     @Override
     public RepMultOprFactorAbsSyn1 toAbsSyn() throws ContextError {
-        return new RepMultOprFactorAbsSyn1(token, factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn());
+        return new RepMultOprFactorAbsSyn1(factorConcSyn.toAbsSyn(), repMultOprFactorConcSyn.toAbsSyn());
     }
 
     /**
@@ -28,7 +28,6 @@ public class RepMultOprFactorConcSyn1 extends AbstractConcSyn implements IConcSy
      */
     @Override
     public void parse() throws GrammarError {
-        this.token = getTokenList().getCurrent();
         consume();
 
         factorConcSyn = new FactorConcSyn(getTokenList(), getCounter());

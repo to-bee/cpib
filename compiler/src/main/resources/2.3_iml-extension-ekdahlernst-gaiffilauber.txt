@@ -3,553 +3,553 @@ val it = () : unit
 - dispMM result;
 - dispMM result;
 <program>
-  terminal PROGRAM
+  leftToken PROGRAM
     PROGRAM IDENT <progamParameterList> <optionalGlobalDeclarations> DO <blockCmd> ENDPROGRAM
 <blockCmd>
-  terminal DEBUGOUT
+  leftToken DEBUGOUT
     <cmd> <repeatingOptionalCmds>
-  terminal DEBUGIN
+  leftToken DEBUGIN
     <cmd> <repeatingOptionalCmds>
-  terminal CALL
+  leftToken CALL
     <cmd> <repeatingOptionalCmds>
-  terminal WHILE
+  leftToken WHILE
     <cmd> <repeatingOptionalCmds>
-  terminal IF
+  leftToken IF
     <cmd> <repeatingOptionalCmds>
-  terminal IMAGINARY_PART
+  leftToken IMAGINARY_PART
     <cmd> <repeatingOptionalCmds>
-  terminal REAL
+  leftToken REAL
     <cmd> <repeatingOptionalCmds>
-  terminal IMAG
+  leftToken IMAG
     <cmd> <repeatingOptionalCmds>
-  terminal LPAREN
+  leftToken LPAREN
     <cmd> <repeatingOptionalCmds>
-  terminal ADDOPR
+  leftToken ADDOPR
     <cmd> <repeatingOptionalCmds>
-  terminal NOT
+  leftToken NOT
     <cmd> <repeatingOptionalCmds>
-  terminal IDENT
+  leftToken IDENT
     <cmd> <repeatingOptionalCmds>
-  terminal LITERAL
+  leftToken LITERAL
     <cmd> <repeatingOptionalCmds>
-  terminal SKIP
+  leftToken SKIP
     <cmd> <repeatingOptionalCmds>
 <cmd>
-  terminal SKIP
+  leftToken SKIP
     SKIP
-  terminal IMAGINARY_PART
+  leftToken IMAGINARY_PART
     <expression> BECOMES <expression>
-  terminal REAL
+  leftToken REAL
     <expression> BECOMES <expression>
-  terminal IMAG
+  leftToken IMAG
     <expression> BECOMES <expression>
-  terminal LPAREN
+  leftToken LPAREN
     <expression> BECOMES <expression>
-  terminal ADDOPR
+  leftToken ADDOPR
     <expression> BECOMES <expression>
-  terminal NOT
+  leftToken NOT
     <expression> BECOMES <expression>
-  terminal IDENT
+  leftToken IDENT
     <expression> BECOMES <expression>
-  terminal LITERAL
+  leftToken LITERAL
     <expression> BECOMES <expression>
-  terminal IF
+  leftToken IF
     IF <expression> THEN <blockCmd> ELSE <blockCmd> ENDIF
-  terminal WHILE
+  leftToken WHILE
     WHILE <expression> DO <blockCmd> ENDWHILE
-  terminal CALL
+  leftToken CALL
     CALL IDENT <expressionList> <optionalGlobalInits>
-  terminal DEBUGIN
+  leftToken DEBUGIN
     DEBUGIN <expression>
-  terminal DEBUGOUT
+  leftToken DEBUGOUT
     DEBUGOUT <expression>
 <optionalGlobalInits>
-  terminal ENDPROC
+  leftToken ENDPROC
 
-  terminal ENDFUN
+  leftToken ENDFUN
 
-  terminal ENDWHILE
+  leftToken ENDWHILE
 
-  terminal ENDIF
+  leftToken ENDIF
 
-  terminal ELSE
+  leftToken ELSE
 
-  terminal ENDPROGRAM
+  leftToken ENDPROGRAM
 
-  terminal SEMICOLON
+  leftToken SEMICOLON
 
-  terminal INIT
+  leftToken INIT
     INIT <idents>
 <idents>
-  terminal IDENT
+  leftToken IDENT
     IDENT <repeatingOptionalIdents>
 <repeatingOptionalIdents>
-  terminal ENDPROC
+  leftToken ENDPROC
 
-  terminal ENDFUN
+  leftToken ENDFUN
 
-  terminal ENDWHILE
+  leftToken ENDWHILE
 
-  terminal ENDIF
+  leftToken ENDIF
 
-  terminal ELSE
+  leftToken ELSE
 
-  terminal ENDPROGRAM
+  leftToken ENDPROGRAM
 
-  terminal SEMICOLON
+  leftToken SEMICOLON
 
-  terminal COMMA
+  leftToken COMMA
     COMMA IDENT <idents>
 <repeatingOptionalCmds>
-  terminal ENDPROC
+  leftToken ENDPROC
 
-  terminal ENDFUN
+  leftToken ENDFUN
 
-  terminal ENDWHILE
+  leftToken ENDWHILE
 
-  terminal ENDIF
+  leftToken ENDIF
 
-  terminal ELSE
+  leftToken ELSE
 
-  terminal ENDPROGRAM
+  leftToken ENDPROGRAM
 
-  terminal SEMICOLON
+  leftToken SEMICOLON
     SEMICOLON <cmd> <repeatingOptionalCmds>
 <declaration>
-  terminal IDENT
+  leftToken IDENT
     <storageDeclaration>
-  terminal CHANGEMODE
+  leftToken CHANGEMODE
     <storageDeclaration>
-  terminal FUN
+  leftToken FUN
     <functionDeclaration>
-  terminal PROC
+  leftToken PROC
     <procedureDeclaration>
 <storageDeclaration>
-  terminal IDENT
+  leftToken IDENT
     <optionalCHANGEMODE> <typedIdent>
-  terminal CHANGEMODE
+  leftToken CHANGEMODE
     <optionalCHANGEMODE> <typedIdent>
 <optionalCHANGEMODE>
-  terminal IDENT
+  leftToken IDENT
 
-  terminal CHANGEMODE
+  leftToken CHANGEMODE
     CHANGEMODE
 <optionalFLOWMODE>
-  terminal MECHMODE
+  leftToken MECHMODE
 
-  terminal IDENT
+  leftToken IDENT
 
-  terminal CHANGEMODE
+  leftToken CHANGEMODE
 
-  terminal FLOWMODE
+  leftToken FLOWMODE
     FLOWMODE
 <optionalMECHMODE>
-  terminal IDENT
+  leftToken IDENT
 
-  terminal CHANGEMODE
+  leftToken CHANGEMODE
 
-  terminal MECHMODE
+  leftToken MECHMODE
     MECHMODE
 <typedIdent>
-  terminal IDENT
+  leftToken IDENT
     IDENT COLON <typeDeclaration>
 <typeDeclaration>
-  terminal TYPE
+  leftToken TYPE
     TYPE
-  terminal LPAREN
+  leftToken LPAREN
     LPAREN <subTypeDeclaration> COMMA <subTypeDeclaration> <optionalTypeDeclaration> RPAREN
-  terminal IDENT
+  leftToken IDENT
     IDENT
 <subTypeDeclaration>
-  terminal TYPE
+  leftToken TYPE
     TYPE
-  terminal LPAREN
+  leftToken LPAREN
     LPAREN <subTypeDeclaration> COMMA <subTypeDeclaration> <optionalTypeDeclaration> RPAREN
 <optionalTypeDeclaration>
-  terminal RPAREN
+  leftToken RPAREN
 
-  terminal COMMA
+  leftToken COMMA
     COMMA <subTypeDeclaration>
 <functionDeclaration>
-  terminal FUN
+  leftToken FUN
     FUN IDENT <parameterList> RETURNS <storageDeclaration> <optionalGlobalImports> <optionalLocalStorageDeclarations> DO <blockCmd> ENDFUN
 <procedureDeclaration>
-  terminal PROC
+  leftToken PROC
     PROC IDENT <parameterList> <optionalGlobalImports> <optionalLocalStorageDeclarations> DO <blockCmd> ENDPROC
 <optionalGlobalImports>
-  terminal DO
+  leftToken DO
 
-  terminal LOCAL
+  leftToken LOCAL
 
-  terminal GLOBAL
+  leftToken GLOBAL
     GLOBAL <globalImport> <repeatingOptionalGlobalImports>
 <globalImport>
-  terminal IDENT
+  leftToken IDENT
     <optionalFLOWMODE> <optionalCHANGEMODE> IDENT
-  terminal CHANGEMODE
+  leftToken CHANGEMODE
     <optionalFLOWMODE> <optionalCHANGEMODE> IDENT
-  terminal FLOWMODE
+  leftToken FLOWMODE
     <optionalFLOWMODE> <optionalCHANGEMODE> IDENT
 <repeatingOptionalGlobalImports>
-  terminal DO
+  leftToken DO
 
-  terminal LOCAL
+  leftToken LOCAL
 
-  terminal COMMA
+  leftToken COMMA
     COMMA <globalImport> <repeatingOptionalGlobalImports>
 <progamParameterList>
-  terminal LPAREN
+  leftToken LPAREN
     LPAREN <optionalProgramParameters> RPAREN
 <optionalProgramParameters>
-  terminal RPAREN
+  leftToken RPAREN
 
-  terminal IDENT
+  leftToken IDENT
     <optionalFLOWMODE> <optionalCHANGEMODE> <typedIdent> <repeatingOptionalProgramParameters>
-  terminal CHANGEMODE
+  leftToken CHANGEMODE
     <optionalFLOWMODE> <optionalCHANGEMODE> <typedIdent> <repeatingOptionalProgramParameters>
-  terminal FLOWMODE
+  leftToken FLOWMODE
     <optionalFLOWMODE> <optionalCHANGEMODE> <typedIdent> <repeatingOptionalProgramParameters>
 <repeatingOptionalProgramParameters>
-  terminal RPAREN
+  leftToken RPAREN
 
-  terminal COMMA
+  leftToken COMMA
     COMMA <optionalFLOWMODE> <optionalCHANGEMODE> <typedIdent> <repeatingOptionalProgramParameters>
 <optionalGlobalDeclarations>
-  terminal DO
+  leftToken DO
 
-  terminal GLOBAL
+  leftToken GLOBAL
     GLOBAL <declarations>
 <declarations>
-  terminal PROC
+  leftToken PROC
     <declaration> <repeatingOptionalDeclarations>
-  terminal FUN
+  leftToken FUN
     <declaration> <repeatingOptionalDeclarations>
-  terminal IDENT
+  leftToken IDENT
     <declaration> <repeatingOptionalDeclarations>
-  terminal CHANGEMODE
+  leftToken CHANGEMODE
     <declaration> <repeatingOptionalDeclarations>
 <repeatingOptionalDeclarations>
-  terminal DO
+  leftToken DO
 
-  terminal SEMICOLON
+  leftToken SEMICOLON
     SEMICOLON <declaration> <repeatingOptionalDeclarations>
 <optionalLocalStorageDeclarations>
-  terminal DO
+  leftToken DO
 
-  terminal LOCAL
+  leftToken LOCAL
     LOCAL <storageDeclaration> <repeatingOptionalStorageDeclarations>
 <repeatingOptionalStorageDeclarations>
-  terminal DO
+  leftToken DO
 
-  terminal SEMICOLON
+  leftToken SEMICOLON
     SEMICOLON <storageDeclaration> <repeatingOptionalStorageDeclarations>
 <parameterList>
-  terminal LPAREN
+  leftToken LPAREN
     LPAREN <optionalParameters> RPAREN
 <optionalParameters>
-  terminal RPAREN
+  leftToken RPAREN
 
-  terminal IDENT
+  leftToken IDENT
     <parameter> <repeatingOptionalParameters>
-  terminal CHANGEMODE
+  leftToken CHANGEMODE
     <parameter> <repeatingOptionalParameters>
-  terminal MECHMODE
+  leftToken MECHMODE
     <parameter> <repeatingOptionalParameters>
-  terminal FLOWMODE
+  leftToken FLOWMODE
     <parameter> <repeatingOptionalParameters>
 <parameter>
-  terminal IDENT
+  leftToken IDENT
     <optionalFLOWMODE> <optionalMECHMODE> <storageDeclaration>
-  terminal CHANGEMODE
+  leftToken CHANGEMODE
     <optionalFLOWMODE> <optionalMECHMODE> <storageDeclaration>
-  terminal MECHMODE
+  leftToken MECHMODE
     <optionalFLOWMODE> <optionalMECHMODE> <storageDeclaration>
-  terminal FLOWMODE
+  leftToken FLOWMODE
     <optionalFLOWMODE> <optionalMECHMODE> <storageDeclaration>
 <repeatingOptionalParameters>
-  terminal RPAREN
+  leftToken RPAREN
 
-  terminal COMMA
+  leftToken COMMA
     COMMA <parameter> <repeatingOptionalParameters>
 <expressionList>
-  terminal LPAREN
+  leftToken LPAREN
     LPAREN <optionalExpressions> RPAREN
 <optionalExpressions>
-  terminal RPAREN
+  leftToken RPAREN
 
-  terminal IMAGINARY_PART
+  leftToken IMAGINARY_PART
     <expression> <repeatingOptionalExpressions>
-  terminal REAL
+  leftToken REAL
     <expression> <repeatingOptionalExpressions>
-  terminal IMAG
+  leftToken IMAG
     <expression> <repeatingOptionalExpressions>
-  terminal LPAREN
+  leftToken LPAREN
     <expression> <repeatingOptionalExpressions>
-  terminal ADDOPR
+  leftToken ADDOPR
     <expression> <repeatingOptionalExpressions>
-  terminal NOT
+  leftToken NOT
     <expression> <repeatingOptionalExpressions>
-  terminal IDENT
+  leftToken IDENT
     <expression> <repeatingOptionalExpressions>
-  terminal LITERAL
+  leftToken LITERAL
     <expression> <repeatingOptionalExpressions>
 <expression>
-  terminal IMAGINARY_PART
+  leftToken IMAGINARY_PART
     <term1> <repBOOLOPRterm1>
-  terminal REAL
+  leftToken REAL
     <term1> <repBOOLOPRterm1>
-  terminal IMAG
+  leftToken IMAG
     <term1> <repBOOLOPRterm1>
-  terminal LPAREN
+  leftToken LPAREN
     <term1> <repBOOLOPRterm1>
-  terminal ADDOPR
+  leftToken ADDOPR
     <term1> <repBOOLOPRterm1>
-  terminal NOT
+  leftToken NOT
     <term1> <repBOOLOPRterm1>
-  terminal IDENT
+  leftToken IDENT
     <term1> <repBOOLOPRterm1>
-  terminal LITERAL
+  leftToken LITERAL
     <term1> <repBOOLOPRterm1>
 <repeatingOptionalExpressions>
-  terminal RPAREN
+  leftToken RPAREN
 
-  terminal COMMA
+  leftToken COMMA
     COMMA <expression> <repeatingOptionalExpressions>
 <repBOOLOPRterm1>
-  terminal RPAREN
+  leftToken RPAREN
 
-  terminal COMMA
+  leftToken COMMA
 
-  terminal DO
+  leftToken DO
 
-  terminal THEN
+  leftToken THEN
 
-  terminal ENDPROC
+  leftToken ENDPROC
 
-  terminal ENDFUN
+  leftToken ENDFUN
 
-  terminal ENDWHILE
+  leftToken ENDWHILE
 
-  terminal ENDIF
+  leftToken ENDIF
 
-  terminal ELSE
+  leftToken ELSE
 
-  terminal ENDPROGRAM
+  leftToken ENDPROGRAM
 
-  terminal SEMICOLON
+  leftToken SEMICOLON
 
-  terminal BECOMES
+  leftToken BECOMES
 
-  terminal BOOLOPR
+  leftToken BOOLOPR
     BOOLOPR <term1> <repBOOLOPRterm1>
 <term1>
-  terminal IMAGINARY_PART
+  leftToken IMAGINARY_PART
     <term2> <repRELOPRterm2>
-  terminal REAL
+  leftToken REAL
     <term2> <repRELOPRterm2>
-  terminal IMAG
+  leftToken IMAG
     <term2> <repRELOPRterm2>
-  terminal LPAREN
+  leftToken LPAREN
     <term2> <repRELOPRterm2>
-  terminal ADDOPR
+  leftToken ADDOPR
     <term2> <repRELOPRterm2>
-  terminal NOT
+  leftToken NOT
     <term2> <repRELOPRterm2>
-  terminal IDENT
+  leftToken IDENT
     <term2> <repRELOPRterm2>
-  terminal LITERAL
+  leftToken LITERAL
     <term2> <repRELOPRterm2>
 <repRELOPRterm2>
-  terminal RPAREN
+  leftToken RPAREN
 
-  terminal COMMA
+  leftToken COMMA
 
-  terminal DO
+  leftToken DO
 
-  terminal THEN
+  leftToken THEN
 
-  terminal ENDPROC
+  leftToken ENDPROC
 
-  terminal ENDFUN
+  leftToken ENDFUN
 
-  terminal ENDWHILE
+  leftToken ENDWHILE
 
-  terminal ENDIF
+  leftToken ENDIF
 
-  terminal ELSE
+  leftToken ELSE
 
-  terminal ENDPROGRAM
+  leftToken ENDPROGRAM
 
-  terminal SEMICOLON
+  leftToken SEMICOLON
 
-  terminal BECOMES
+  leftToken BECOMES
 
-  terminal BOOLOPR
+  leftToken BOOLOPR
 
-  terminal RELOPR
+  leftToken RELOPR
     RELOPR <term2> <repRELOPRterm2>
 <term2>
-  terminal IMAGINARY_PART
+  leftToken IMAGINARY_PART
     <term3> <repADDOPRterm3>
-  terminal REAL
+  leftToken REAL
     <term3> <repADDOPRterm3>
-  terminal IMAG
+  leftToken IMAG
     <term3> <repADDOPRterm3>
-  terminal LPAREN
+  leftToken LPAREN
     <term3> <repADDOPRterm3>
-  terminal ADDOPR
+  leftToken ADDOPR
     <term3> <repADDOPRterm3>
-  terminal NOT
+  leftToken NOT
     <term3> <repADDOPRterm3>
-  terminal IDENT
+  leftToken IDENT
     <term3> <repADDOPRterm3>
-  terminal LITERAL
+  leftToken LITERAL
     <term3> <repADDOPRterm3>
 <repADDOPRterm3>
-  terminal ADDOPR
+  leftToken ADDOPR
     ADDOPR <term3> <repADDOPRterm3>
-  terminal RPAREN
+  leftToken RPAREN
 
-  terminal COMMA
+  leftToken COMMA
 
-  terminal DO
+  leftToken DO
 
-  terminal THEN
+  leftToken THEN
 
-  terminal ENDPROC
+  leftToken ENDPROC
 
-  terminal ENDFUN
+  leftToken ENDFUN
 
-  terminal ENDWHILE
+  leftToken ENDWHILE
 
-  terminal ENDIF
+  leftToken ENDIF
 
-  terminal ELSE
+  leftToken ELSE
 
-  terminal ENDPROGRAM
+  leftToken ENDPROGRAM
 
-  terminal SEMICOLON
+  leftToken SEMICOLON
 
-  terminal BECOMES
+  leftToken BECOMES
 
-  terminal BOOLOPR
+  leftToken BOOLOPR
 
-  terminal RELOPR
+  leftToken RELOPR
 
 <term3>
-  terminal IMAGINARY_PART
+  leftToken IMAGINARY_PART
     <factor> <repMULTOPRfactor>
-  terminal REAL
+  leftToken REAL
     <factor> <repMULTOPRfactor>
-  terminal IMAG
+  leftToken IMAG
     <factor> <repMULTOPRfactor>
-  terminal LPAREN
+  leftToken LPAREN
     <factor> <repMULTOPRfactor>
-  terminal ADDOPR
+  leftToken ADDOPR
     <factor> <repMULTOPRfactor>
-  terminal NOT
+  leftToken NOT
     <factor> <repMULTOPRfactor>
-  terminal IDENT
+  leftToken IDENT
     <factor> <repMULTOPRfactor>
-  terminal LITERAL
+  leftToken LITERAL
     <factor> <repMULTOPRfactor>
 <repMULTOPRfactor>
-  terminal RPAREN
+  leftToken RPAREN
 
-  terminal COMMA
+  leftToken COMMA
 
-  terminal DO
+  leftToken DO
 
-  terminal THEN
+  leftToken THEN
 
-  terminal ENDPROC
+  leftToken ENDPROC
 
-  terminal ENDFUN
+  leftToken ENDFUN
 
-  terminal ENDWHILE
+  leftToken ENDWHILE
 
-  terminal ENDIF
+  leftToken ENDIF
 
-  terminal ELSE
+  leftToken ELSE
 
-  terminal ENDPROGRAM
+  leftToken ENDPROGRAM
 
-  terminal SEMICOLON
+  leftToken SEMICOLON
 
-  terminal BECOMES
+  leftToken BECOMES
 
-  terminal BOOLOPR
+  leftToken BOOLOPR
 
-  terminal RELOPR
+  leftToken RELOPR
 
-  terminal ADDOPR
+  leftToken ADDOPR
 
-  terminal MULTOPR
+  leftToken MULTOPR
     MULTOPR <factor> <repMULTOPRfactor>
 <factor>
-  terminal LITERAL
+  leftToken LITERAL
     LITERAL
-  terminal IDENT
+  leftToken IDENT
     IDENT <optionalIdent>
-  terminal ADDOPR
+  leftToken ADDOPR
     <monadicOperator> <factor>
-  terminal NOT
+  leftToken NOT
     <monadicOperator> <factor>
-  terminal LPAREN
+  leftToken LPAREN
     LPAREN <expression> <repeatingOptionalExpressions> RPAREN
-  terminal IMAG
+  leftToken IMAG
     <complImag>
-  terminal REAL
+  leftToken REAL
     <complReal>
-  terminal IMAGINARY_PART
+  leftToken IMAGINARY_PART
     IMAGINARY_PART
 <optionalIdent>
-  terminal RPAREN
+  leftToken RPAREN
 
-  terminal COMMA
+  leftToken COMMA
 
-  terminal DO
+  leftToken DO
 
-  terminal THEN
+  leftToken THEN
 
-  terminal ENDPROC
+  leftToken ENDPROC
 
-  terminal ENDFUN
+  leftToken ENDFUN
 
-  terminal ENDWHILE
+  leftToken ENDWHILE
 
-  terminal ENDIF
+  leftToken ENDIF
 
-  terminal ELSE
+  leftToken ELSE
 
-  terminal ENDPROGRAM
+  leftToken ENDPROGRAM
 
-  terminal SEMICOLON
+  leftToken SEMICOLON
 
-  terminal BECOMES
+  leftToken BECOMES
 
-  terminal BOOLOPR
+  leftToken BOOLOPR
 
-  terminal RELOPR
+  leftToken RELOPR
 
-  terminal ADDOPR
+  leftToken ADDOPR
 
-  terminal MULTOPR
+  leftToken MULTOPR
 
-  terminal INIT
+  leftToken INIT
     INIT
-  terminal LPAREN
+  leftToken LPAREN
     <expressionList>
 <monadicOperator>
-  terminal NOT
+  leftToken NOT
     NOT
-  terminal ADDOPR
+  leftToken ADDOPR
     ADDOPR
 <complImag>
-  terminal IMAG
+  leftToken IMAG
     IMAG LPAREN <expression> RPAREN
 <complReal>
-  terminal REAL
+  leftToken REAL
     REAL LPAREN <expression> RPAREN
 val it = () : unit
 -
