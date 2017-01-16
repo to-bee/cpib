@@ -4,6 +4,7 @@ import scanner.errors.ContextError;
 import scanner.token.IToken;
 import scanner.token.Ident;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,6 +60,10 @@ public class Context {
         }
         return vmVar;
 
+    }
+
+    public static Collection<VmVar> getVmVariables() {
+        return vmVariables.values();
     }
 
     public static void addVmVariable(Ident ident) throws ContextError {

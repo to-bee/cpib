@@ -230,6 +230,33 @@ public class TypeCheckTest {
         }
     }
 
+    private IAbsSyn checkProgram(String addProgram) throws ContextError {
+        ITokenList tokenList = null;
+        try {
+            Scanner scanner = new Scanner();
+            tokenList = scanner.scan(addProgram);
+//            scanner.printResult(addProgram, addProgram, tokenList);
+        } catch (Exception lexicalError) {
+            lexicalError.printStackTrace();
+        }
+
+        IConcSyn parseTree = null;
+        try {
+            parseTree = new Parser(tokenList);
+            parseTree.parse();
+        } catch (GrammarError grammarError) {
+            grammarError.printStackTrace();
+            Assert.fail();
+        }
+
+        TokenVm vm = new TokenVm(tokenList);
+
+        IAbsSyn absSyn = parseTree.toAbsSyn();
+        absSyn.check();
+        return absSyn;
+
+    }
+
     @Test
     public void testVariableTypes1() {
         IAbsSyn absSyn;
@@ -301,21 +328,22 @@ public class TypeCheckTest {
                 "global\n" +
                 "fun addVar() returns result:int32\n" +
                 "local\n" +
+                "b:Compl\n" +
                 "c:(bool,int32)\n" +
                 "do\n" +
+                "b := 22;\n" +
                 "c := (true, 2, 33);\n" +
                 "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
                 "call addVar()\n" +
                 "endprogram";
-        try
-
-        {
+        try {
             absSyn = checkProgram(tupleTest);
             Assert.fail();
 
-        } catch (
+        }
+        catch (
                 ContextError e)
 
         {
@@ -417,34 +445,6 @@ public class TypeCheckTest {
             System.out.println(e.getMessage());
 //            e.printStackTrace();
         }
-    }
-
-
-    private IAbsSyn checkProgram(String addProgram) throws ContextError {
-        ITokenList tokenList = null;
-        try {
-            Scanner scanner = new Scanner();
-            tokenList = scanner.scan(addProgram);
-//            scanner.printResult(addProgram, addProgram, tokenList);
-        } catch (Exception lexicalError) {
-            lexicalError.printStackTrace();
-        }
-
-        IConcSyn parseTree = null;
-        try {
-            parseTree = new Parser(tokenList);
-            parseTree.parse();
-        } catch (GrammarError grammarError) {
-            grammarError.printStackTrace();
-            Assert.fail();
-        }
-
-        TokenVm vm = new TokenVm(tokenList);
-
-        IAbsSyn absSyn = parseTree.toAbsSyn();
-        absSyn.check();
-        return absSyn;
-
     }
 
 
