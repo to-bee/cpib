@@ -1,13 +1,12 @@
 package vm;
 
 import absSyn.IAbsSyn;
+import com.sun.org.apache.xpath.internal.operations.Variable;
 import conSyn.IConcSyn;
-import context.Assignment;
-import context.Context;
-import context.TokenVm;
-import context.VmVar;
+import context.*;
 import parser.Parser;
 import scanner.Scanner;
+import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
 import scanner.token.Ident;
@@ -83,9 +82,17 @@ public class Compilation {
 
     private void generateCode(Map<Ident, VmVar> assignments) throws ICodeArray.CodeTooSmallError {
         int loc = 0;
-        for(Map.Entry<Ident, VmVar> a : assignments.entrySet()) {
-            loc = VmInstructions.storageDeclaration(loc);
-            a.getValue().setRelLocation(loc);
+        for(int i = 0; i < assignments.size(); i++) {
+            VmVar a = assignments.get(i);
+            Var var = Var.getVariables().get(i);
+            if (var.getClass() == DefaultVar.class) {
+                loc = VmInstructions.storageDeclaration(loc);
+                a.setRelLocation(loc);
+            } else if (var.getClass() == TupleVar.class) {
+                TupleVar tupVar = (TupleVar) var;
+                loc = VmInstructions.storageDeclaration(loc, tupVar.getLeftSideTokens().size());
+                a.setRelLocation(loc);
+            }
         }
         generateAssignmentCode(assignments, loc);
 
@@ -96,8 +103,27 @@ public class Compilation {
         for(Map.Entry<Ident, VmVar> a : assignments.entrySet()) {
             // switch bool, int, compl
             if (a.getValue().getAssignments().size() > 0 ) {
-                for(Assignment aSub: a.getValue().getAssignments()) {
-                    int test = 0;
+                for(int i = 0; i < a.getValue().getAssignments().size(); i++) {
+                    Assignment aSub = a.getValue().getAssignments().get(i);
+                    Var var = Var.getVariables().get(i);
+                    DefaultVar defVar = null;
+                    TupleVar tupVar = null;
+                    if (var.getClass() == DefaultVar.class) {
+                        defVar = (DefaultVar) var;
+                        if (defVar.getLeftSideType() == Terminal.COMPL) {
+
+                        } else if (defVar.getLeftSideType() == Terminal.INT32) {
+
+                        } else if (defVar.getLeftSideType() == Terminal.BOOL) {
+
+                        }
+                    } else if (var.getClass() == TupleVar.class) {
+                        tupVar = (TupleVar) var;
+
+                    }
+
+                    // TODO in eigene Methoden auslagern
+                    System.out.println(var.getIdent());
                     // falls Compl Abfrage ob components size 5 und erster Eintrag Literal
                     if (aSub.getComponents().size() == 5 && aSub.getComponents().get(0).getClass() == Literal.class) {
                         VmInstructions.storeLocal(loc, a.getValue().getRelLocation());
