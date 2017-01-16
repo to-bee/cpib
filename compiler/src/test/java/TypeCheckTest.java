@@ -231,9 +231,9 @@ public class TypeCheckTest {
     }
 
     @Test
-    public void testVariableTypes1() {
+    public void testVariableTypes() {
         IAbsSyn absSyn;
-        String tupleTest;
+        String variableTest;
 
         /*
          *  var a:int32     a:=2
@@ -243,9 +243,9 @@ public class TypeCheckTest {
          *  var a:bool      a:=2                LType and RType mismatch
          *  const a:bool    a:=true; a:=false   Variable a:Bool is const
          */
-        tupleTest = "program TupleTest()\n" +
+        variableTest = "program variableTest()\n" +
                 "global\n" +
-                "fun addVar() returns result:int32\n" +
+                "fun test01() returns result:int32\n" +
                 "local\n" +
                 "const a:bool\n" +
                 "do\n" +
@@ -254,10 +254,10 @@ public class TypeCheckTest {
                 "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
-                "call addVar()\n" +
+                "call test01()\n" +
                 "endprogram";
         try {
-            absSyn = checkProgram(tupleTest);
+            absSyn = checkProgram(variableTest);
             //Assert.fail();
 
         } catch (ContextError e) {
@@ -266,10 +266,14 @@ public class TypeCheckTest {
     }
 
     @Test
-    public void testTuple1() {
+    public void testTupleTypes() {
         IAbsSyn absSyn;
         String tupleTest;
 
+        /*
+         *  const c:(bool,int32)    c:=(true,2)
+         *  const c:(bool)          c:=(true)
+         */
         tupleTest = "program TupleTest()\n" +
                 "global\n" +
                 "fun addVar() returns result:int32\n" +
