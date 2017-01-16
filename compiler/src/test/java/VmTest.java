@@ -27,6 +27,8 @@ public class VmTest {
                 "var result:Compl\n" + // init/allow
                 "do\n" +
                 "bsp1 := (5+I*4)+I*4;\n" + // assignment
+                "bsp1 := bsp1+33;\n" +
+                "bsp2 := bsp1*5;\n" +
                 "bsp2 := 4-I*5;\n" +
                 "result := bsp1 + bsp2 + 4-I*5\n" +
                 "endfun\n" +

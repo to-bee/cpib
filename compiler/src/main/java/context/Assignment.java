@@ -18,10 +18,6 @@ public class Assignment {
     private List<Object> components = new ArrayList<>();
 
 
-    /**
-     * Type on the right side which is calculated
-     */
-    private List<IToken> rightSideTokens = new ArrayList<>();
 
 //    private final Var var;
 
@@ -37,44 +33,36 @@ public class Assignment {
         this.components.add(comp);
     }
 
-    public void addRightSideToken(IToken rightSideToken) throws ContextError {
-        this.components.add(rightSideToken);
-        this.rightSideTokens.add(rightSideToken);
-    }
 
-    public boolean rightSideTypeContains(Terminal terminal) {
-        return rightSideTokens.contains(terminal);
-    }
-
-    public void checkRightSideTypeMatch(Terminal leftSideType, IToken rightSideType) throws ContextError {
-        List<Terminal> allowedTypes = new ArrayList<>();
-        switch (leftSideType) {
-            case COMPL:
-                allowedTypes.add(COMPL);
-                allowedTypes.add(Terminal.IMAGINARY_PART);
-                allowedTypes.add(Terminal.INT32);
-                allowedTypes.add(Terminal.LITERAL);
-                break;
-            case INT32:
-                allowedTypes.add(Terminal.LITERAL);
-                allowedTypes.add(Terminal.INT32);
-                break;
-            case BOOL:
-                allowedTypes.add(Terminal.IDENT);
-
-                if (rightSideType instanceof Ident) {
-                    Ident ident = (Ident) rightSideType;
-                    if (!ident.getValue().toLowerCase().equals("true") && !ident.getValue().toLowerCase().equals("false"))
-                        throw new ContextError(String.format("LType and RType mismatch for variable: %s. Cannot assign: %s to %s", toString(), leftSideType.toString(), rightSideType.toString()));
-                }
-                break;
-        }
-
-        if (!allowedTypes.contains(rightSideType.getTerminal())) {
-            throw new ContextError(String.format("LType and RType mismatch for variable: %s. Cannot assign: %s to %s", toString(), leftSideType.toString(), rightSideType.toString()));
-
-        }
-    }
+//    public void checkRightSideTypeMatch(Terminal leftSideType, IToken rightSideType) throws ContextError {
+//        List<Terminal> allowedTypes = new ArrayList<>();
+//        switch (leftSideType) {
+//            case COMPL:
+//                allowedTypes.add(COMPL);
+//                allowedTypes.add(Terminal.IMAGINARY_PART);
+//                allowedTypes.add(Terminal.INT32);
+//                allowedTypes.add(Terminal.LITERAL);
+//                break;
+//            case INT32:
+//                allowedTypes.add(Terminal.LITERAL);
+//                allowedTypes.add(Terminal.INT32);
+//                break;
+//            case BOOL:
+//                allowedTypes.add(Terminal.IDENT);
+//
+//                if (rightSideType instanceof Ident) {
+//                    Ident ident = (Ident) rightSideType;
+//                    if (!ident.getValue().toLowerCase().equals("true") && !ident.getValue().toLowerCase().equals("false"))
+//                        throw new ContextError(String.format("LType and RType mismatch for variable: %s. Cannot assign: %s to %s", toString(), leftSideType.toString(), rightSideType.toString()));
+//                }
+//                break;
+//        }
+//
+//        if (!allowedTypes.contains(rightSideType.getTerminal())) {
+//            throw new ContextError(String.format("LType and RType mismatch for variable: %s. Cannot assign: %s to %s", toString(), leftSideType.toString(), rightSideType.toString()));
+//
+//        }
+//    }
 
 //    protected abstract void checkAssignmentEquality() throws ContextError;
 
@@ -84,10 +72,6 @@ public class Assignment {
 //            checkRightSideTypeMatch(getLeftSideType(), rightSideToken);
 //        }
 //    }
-
-    public List<IToken> getRightSideTokens() {
-        return new ArrayList<>(this.rightSideTokens);
-    }
 
     public Assignment getParent() {
         return parent;

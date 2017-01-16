@@ -4,6 +4,7 @@ import context.*;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.token.IToken;
+import scanner.token.Ident;
 import virtualmachineFS2015.ICodeArray;
 
 /**
@@ -25,6 +26,21 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         //return "FactorAbsSyn:\r\n\t" + subType.toString(counter) +"," + this.terminal;
     }
 
+    private void resolveIdentifierAndAddComponent(Assignment currentAssignment, IToken token) {
+        boolean added = false;
+        if(token instanceof Ident) {
+            VmVar subVmVar = Context.getVar(token);
+            if(subVmVar != null) {
+                added = true;
+                currentAssignment.addComponent(subVmVar);
+            }
+        }
+
+        if(!added) {
+            currentAssignment.addComponent(token);
+        }
+    }
+
     @Override
     public void check() throws ContextError {
         if(rightToken.getTerminal() != Terminal.BECOMES) {
@@ -36,14 +52,14 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
                 currentAssignment.addComponent(subAssignment);
                 currentVmVar.setCurrentAssignment(subAssignment);
             } else {
-                currentAssignment.addComponent(this.leftToken);
+                resolveIdentifierAndAddComponent(currentAssignment, this.leftToken);
             }
 
             if(rightToken.getTerminal() == Terminal.RPAREN) {
                 // Set parent as current assignment
                 currentVmVar.setCurrentAssignment(currentAssignment.getParent());
             } else {
-                currentAssignment.addComponent(this.rightToken);
+                resolveIdentifierAndAddComponent(currentAssignment, this.rightToken);
             }
         }
 

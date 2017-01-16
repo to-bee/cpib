@@ -20,6 +20,11 @@ public class VmVar {
     private boolean isConst;
     private Context context;
 
+    @Override
+    public String toString() {
+        return String.format("%s", this.ident.getValue());
+    }
+
     private List<Assignment> assignments = new ArrayList();
 
     public VmVar(Ident ident) {
