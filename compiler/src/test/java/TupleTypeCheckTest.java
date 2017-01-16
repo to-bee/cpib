@@ -66,8 +66,8 @@ public class TupleTypeCheckTest {
                 "fun add() returns result:int32\n" +
                 "local\n" +
                 "var a:bool;\n" +
-                "var b:int32\n" +
-                "const c:(bool,int32);\n" +
+                "var b:int32;\n" +
+                "const c:(bool,int32)\n" +
                 "do\n" +
                 "a := false;\n" +
                 "a := true;\n" +
