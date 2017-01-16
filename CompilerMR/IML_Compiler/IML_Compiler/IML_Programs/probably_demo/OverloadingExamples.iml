@@ -1,0 +1,30 @@
+program OverloadingExamples
+	fun overload(x:int32) returns var result:int32
+	do
+		result init := x
+	endfun
+	
+	fun overload(x:int32, y:int32) returns var result:int32
+	do
+		result init := x;
+		result = result + y
+	endfun
+	
+	fun overload(x:int32, b:bool) returns var result:int32
+	do
+		result init := x
+	endfun
+	
+	// Fehler, da Rückgabetyp für diesen Funktionsnamen bereits verwendet wird
+	fun overload(b:bool) returns var result:bool
+	do
+		result init := b
+	endfun
+do
+	var i:int32
+	i init := overload(3)
+	i := overload(3, 4)
+	i := overload(3, false)
+	var b:bool
+	b init := overload(true)
+end program

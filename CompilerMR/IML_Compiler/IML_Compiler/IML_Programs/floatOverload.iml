@@ -1,0 +1,63 @@
+program FloatVorteil()
+global
+
+	var pi:float;
+	var ni:float;
+	var nan:float;
+	var f1:float;
+	var f2:float;
+	var f3:float;
+	var f4:float;
+	var result:float;
+	var intResult:int32;
+	var int32good:int32;
+	var int32notgood:int32;
+	var int64good:int64;
+	var int64notgood:int64;
+	var floatnotgood:float;
+	var work:int64;
+	
+	fun sum(f1:float, f2:float, f3:float) returns var result:float
+	do
+		result init := f1;
+		result := result + f2;
+		result := result + f3
+	endfun;
+	
+	fun sum(f1:float, f2:float, f3:float, i1:int32) returns var result:float
+	do
+		result init := sum(f1,f2,f3);
+		debugout i1;
+		debugout [float]i1;
+		result := result + [float]i1
+	endfun
+	
+do
+	int32good init := 54353;
+	//int32notgood init := 40'000'000'000;
+	int64good init := 9223372036854775807;
+	//int64notgood init := 9223372036854775808;
+	//floatnotgood init := 234.4E324;
+
+	f1 init := -2.3;
+	f2 init := 3.4;
+	f3 init := -4.3;
+	f4 init := 4.2;
+	pi init := POSITIVE_INFINITY;
+	ni init := NEGATIVE_INFINITY;
+	nan init := NaN;
+	result init := f1 + f2;		// result = 1.1
+	debugout result;
+	result := sum(f1,f2,f3);	// result = -3.2
+	debugout result;
+	work init := [int64][int32][float]5;
+	debugout work;
+	result := sum(f1,f2,f3,[int32]f4);	// result = 1.2
+	debugout result;
+	f1 := 2.E3;
+	f1 := 2.687E-44;
+	f1 := 4.E13;
+	f1 := 3.E-4;
+	f1 := 34E2;
+	intResult init := [int32] result
+endprogram

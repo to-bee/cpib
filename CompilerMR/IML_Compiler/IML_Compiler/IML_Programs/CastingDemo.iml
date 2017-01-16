@@ -1,0 +1,24 @@
+﻿program CastingDemo () 
+global
+	var int:int32;
+	var long:int64;
+	var f:float;
+
+	fun getPI() returns var res:float
+	do
+		res init := 3.1415
+	endfun
+do
+	int init := 42;
+	long init := [int64]4242;
+
+	// f = 4242 / (42+4242)
+	f init := [float]long divE [float](int + [int32]long); 
+
+	// cast a function result
+	int := [int32]getPI();
+
+	debugout int;  // 3
+	debugout long; // 4242
+	debugout f     // 0.99019605
+endprogram

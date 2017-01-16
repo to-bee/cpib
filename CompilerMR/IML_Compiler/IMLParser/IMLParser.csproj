@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{35274CF3-FF65-4C89-9BF7-AAF48F5C65B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IML_Compiler.IMLParser</RootNamespace>
+    <AssemblyName>IMLParser</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataTypes\Abstract\AbsExpressionStoreList.cs" />
+    <Compile Include="DataTypes\CodeCreation\Casting.cs" />
+    <Compile Include="DataTypes\CodeCreation\Dyadics.cs" />
+    <Compile Include="DataTypes\CodeCreation\IInstruction.cs" />
+    <Compile Include="DataTypes\CodeCreation\InOutputs.cs" />
+    <Compile Include="DataTypes\CodeCreation\Jumps.cs" />
+    <Compile Include="DataTypes\CodeCreation\LoadStore.cs" />
+    <Compile Include="DataTypes\CodeCreation\Monadics.cs" />
+    <Compile Include="DataTypes\CodeCreation\Routine.cs" />
+    <Compile Include="DataTypes\CodeCreation\Stop.cs" />
+    <Compile Include="Logic\CodeGenerationContext.cs" />
+    <Compile Include="Logic\Context.cs" />
+    <Compile Include="DataTypes\Abstract\AbsCmdBecomes.cs" />
+    <Compile Include="DataTypes\Abstract\AbsCmdDebug.cs" />
+    <Compile Include="DataTypes\Abstract\AbsCmdIf.cs" />
+    <Compile Include="DataTypes\Abstract\AbsCmdList.cs" />
+    <Compile Include="DataTypes\Abstract\AbsCmdWhile.cs" />
+    <Compile Include="DataTypes\Abstract\AbsExpressionCasting.cs" />
+    <Compile Include="DataTypes\Abstract\AbsExpressionDyadic.cs" />
+    <Compile Include="DataTypes\Abstract\AbsEmptyList.cs" />
+    <Compile Include="DataTypes\Abstract\AbsExpressionExpr.cs" />
+    <Compile Include="DataTypes\Abstract\AbsExpressionFuncCall.cs" />
+    <Compile Include="DataTypes\Abstract\AbsExpressionList.cs" />
+    <Compile Include="DataTypes\Abstract\AbsExpressionLiteral.cs" />
+    <Compile Include="DataTypes\Abstract\AbsExpressionMonadic.cs" />
+    <Compile Include="DataTypes\Abstract\AbsExpressionStore.cs" />
+    <Compile Include="DataTypes\Abstract\AbsExpressionIdent.cs" />
+    <Compile Include="DataTypes\Abstract\AbsGlobalDeclarationsList.cs" />
+    <Compile Include="DataTypes\Abstract\AbsGlobalImport.cs" />
+    <Compile Include="DataTypes\Abstract\AbsParameter.cs" />
+    <Compile Include="DataTypes\Abstract\AbsParameterList.cs" />
+    <Compile Include="DataTypes\Abstract\AbsProcedureDeclaration.cs" />
+    <Compile Include="DataTypes\Abstract\AbsProgram.cs" />
+    <Compile Include="DataTypes\Abstract\AbsGlobalImportList.cs" />
+    <Compile Include="DataTypes\Abstract\AbsProgramParameter.cs" />
+    <Compile Include="DataTypes\Abstract\AbsProgramParameterList.cs" />
+    <Compile Include="DataTypes\Abstract\AbsSkipCmd.cs" />
+    <Compile Include="DataTypes\Abstract\AbsStorageDeclarationList.cs" />
+    <Compile Include="DataTypes\Abstract\Enums.cs" />
+    <Compile Include="DataTypes\Abstract\Interfaces.cs" />
+    <Compile Include="DataTypes\Abstract\AbsFunctionDeclaration.cs" />
+    <Compile Include="DataTypes\Abstract\AbsStorageDeclaration.cs" />
+    <Compile Include="DataTypes\Abstract\AbsTypedIdent.cs" />
+    <Compile Include="DataTypes\Abstract\AbsIdentList.cs" />
+    <Compile Include="DataTypes\CheckerException.cs" />
+    <Compile Include="DataTypes\Abstract\AbsCmdCall.cs" />
+    <Compile Include="DataTypes\Concrete\BlockCmd.cs" />
+    <Compile Include="DataTypes\Concrete\Casting.cs" />
+    <Compile Include="DataTypes\Concrete\Cmd.cs" />
+    <Compile Include="DataTypes\Concrete\Declaration.cs" />
+    <Compile Include="DataTypes\Concrete\Declarations.cs" />
+    <Compile Include="DataTypes\Concrete\Expression.cs" />
+    <Compile Include="DataTypes\Concrete\ExpressionList.cs" />
+    <Compile Include="DataTypes\Concrete\Factor.cs" />
+    <Compile Include="DataTypes\Concrete\FunctionDeclaration.cs" />
+    <Compile Include="DataTypes\Concrete\GlobalImport.cs" />
+    <Compile Include="DataTypes\Concrete\Idents.cs" />
+    <Compile Include="DataTypes\Concrete\Interfaces.cs" />
+    <Compile Include="DataTypes\Concrete\MonadicOperator.cs" />
+    <Compile Include="DataTypes\Concrete\OptionalChangeMode.cs" />
+    <Compile Include="DataTypes\Concrete\OptionalElse.cs" />
+    <Compile Include="DataTypes\Concrete\OptionalExpressions.cs" />
+    <Compile Include="DataTypes\Concrete\OptionalFlowMode.cs" />
+    <Compile Include="DataTypes\Concrete\OptionalGlobalDeclarations.cs" />
+    <Compile Include="DataTypes\Concrete\OptionalGlobalImports.cs" />
+    <Compile Include="DataTypes\Concrete\OptionalGlobalInits.cs" />
+    <Compile Include="DataTypes\Concrete\OptionalIdent.cs" />
+    <Compile Include="DataTypes\Concrete\OptionalLocalStorageDeclarations.cs" />
+    <Compile Include="DataTypes\Concrete\OptionalMechMode.cs" />
+    <Compile Include="DataTypes\Concrete\OptionalParameters.cs" />
+    <Compile Include="DataTypes\Concrete\OptionalProgramParameters.cs" />
+    <Compile Include="DataTypes\Concrete\Parameter.cs" />
+    <Compile Include="DataTypes\Concrete\ParameterList.cs" />
+    <Compile Include="DataTypes\Concrete\ProcedureDeclaration.cs" />
+    <Compile Include="DataTypes\Concrete\Program.cs" />
+    <Compile Include="DataTypes\Concrete\ProgramParameterList.cs" />
+    <Compile Include="DataTypes\Concrete\RepAddOprTerm3.cs" />
+    <Compile Include="DataTypes\Concrete\RepBoolOprTerm1.cs" />
+    <Compile Include="DataTypes\Concrete\RepeatingOptionalCmds.cs" />
+    <Compile Include="DataTypes\Concrete\RepeatingOptionalDeclarations.cs" />
+    <Compile Include="DataTypes\Concrete\RepeatingOptionalExpressions.cs" />
+    <Compile Include="DataTypes\Concrete\RepeatingOptionalGlobalImports.cs" />
+    <Compile Include="DataTypes\Concrete\RepeatingOptionalIdents.cs" />
+    <Compile Include="DataTypes\Concrete\RepeatingOptionalParameters.cs" />
+    <Compile Include="DataTypes\Concrete\RepeatingOptionalProgramParameters.cs" />
+    <Compile Include="DataTypes\Concrete\RepMultOprFactor.cs" />
+    <Compile Include="DataTypes\Concrete\RepRelOprTerm2.cs" />
+    <Compile Include="DataTypes\Concrete\StorageDeclaration.cs" />
+    <Compile Include="DataTypes\Concrete\Term1.cs" />
+    <Compile Include="DataTypes\Concrete\Term2.cs" />
+    <Compile Include="DataTypes\Concrete\Term3.cs" />
+    <Compile Include="DataTypes\Concrete\TypeDeclaration.cs" />
+    <Compile Include="DataTypes\Concrete\TypedIdent.cs" />
+    <Compile Include="Logic\AbsSynExtension.cs" />
+    <Compile Include="Logic\CheckerContext.cs" />
+    <Compile Include="Logic\FindMatchingRoutine.cs" />
+    <Compile Include="Logic\INTSExtension.cs" />
+    <Compile Include="Logic\NTSMichi.cs" />
+    <Compile Include="Logic\NTSElias.cs" />
+    <Compile Include="Logic\Parser.cs" />
+    <Compile Include="Logic\ParserException.cs" />
+    <Compile Include="DataTypes\Concrete\RepeatingOptionalStorageDeclarations.cs" />
+    <Compile Include="Logic\SymbolTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scanner\IMLScanner.csproj">
+      <Project>{6271cce7-25e8-4336-bdbb-7708fe44c406}</Project>
+      <Name>IMLScanner</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

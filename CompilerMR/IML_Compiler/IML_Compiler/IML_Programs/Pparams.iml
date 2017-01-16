@@ -1,0 +1,20 @@
+﻿program PParams (in var i:int32, inout var io:bool, out var o:float)
+global
+	var x:int32;
+	var y:bool;
+	var z:int64
+do
+	x init := 5;
+	y init := false;
+	z init := [int64]77;
+
+	i := [int32](1.5*[float]x);
+
+	if (io) then
+		io := i >= 10
+	else 
+		io := i < 10
+	endif;
+
+	o := [float]z
+endprogram

@@ -1,0 +1,64 @@
+﻿program Easy()
+global
+	var steps:int32;
+	var maxSteps:int32;
+	var minSteps:int32;
+	var start:int32;
+	var stop:int32;
+	var current:int32;
+	var tmp:float;
+	var c:int64;
+	var null:int64;
+
+	fun GetSteps(in copy n:int32) returns var steps:int32
+	local
+		var killer:int32
+	do
+		killer init := 10;
+		steps init := 0;
+		while (n /= 1) do
+			if (n modE 2 = 0) then
+				n := n divE 2
+			else
+				n := 3*n+1
+			endif;
+			steps := steps + 1
+		endwhile
+	endfun;
+
+	proc SetMaxMin(in copy steps:int32, ref maxSteps:int32, inout copy minSteps:int32)
+	do
+		if (steps < minSteps) then
+			minSteps := steps
+		endif;
+		
+		if (steps > maxSteps) then
+			maxSteps := steps
+		endif
+	endproc
+do
+	debugin start init;
+	debugin stop init;
+	steps init := 0;
+	maxSteps init := 0;
+	minSteps init := 2147483647;
+	current init := start;
+	null init := [int64]0;
+
+	tmp init := [float]-9999999999;
+	c init := 9999999999;
+	
+	while (c > [int64]0) do
+		tmp := tmp - [float]9999999999;
+		c := c-[int64]1
+	endwhile;
+	debugout tmp;
+
+	while (stop >= current) do
+		steps := GetSteps(current);
+		call SetMaxMin(steps, maxSteps, minSteps);
+		current := current + 1
+	endwhile;
+	debugout minSteps;
+	debugout maxSteps
+endprogram

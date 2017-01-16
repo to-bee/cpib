@@ -1,0 +1,1 @@
+([0-9]+(’*[0-9]+)*(E-{0,1}|(\.)[0-9]*(E-{0,1}){0,1})[0-9][0-9]*)|NaN|POSITIVE_INFINITY|NEGATIVE_INFINITY

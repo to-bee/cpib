@@ -1,0 +1,19 @@
+program FloatExamplesCasting()
+global
+do
+	var f1:float;
+	var f2:float;
+	var i1:int32;
+	var i2:int32;
+	
+	f1 init := 2.1;
+	f2 init := 2.9;
+	i1 init := 3;
+	i2 init := 4;
+	
+	i2 := (int) f1; // i2 = 2
+	i1 := (int) f2; // i1 = 2
+	
+	f1 := (float) i1; // f1 = 2.0
+	
+end program
