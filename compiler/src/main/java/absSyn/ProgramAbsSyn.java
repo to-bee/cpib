@@ -34,8 +34,6 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         this.terminal = terminal;
     }
 
-    // TODO: Yves: check var tuple -> error
-
     @Override
     public void check() throws ContextError {
         // Clear existing vars
@@ -85,7 +83,6 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
                 }
             } else if(aVar instanceof TupleVar) {
                 TupleVar var = (TupleVar) aVar;
-
                 var.checkAssignmentEquality();
             }
 
