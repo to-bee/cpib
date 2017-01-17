@@ -73,7 +73,12 @@ public class InstructionTokenState extends AbstractTokenState {
         }
 
         if(!tokensAdded) {
-            throw new LexicalError("Instruction token could not be fetched");
+            if(word.equals(".")) {
+                throw new LexicalError("Floating Points are not allowed. Token \".\" is not defined");
+            } else {
+                throw new LexicalError("Instruction token could not be fetched");
+
+            }
         }
     }
 

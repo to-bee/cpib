@@ -63,6 +63,7 @@ public class ConSynTest {
                 "call addVar()\n" +
                 "endprogram";
         parseTree = checkProgram(complexMultiplyProgram);
+        System.out.println(parseTree.toString());
     }
 
     @Test
@@ -83,7 +84,7 @@ public class ConSynTest {
                   "call test((1200,6))\n" +
                 "endprogram";
         IConcSyn parseTree2 = checkProgram(program);
-        parseTree2.toString();
+        System.out.println(parseTree2.toString());
     }
 
     @Test
@@ -101,7 +102,8 @@ public class ConSynTest {
                 "call addVar()\n" +
                 "endprogram";
         IConcSyn parseTree2 = checkProgram(program);
-        parseTree2.toString();
+        System.out.println(parseTree2.toString());
+
     }
 
 

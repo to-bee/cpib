@@ -133,7 +133,9 @@ public class VmVar {
          * Tuple
          */
         else if (getTypes().size() > 0) {
-
+            if(getAssignments().size() > 1) {
+                throw new ContextError("Tuple is const and cannot be assigned several times");
+            }
         } else {
             throw new ContextError(String.format("%s: No Type Assigned", getIdent()));
         }

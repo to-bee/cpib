@@ -7,6 +7,7 @@ import parser.Parser;
 import scanner.Scanner;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.errors.LexicalError;
 import scanner.tokenList.ITokenList;
 
 /**
@@ -29,7 +30,7 @@ public class TypeCheckTest {
          * DONE: <=, >=, contexterror,
          * DONE: ==, != funktioniert
          * DONE: division, evt. modulo contexterror
-         * DONE: COMPLEMENT contexterror, TODO: complement only allowed for bool?
+         * DONE: COMPLEMENT contexterror
          * DONE: &&, || contexterror
          *
          * Init checks
@@ -228,6 +229,28 @@ public class TypeCheckTest {
             contextError.printStackTrace();
             Assert.fail();
         }
+
+        // should fail because of floats are not allowed
+        complexAddProgram = "program ComplexTest()\n" +
+                "global\n" +
+                "fun testFloat() returns s:Int32\n" +
+                "local\n" +
+                "var bsp1:Compl;\n" +
+                "do\n" +
+                "bsp1 := (5+I*4)+I*4.2;\n" +
+                "result := bsp1 + bsp2 + 4-I*5 + boolVal\n" +
+                "endfun\n" +
+                "do\n" +
+                "call testFloat()\n" +
+                "endprogram";
+        ITokenList tokenList = null;
+        try {
+            Scanner scanner = new Scanner();
+            tokenList = scanner.scan(complexAddProgram);
+            Assert.fail();
+        } catch (LexicalError lexicalError) {
+            System.out.println(lexicalError.getMessage());
+        }
     }
 
     private IAbsSyn checkProgram(String addProgram) throws ContextError {
@@ -341,7 +364,7 @@ public class TypeCheckTest {
                 "global\n" +
                 "fun addVar() returns result:int32\n" +
                 "local\n" +
-                "b:Compl\n" +
+                "b:Compl;\n" +
                 "c:(bool,int32)\n" +
                 "do\n" +
                 "b := 22;\n" +
@@ -440,6 +463,38 @@ public class TypeCheckTest {
                 "do\n" +
                 "a := false;\n" +
                 "a := true;\n" +
+                "result := 2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call addVar()\n" +
+                "endprogram";
+        try
+
+        {
+            absSyn = checkProgram(tupleTest);
+            Assert.fail();
+        } catch (
+                ContextError e)
+
+        {
+            System.out.println(e.getMessage());
+//            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testTuple6() {
+        IAbsSyn absSyn;
+        String tupleTest;
+        // Should fail because of const multiple assignment
+        tupleTest = "program TupleTest()\n" +
+                "global\n" +
+                "fun addVar() returns result:int32\n" +
+                "local\n" +
+                "c:(bool,int32)\n" +
+                "do\n" +
+                "c := (2, true);\n" +
+                "c := (3, false);\n" +
                 "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
