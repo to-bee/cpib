@@ -37,28 +37,9 @@ public class Compilation {
         //Compiler.COMPILER.initializeVm(cArr,storeSize);
     }
 
-    public void generateCode() throws IVirtualMachine.ExecutionError, ContextError {
+    public void generateCode(String complexAddProgram) throws IVirtualMachine.ExecutionError, ContextError {
         IAbsSyn absSyn;
 
-        String complexAddProgram = "program ComplexTest()\n" +
-                "global\n" +
-                "fun addVar(param1:Compl) returns s:Int32\n" +
-                "local\n" +
-                "var bsp1:Compl;\n" +
-                "var bsp2:Compl;\n" +
-                "var bsp3:Int32;\n" +
-                "var bsp4:Bool;\n" +
-                "var result:Compl\n" +
-                "do\n" +
-                "bsp1 := 4+I*5;\n" +
-                "bsp2 := 4-I*5;\n" +
-                "bsp3 := 3;\n" +
-                "bsp4 := true;\n" +
-                "result := bsp1 + bsp2\n" +
-                "endfun\n" +
-                "do\n" +
-                "call addVar()\n" +
-                "endprogram";
         Scanner scanner = new Scanner();
         ITokenList tokenList;
         tokenList = scanner.scan(complexAddProgram);
