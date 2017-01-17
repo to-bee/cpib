@@ -312,7 +312,7 @@ public class TypeCheckTest {
                 "global\n" +
                 "fun addVar() returns result:int32\n" +
                 "local\n" +
-                "c:(int32,int32);\n" +
+                "c:(bool);\n" +
                 "d:(bool,(int32,int32))\n" +
                 "do\n" +
                 "c := (2,3);\n" +

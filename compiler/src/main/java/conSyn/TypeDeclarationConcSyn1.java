@@ -48,9 +48,7 @@ public class TypeDeclarationConcSyn1 extends AbstractConcSyn implements IConcSyn
                 throwGrammarError();
             }
         } else {
-            //TODO ContextError here, Tuple with only 1 Element
-            throwGrammarError();
+            throwGrammarError("Tuple must contain 2 elements at least");
         }
     }
-
 }
