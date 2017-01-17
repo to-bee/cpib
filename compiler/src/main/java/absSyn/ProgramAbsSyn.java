@@ -50,37 +50,38 @@ public class ProgramAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         // New checks with VmVar
         for (VmVar vmVar : Context.getVmVariables()) {
             vmVar.checkAssignmentEquality();
+            vmVar.checkForbiddenOperations();
         }
 
         // Check if left type match with right type (for standard variables)
         for (Var aVar : Var.getVariables()) {
             if(aVar instanceof DefaultVar) {
                 DefaultVar var = (DefaultVar) aVar;
-                var.checkAssignmentEquality();
+//                var.checkAssignmentEquality();
 
-                List<DefaultVar> subExprVars = var.getExprVariables();
-                for(int i = 0; i<subExprVars.size(); i++) {
-                    for (int j = i; j < subExprVars.size(); j++) {
-                        if (subExprVars.get(i).getLeftSideType() != subExprVars.get(j).getLeftSideType()) {
-                            throw new ContextError(String.format("RValues must have the same type: %s/%s", subExprVars.get(i), subExprVars.get(j)));
-                        }
-                    }
-                }
+//                List<DefaultVar> subExprVars = var.getExprVariables();
+//                for(int i = 0; i<subExprVars.size(); i++) {
+//                    for (int j = i; j < subExprVars.size(); j++) {
+//                        if (subExprVars.get(i).getLeftSideType() != subExprVars.get(j).getLeftSideType()) {
+//                            throw new ContextError(String.format("RValues must have the same type: %s/%s", subExprVars.get(i), subExprVars.get(j)));
+//                        }
+//                    }
+//                }
 
-                Terminal leftType = var.getLeftSideType();
-                IToken opr = var.getOpr();
-                if (leftType != null && opr != null && var.exprVariableContains(Terminal.COMPL)) {
-                    if (opr.getTerminal() == Terminal.DIVOPR
-                            || opr.getTerminal() == Terminal.COMPLEMENT
-                            || opr.getTerminal() == Terminal.GT
-                            || opr.getTerminal() == Terminal.LT
-                            || opr.getTerminal() == Terminal.GE
-                            || opr.getTerminal() == Terminal.LE
-                            || opr.getTerminal() == Terminal.CAND
-                            || opr.getTerminal() == Terminal.COR) {
-                        throw new ContextError(String.format("A variable with type: %s must not contain an RValue with type: %s", Terminal.COMPL, opr.getTerminal()));
-                    }
-                }
+//                Terminal leftType = var.getLeftSideType();
+//                IToken opr = var.getOpr();
+//                if (leftType != null && opr != null && var.exprVariableContains(Terminal.COMPL)) {
+//                    if (opr.getTerminal() == Terminal.DIVOPR
+//                            || opr.getTerminal() == Terminal.COMPLEMENT
+//                            || opr.getTerminal() == Terminal.GT
+//                            || opr.getTerminal() == Terminal.LT
+//                            || opr.getTerminal() == Terminal.GE
+//                            || opr.getTerminal() == Terminal.LE
+//                            || opr.getTerminal() == Terminal.CAND
+//                            || opr.getTerminal() == Terminal.COR) {
+//                        throw new ContextError(String.format("A variable with type: %s must not contain an RValue with type: %s", Terminal.COMPL, opr.getTerminal()));
+//                    }
+//                }
             } else if(aVar instanceof TupleVar) {
                 TupleVar var = (TupleVar) aVar;
                 var.checkAssignmentEquality();

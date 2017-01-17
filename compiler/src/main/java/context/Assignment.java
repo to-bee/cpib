@@ -36,6 +36,31 @@ public class Assignment {
         this.parent = parent;
     }
 
+    public boolean rValueContains(List<Terminal> searchTypes) {
+        List<Terminal> types = new ArrayList<>();
+        for (Object obj : getComponents()) {
+            if (obj instanceof IToken) {
+                IToken token = (IToken) obj;
+                if(searchTypes.contains(token.getTerminal())) {
+                    return true;
+                }
+
+            } else if (obj instanceof VmVar) {
+                VmVar vmVar = (VmVar) obj;
+                if(searchTypes.contains(vmVar.getTypes().get(0).getTerminal())) {
+                    return true;
+                }
+            } else if (obj instanceof Assignment) {
+                Assignment assi = (Assignment) obj;
+                if(searchTypes.contains(assi.rValueContains(searchTypes))) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     public Terminal getRValueType() throws ContextError {
         List<Terminal> types = new ArrayList<>();
         for (Object obj : getComponents()) {
@@ -44,7 +69,9 @@ public class Assignment {
                 if(token.getTerminal().getType() == TerminalType.RELOPR
                         || token.getTerminal().getType() == TerminalType.BOOLOPR
                         || token.getTerminal().getType() == TerminalType.UNARYOPR) {
-                    types.add(Terminal.BOOL);
+//                    types.add(Terminal.BOOL);
+                    // Left type must be boolean type
+                    return Terminal.BOOL;
                 }
                 else if(token.getTerminal().getType() == TerminalType.ARITHMOPR) {
                     types.add(Terminal.INT32);
@@ -95,47 +122,8 @@ public class Assignment {
         this.components.add(comp);
     }
 
-
-//    public void checkRightSideTypeMatch(Terminal leftSideType, IToken rightSideType) throws ContextError {
-//        List<Terminal> allowedTypes = new ArrayList<>();
-//        switch (leftSideType) {
-//            case COMPL:
-//                allowedTypes.add(COMPL);
-//                allowedTypes.add(Terminal.IMAGINARY_PART);
-//                allowedTypes.add(Terminal.INT32);
-//                allowedTypes.add(Terminal.LITERAL);
-//                break;
-//            case INT32:
-//                allowedTypes.add(Terminal.LITERAL);
-//                allowedTypes.add(Terminal.INT32);
-//                break;
-//            case BOOL:
-//                allowedTypes.add(Terminal.IDENT);
-//
-//                if (rightSideType instanceof Ident) {
-//                    Ident ident = (Ident) rightSideType;
-//                    if (!ident.getValue().toLowerCase().equals("true") && !ident.getValue().toLowerCase().equals("false"))
-//                        throw new ContextError(String.format("LType and RType mismatch for variable: %s. Cannot assign: %s to %s", toString(), leftSideType.toString(), rightSideType.toString()));
-//                }
-//                break;
-//        }
-//
-//        if (!allowedTypes.contains(rightSideType.getTerminal())) {
-//            throw new ContextError(String.format("LType and RType mismatch for variable: %s. Cannot assign: %s to %s", toString(), leftSideType.toString(), rightSideType.toString()));
-//
-//        }
-//    }
-
-//    protected abstract void checkAssignmentEquality() throws ContextError;
-
-    // Default var
-//    public void checkAssignmentEquality() throws ContextError {
-//        for (IToken rightSideToken : getRightSideTokens()) {
-//            checkRightSideTypeMatch(getLeftSideType(), rightSideToken);
-//        }
-//    }
-
     public Assignment getParent() {
         return parent;
     }
+
 }
