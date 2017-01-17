@@ -8,7 +8,6 @@ import vm.Compilation;
 public class Main {
     public static void main(String[] argh) {
 
-        System.out.println("Hello");
         String testString = "program ComplexTest()\n" +
                 "global\n" +
                 "fun addVar(param1:Compl) returns s:Int32\n" +

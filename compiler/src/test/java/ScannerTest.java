@@ -46,7 +46,7 @@ public class ScannerTest {
 //        tokenList = scanner.scan(text);
 //        scanner.printResult(text, result, tokenList);
 
-        text = "while x36 <= 67 do\nx := x-1\nendwhile";
+        text = "while 4+I*4 x36 <= 67 do\nx := x-1\nendwhile";
         result = "[WHILE, (IDENT, \"x36\"), (RELOPR, LE), (LITERAL, 67), DO, (IDENT, \"x\"), BECOMES, (IDENT, \"x\"), (ADDOPR, MINUS), (LITERAL, 1), ENDWHILE, SENTINEL]";
         tokenList = scanner.scan(text);
 

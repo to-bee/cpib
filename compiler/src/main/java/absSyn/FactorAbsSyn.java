@@ -37,7 +37,7 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
                 currentAssignment.addComponent(subAssignment);
                 currentVmVar.setCurrentAssignment(subAssignment);
             } else {
-                resolveIdentifierAndAddComponent(currentAssignment, this.leftToken);
+                currentAssignment.resolveIdentifierAndAddComponent(this.leftToken);
             }
 
             if (rightToken.getTerminal() != Terminal.ENDFUN) {
@@ -45,7 +45,7 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
                     // Set parent as current assignment
                     currentVmVar.setCurrentAssignment(currentAssignment.getParent());
                 } else {
-                    resolveIdentifierAndAddComponent(currentAssignment, this.rightToken);
+                    currentAssignment.resolveIdentifierAndAddComponent(this.rightToken);
                 }
             }
         }
@@ -77,21 +77,6 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         }
 
         this.subType.check();
-    }
-
-    private void resolveIdentifierAndAddComponent(Assignment currentAssignment, IToken token) {
-        boolean added = false;
-        if (token instanceof Ident) {
-            VmVar subVmVar = Context.getVar(token);
-            if (subVmVar != null) {
-                added = true;
-                currentAssignment.addComponent(subVmVar);
-            }
-        }
-
-        if (!added) {
-            currentAssignment.addComponent(token);
-        }
     }
 
     @Override

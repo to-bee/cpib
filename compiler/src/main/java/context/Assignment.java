@@ -36,11 +36,31 @@ public class Assignment {
         this.parent = parent;
     }
 
-    public boolean rValueContains(List<Terminal> searchTypes) {
+    public boolean rValueContains(List<Terminal> searchTypes) throws ContextError {
         List<Terminal> types = new ArrayList<>();
+        int i = 0;
         for (Object obj : getComponents()) {
             if (obj instanceof IToken) {
                 IToken token = (IToken) obj;
+
+//                if(token.getTerminal() == Terminal.IMAGINARY_PART) {
+//                    if(getComponents().get(i-1) instanceof IToken) {
+//                        IToken lefToken = (IToken) getComponents().get(i-1);
+//                        if(lefToken.getTerminal() != Terminal.ADDOPR
+//                                && lefToken.getTerminal() != Terminal.MINOPR) {
+//                            throw new ContextError(String.format("%s is not allowed here", Terminal.IMAGINARY_PART));
+//                        }
+//                    }
+//
+//                    if(getComponents().get(i+1) instanceof IToken) {
+//                        IToken rightToken = (IToken) getComponents().get(i+1);
+//                        if(rightToken.getTerminal() != Terminal.MULTOPR
+//                                && rightToken.getTerminal() != Terminal.MODOPR) {
+//                            throw new ContextError(String.format("%s is not allowed here", Terminal.IMAGINARY_PART));
+//                        }
+//                    }
+//                }
+
                 if(searchTypes.contains(token.getTerminal())) {
                     return true;
                 }
@@ -56,6 +76,7 @@ public class Assignment {
                     return true;
                 }
             }
+            i++;
         }
 
         return false;
@@ -116,6 +137,26 @@ public class Assignment {
         }
 
         return VmVar.getBestMatchingType(types);
+    }
+
+    public void resolveIdentifierAndAddComponent(IToken token) throws ContextError {
+        boolean added = false;
+        if (token instanceof Ident) {
+            VmVar subVmVar = Context.getVar(token);
+            if (subVmVar != null) {
+                added = true;
+                this.addComponent(subVmVar);
+            } else {
+                Ident ident = ((Ident) token);
+                if(!ident.getValue().equals("true") && !ident.getValue().equals("false")) {
+                    throw new ContextError(String.format("Unknown variable: %s", ident.getValue()));
+                }
+            }
+        }
+
+        if (!added) {
+            this.addComponent(token);
+        }
     }
 
     public void addComponent(Object comp) {

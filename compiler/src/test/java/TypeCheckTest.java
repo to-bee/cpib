@@ -17,28 +17,51 @@ public class TypeCheckTest {
     @Test
     public void testComplex() {
         IAbsSyn absSyn;
-        /**
-         * scope checking
-         * global storage delcaration, local storage declaration not the same name
-         * fun parameter not the same name as local storage declarations
-         * local storage declarations not two variables with the same name
-         *
-         * type checking
-         * string not assigneable to int etc.
-         *
-         * typechecker
-         * DONE: <=, >=, contexterror,
-         * DONE: ==, != funktioniert
-         * DONE: division, evt. modulo contexterror
-         * DONE: COMPLEMENT contexterror
-         * DONE: &&, || contexterror
-         *
-         * Init checks
-         *
-         *
-         */
-
         String complexAddProgram;
+
+
+        // possible
+        complexAddProgram = "program ComplexTest()\n" +
+                "global\n" +
+                "fun testUnequals() returns s:Int32\n" +
+                "local\n" +
+                "var bsp1:Int32;\n" +
+                "var bsp2:Compl;\n" +
+                "var isUnequals:Int32\n" +
+                "do\n" +
+                "bsp1 := 22;\n" +
+                "bsp2 := 4-I*5;\n" +
+                "isUnequals := abcd + bsp2\n" +
+                "endfun\n" +
+                "do\n" +
+                "call addVar()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(complexAddProgram);
+            Assert.fail();
+        } catch (ContextError contextError) {
+            System.out.println(contextError.getMessage());
+        }
+
+
+
+        // should fail because I is on the wrong place
+        complexAddProgram = "program ComplexTest()\n" +
+                "global\n" +
+                "fun testEquals() returns s:Int32\n" +
+                "local\n" +
+                "var bsp1:Compl\n" +
+                "do\n" +
+                "bsp1 := (5+4*I)+I*4\n" +
+                "endfun\n" +
+                "do\n" +
+                "call addVar()\n" +
+                "endprogram";
+        try {
+            absSyn = checkProgram(complexAddProgram);
+        } catch (ContextError contextError) {
+            System.out.println(contextError.getMessage());
+        }
 
         // should fail because of boolVal
         complexAddProgram = "program ComplexTest()\n" +
