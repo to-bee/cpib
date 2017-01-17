@@ -21,9 +21,10 @@ public class OptionalChangeModeAbsSyn extends AbstractAbsSyn implements IAbsSyn{
 
     @Override
     public void check() throws ContextError {
-        if (terminal == Terminal.CONST){
+        if (terminal == Terminal.VAR){
+            //Standardmässig sind Variablen mit const initialisiert. --> needed by Tuples (Yves, 16.1.17)
             Var var = Var.getCurrentVariable();
-            var.setConst(true);
+            var.setConst(false);
         }
     }
 

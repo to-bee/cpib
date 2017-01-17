@@ -20,7 +20,7 @@ public abstract class Var {
     private final Ident ident;
     private int relLocation;
     private int absLocation;
-    private boolean isConst;
+    private boolean isConst = true;
     private Context context;
     /**
      * Type on the right side which is calculated

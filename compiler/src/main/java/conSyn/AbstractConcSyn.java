@@ -59,6 +59,9 @@ public abstract class AbstractConcSyn implements IConcSyn {
     protected void throwGrammarError() throws GrammarError {
         throw new GrammarError(String.format("%s: Could not parse grammar", getTokenList().getCurrent().toString()));
     }
+    protected void throwGrammarError(String message) throws GrammarError {
+        throw new GrammarError(String.format("%s: Could not parse grammar", message, getTokenList().getCurrent().toString()));
+    }
 
     public ITokenList getTokenList() {
         return tokenList;

@@ -22,7 +22,6 @@ public class OptionalTypeDeclarationAbsSyn extends AbstractAbsSyn implements IAb
 
     @Override
     public void check() throws ContextError {
-        //TODO Leftsidetype liste abfüllen
         subType.check();
     }
 
