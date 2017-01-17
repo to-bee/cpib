@@ -59,7 +59,6 @@ public class TupleVar extends Var {
     }
 
     public void checkAssignmentEquality() throws ContextError {
-        //TODO verfeinern
         if(leftSideTokens.size() > getRightSideTokens().size()) {
             throw new ContextError(String.format("Tuple: %s cannot be assigned with: %s", toString(), joinTokens(getRightSideTokens())));
         } else {

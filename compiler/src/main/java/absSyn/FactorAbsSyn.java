@@ -51,7 +51,6 @@ public class FactorAbsSyn extends AbstractAbsSyn implements IAbsSyn {
         }
 
 
-        //TODO Tuple Assign
         /**
          * Check whether name is left or right side expression
          * We need to set the type of the right side,

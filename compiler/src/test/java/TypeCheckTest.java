@@ -311,9 +311,11 @@ public class TypeCheckTest {
                 "global\n" +
                 "fun addVar() returns result:int32\n" +
                 "local\n" +
-                "c:(bool,(bool,int32))\n" +
+                "c:(bool,(int32,int32));\n" +
+                "var b:bool\n" +
                 "do\n" +
-                "c := (true,(true,2));\n" +
+                "b := true;\n" +
+                "c := (b,(2,2));\n" +
                 "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
