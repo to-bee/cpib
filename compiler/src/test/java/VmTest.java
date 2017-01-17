@@ -18,6 +18,7 @@ public class VmTest {
         IAbsSyn absSyn;
         String complexAddProgram;
 
+        // Multiple assignement of a variable
         complexAddProgram = "program ComplexTest()\n" +
                 "global\n" +
                 "fun addVar() returns s:Int32\n" +
