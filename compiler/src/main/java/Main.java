@@ -1,3 +1,4 @@
+import scanner.errors.ContextError;
 import virtualmachineFS2015.IVirtualMachine;
 import vm.Compilation;
 
@@ -13,6 +14,8 @@ public class Main {
             comp.generateCode();
         } catch (IVirtualMachine.ExecutionError e) {
             System.out.println("ExecutionError: " + e.getMessage());
+        } catch (ContextError e) {
+            System.out.println("ContextError: " + e.getMessage());
         }
     }
 }

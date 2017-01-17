@@ -130,6 +130,14 @@ public class VmInstructions {
         COMPILER.getCodeArray().put(loc++, new IInstructions.LoadAddrRel(relLoc));
     }
 
+    public static void loadImInt(int loc, int value) throws ICodeArray.CodeTooSmallError {
+        COMPILER.getCodeArray().put(loc++, new IInstructions.LoadImInt(value));
+    }
+
+    public static void loadImCompl(int loc, int real, int imag) throws ICodeArray.CodeTooSmallError {
+        COMPILER.getCodeArray().put(loc++, new IInstructions.LoadImCompl(real, imag));
+    }
+
     public static void outputBool(int loc, ExpressionAbsSyn expr) throws ICodeArray.CodeTooSmallError  {
         COMPILER.getCodeArray().put(loc++, new IInstructions.OutputBool(expr.getToken().toString()));
     }

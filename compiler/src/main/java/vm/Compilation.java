@@ -9,6 +9,7 @@ import scanner.Scanner;
 import scanner.datatypes.Terminal;
 import scanner.errors.ContextError;
 import scanner.errors.GrammarError;
+import scanner.token.BaseToken;
 import scanner.token.Ident;
 import scanner.token.Literal;
 import scanner.tokenList.ITokenList;
@@ -36,7 +37,7 @@ public class Compilation {
         //Compiler.COMPILER.initializeVm(cArr,storeSize);
     }
 
-    public void generateCode() throws IVirtualMachine.ExecutionError {
+    public void generateCode() throws IVirtualMachine.ExecutionError, ContextError {
         IAbsSyn absSyn;
 
         String complexAddProgram = "program ComplexTest()\n" +
@@ -49,7 +50,7 @@ public class Compilation {
                 "var bsp4:Bool;\n" +
                 "var result:Compl\n" +
                 "do\n" +
-                "bsp1 := (5+I*4)+(4+I*5);\n" +
+                "bsp1 := 4+I*5;\n" +
                 "bsp2 := 4-I*5;\n" +
                 "bsp3 := 3;\n" +
                 "bsp4 := true;\n" +
@@ -77,29 +78,32 @@ public class Compilation {
             codeTooSmallError.printStackTrace();
         }
 
+        ICodeArray cArr = Compiler.COMPILER.getCodeArray();
+        System.out.println(cArr.toString());
     }
 
 
-    private void generateCode(Map<Ident, VmVar> assignments) throws ICodeArray.CodeTooSmallError {
+    private void generateCode(Map<Ident, VmVar> assignments) throws ICodeArray.CodeTooSmallError, ContextError {
         int loc = 0;
-        for(int i = 0; i < assignments.size(); i++) {
-            VmVar a = assignments.get(i);
+        int i = 0;
+        for(Map.Entry<Ident, VmVar> a : assignments.entrySet()) {
             Var var = Var.getVariables().get(i);
             if (var.getClass() == DefaultVar.class) {
                 loc = VmInstructions.storageDeclaration(loc);
-                a.setRelLocation(loc);
+                a.getValue().setRelLocation(loc);
             } else if (var.getClass() == TupleVar.class) {
                 TupleVar tupVar = (TupleVar) var;
                 loc = VmInstructions.storageDeclaration(loc, tupVar.getLeftSideTokens().size());
-                a.setRelLocation(loc);
+                a.getValue().setRelLocation(loc);
             }
+            i++;
         }
         generateAssignmentCode(assignments, loc);
 
         Compiler.COMPILER.getCodeArray();
     }
 
-    private int generateAssignmentCode(Map<Ident, VmVar> assignments, int loc) throws ICodeArray.CodeTooSmallError {
+    private int generateAssignmentCode(Map<Ident, VmVar> assignments, int loc) throws ICodeArray.CodeTooSmallError, ContextError {
         for(Map.Entry<Ident, VmVar> a : assignments.entrySet()) {
             // switch bool, int, compl
             if (a.getValue().getAssignments().size() > 0 ) {
@@ -110,33 +114,75 @@ public class Compilation {
                     TupleVar tupVar = null;
                     if (var.getClass() == DefaultVar.class) {
                         defVar = (DefaultVar) var;
-                        if (defVar.getLeftSideType() == Terminal.COMPL) {
+                        if (aSub.getRValueType() == Terminal.COMPL) {
+                            if (aSub.getComponents().size() == 6 && aSub.getComponents().get(0).getClass() == Literal.class) {
+                                VmInstructions.storeLocal(loc, a.getValue().getRelLocation());
+                                loc++;
+                                if (((BaseToken)aSub.getComponents().get(1)).getTerminal() == Terminal.MINOPR) {
+                                    VmInstructions.loadImCompl(loc, (int)((Literal)aSub.getComponents().get(0)).getValue(), 0 - (int)((Literal)aSub.getComponents().get(4)).getValue());
+                                    loc++;
+                                } else {
+                                    VmInstructions.loadImCompl(loc, (int)((Literal)aSub.getComponents().get(0)).getValue(), (int)((Literal)aSub.getComponents().get(4)).getValue());
+                                    loc++;
+                                }
+                            }
 
-                        } else if (defVar.getLeftSideType() == Terminal.INT32) {
-
-                        } else if (defVar.getLeftSideType() == Terminal.BOOL) {
-
+                            if (aSub.getComponents().size() == 7 && aSub.getComponents().get(1).getClass() == Literal.class) {
+                                VmInstructions.storeLocal(loc, a.getValue().getRelLocation());
+                                loc++;
+                                int real = 0;
+                                if (((BaseToken)aSub.getComponents().get(1)).getTerminal() == Terminal.MINOPR) {
+                                    real -= (int) ((Literal) aSub.getComponents().get(1)).getValue();
+                                } else {
+                                    real += (int) ((Literal) aSub.getComponents().get(1)).getValue();
+                                }
+                                if (((BaseToken)aSub.getComponents().get(2)).getTerminal() == Terminal.MINOPR) {
+                                    VmInstructions.loadImCompl(loc, real, 0 - (int)((Literal)aSub.getComponents().get(4)).getValue());
+                                    loc++;
+                                } else {
+                                    VmInstructions.loadImCompl(loc, real, (int)((Literal)aSub.getComponents().get(4)).getValue());
+                                    loc++;
+                                }
+                            }
+                        }
+                        if (aSub.getRValueType() == Terminal.INT32) {
+                            if (aSub.getComponents().size() == 2 && aSub.getComponents().get(0).getClass() == Literal.class) {
+                                VmInstructions.storeLocal(loc, a.getValue().getRelLocation());
+                                loc++;
+                                VmInstructions.loadImInt(loc, (int)((Literal)aSub.getComponents().get(0)).getValue());
+                                loc++;
+                            }
+                            if (aSub.getComponents().size() == 3 && aSub.getComponents().get(1).getClass() == Literal.class) {
+                                VmInstructions.storeLocal(loc, a.getValue().getRelLocation());
+                                loc++;
+                                if (((BaseToken)aSub.getComponents().get(1)).getTerminal() == Terminal.MINOPR) {
+                                    VmInstructions.loadImInt(loc, 0- (int) ((Literal) aSub.getComponents().get(1)).getValue());
+                                    loc++;
+                                } else {
+                                    VmInstructions.loadImInt(loc, (int) ((Literal) aSub.getComponents().get(1)).getValue());
+                                    loc++;
+                                }
+                            }
+                        }
+                        if (aSub.getRValueType() == Terminal.BOOL) {
+                            if (aSub.getComponents().size() == 2 && aSub.getComponents().get(0).getClass() == Ident.class) {
+                                VmInstructions.storeLocal(loc, a.getValue().getRelLocation());
+                                loc++;
+                                if (((Ident)aSub.getComponents().get(0)).getValue() == "true") {
+                                    VmInstructions.loadImInt(loc, 1);
+                                    loc++;
+                                } else {
+                                    VmInstructions.loadImInt(loc, 0);
+                                    loc++;
+                                }
+                            }
                         }
                     } else if (var.getClass() == TupleVar.class) {
                         tupVar = (TupleVar) var;
-
+                        // TODO
                     }
 
-                    // TODO in eigene Methoden auslagern
-                    System.out.println(var.getIdent());
-                    // falls Compl Abfrage ob components size 5 und erster Eintrag Literal
-                    if (aSub.getComponents().size() == 5 && aSub.getComponents().get(0).getClass() == Literal.class) {
-                        VmInstructions.storeLocal(loc, a.getValue().getRelLocation());
-                    }
-                    // falls Bool Abfrage ob components size 2 und erster Eintrag Ident
-                    if (aSub.getComponents().size() == 2 && aSub.getComponents().get(0).getClass() == Ident.class) {
-                        VmInstructions.storeLocal(loc, a.getValue().getRelLocation());
-                    }
-                    // falls Int ABfrage ob components size 2 und erster Eintrag Ident
-                    if (aSub.getComponents().size() == 2 && aSub.getComponents().get(0).getClass() == Literal.class) {
-                        VmInstructions.storeLocal(loc, a.getValue().getRelLocation());
-                    }
-
+                    // TODO
                     // falls nicht zutreffend, rekursiv weiter anhand der Operatoren im zweiten Term
                     // switch add, min, mult, div, mod
                     // bzw. weiter mit Variablen herausholen falls Ident nicht true oder false
