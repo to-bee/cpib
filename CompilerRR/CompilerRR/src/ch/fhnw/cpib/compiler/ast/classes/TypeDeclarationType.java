@@ -49,6 +49,11 @@ public class TypeDeclarationType implements ITypeDeclaration{
 	public int code(int i) throws CodeTooSmallError {
 		return i;
 	}
+
+	@Override
+	public void print(String prefix) {
+		typeToken.print(prefix);
+	}
 	
 	
 

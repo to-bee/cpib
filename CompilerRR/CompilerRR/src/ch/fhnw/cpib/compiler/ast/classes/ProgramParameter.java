@@ -31,4 +31,12 @@ public class ProgramParameter implements IAbsSyn.IProgramParameter{
 		return i;
 	}
 
+	@Override
+	public void print(String prefix) {
+		flowMode.print(prefix);
+		changeMode.print(prefix);
+		typeIdent.print(prefix);
+		
+	}
+
 }

@@ -52,6 +52,11 @@ public class TypeDeclarationIdent implements ITypeDeclaration{
 		return i;
 	}
 
+	@Override
+	public void print(String prefix) {
+		ident.print(prefix);
+	}
+
 	
 	
 

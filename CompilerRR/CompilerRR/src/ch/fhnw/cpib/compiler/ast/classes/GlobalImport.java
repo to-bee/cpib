@@ -73,4 +73,11 @@ public class GlobalImport implements IGlobalImport {
 	    return i;
 	}
 
+	@Override
+	public void print(String prefix) {
+		flowMode.print(prefix);;
+		changeMode.print(prefix);;
+		ident.print(prefix);;
+	}
+
 }

@@ -1,6 +1,7 @@
 package ch.fhnw.cpib.compiler.ast.classes;
 
 
+import java.util.LinkedList;
 import java.util.List;
 
 import ch.fhnw.cpib.compiler.ast.interfaces.IAbsSyn.IExpression;
@@ -29,6 +30,7 @@ public class RoutineCall implements IRoutineCall {
 		super();
 		this.ident = ident;
 		this.paramCallList = paramCallList;
+		this.paramList = new LinkedList<IParameter>();
 	}
 	
 	@Override
@@ -120,13 +122,21 @@ public class RoutineCall implements IRoutineCall {
 	    //CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.
 	    
 	    
-	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < loc; ii++){
-	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
-	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
-	    	else System.out.println("null <--------------------------");
-	    }
 	    return loc;
+	}
+
+	@Override
+	public void print(String prefix) {
+
+		 ident.print(prefix);
+		 
+		 for (IExpression e : paramCallList){
+			 e.print(prefix+"-");
+		 }
+		 for(IParameter p : paramList){
+			 p.print(prefix + "-");
+		 }
+		 
 	}
 	 
 	 

@@ -41,7 +41,6 @@ public class MonadicExpression implements IExpression{
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
-		System.out.println("+++ " + this.getClass().getSimpleName() + " : wird nicht geprinted. +++");
 		
 		ICodeArray codeArr = CompilerE.COMPILER.getCodeArray();
 	    int loc = i;
@@ -61,6 +60,12 @@ public class MonadicExpression implements IExpression{
 	      }
 	    }
 	    throw new RuntimeException("MonadicExpr: Unknown operator.");
+	}
+
+	@Override
+	public void print(String prefix) {
+		operator.print(prefix);
+		expr.print(prefix);
 	}
 
 }

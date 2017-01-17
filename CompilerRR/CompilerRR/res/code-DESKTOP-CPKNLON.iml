@@ -1,3 +1,0 @@
-while x36 <=67 do
-	x := x-1
-endwhile

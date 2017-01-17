@@ -168,13 +168,25 @@ public class FunctionDeclaration implements IDeclaration{
 	    // To jump over funDecl since it should not be executed until a Call to it
 	    codeArray.put(jumpLoc, new IInstructions.UncondJump(loc));
 
-	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < loc; ii++){
-	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
-	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
-	    	else System.out.println("null <--------------------------");
-	    }
 	    return loc;
+	}
+
+	@Override
+	public void print(String prefix) {
+		ident.print(prefix);
+		for(IParameter p : parameters){
+			p.print(prefix + "-");
+		}
+		storageDeclaration.print(prefix);
+		for(IGlobalImport g : globalImports){
+			g.print(prefix + "-");
+		}
+		for(IDeclaration d : storageDeclarations){
+			d.print(prefix + "-");
+		}
+		for(ICommand c : commands){
+			c.print(prefix + "-");
+		}
 	}
 	
 	

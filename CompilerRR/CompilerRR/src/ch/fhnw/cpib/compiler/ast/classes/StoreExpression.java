@@ -98,7 +98,6 @@ public class StoreExpression implements IExpression{
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
-		System.out.println(this.getClass().getSimpleName());
 		
 	    int loc = i;
 	    
@@ -119,14 +118,12 @@ public class StoreExpression implements IExpression{
 	    	CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.Deref());
 	    }
 	    
-	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < loc; ii++){
-	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
-	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
-	    	else System.out.println("null <--------------------------");
-	    }
-
 	    return loc;
+	}
+
+	@Override
+	public void print(String prefix) {
+		ident.print(prefix);
 	}
 
 }

@@ -22,5 +22,11 @@ public class SkipCmd implements ICommand{
 	public int code(int i) throws CodeTooSmallError {
 		return i;
 	}
+
+	@Override
+	public void print(String prefix) {
+		System.out.println("SKIP");
+	}
+
 	
 }

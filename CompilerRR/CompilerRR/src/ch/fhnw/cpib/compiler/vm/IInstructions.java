@@ -82,6 +82,9 @@ public interface IInstructions {
           this.size = size;
           this.extreme = extreme;
         }
+        
+        @Override
+		public String toString() { return "Enter"; }
     	
 		@Override
 		public IExecInstr toExecInstr(VirtualMachine vm) {

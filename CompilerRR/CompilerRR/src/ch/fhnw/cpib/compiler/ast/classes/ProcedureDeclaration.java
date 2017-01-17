@@ -132,12 +132,6 @@ public class ProcedureDeclaration implements IDeclaration{
 	    // To jump over procDecl since it should not be executed until a Call to it
 	    CompilerE.COMPILER.getCodeArray().put(jumpLoc, new IInstructions.UncondJump(loc));
 
-	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < loc; ii++){
-	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
-	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
-	    	else System.out.println("null <--------------------------");
-	    }
 	    return loc;
 	}
 
@@ -147,6 +141,24 @@ public class ProcedureDeclaration implements IDeclaration{
 
 	public void setLocation(int location) {
 		this.location = location;
+	}
+
+	@Override
+	public void print(String prefix) {
+		ident.print(prefix);
+		
+		for(IParameter p : parameters){
+			p.print(prefix + "-");
+		}
+		for(IGlobalImport g : globalImports){
+			g.print(prefix + "-");
+		}
+		for(IDeclaration d : storageDeclarations){
+			d.print(prefix + "-");
+		}
+		for(ICommand c : commands){
+			c.print(prefix + "-");
+		}
 	}
 
 	

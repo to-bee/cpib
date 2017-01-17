@@ -65,13 +65,20 @@ public class CondCmd implements ICommand {
 	    codeArr.put(locJump2, new UncondJump(loc));
 
 	    
-	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < loc; ii++){
-	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
-	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
-	    	else System.out.println("null <--------------------------");
-	    }
 	    return loc;
+	}
+
+	@Override
+	public void print(String prefix) {
+		expression.print(prefix);
+		
+		for(ICommand c : commandsThen){
+			c.print(prefix + "-");
+		}
+		
+		for(ICommand c : commandsElse){
+			c.print(prefix + "-");
+		}
 	}
 
 }

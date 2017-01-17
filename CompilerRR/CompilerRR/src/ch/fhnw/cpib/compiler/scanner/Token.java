@@ -30,6 +30,10 @@ public class Token implements IToken{
 		}
 	}
 	
+	public void print(String prefix){
+		System.out.println(prefix + toString());
+	}
+	
 
 }
 

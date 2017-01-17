@@ -66,7 +66,6 @@ public class SwitchCmd implements ICommand {
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
-		System.out.println(this.getClass().getSimpleName());
 		
 		ICodeArray carr = CompilerE.COMPILER.getCodeArray();
 		
@@ -103,14 +102,18 @@ public class SwitchCmd implements ICommand {
 			carr.put(location, new IInstructions.UncondJump(endJumpPoint));
 		}
 		
-	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < endJumpPoint; ii++){
-	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
-	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
-	    	else System.out.println("null <--------------------------");
-	    }
-		
 		return endJumpPoint;
+	}
+
+	@Override
+	public void print(String prefix) {
+		expression.print(prefix);
+		for(ICase c : cases){
+			c.print(prefix+"-");
+		}
+		for(ICommand c : defaultCommands){
+			c.print(prefix+"-");
+		}
 	}
 
 }

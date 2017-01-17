@@ -47,13 +47,15 @@ public class Case implements ICase {
 			loc2 = iCommand.code(loc2);
 		}
 		
-	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < loc2; ii++){
-	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
-	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
-	    	else System.out.println("null <--------------------------");
-	    }
 		return loc2;
+	}
+
+	@Override
+	public void print(String prefix) {
+		literal.print(prefix);
+		for(ICommand c : commands){
+			c.print(prefix + "-");
+		}
 	}
 
 }

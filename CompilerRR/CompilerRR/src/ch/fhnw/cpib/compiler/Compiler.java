@@ -19,8 +19,11 @@ public class Compiler {
 	public static void main(String[] args) {
 		try {
 			
-//			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/IntDiv.iml"));
-			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/basicFun.iml"));
+//			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/1-Basic-Switch.iml"));
+//			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/2-Switch-Without-Default.iml"));
+//			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/3-Switchception.iml"));
+			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/4-Errors.iml"));
+//			InputStreamReader isr = new InputStreamReader(new FileInputStream("res/1-Basic-Switch.iml"));
 			
 			
 			Compiler compiler = new Compiler();
@@ -35,15 +38,11 @@ public class Compiler {
 			
 			ProgramParser p = new ProgramParser(list);
 			IConcSyn.IProgram cst = p.parse();
-			System.out.println("-------------------------");
-			System.out.println("          CST            ");
-			System.out.println("-------------------------");
-			
 			IAbsSyn.IProgram ast = cst.toAbs();
 			System.out.println("-------------------------");
 			System.out.println("          AST            ");
 			System.out.println("-------------------------");
-			
+			ast.print("");
 			
 			System.out.println("-------------------------");
 			System.out.println("         Code            ");
@@ -51,7 +50,14 @@ public class Compiler {
 			CompilerE.COMPILER.compile(ast);
 			CompilerE.COMPILER.getCodeArray().resize();
 			
+			for(int i = 0; i < CompilerE.COMPILER.getCodeArray().getSize(); i++){
+				System.out.println(CompilerE.COMPILER.getCodeArray().get(i));
+			}
 			
+			
+			System.out.println("-------------------------");
+			System.out.println("     Program Output      ");
+			System.out.println("-------------------------");
 			VirtualMachine vm = new VirtualMachine(CompilerE.COMPILER.getCodeArray(), 1000);
 			
 		} catch (Exception e) {

@@ -12,6 +12,7 @@ public interface IAbsSyn {
 	String toString();
 	
 	void check();
+	void print(String prefix);
 	
 	public interface IProgram extends IAbsSyn {
 
@@ -99,7 +100,7 @@ public interface IAbsSyn {
 		int code(int i) throws CodeTooSmallError;
 	}
 
-	public interface IRoutineCall {
+	public interface IRoutineCall extends IAbsSyn{
 		Token getToken();
 
 		void setFunc(boolean b);

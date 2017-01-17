@@ -50,13 +50,15 @@ public class WhileCmd implements ICommand {
 		CompilerE.COMPILER.getCodeArray().put(loc1, new CondJump(loc4));
 		CompilerE.COMPILER.getCodeArray().put(loc3, new UncondJump(i));
 		
-	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < loc4; ii++){
-	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
-	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
-	    	else System.out.println("null <--------------------------");
-	    }
 		return loc4;
+	}
+
+	@Override
+	public void print(String prefix) {
+		expression.print(prefix);
+		for(ICommand c : commands){
+			c.print(prefix+ "-");
+		}
 	}
 
 }

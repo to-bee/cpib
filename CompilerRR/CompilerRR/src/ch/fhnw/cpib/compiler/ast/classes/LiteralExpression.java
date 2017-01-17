@@ -9,7 +9,6 @@ import ch.fhnw.cpib.compiler.scanner.enums.Operators;
 import ch.fhnw.cpib.compiler.scanner.enums.Terminals;
 import ch.fhnw.cpib.compiler.scanner.enums.operators.Type;
 import ch.fhnw.cpib.compiler.scanner.tokens.LiteralToken;
-import ch.fhnw.cpib.compiler.vm.ICodeArray;
 import ch.fhnw.cpib.compiler.vm.ICodeArray.CodeTooSmallError;
 import ch.fhnw.cpib.compiler.vm.*;
 import ch.fhnw.cpib.compiler.vm.IInstructions.*;
@@ -53,7 +52,6 @@ public class LiteralExpression implements IExpression {
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
-		System.out.println("+++ " + this.getClass().getSimpleName() + " : wird nicht geprinted. +++");
 		
 		final ICodeArray carr = CompilerE.COMPILER.getCodeArray();
 
@@ -74,6 +72,11 @@ public class LiteralExpression implements IExpression {
 	      break;
 	    }
 	    throw new RuntimeException("Type of literal unkown: " + this.literalToken);
+	}
+
+	@Override
+	public void print(String prefix) {
+		literalToken.print(prefix);
 	}
 
 }

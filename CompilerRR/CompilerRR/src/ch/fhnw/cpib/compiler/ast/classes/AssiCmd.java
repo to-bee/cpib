@@ -69,14 +69,14 @@ public class AssiCmd implements ICommand {
 	    loc = this.expressionRight.code(loc);
 	    codeArr.put(loc++, new Store());
 	   
-	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < loc; ii++){
-	    	if(codeArr.get(ii) != null)
-	    		System.out.println(codeArr.get(ii).toString());
-	    	else System.out.println("null <--------------------------");
-	    }
-	    
 	    return loc;
+	}
+
+
+	@Override
+	public void print(String prefix) {
+		expressionLeft.print(prefix);
+		expressionRight.print(prefix);
 	}
 	
 }

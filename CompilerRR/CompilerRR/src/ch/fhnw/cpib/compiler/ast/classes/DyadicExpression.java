@@ -144,4 +144,11 @@ public class DyadicExpression implements IExpression {
 		}
 		throw new RuntimeException("Unknown Operator: " + opr);
 	}
+
+	@Override
+	public void print(String prefix) {
+		operator.print(prefix);
+		lExpr.print(prefix);
+		rExpr.print(prefix);
+	}
 }

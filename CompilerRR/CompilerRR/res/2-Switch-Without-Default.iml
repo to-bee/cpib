@@ -2,14 +2,18 @@ program BasicSwitch()
 global
 var n:int32
 do
-  n init := 3;
+  n init := 1;
+  
   debugout n;
-  switch n
+  
+  switch n*2 + 3
     case 1 : n := n + n
-    case 2 : n := n * n
+    case 2 : n := n * n;
+    		 n := n + 1
     case 3 : n := n * n + n
-    casedefault : n := n - n
-    casedefault : n := n - n
+    casedefault : skip
   endswitch;
+  
   debugout n
+  
 endprogram

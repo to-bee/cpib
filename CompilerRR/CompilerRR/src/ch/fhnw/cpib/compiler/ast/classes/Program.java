@@ -51,13 +51,25 @@ public class Program implements IAbsSyn.IProgram{
 	    
 	    codeArray.put(loc++, new IInstructions.Stop());
 	    
-	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < loc; ii++){
-	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
-	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
-	    	else System.out.println("null <--------------------------");
-	    }
 	    //return loc;	
+	}
+	
+	@Override
+	public void print(String prefix){
+		
+		ident.print(prefix);
+		
+		for(IProgramParameter p : paramList){
+			p.print(prefix + "-");
+		}
+		
+		for(IDeclaration d : declarationList){
+			d.print(prefix + "-");
+		}
+		
+		for(ICommand c : commandList){
+			c.print(prefix + "-");
+		}
 	}
 	
 }

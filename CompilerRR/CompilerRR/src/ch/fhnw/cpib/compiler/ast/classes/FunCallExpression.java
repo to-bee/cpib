@@ -70,13 +70,15 @@ public class FunCallExpression implements IExpression{
 	    int loc = i;
 	    loc = this.routineCall.code(loc);
 	    
-	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < loc; ii++){
-	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
-	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
-	    	else System.out.println("null <--------------------------");
-	    }
 	    return loc;
+	}
+
+
+
+	@Override
+	public void print(String prefix) {
+		routineCall.print(prefix);
+		
 	}
 
 }

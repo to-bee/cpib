@@ -59,18 +59,18 @@ public class StorageDeclaration implements IDeclaration {
 
 	@Override
 	public int code(int i) throws CodeTooSmallError {
-		System.out.println(this.getClass().getSimpleName());
 		
 	    int loc = i;
 	    CompilerE.COMPILER.getCodeArray().put(loc++, new IInstructions.AllocBlock(1));
 
-	    System.out.println("[ "+this.getClass().getSimpleName()+" ]");
-	    for(int ii = i; ii < loc; ii++){
-	    	if(CompilerE.COMPILER.getCodeArray().get(ii) != null)
-	    		System.out.println(CompilerE.COMPILER.getCodeArray().get(ii).toString());
-	    	else System.out.println("null <--------------------------");
-	    }
 	    return loc;
+	}
+
+	@Override
+	public void print(String prefix) {
+		changeMode.print(prefix);
+		typeIdent.print(prefix);;
+		
 	}
 
 }

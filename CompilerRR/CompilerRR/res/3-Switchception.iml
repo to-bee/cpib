@@ -1,0 +1,13 @@
+program BasicSwitch()
+global
+var n:int32
+do
+  n init := 2;
+  switch n
+    case 1 : debugout 111
+    casedefault : switch n+1
+    				case 3 : debugout 222
+    				casedefault : debugout 333
+    			  endswitch
+  endswitch
+endprogram
