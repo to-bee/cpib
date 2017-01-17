@@ -16,10 +16,8 @@ public class TupleVar extends Var {
      */
     private final List<IToken> leftSideTokens = new ArrayList<>();
 
-    public TupleVar(Ident ident) {
+    public TupleVar(Ident ident) throws ContextError {
         super(ident);
-        // Tuple is always const
-        setConst(true);
     }
 
     @Override
@@ -59,6 +57,10 @@ public class TupleVar extends Var {
     }
 
     public void checkAssignmentEquality() throws ContextError {
+        //TODO maybe move
+        if (isConst() == false){
+            throw new ContextError(String.format("Tuple: %s must be const", toString()));
+        }
         if(leftSideTokens.size() > getRightSideTokens().size()) {
             throw new ContextError(String.format("Tuple: %s cannot be assigned with: %s", toString(), joinTokens(getRightSideTokens())));
         } else {

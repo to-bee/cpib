@@ -274,7 +274,7 @@ public class TypeCheckTest {
                 "global\n" +
                 "fun test01() returns result:int32\n" +
                 "local\n" +
-                "const a:bool\n" +
+                "var a:bool\n" +
                 "do\n" +
                 "a := true;\n" +
                 "a := false;\n" +
@@ -300,22 +300,22 @@ public class TypeCheckTest {
         /*
          *  const c:(bool,int32)    c:=(true,2)                 correct
          *  c:(bool,(bool,int32))   c := (true,(true,2))        accepted
+         *  var c:(int32,int32)     c := (2,3)                  Tuple: c:(Int32, Int32) must be const
          *  const c:(bool)          c:=(true)                   GrammarError could not parse grammar
          *  c:(bool,int32,bool)     c := (true, 2)              Tuple: c:(Bool, Int32, Bool) cannot be assigned with: IDENT, LITERAL
          *  c:(bool,int32)          c:(true,2,2)                //TODO in TupleVar.java Tuple %s cannot take this many parameters
          *  c:(bool,int32)          c:(true,2); c:(false,1)     Tuple c:(Bool, Int32) is constant and can only be initialized once
          *  c:(bool,(bool,int32))   c := (true,(true,false))    LType and RType mismatch for variable: c:(Bool, Bool, Int32). Cannot assign: Int32 [TYPE] to IDENT, "false"
-         *
+         *  d:(bool,(int32,int32))                              //TODO Tuple: d:(Bool, Int32, Int32) cannot be assigned with:
          */
         tupleTest = "program TupleTest()\n" +
                 "global\n" +
                 "fun addVar() returns result:int32\n" +
                 "local\n" +
-                "c:(bool,(int32,int32));\n" +
-                "var b:bool\n" +
+                "c:(int32,int32);\n" +
+                "d:(bool,(int32,int32))\n" +
                 "do\n" +
-                "b := true;\n" +
-                "c := (b,(2,2));\n" +
+                "c := (2,3);\n" +
                 "result := 2\n" +
                 "endfun\n" +
                 "do\n" +
