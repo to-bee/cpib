@@ -306,17 +306,18 @@ public class TypeCheckTest {
          *  c:(bool,int32)          c:(true,2,2)                //TODO in TupleVar.java Tuple %s cannot take this many parameters
          *  c:(bool,int32)          c:(true,2); c:(false,1)     Tuple c:(Bool, Int32) is constant and can only be initialized once
          *  c:(bool,(bool,int32))   c := (true,(true,false))    LType and RType mismatch for variable: c:(Bool, Bool, Int32). Cannot assign: Int32 [TYPE] to IDENT, "false"
-         *  d:(bool,(int32,int32))                              //TODO Tuple: d:(Bool, Int32, Int32) cannot be assigned with:
+         *  d:(bool,(int32,int32))                              Tuple: d:(Bool, Int32, Int32) is never used
          */
         tupleTest = "program TupleTest()\n" +
                 "global\n" +
-                "fun addVar() returns result:int32\n" +
+                "fun addVar() returns d:(bool,(int32,int32))\n" +
                 "local\n" +
-                "c:(bool);\n" +
-                "d:(bool,(int32,int32))\n" +
+                "e:(bool,(int32,int32));\n" +
+                "var a:int32\n" +
                 "do\n" +
-                "c := (2,3);\n" +
-                "result := 2\n" +
+                "a := 2;\n" +
+                "e := (true,(2,2));\n" +
+                "d := (true,(2,2))\n" +
                 "endfun\n" +
                 "do\n" +
                 "call addVar()\n" +
